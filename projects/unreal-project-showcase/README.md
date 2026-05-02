@@ -1,12 +1,12 @@
-# Unreal Project Showcase
+# Unreal Project Showcase: Nyx
 
 ## Overview
 
-This is a work-in-progress showcase for the Unreal project I am building and learning from over time.
+Nyx is a work-in-progress Unreal project I am using to practice game systems documentation, playtesting habits, and technical QA thinking.
 
-The goal of this page is to document the project as it develops: what I am practicing, what changes, what breaks, what I test, and what I learn from the process. It is not a finished game page or a polished launch post.
+The goal of this page is to document the project as it develops: what I am practicing, what changes, what breaks, what I test, and what I learn from the process. It is not a finished game page, a shipped title, or a polished engineering portfolio.
 
-Some details may stay general until they are safe and useful to share. I want this showcase to be honest, readable, and connected to the real work instead of pretending the project is farther along than it is.
+Some details may stay general until they are safe and useful to share. I want this showcase to be honest, readable, and connected to real work instead of pretending the project is farther along than it is.
 
 ## Current Status
 
@@ -14,27 +14,65 @@ Status: Work in progress
 
 Current focus:
 
-- Documenting the project clearly as it evolves
-- Tracking Unreal-related learning in small steps
-- Capturing screenshots or clips when they are ready to share
+- Organizing Unreal project notes around actual systems instead of only a broad idea
+- Documenting small C++ and Unreal gameplay systems in clear, recruiter-readable language
+- Connecting implementation notes to QA checks, edge cases, and player-facing risk
+- Capturing screenshots or clips when they are ready and useful to share
 - Writing QA and playtest notes as issues appear
-- Connecting technical practice back to game development habits
 
-## Skills Practiced
+## Project Areas Being Documented
+
+These are the current areas I want to document as the project develops. Names and scope may change as the prototype changes.
+
+| Area | What I am practicing | QA questions to ask |
+| --- | --- | --- |
+| Project structure | Keeping Unreal source notes organized around `Source/Nyx` and related gameplay systems | Can another person understand what each system is responsible for? |
+| Fishing component | Documenting a focused gameplay feature with inputs, feedback, and result states | What happens when the action fails, repeats quickly, or receives unexpected input? |
+| AStarwell / pathing notes | Tracking navigation or pathfinding-related experiments clearly | Are edge cases, blocked paths, and confusing player outcomes recorded? |
+| Economy component | Thinking through resources, costs, rewards, and balance-facing data | Are values readable, testable, and easy to validate after changes? |
+| Deck component | Documenting a rules-based or collection-style system | Are card/deck states clear, recoverable, and testable? |
+| SaveGame notes | Recording persistence behavior and save/load expectations | What data should persist, what should reset, and how can regressions be checked? |
+| Validation helpers | Building notes around small checks that support reliability | What can be verified quickly before deeper playtesting? |
+| PIE validation | Using Play in Editor sessions to check behavior while iterating | What should be tested every time a system changes? |
+
+## What This Showcase Is Meant To Show
+
+- How I explain unfinished technical work without overstating it
+- How I connect gameplay systems to QA thinking
+- How I break a larger game project into smaller testable areas
+- How I document expected behavior, observed behavior, and follow-up questions
+- How I use project notes to support learning, testing, and future portfolio updates
+
+## Skills I Am Practicing
 
 - Unreal Editor navigation and project organization
 - Gameplay prototyping and iteration
-- Blueprint or systems thinking, depending on the feature being built
+- C++ or Blueprint systems thinking, depending on the feature being built
 - Level, interaction, or tool documentation
 - QA observation, repro notes, and playtest feedback
 - Screenshot capture and portfolio presentation
 - Explaining unfinished work professionally
+- Writing clear system summaries for technical and non-technical readers
+
+## QA Documentation Format
+
+For each system I add to this showcase, I want to keep the writeup small and practical:
+
+| Field | Purpose |
+| --- | --- |
+| System | Name of the feature, component, or test area |
+| Goal | What the system is supposed to support |
+| Current state | What works, what is placeholder, and what is unknown |
+| Test notes | What I checked in editor or during playtesting |
+| Risks | Bugs, edge cases, confusing behavior, or player-facing concerns |
+| Next step | The next small improvement or validation pass |
 
 ## Development Log
 
 | Date | Update | Notes |
 | --- | --- | --- |
 | 2026-05-02 | Showcase page created | Added a place to document the Unreal project while it is still in progress. |
+| 2026-05-02 | Added Nyx project details | Moved useful Unreal project details into this showcase while keeping the page honest about work-in-progress status. |
 
 Future entries can track:
 
@@ -44,6 +82,7 @@ Future entries can track:
 - Screenshots added
 - Playtest observations
 - Questions to revisit
+- Validation passes run in PIE
 
 ## Screenshots Placeholder
 
@@ -74,14 +113,16 @@ Examples of useful notes:
 - A level section creates confusion or friction
 - A bug needs clearer repro steps
 - A test pass reveals a small improvement for player experience
+- A save/load pass reveals missing or incorrect persisted data
+- A validation helper catches a setup issue before playtesting
 
 ## Next Steps
 
-- Decide which part of the Unreal project is safe to describe publicly
-- Add a short project summary once the current prototype direction is clearer
-- Capture one screenshot or clip when there is something useful to show
-- Write the first real development log entry after the next work session
-- Add one QA or playtest note using clear expected and actual behavior
+- Add one short system note for the fishing component
+- Add one QA note from a PIE validation pass
+- Decide which screenshot or clip would help explain the project without overselling it
+- Add a simple "known issues" table once there are real observations to track
+- Keep future updates specific, small, and tied to what was actually tested
 
 ## Reflection
 
