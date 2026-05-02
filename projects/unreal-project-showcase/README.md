@@ -39,7 +39,7 @@ These are the current areas I want to document as the project develops. Names an
 
 ## Save/Load Reliability Fix
 
-One recent Nyx improvement focused on making save/load behavior more reliable while the project is still a gameplay systems prototype. This note explains the fix at a portfolio level. The full `Source/Nyx` tree is not included in this portfolio repo, so class-level names should be added later only when they can be verified directly from the source.
+One recent Nyx improvement focused on making save/load behavior more reliable while the project is still a gameplay systems prototype. This note explains the reliability reasoning behind the fix at a portfolio level.
 
 ### Active Fishing Casts Normalize To Idle On Load
 
@@ -115,18 +115,6 @@ Future entries can track:
 - Questions to revisit
 - Validation passes run in PIE
 
-## Screenshots Placeholder
-
-Screenshots or short clips can be added here when they are ready and safe to share.
-
-Suggested format:
-
-```markdown
-![Short screenshot description](path-to-screenshot.png)
-```
-
-For now, this section is intentionally a placeholder.
-
 ## QA and Playtest Notes
 
 This section will track practical observations from testing the project.
@@ -147,11 +135,15 @@ Examples of useful notes:
 - A save/load pass reveals missing or incorrect persisted data
 - A validation helper catches a setup issue before playtesting
 
+## Visual Evidence
+
+Screenshots or short clips can be added once they show a useful tested state. Until then, the QA notes and system documentation are the main evidence for this work-in-progress showcase.
+
 ## Next Steps
 
 - Add one short system note for the fishing component
 - Add one QA note from a PIE validation pass
-- Add verified C++ class names from `Source/Nyx` when the source is safe and useful to include
+- Add class-level references from `Source/Nyx` if the source is shared publicly and the names can be verified directly
 - Decide which screenshot or clip would help explain the project without overselling it
 - Add a simple "known issues" table once there are real observations to track
 - Keep future updates specific, small, and tied to what was actually tested
