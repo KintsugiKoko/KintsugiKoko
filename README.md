@@ -84,6 +84,7 @@ A good first project to review is the QA Bug Report Tool because it shows Python
 | --- | --- | --- |
 | [QA Bug Report Tool](projects/qa-bug-report-tool/README.md) | First version | Python CLI, pytest, structured Markdown bug reports, QA note practice |
 | [QA Bug Report Portfolio](projects/qa-bug-report-portfolio/README.md) | In progress | Sample bug reports, repro clarity, severity framing, QA documentation |
+| [Unreal Project Showcase](projects/unreal-project-showcase/README.md) | Work in progress | Unreal project notes, development logs, screenshots, QA/playtest observations |
 | [Learning Portfolio Homepage](docs/index.html) | In progress | Plain HTML/CSS, GitHub Pages, portfolio structure |
 | [Project Roadmap](projects/README.md) | In progress | Beginner project planning, project reflection, learning path |
 

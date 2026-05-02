@@ -10,6 +10,7 @@ These are not full game projects yet. They are small practice projects that help
 | --- | --- | --- |
 | [QA Bug Report Tool](qa-bug-report-tool/README.md) | First version | Python CLI, pytest, structured Markdown bug reports, and QA note practice |
 | [QA Bug Report Portfolio](qa-bug-report-portfolio/README.md) | Planned | Practicing clear bug reports, screenshots, steps to reproduce, and reflection |
+| [Unreal Project Showcase](unreal-project-showcase/README.md) | Work in progress | Documenting an Unreal project through development notes, screenshots, QA notes, and reflection |
 
 ## Good Starting Point
 
