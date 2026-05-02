@@ -203,6 +203,56 @@ Actual: Menu covers the title.""",
     assert report["priority"] == "Medium"
 
 
+def test_cli_writes_triage_summary(tmp_path):
+    reports_dir = tmp_path / "reports"
+    output_path = tmp_path / "triage-summary.md"
+    reports_dir.mkdir()
+    (reports_dir / "001-menu.md").write_text(
+        """# Menu overlaps title
+
+| Field | Details |
+| --- | --- |
+| Severity | Low |
+| Priority | Medium |
+| Environment | Chrome |
+| Repro Rate | 2/2 |
+
+## Steps to Reproduce
+
+1. Open page.
+
+## Expected Result
+
+Menu does not overlap title.
+
+## Actual Result
+
+Menu overlaps title.
+
+## Notes
+
+Visible on mobile.""",
+        encoding="utf-8",
+    )
+
+    result = main(
+        [
+            "--triage-summary",
+            "--reports-dir",
+            str(reports_dir),
+            "--output",
+            str(output_path),
+        ]
+    )
+
+    summary = output_path.read_text(encoding="utf-8")
+
+    assert result == 0
+    assert "# QA Triage Summary" in summary
+    assert "Reports reviewed: 1" in summary
+    assert "| Low | 1 |" in summary
+
+
 def test_report_filename_removes_note_suffix():
     assert (
         _report_filename(Path("001-inventory-count-note.txt"))
@@ -227,6 +277,7 @@ def test_help_documents_beginner_friendly_examples(capsys):
     assert "Convert one note and save the report:" in captured.out
     assert "Convert one note to JSON:" in captured.out
     assert "Convert every .txt note in sample-data/ to reports/:" in captured.out
+    assert "Summarize generated Markdown reports for QA triage:" in captured.out
     assert "Pass a short note directly:" in captured.out
     assert "Read a note from stdin:" in captured.out
 
@@ -241,5 +292,6 @@ def test_help_documents_main_commands(capsys):
     assert "--output reports/001-inventory-count.md" in captured.out
     assert "python -m bug_report_tool --batch" in captured.out
     assert "--format json" in captured.out
+    assert "--triage-summary --reports-dir reports" in captured.out
     assert "--input-dir my-notes --output-dir my-reports" in captured.out
     assert '--text "Title: Button does not respond"' in captured.out

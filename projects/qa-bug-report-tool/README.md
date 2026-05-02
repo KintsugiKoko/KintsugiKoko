@@ -11,6 +11,7 @@ Done:
 - Includes sample notes, generated reports, pytest coverage, and README examples
 - Supports JSON export for structured output review
 - Supports optional evidence fields for screenshots, logs, videos, or attachment links
+- Generates a Markdown QA triage summary from completed sample reports
 
 Next:
 
@@ -58,6 +59,8 @@ Evidence fields are optional. The parser accepts labels such as `Evidence`, `Att
 
 Markdown is the default output format. JSON output is also available when a structured export is easier to inspect or reuse.
 
+The tool can also read generated Markdown reports and create a QA triage summary with severity counts, priority counts, missing-field checks, validation warnings, and reviewer notes.
+
 ## Validation Reference
 
 Severity values are normalized like this:
@@ -102,7 +105,8 @@ qa-bug-report-tool/
 |   |-- 002-settings-save.md
 |   |-- 003-profile-link.md
 |   |-- 004-quest-checklist.md
-|   `-- 005-mobile-menu.md
+|   |-- 005-mobile-menu.md
+|   `-- triage-summary.md
 |-- src/
 |   `-- bug_report_tool/
 |       |-- __init__.py
@@ -241,6 +245,12 @@ Batch mode can also write JSON reports:
 python -m bug_report_tool --batch --format json
 ```
 
+Generate a QA triage summary from completed reports:
+
+```powershell
+python -m bug_report_tool --triage-summary --reports-dir reports --output reports/triage-summary.md
+```
+
 Use custom folders for batch mode:
 
 ```powershell
@@ -262,7 +272,7 @@ python -m pip install -e . pytest
 python -m pytest
 ```
 
-The tests cover parsing, Markdown formatting, JSON output, CLI output, stdin input, batch mode, validation warnings, and help text examples.
+The tests cover parsing, Markdown formatting, JSON output, CLI output, stdin input, batch mode, validation warnings, triage summaries, and help text examples.
 
 ## Sample Bugs
 
@@ -278,6 +288,7 @@ These samples are fictional practice data. They are here to make the project eas
 - Adding JSON export while keeping Markdown as the default output
 - Normalizing common severity and priority values while preserving unknown input with warning notes
 - Adding optional evidence fields for screenshots, logs, videos, and attachment links
+- Generating a QA triage summary with severity counts, priority counts, missing-field checks, validation warnings, and reviewer notes
 - Writing pytest validation for parser, formatter, CLI, batch mode, and help text behavior
 - Practicing Git recovery workflow: rejected Git push, `git status`, rebase, README conflict resolution, pytest validation, and safe pushing
 - Keeping the README clear, honest, and useful for a QA Engineer portfolio project
@@ -286,3 +297,4 @@ These samples are fictional practice data. They are here to make the project eas
 
 - Add a `--template` option for different report formats
 - Add richer evidence metadata, such as evidence type or capture notes
+- Add triage filters for severity, priority, or reports missing evidence

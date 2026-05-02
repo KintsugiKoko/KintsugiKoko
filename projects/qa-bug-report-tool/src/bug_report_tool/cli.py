@@ -9,6 +9,7 @@ from pathlib import Path
 from bug_report_tool.json_output import format_json
 from bug_report_tool.markdown import format_markdown
 from bug_report_tool.parser import parse_note
+from bug_report_tool.triage import summarize_reports
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -18,6 +19,11 @@ def main(argv: list[str] | None = None) -> int:
     args = cli_parser.parse_args(argv)
 
     try:
+        if args.triage_summary:
+            summary = summarize_reports(args.reports_dir)
+            _write_report(summary, args.output)
+            return 0
+
         if args.batch:
             converted_count = _convert_batch(args.input_dir, args.output_dir, args.format)
             print(f"Converted {converted_count} note(s) to {args.output_dir}.")
@@ -52,6 +58,9 @@ def build_parser() -> argparse.ArgumentParser:
   Convert every .txt note in sample-data/ to reports/:
     python -m bug_report_tool --batch
 
+  Summarize generated Markdown reports for QA triage:
+    python -m bug_report_tool --triage-summary --reports-dir reports
+
   Convert a custom notes folder:
     python -m bug_report_tool --batch --input-dir my-notes --output-dir my-reports
 
@@ -75,7 +84,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "-o",
         "--output",
-        help="Save one generated Markdown report to this path instead of printing it.",
+        help="Save generated output to this path instead of printing it.",
     )
     parser.add_argument(
         "--text",
@@ -85,6 +94,11 @@ def build_parser() -> argparse.ArgumentParser:
         "--batch",
         action="store_true",
         help="Convert every .txt note in --input-dir to reports in --output-dir.",
+    )
+    parser.add_argument(
+        "--triage-summary",
+        action="store_true",
+        help="Create a Markdown triage summary from generated reports.",
     )
     parser.add_argument(
         "--format",
@@ -101,6 +115,11 @@ def build_parser() -> argparse.ArgumentParser:
         "--output-dir",
         default="reports",
         help="Folder for generated Markdown reports in batch mode. Default: reports.",
+    )
+    parser.add_argument(
+        "--reports-dir",
+        default="reports",
+        help="Folder of generated Markdown reports for triage summaries. Default: reports.",
     )
     return parser
 
