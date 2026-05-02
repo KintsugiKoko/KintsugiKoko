@@ -253,6 +253,37 @@ Visible on mobile.""",
     assert "| Low | 1 |" in summary
 
 
+def test_init_qa_creates_reusable_workspace(tmp_path, capsys):
+    qa_dir = tmp_path / "qa"
+
+    result = main(["--init-qa", "--qa-dir", str(qa_dir)])
+
+    captured = capsys.readouterr()
+    readme = (qa_dir / "README.md").read_text(encoding="utf-8")
+
+    assert result == 0
+    assert "Initialized QA workspace" in captured.out
+    assert (qa_dir / "notes").is_dir()
+    assert (qa_dir / "reports").is_dir()
+    assert (qa_dir / "checklists").is_dir()
+    assert (qa_dir / "test-runs").is_dir()
+    assert "# QA Workflow" in readme
+    assert "rough notes captured while testing" in readme
+    assert "python -m bug_report_tool --batch --input-dir qa/notes --output-dir qa/reports" in readme
+
+
+def test_init_qa_does_not_overwrite_existing_readme(tmp_path):
+    qa_dir = tmp_path / "qa"
+    qa_dir.mkdir()
+    readme_path = qa_dir / "README.md"
+    readme_path.write_text("# Existing QA Notes\n", encoding="utf-8")
+
+    result = main(["--init-qa", "--qa-dir", str(qa_dir)])
+
+    assert result == 0
+    assert readme_path.read_text(encoding="utf-8") == "# Existing QA Notes\n"
+
+
 def test_report_filename_removes_note_suffix():
     assert (
         _report_filename(Path("001-inventory-count-note.txt"))
@@ -277,6 +308,7 @@ def test_help_documents_beginner_friendly_examples(capsys):
     assert "Convert one note and save the report:" in captured.out
     assert "Convert one note to JSON:" in captured.out
     assert "Convert every .txt note in sample-data/ to reports/:" in captured.out
+    assert "Initialize reusable QA folders in a project:" in captured.out
     assert "Summarize generated Markdown reports for QA triage:" in captured.out
     assert "Pass a short note directly:" in captured.out
     assert "Read a note from stdin:" in captured.out
@@ -292,6 +324,7 @@ def test_help_documents_main_commands(capsys):
     assert "--output reports/001-inventory-count.md" in captured.out
     assert "python -m bug_report_tool --batch" in captured.out
     assert "--format json" in captured.out
+    assert "python -m bug_report_tool --init-qa" in captured.out
     assert "--triage-summary --reports-dir reports" in captured.out
     assert "--input-dir my-notes --output-dir my-reports" in captured.out
     assert '--text "Title: Button does not respond"' in captured.out

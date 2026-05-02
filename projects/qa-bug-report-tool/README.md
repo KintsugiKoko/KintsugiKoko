@@ -12,6 +12,7 @@ Done:
 - Supports JSON export for structured output review
 - Supports optional evidence fields for screenshots, logs, videos, or attachment links
 - Generates a Markdown QA triage summary from completed sample reports
+- Initializes a reusable `qa/` workspace for notes, reports, checklists, and test runs
 
 Next:
 
@@ -60,6 +61,8 @@ Evidence fields are optional. The parser accepts labels such as `Evidence`, `Att
 Markdown is the default output format. JSON output is also available when a structured export is easier to inspect or reuse.
 
 The tool can also read generated Markdown reports and create a QA triage summary with severity counts, priority counts, missing-field checks, validation warnings, and reviewer notes.
+
+The tool can initialize a reusable `qa/` folder for future projects. This creates a simple place to store rough notes, structured reports, checklists, and test run summaries.
 
 ## Validation Reference
 
@@ -115,7 +118,9 @@ qa-bug-report-tool/
 |       |-- json_output.py
 |       |-- markdown.py
 |       |-- models.py
-|       `-- parser.py
+|       |-- parser.py
+|       |-- qa_init.py
+|       `-- triage.py
 `-- tests/
     |-- test_cli.py
     |-- test_markdown.py
@@ -251,6 +256,23 @@ Generate a QA triage summary from completed reports:
 python -m bug_report_tool --triage-summary --reports-dir reports --output reports/triage-summary.md
 ```
 
+Initialize a reusable QA workspace in another project:
+
+```powershell
+python -m bug_report_tool --init-qa
+```
+
+That creates:
+
+```text
+qa/
+|-- README.md
+|-- notes/
+|-- reports/
+|-- checklists/
+`-- test-runs/
+```
+
 Use custom folders for batch mode:
 
 ```powershell
@@ -272,7 +294,7 @@ python -m pip install -e . pytest
 python -m pytest
 ```
 
-The tests cover parsing, Markdown formatting, JSON output, CLI output, stdin input, batch mode, validation warnings, triage summaries, and help text examples.
+The tests cover parsing, Markdown formatting, JSON output, CLI output, stdin input, batch mode, validation warnings, triage summaries, QA workspace initialization, and help text examples.
 
 ## Sample Bugs
 
@@ -289,6 +311,7 @@ These samples are fictional practice data. They are here to make the project eas
 - Normalizing common severity and priority values while preserving unknown input with warning notes
 - Adding optional evidence fields for screenshots, logs, videos, and attachment links
 - Generating a QA triage summary with severity counts, priority counts, missing-field checks, validation warnings, and reviewer notes
+- Creating a reusable `qa/` workspace pattern for future projects
 - Writing pytest validation for parser, formatter, CLI, batch mode, and help text behavior
 - Practicing Git recovery workflow: rejected Git push, `git status`, rebase, README conflict resolution, pytest validation, and safe pushing
 - Keeping the README clear, honest, and useful for a QA Engineer portfolio project

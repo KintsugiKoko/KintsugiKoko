@@ -9,6 +9,7 @@ from pathlib import Path
 from bug_report_tool.json_output import format_json
 from bug_report_tool.markdown import format_markdown
 from bug_report_tool.parser import parse_note
+from bug_report_tool.qa_init import init_qa_workspace
 from bug_report_tool.triage import summarize_reports
 
 
@@ -19,6 +20,11 @@ def main(argv: list[str] | None = None) -> int:
     args = cli_parser.parse_args(argv)
 
     try:
+        if args.init_qa:
+            qa_path = init_qa_workspace(args.qa_dir)
+            print(f"Initialized QA workspace at {qa_path}.")
+            return 0
+
         if args.triage_summary:
             summary = summarize_reports(args.reports_dir)
             _write_report(summary, args.output)
@@ -57,6 +63,9 @@ def build_parser() -> argparse.ArgumentParser:
 
   Convert every .txt note in sample-data/ to reports/:
     python -m bug_report_tool --batch
+
+  Initialize reusable QA folders in a project:
+    python -m bug_report_tool --init-qa
 
   Summarize generated Markdown reports for QA triage:
     python -m bug_report_tool --triage-summary --reports-dir reports
@@ -101,6 +110,11 @@ def build_parser() -> argparse.ArgumentParser:
         help="Create a Markdown triage summary from generated reports.",
     )
     parser.add_argument(
+        "--init-qa",
+        action="store_true",
+        help="Create a reusable qa/ workspace with notes, reports, checklists, and test-runs.",
+    )
+    parser.add_argument(
         "--format",
         choices=["markdown", "json"],
         default="markdown",
@@ -120,6 +134,11 @@ def build_parser() -> argparse.ArgumentParser:
         "--reports-dir",
         default="reports",
         help="Folder of generated Markdown reports for triage summaries. Default: reports.",
+    )
+    parser.add_argument(
+        "--qa-dir",
+        default="qa",
+        help="Folder to create with --init-qa. Default: qa.",
     )
     return parser
 
