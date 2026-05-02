@@ -2,7 +2,9 @@
 
 ## Overview
 
-Nyx is a work-in-progress Unreal project I am using to practice game systems documentation, playtesting habits, and technical QA thinking.
+Nyx is a work-in-progress Unreal C++ cozy cosmic fishing prototype starring a tuxedo-pattern cat. I am using it to practice game systems documentation, playtesting habits, and technical QA thinking.
+
+The core loop is built around catching celestial fish, offering them to a Starwell, earning resources, unlocking thresholds, and saving persistent progress over time.
 
 The goal of this page is to document the project as it develops: what I am practicing, what changes, what breaks, what I test, and what I learn from the process. It is not a finished game page, a shipped title, or a polished engineering portfolio.
 
@@ -28,12 +30,40 @@ These are the current areas I want to document as the project develops. Names an
 | --- | --- | --- |
 | Project structure | Keeping Unreal source notes organized around `Source/Nyx` and related gameplay systems | Can another person understand what each system is responsible for? |
 | Fishing component | Documenting a focused gameplay feature with inputs, feedback, and result states | What happens when the action fails, repeats quickly, or receives unexpected input? |
-| AStarwell / pathing notes | Tracking navigation or pathfinding-related experiments clearly | Are edge cases, blocked paths, and confusing player outcomes recorded? |
+| `AStarwell` / Starwell threshold notes | Tracking Starwell progression and unlock logic clearly | Are unlocks saved with stable IDs instead of fragile labels, ordering, or temporary names? |
 | Economy component | Thinking through resources, costs, rewards, and balance-facing data | Are values readable, testable, and easy to validate after changes? |
 | Deck component | Documenting a rules-based or collection-style system | Are card/deck states clear, recoverable, and testable? |
 | SaveGame notes | Recording persistence behavior and save/load expectations | What data should persist, what should reset, and how can regressions be checked? |
 | Validation helpers | Building notes around small checks that support reliability | What can be verified quickly before deeper playtesting? |
 | PIE validation | Using Play in Editor sessions to check behavior while iterating | What should be tested every time a system changes? |
+
+## Save/Load Reliability Fix
+
+One recent Nyx improvement focused on making save/load behavior more reliable while the project is still a gameplay systems prototype. This note explains the fix at a portfolio level. The full `Source/Nyx` tree is not included in this portfolio repo, so class-level names should be added later only when they can be verified directly from the source.
+
+### Active Fishing Casts Normalize To Idle On Load
+
+Active fishing casts are transient runtime interactions. When a save file is loaded, an active cast now normalizes back to an idle fishing state instead of trying to restore fragile mid-action state.
+
+This is an intentional design choice, not a limitation. The save file should not need to preserve temporary runtime details such as timers, reel tension, bite state, animation locks, or partially resolved catch data. Those details belong to the live interaction, not long-term player progress.
+
+Durable progress is the part that should persist. For Nyx, that means save/load work should protect progress such as discovered fish, catch counts, resources, upgrades, and Starwell progress.
+
+### Blueprint Post-Load Events Matter
+
+C++ can restore saved values, but Blueprint needs explicit restoration events so UI, VFX, audio, and world presentation can refresh after loading.
+
+The important distinction is between gameplay events and restoration events. A gameplay event, such as offering a fish to the Starwell, should trigger one-time feedback, rewards, unlocks, and presentation. A post-load restoration event should refresh the world to match saved data without replaying one-time rewards or pretending the player just performed the action again.
+
+That separation makes the system easier to test because loading a save should be visually accurate without duplicating rewards, replaying unlocks, or causing confusing side effects.
+
+### Starwell Thresholds Need Stable Unique IDs
+
+Starwell unlock thresholds should be tracked with stable unique IDs instead of display text, array index, or temporary asset names.
+
+Stable IDs help protect save files when story text changes, thresholds are reordered, rewards are tuned, or assets are renamed. This matters for Nyx because the Starwell can become a long-term progression anchor rather than a single isolated feature.
+
+Future-facing systems such as narrative branches, card unlocks, companions, constellations, and ending paths are still WIP unless documented elsewhere. The save/load lesson here is that those systems will be safer to build later if persistent progress is identified by stable IDs from the beginning.
 
 ## What This Showcase Is Meant To Show
 
@@ -73,6 +103,7 @@ For each system I add to this showcase, I want to keep the writeup small and pra
 | --- | --- | --- |
 | 2026-05-02 | Showcase page created | Added a place to document the Unreal project while it is still in progress. |
 | 2026-05-02 | Added Nyx project details | Moved useful Unreal project details into this showcase while keeping the page honest about work-in-progress status. |
+| 2026-05-02 | Documented save/load reliability fix | Added notes on active cast restoration, Blueprint post-load events, and stable Starwell threshold IDs. |
 
 Future entries can track:
 
@@ -120,6 +151,7 @@ Examples of useful notes:
 
 - Add one short system note for the fishing component
 - Add one QA note from a PIE validation pass
+- Add verified C++ class names from `Source/Nyx` when the source is safe and useful to include
 - Decide which screenshot or clip would help explain the project without overselling it
 - Add a simple "known issues" table once there are real observations to track
 - Keep future updates specific, small, and tied to what was actually tested
