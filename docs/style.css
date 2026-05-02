@@ -210,7 +210,8 @@ h3 {
   max-width: 1100px;
 }
 
-.project-card {
+.project-card,
+.progress-item {
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -219,8 +220,34 @@ h3 {
   padding: 1.25rem;
 }
 
-.project-card p {
+.project-card p,
+.progress-item p {
   color: var(--muted);
+}
+
+.progress-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  margin-top: 1.5rem;
+  max-width: 1100px;
+}
+
+.goal-list {
+  display: grid;
+  gap: 0.85rem;
+  list-style: none;
+  margin: 1.5rem auto 0;
+  max-width: 900px;
+  padding: 0;
+}
+
+.goal-list li {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--muted);
+  padding: 0.9rem 1rem;
 }
 
 .status {
@@ -295,6 +322,7 @@ h3 {
   }
 
   .project-grid,
+  .progress-grid,
   .skill-list {
     grid-template-columns: 1fr;
   }
