@@ -10,7 +10,13 @@ Turn rough QA notes into a structured Markdown bug report.
 
 This project connects my interest in games with practical software habits. Games depend on clear feedback, reliable systems, and careful observation. This tool is a small way to practice writing QA notes clearly while I keep learning Python, GitHub, documentation, and AI-assisted workflows in public.
 
-This is not a claim of professional QA experience. It is a practice project built to show growth, structure, and follow-through.
+This is a practice coding project, separate from my professional shipped-title QA work. It is meant to show how I am connecting real QA habits with Python, testing, documentation, and AI-assisted workflow practice.
+
+## AI Assistance
+
+AI assistance was used as a learning and workflow support tool for this project. It helped with planning the file structure, drafting beginner-friendly documentation, checking edge cases, and writing pytest coverage.
+
+I am still learning Python, testing, and command-line tool design. The goal is not to hide the use of AI or overstate my experience. The goal is to use AI responsibly while I practice reading code, asking better questions, testing behavior, and documenting what the project does.
 
 ## What It Does
 
