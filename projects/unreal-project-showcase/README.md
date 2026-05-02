@@ -69,7 +69,7 @@ Future-facing systems such as narrative branches, card unlocks, companions, cons
 
 This is a work-in-progress validation checklist for testing Nyx's core loop in Play In Editor. It is meant to support manual QA and developer confidence while the Unreal C++ systems are still changing. It does not claim finished gameplay or full automated coverage.
 
-The goal is to prove the loop can be exercised in a predictable way:
+The goal is to check that the loop can be exercised in a predictable way:
 
 ```text
 Start cast -> bite -> reel -> catch -> offer to Starwell -> reward -> save -> load -> verify restored state
@@ -84,13 +84,13 @@ Suggested PIE smoke checks:
 | 3 | Start reeling | The system moves from bite to reel state without skipping or duplicating state changes. |
 | 4 | Complete a catch | The catch resolves once, and any temporary fishing state is cleared safely. |
 | 5 | Offer the fish to the Starwell | The Starwell accepts the offering without requiring fragile actor setup. |
-| 6 | Confirm economy rewards | Echo Scales or other expected resources increase once and do not duplicate unexpectedly. |
+| 6 | Confirm economy rewards | Expected resources increase once and do not duplicate unexpectedly. |
 | 7 | Confirm Starwell progress | Offering progress updates and threshold checks remain understandable. |
 | 8 | Save current progress | Durable progress is captured without relying on transient runtime state. |
 | 9 | Load the save | Saved progress restores, while unsafe in-progress interactions return to a safe state such as `Idle`. |
 | 10 | Review restored presentation | UI, VFX, audio, or world feedback can refresh through Blueprint-facing hooks when those presentation layers exist. |
 
-This checklist connects the C++ architecture to QA practice. The important part is not only that the systems exist, but that I can describe how I would validate the player-facing loop, watch for regressions, and keep save/load behavior safe as the prototype grows.
+This checklist connects the C++ architecture to QA practice. The important part is that I can describe how I would validate the player-facing loop, watch for regressions, and keep save/load behavior safe as the prototype grows.
 
 ## What This Showcase Is Meant To Show
 
