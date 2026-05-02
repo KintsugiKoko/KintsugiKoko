@@ -6,11 +6,15 @@ First version. This is a beginner-friendly Python CLI practice project for a lea
 
 ## Goal
 
-Turn rough QA notes into a structured Markdown bug report.
+Turn rough QA notes into structured Markdown bug reports.
 
 This project connects my interest in games with practical software habits. Games depend on clear feedback, reliable systems, and careful observation. This tool is a small way to practice writing QA notes clearly while I keep learning Python, GitHub, documentation, and AI-assisted workflows in public.
 
 This is a practice coding project, separate from my professional shipped-title QA work. It is meant to show how I am connecting real QA habits with Python, testing, documentation, and AI-assisted workflow practice.
+
+## QA Portfolio Value
+
+This project shows a small but practical QA workflow: take messy notes, preserve important details, structure the report, validate common fields, and create output that another person could review or act on.
 
 ## AI Assistance
 
@@ -148,6 +152,7 @@ From this project folder:
 
 ```powershell
 python -m pip install -e .
+python -m bug_report_tool --help
 python -m bug_report_tool sample-data/001-inventory-count-note.txt
 ```
 
@@ -184,6 +189,8 @@ python -m pip install -e . pytest
 python -m pytest
 ```
 
+The tests cover parsing, Markdown formatting, CLI output, batch mode, validation warnings, and help text examples.
+
 ## Sample Bugs
 
 The `sample-data/` folder contains five rough practice notes. The `reports/` folder contains matching structured Markdown reports.
@@ -192,13 +199,13 @@ These samples are fictional practice data. They are here to make the project eas
 
 ## What I Practiced
 
-- Building a small command-line tool with Python
-- Organizing code with a simple `src/` package layout
-- Turning unstructured notes into a repeatable Markdown format
-- Converting a folder of rough notes with batch mode
-- Normalizing common severity and priority values without hiding unknown input
-- Writing pytest coverage for parser, formatter, and CLI behavior
-- Keeping a project README clear enough for a beginner to maintain
+- Building a small Python CLI that converts rough QA notes into structured Markdown bug reports
+- Organizing the project with a simple `src/` layout, sample data, generated reports, and examples
+- Supporting single-note conversion, batch conversion, and readable output filenames
+- Normalizing common severity and priority values while preserving unknown input with warning notes
+- Writing pytest validation for parser, formatter, CLI, batch mode, and help text behavior
+- Practicing Git recovery workflow: rejected Git push, `git status`, rebase, README conflict resolution, pytest validation, and safe pushing
+- Keeping the README clear, honest, and useful for a QA Engineer portfolio project
 
 ## Future Improvements
 
