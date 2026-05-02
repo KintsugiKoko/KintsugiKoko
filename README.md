@@ -42,6 +42,7 @@ Areas of contribution included:
 
 Selected professional game work includes:
 
+- Warcraft III: Reforged
 - Diablo II: Resurrected
 - Overwatch 2
 - World of Warcraft: Shadowlands
