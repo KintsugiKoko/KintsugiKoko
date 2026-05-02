@@ -1,0 +1,12 @@
+Title: Mobile menu overlaps the page title
+Severity: Low
+Priority: Medium
+Environment: iPhone size viewport, Chrome DevTools, portfolio homepage
+Steps:
+- Open the homepage at 390px width.
+- Tap the menu button.
+- Look at the page title area.
+Expected: Menu opens below the header without covering the title.
+Actual: Menu covers part of the page title.
+Repro Rate: 2/2
+Notes: This kind of issue matters because visitors may browse the portfolio from a phone.

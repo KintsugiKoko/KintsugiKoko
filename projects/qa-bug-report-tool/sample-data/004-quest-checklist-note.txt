@@ -1,0 +1,12 @@
+Title: Completed checklist item appears twice after refresh
+Severity: Medium
+Priority: Medium
+Environment: Windows 11, Chrome, quest checklist practice page
+Steps:
+1. Mark "Read the README" as complete.
+2. Refresh the page.
+3. Review the completed list.
+Expected: Completed item appears once.
+Actual: Completed item appears twice.
+Repro Rate: 3/3
+Notes: This is a fictional sample for practicing bug report structure.

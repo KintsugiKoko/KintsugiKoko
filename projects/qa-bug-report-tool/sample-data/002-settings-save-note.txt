@@ -1,0 +1,12 @@
+Title: Save button stays disabled after changing volume
+Severity: Medium
+Priority: High
+Environment: Windows 11, Firefox, settings prototype
+Steps:
+- Open Settings.
+- Move the volume slider from 50 to 70.
+- Check the Save button.
+Expected: Save button becomes enabled after a setting changes.
+Actual: Save button stays disabled, so the new value cannot be saved.
+Repro Rate: 2/2
+Notes: This blocks a basic settings flow in the practice page.
