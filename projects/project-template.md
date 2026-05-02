@@ -10,23 +10,26 @@ Add the project name here.
 
 What did I want to build or practice?
 
-## Problem
+## Why I Chose It
 
-What problem was I trying to solve, or what question was I trying to explore?
+Why did this project feel useful, interesting, or connected to my learning goals?
 
 ## Tools Used
 
-- 
+- Add tools here.
 
 ## What I Learned
 
-- 
+- Add notes here.
 
 ## Challenges
 
-- 
+- Add notes here.
+
+## Screenshots
+
+Add screenshots here when the project has something visual to show.
 
 ## Next Improvements
 
-- 
-
+- Add notes here.

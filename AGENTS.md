@@ -1,31 +1,60 @@
 # Codex Instructions
 
-This repository is a learning portfolio. Future Codex work should help keep it clear, honest, beginner-friendly, and documentation-focused.
+This repository is my GitHub profile and learning portfolio. Future Codex work should preserve the central thread:
 
-## Writing Style
+> "Intrepid closed. My love for games didn't &mdash; now I'm learning code, GitHub, and AI workflows in public."
 
-- Use encouraging, professional, learner-focused language.
-- Keep explanations simple and easy to maintain.
-- Present progress honestly and avoid overstating experience.
-- Write as someone learning in public and documenting growth over time.
-- Prefer practical examples, clear headings, and short sections.
+I love games. Intrepid closing forced a hard reset, but my love for games did not go away. I am using that reset as motivation to learn software development, GitHub, documentation, and AI-assisted workflows in public.
+
+## Tone
+
+- Keep the tone honest, professional, resilient, game-connected, and beginner-friendly.
+- Make the story personal without making it dramatic or bitter.
+- Present the work as growth, practice, documentation, and reflection.
+- Keep the love-of-games angle visible where it fits naturally.
+- Use clear, practical language that a beginner can maintain.
 
 ## Content Rules
 
-- Do not invent skills, credentials, jobs, employers, clients, awards, certifications, or completed projects.
-- Do not describe the owner as a senior developer or experienced professional unless the repository owner explicitly provides that information.
-- Mark incomplete work clearly as planned, in progress, or a template.
+- Do not exaggerate my coding experience.
+- Do not invent jobs, credentials, clients, awards, certifications, completed projects, or technical skills.
+- Do not claim I am a game developer unless I explicitly provide that wording later.
+- Mark incomplete work clearly as planned, in progress, placeholder, or template.
 - Keep AI assistance visible when it is relevant to the work.
-- Focus on learning, reflection, project notes, and steady improvement.
+- Do not remove the thread that connects games, the Intrepid reset, and learning in public.
+
+## Intrepid Wording
+
+- Do not make legal accusations.
+- Do not use inflammatory or speculative language.
+- Prefer careful phrases like "unexpected studio closure," "hard reset," or "career reset."
+- Keep the focus on my response to the setback: rebuilding through consistency and learning.
 
 ## Technical Rules
 
-- Use Markdown and plain HTML/CSS unless the repository owner asks for something else.
+- Keep files simple and maintainable.
+- Prefer Markdown, plain HTML, and CSS unless I specifically ask for a framework.
 - Do not add frameworks, build tools, or external dependencies without a clear reason.
-- Keep the structure easy to understand:
-  - Root `README.md` for the portfolio overview
+- Keep the repository structure easy to understand:
+  - Root `README.md` for the GitHub profile and portfolio overview
   - `learning-journey/` for logs and reflections
-  - `projects/` for project writeups and templates
+  - `projects/` for the roadmap, writeups, and templates
   - `docs/` for the GitHub Pages site
-- Prefer small, maintainable edits over large rewrites.
+- Prefer small, focused edits over large rewrites unless I ask for a full rewrite.
 
+## Review Checklist
+
+When updating portfolio content, check that:
+
+- The README still feels personal, game-connected, and beginner-friendly.
+- Claims are honest and do not overstate my current experience.
+- Links and project names are accurate.
+- Incomplete work is labeled clearly.
+- The personal story is clear without sounding bitter.
+- The repo remains simple enough for a beginner to understand and maintain.
+
+## Handoff Habit
+
+- At the end of meaningful work, summarize what changed.
+- Suggest a practical commit message.
+- When useful, include one copy-ready next prompt I can send back into ChatGPT or Codex.

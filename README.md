@@ -1,52 +1,65 @@
-# Kintsugi Koko Learning Portfolio
+# Hi, I'm Kintsugi Koko
 
-Welcome to my learning portfolio. This repository documents my journey as I learn software development, GitHub, AI-assisted workflows, and project-based problem solving.
+> "Intrepid closed. My love for games didn't &mdash; now I'm learning code, GitHub, and AI workflows in public."
 
-I am building in public so I can practice consistently, reflect on what I am learning, and turn small projects into a clear record of progress. This portfolio is not meant to present me as an expert. It is meant to show curiosity, effort, documentation, and growth over time.
+I love games: the systems, the stories, the communities, and the feeling of learning through challenge.
+
+After the unexpected studio closure at Intrepid, I had to reset my direction. I am using that moment as motivation to learn software development, GitHub, documentation, and AI-assisted workflows in public.
+
+This profile is a working learning portfolio. It is built around growth, not polished expertise. Some sections are early, some projects are placeholders, and some notes will show questions before they show confidence.
 
 ## What I'm Learning
 
-- Git and GitHub basics, including commits, branches, repositories, and project documentation
+- Git and GitHub basics, including repositories, commits, branches, and README files
+- Markdown for documentation, learning notes, and project writeups
 - HTML and CSS for simple, readable web pages
-- Markdown for technical notes, README files, and project writeups
-- How to break problems into smaller steps
-- How to use AI tools as learning support while still understanding the work
-- How to document decisions, questions, mistakes, and next steps
+- How to organize small projects and explain what I am practicing
+- How to use AI tools for planning, drafting, debugging, and reflection
+- How to document progress honestly without overstating my experience
 
-## Current Focus
+## Why Games Matter
 
-Right now, I am focused on building a strong foundation:
+Games are the thread that keeps this journey personal. I like how games combine systems, feedback, creativity, design, teamwork, and problem solving.
 
-- Creating and maintaining a GitHub portfolio
-- Writing clear learning logs
-- Practicing small projects from start to finish
-- Learning how to explain what I built and why
-- Using AI assistance thoughtfully instead of treating it as a shortcut
+I am starting with the foundations first, so future game-inspired projects can have clearer structure, better documentation, and more confidence.
+
+## What I'm Building
+
+Right now, I am building the foundation:
+
+- A GitHub profile README that explains the journey clearly
+- A learning log archive for weekly reflections
+- A simple portfolio homepage with plain HTML and CSS
+- Project templates for documenting future work
+- Beginner-friendly practice projects that can grow toward game-inspired ideas
 
 ## Featured Projects
 
 | Project | Status | Focus |
 | --- | --- | --- |
+| [GitHub Profile README](README.md) | Living document | Personal learning portfolio, Markdown, public documentation |
 | [Learning Portfolio Homepage](docs/index.html) | In progress | HTML, CSS, GitHub Pages, portfolio structure |
-| [Learning Journey Logs](learning-journey/README.md) | In progress | Reflection, consistency, documentation |
-| [Future Project Writeups](projects/project-template.md) | Template ready | Project planning, problem solving, lessons learned |
+| [Project Roadmap](projects/README.md) | In progress | Beginner project planning and reflection prompts |
 
-As I complete projects, I will add honest writeups that explain the goal, tools used, what I learned, what was confusing, and what I would improve next.
+More projects will be added as they move from planned ideas into real practice.
 
-## Learning Philosophy
+## Learning Logs
 
-I learn best by building small things, writing down what happened, and returning to the work with better questions. I want this repository to show the real process: progress, confusion, mistakes, practice, and improvement.
+| Log | Focus |
+| --- | --- |
+| [Week 01 - Starting the Rebuild](learning-journey/logs/2026-05-week-01.md) | First public reflection on GitHub, documentation, AI support, games, and rebuilding |
 
-My goal is not to look finished. My goal is to keep learning in a visible, organized, and thoughtful way.
+The learning logs are where I track what I practiced, what confused me, what I learned, and what I want to understand next.
 
-## Learning Logs and Project Notes
+## Repository Map
 
-- [Learning Journey Overview](learning-journey/README.md)
-- [First Weekly Learning Log](learning-journey/logs/2026-05-week-01.md)
-- [Project Writeup Template](projects/project-template.md)
-- [GitHub Pages Homepage](docs/index.html)
+| Area | Purpose |
+| --- | --- |
+| [learning-journey](learning-journey/README.md) | Weekly logs, reflections, and learning notes |
+| [projects](projects/README.md) | Beginner project roadmap, writeups, and templates |
+| [docs](docs/index.html) | Simple GitHub Pages portfolio homepage |
+| [AGENTS.md](AGENTS.md) | Guidance for future Codex work in this repository |
 
-## AI-Assisted Learning Note
+## Rebuilding Through Consistency
 
-This is an AI-assisted learning journey. I use AI tools to help plan, explain, draft, debug, and organize my work. I also aim to understand the changes I make, document what I learn, and avoid claiming skills or experience I have not earned yet.
-
+This is the start of the rebuild, not the finished version. I am learning in public so the progress stays visible: one note, one commit, one project, and one better question at a time.
