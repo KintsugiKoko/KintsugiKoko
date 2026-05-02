@@ -1,0 +1,12 @@
+Title: Custom QA labels stay visible
+Severity: Game-breaking-ish
+Priority: Whenever possible
+Environment: Windows 11, Chrome, validation example
+Steps:
+1. Open the practice settings page.
+2. Change the audio slider.
+3. Try to save the new setting.
+Expected: The setting saves and the page confirms the update.
+Actual: The save button does not respond.
+Repro Rate: 2/2
+Notes: Practice example showing how the tool handles rough labels.

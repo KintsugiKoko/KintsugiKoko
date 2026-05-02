@@ -28,12 +28,40 @@ The CLI accepts one plain text note, or a folder of plain text notes, and genera
 
 If a rough note leaves out a field, the tool marks it as `Not provided` instead of guessing.
 
+Severity and priority values are cleaned up when they use common wording or shorthand. For example, `med` becomes `Medium`, and `P1` becomes `High`. If the tool does not recognize a value, it keeps the original text and adds a warning in the Notes section.
+
+## Validation Reference
+
+Severity values are normalized like this:
+
+| Input values | Normalized value |
+| --- | --- |
+| `low`, `minor` | `Low` |
+| `med`, `medium`, `moderate` | `Medium` |
+| `high`, `major` | `High` |
+| `blocker`, `crit`, `critical` | `Critical` |
+
+Priority values are normalized like this:
+
+| Input values | Normalized value |
+| --- | --- |
+| `p3`, `low` | `Low` |
+| `p2`, `med`, `medium`, `normal` | `Medium` |
+| `p1`, `high`, `urgent` | `High` |
+| `p0`, `crit`, `critical` | `Critical` |
+
+For a before-and-after example with unknown values, see [examples/unknown-validation-note.txt](examples/unknown-validation-note.txt) and [examples/unknown-validation-report.md](examples/unknown-validation-report.md).
+
 ## Project Structure
 
 ```text
 qa-bug-report-tool/
 |-- README.md
 |-- pyproject.toml
+|-- examples/
+|   |-- README.md
+|   |-- unknown-validation-note.txt
+|   `-- unknown-validation-report.md
 |-- sample-data/
 |   |-- 001-inventory-count-note.txt
 |   |-- 002-settings-save-note.txt
@@ -162,11 +190,11 @@ These samples are fictional practice data. They are here to make the project eas
 - Organizing code with a simple `src/` package layout
 - Turning unstructured notes into a repeatable Markdown format
 - Converting a folder of rough notes with batch mode
+- Normalizing common severity and priority values without hiding unknown input
 - Writing pytest coverage for parser, formatter, and CLI behavior
 - Keeping a project README clear enough for a beginner to maintain
 
 ## Future Improvements
 
 - Add a `--template` option for different report formats
-- Add simple severity and priority validation
 - Add screenshots or attachment links as optional report fields

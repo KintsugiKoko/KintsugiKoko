@@ -30,6 +30,36 @@ LABEL_PATTERN = re.compile(
     r"^\s*(?:[-*]\s*)?(?P<label>[A-Za-z][A-Za-z ]{1,40})\s*(?::|-)\s*(?P<value>.*)$"
 )
 
+COMMON_LEVELS = ("Low", "Medium", "High", "Critical")
+
+SEVERITY_VALUES = {
+    "blocker": "Critical",
+    "crit": "Critical",
+    "critical": "Critical",
+    "high": "High",
+    "low": "Low",
+    "major": "High",
+    "med": "Medium",
+    "medium": "Medium",
+    "minor": "Low",
+    "moderate": "Medium",
+}
+
+PRIORITY_VALUES = {
+    "crit": "Critical",
+    "critical": "Critical",
+    "high": "High",
+    "low": "Low",
+    "med": "Medium",
+    "medium": "Medium",
+    "normal": "Medium",
+    "p0": "Critical",
+    "p1": "High",
+    "p2": "Medium",
+    "p3": "Low",
+    "urgent": "High",
+}
+
 
 def parse_note(raw_note: str) -> BugReport:
     """Parse a plain text QA note into a BugReport.
@@ -76,10 +106,18 @@ def parse_note(raw_note: str) -> BugReport:
         loose_text = "\n".join(loose_lines)
         notes = f"{notes}\n{loose_text}".strip() if notes else loose_text
 
+    severity, severity_warning = _normalize_level(
+        "Severity", _first_value(sections.get("severity")), SEVERITY_VALUES
+    )
+    priority, priority_warning = _normalize_level(
+        "Priority", _first_value(sections.get("priority")), PRIORITY_VALUES
+    )
+    notes = _append_warnings(notes, [severity_warning, priority_warning])
+
     return BugReport(
         title=title or "Untitled Bug Report",
-        severity=_first_value(sections.get("severity")) or "Not provided",
-        priority=_first_value(sections.get("priority")) or "Not provided",
+        severity=severity,
+        priority=priority,
         environment=_collapse(sections.get("environment")) or "Not provided",
         steps_to_reproduce=_parse_steps(sections.get("steps_to_reproduce", [])),
         expected_result=_collapse(sections.get("expected_result")) or "Not provided",
@@ -144,3 +182,30 @@ def _split_inline_steps(step_text: str) -> list[str]:
         if separator in step_text:
             return [part.strip() for part in step_text.split(separator) if part.strip()]
     return [step_text]
+
+
+def _normalize_level(
+    field_name: str, raw_value: str, known_values: dict[str, str]
+) -> tuple[str, str]:
+    if not raw_value:
+        return "Not provided", ""
+
+    normalized_key = raw_value.strip().lower()
+    normalized_value = known_values.get(normalized_key)
+    if normalized_value:
+        return normalized_value, ""
+
+    warning = (
+        f"Warning: {field_name} value '{raw_value}' was not recognized. "
+        f"Preserved the original value. Common values: {', '.join(COMMON_LEVELS)}."
+    )
+    return raw_value, warning
+
+
+def _append_warnings(notes: str, warnings: list[str]) -> str:
+    useful_warnings = [warning for warning in warnings if warning]
+    if not useful_warnings:
+        return notes or "No additional notes."
+
+    warning_text = "\n".join(useful_warnings)
+    return f"{notes}\n{warning_text}".strip() if notes else warning_text
