@@ -78,6 +78,8 @@ The projects here are public learning artifacts. They are meant to show directio
 
 ## Featured Projects
 
+A good first project to review is the QA Bug Report Tool because it shows Python, pytest, Markdown documentation, sample data, and responsible AI-assisted workflow practice in one small project.
+
 | Project | Status | Focus |
 | --- | --- | --- |
 | [QA Bug Report Tool](projects/qa-bug-report-tool/README.md) | First version | Python CLI, pytest, structured Markdown bug reports, QA note practice |
@@ -91,7 +93,7 @@ More projects will be added as they move from planned ideas into real practice.
 
 | Log | Focus |
 | --- | --- |
-| [Week 01 - Starting the Rebuild](learning-journey/logs/2026-05-week-01.md) | First public reflection on GitHub, documentation, AI support, games, and rebuilding |
+| [Week 01 - Starting the Rebuild](learning-journey/logs/2026-05-week-01.md) | First public reflection on GitHub, documentation, AI support, games, rebuilding, and the first Python QA CLI project |
 
 The learning logs track what I practiced, what confused me, what I learned, and what I want to understand next.
 
