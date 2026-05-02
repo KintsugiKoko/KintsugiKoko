@@ -1,4 +1,4 @@
-# Hi, I'm Kintsugi Koko
+# Hi, I'm KintsugiKoko
 
 > "Intrepid closed. My love for games didn't &mdash; now I'm learning code, GitHub, and AI workflows in public."
 
