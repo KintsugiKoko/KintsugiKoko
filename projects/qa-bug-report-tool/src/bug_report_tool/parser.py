@@ -10,20 +10,29 @@ from bug_report_tool.models import BugReport
 LABEL_MAP = {
     "actual": "actual_result",
     "actual result": "actual_result",
+    "attachment": "evidence",
+    "attachments": "evidence",
     "environment": "environment",
     "env": "environment",
+    "evidence": "evidence",
     "expected": "expected_result",
     "expected result": "expected_result",
+    "log": "evidence",
+    "logs": "evidence",
     "note": "notes",
     "notes": "notes",
     "priority": "priority",
     "repro rate": "repro_rate",
     "reproduction rate": "repro_rate",
+    "screenshot": "evidence",
+    "screenshots": "evidence",
     "severity": "severity",
     "steps": "steps_to_reproduce",
     "steps to reproduce": "steps_to_reproduce",
     "summary": "title",
     "title": "title",
+    "video": "evidence",
+    "videos": "evidence",
 }
 
 LABEL_PATTERN = re.compile(
@@ -123,6 +132,7 @@ def parse_note(raw_note: str) -> BugReport:
         expected_result=_collapse(sections.get("expected_result")) or "Not provided",
         actual_result=_collapse(sections.get("actual_result")) or "Not provided",
         repro_rate=_first_value(sections.get("repro_rate")) or "Not provided",
+        evidence=_parse_items(sections.get("evidence", [])),
         notes=notes or "No additional notes.",
     )
 
@@ -170,6 +180,11 @@ def _parse_steps(lines: list[str]) -> list[str]:
             return split_steps
 
     return cleaned_steps or ["Not provided."]
+
+
+def _parse_items(lines: list[str]) -> list[str]:
+    cleaned_items = [_clean_step(line) for line in lines if line.strip()]
+    return [item for item in cleaned_items if item]
 
 
 def _clean_step(line: str) -> str:

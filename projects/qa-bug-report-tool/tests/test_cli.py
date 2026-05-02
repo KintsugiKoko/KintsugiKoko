@@ -76,6 +76,32 @@ def test_cli_outputs_json_for_direct_text(capsys):
     }
 
 
+def test_cli_json_output_includes_evidence(capsys):
+    result = main(
+        [
+            "--text",
+            (
+                "Title: Evidence JSON note\n"
+                "Evidence:\n"
+                "- screenshots/example.png\n"
+                "- logs/client-output.txt\n"
+                "Actual: Evidence exported."
+            ),
+            "--format",
+            "json",
+        ]
+    )
+
+    captured = capsys.readouterr()
+    report = json.loads(captured.out)
+
+    assert result == 0
+    assert report["evidence"] == [
+        "screenshots/example.png",
+        "logs/client-output.txt",
+    ]
+
+
 def test_cli_reads_note_from_stdin(monkeypatch, capsys):
     monkeypatch.setattr(
         sys,

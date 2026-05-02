@@ -21,6 +21,11 @@ Potion count decreases by one.
 
 Potion count stays the same until the page refreshes.
 
+## Evidence / Attachments
+
+- screenshots/inventory-count-before-after.png
+- logs/inventory-ui-refresh.log
+
 ## Notes
 
 This could confuse a player because the UI suggests the item was not used.

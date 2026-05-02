@@ -88,3 +88,21 @@ Notes: Tester used custom labels."""
     assert "Warning: Severity value 'Spicy' was not recognized." in report.notes
     assert "Warning: Priority value 'Whenever' was not recognized." in report.notes
     assert "Preserved the original value." in report.notes
+
+
+def test_parse_collects_evidence_and_attachment_fields():
+    note = """Title: Evidence links are included
+Severity: High
+Evidence:
+- screenshots/inventory-count.png
+- videos/repro-clip.mp4
+Logs: logs/client-output.txt
+Actual: Evidence should stay attached to the report."""
+
+    report = parse_note(note)
+
+    assert report.evidence == [
+        "screenshots/inventory-count.png",
+        "videos/repro-clip.mp4",
+        "logs/client-output.txt",
+    ]

@@ -9,4 +9,7 @@ Steps:
 Expected: Potion count decreases by one.
 Actual: Potion count stays the same until the page refreshes.
 Repro Rate: 3/3
+Evidence:
+- screenshots/inventory-count-before-after.png
+- logs/inventory-ui-refresh.log
 Notes: This could confuse a player because the UI suggests the item was not used.

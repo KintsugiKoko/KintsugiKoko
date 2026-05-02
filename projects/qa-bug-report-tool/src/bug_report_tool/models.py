@@ -15,4 +15,5 @@ class BugReport:
     expected_result: str = "Not provided"
     actual_result: str = "Not provided"
     repro_rate: str = "Not provided"
+    evidence: list[str] = field(default_factory=list)
     notes: str = "No additional notes."

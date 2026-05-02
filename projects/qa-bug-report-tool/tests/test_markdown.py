@@ -38,3 +38,17 @@ def test_format_markdown_escapes_table_pipes():
     markdown = format_markdown(report)
 
     assert "| Environment | Chrome \\| Windows |" in markdown
+
+
+def test_format_markdown_includes_evidence_when_present():
+    report = BugReport(
+        title="Evidence example",
+        steps_to_reproduce=["Open page."],
+        evidence=["screenshots/example.png", "logs/client-output.txt"],
+    )
+
+    markdown = format_markdown(report)
+
+    assert "## Evidence / Attachments" in markdown
+    assert "- screenshots/example.png" in markdown
+    assert "- logs/client-output.txt" in markdown
