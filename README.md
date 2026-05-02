@@ -94,7 +94,7 @@ More projects will be added as they move from planned ideas into real practice.
 
 | Log | Focus |
 | --- | --- |
-| [Week 01 - Starting the Rebuild](learning-journey/logs/2026-05-week-01.md) | First public reflection on GitHub, documentation, AI support, games, rebuilding, and the first Python QA CLI project |
+| [Week 01 - Starting the Rebuild](https://github.com/KintsugiKoko/learning-journey/blob/main/logs/2026-05-week-01.md) | First public reflection on GitHub, documentation, AI support, games, rebuilding, and the first Python QA CLI project |
 
 The learning logs track what I practiced, what confused me, what I learned, and what I want to understand next.
 
@@ -102,7 +102,7 @@ The learning logs track what I practiced, what confused me, what I learned, and 
 
 | Area | Purpose |
 | --- | --- |
-| [learning-journey](learning-journey/README.md) | Weekly logs, reflections, and learning notes |
+| [learning-journey](https://github.com/KintsugiKoko/learning-journey) | Weekly logs, reflections, and learning notes |
 | [projects](projects/README.md) | Beginner project roadmap, QA practice projects, writeups, and templates |
 | [docs](docs/index.html) | Simple GitHub Pages portfolio homepage |
 | [AGENTS.md](AGENTS.md) | Guidance for future Codex work in this repository |
