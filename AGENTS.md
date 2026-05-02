@@ -58,3 +58,5 @@ When updating portfolio content, check that:
 - At the end of meaningful work, summarize what changed.
 - Suggest a practical commit message.
 - Always include one copy-ready next-step prompt I can send back into ChatGPT or Codex.
+- Clearly say where the prompt belongs, such as ChatGPT, Codex, GitHub, or a local terminal.
+- Briefly explain why the next prompt or skill-building exercise matters, especially how it builds practical understanding.
