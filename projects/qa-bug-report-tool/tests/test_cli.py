@@ -1,4 +1,7 @@
 from pathlib import Path
+import json
+import sys
+from io import StringIO
 
 import pytest
 
@@ -43,6 +46,50 @@ def test_cli_accepts_direct_text(capsys):
     assert result == 0
     assert "# Direct note" in captured.out
     assert "| Severity | Low |" in captured.out
+
+
+def test_cli_outputs_json_for_direct_text(capsys):
+    result = main(
+        [
+            "--text",
+            "Title: JSON note\nSeverity: med\nPriority: P1\nActual: JSON worked.",
+            "--format",
+            "json",
+        ]
+    )
+
+    captured = capsys.readouterr()
+    report = json.loads(captured.out)
+
+    assert result == 0
+    assert report == {
+        "title": "JSON note",
+        "severity": "Medium",
+        "priority": "High",
+        "environment": "Not provided",
+        "steps_to_reproduce": ["Not provided."],
+        "expected_result": "Not provided",
+        "actual_result": "JSON worked.",
+        "repro_rate": "Not provided",
+        "notes": "No additional notes.",
+    }
+
+
+def test_cli_reads_note_from_stdin(monkeypatch, capsys):
+    monkeypatch.setattr(
+        sys,
+        "stdin",
+        StringIO("Title: Stdin note\nSeverity: Low\nActual: Read from stdin."),
+    )
+
+    result = main(["-"])
+
+    captured = capsys.readouterr()
+
+    assert result == 0
+    assert "# Stdin note" in captured.out
+    assert "| Severity | Low |" in captured.out
+    assert "Read from stdin." in captured.out
 
 
 def test_sample_data_has_five_notes():
@@ -96,12 +143,49 @@ Actual: Save button does not respond.""",
     )
 
 
+def test_batch_mode_can_write_json_reports(tmp_path):
+    input_dir = tmp_path / "sample-data"
+    output_dir = tmp_path / "reports"
+    input_dir.mkdir()
+    (input_dir / "001-menu-note.txt").write_text(
+        """Title: Menu overlaps title
+Severity: Low
+Priority: P2
+Actual: Menu covers the title.""",
+        encoding="utf-8",
+    )
+
+    result = main(
+        [
+            "--batch",
+            "--format",
+            "json",
+            "--input-dir",
+            str(input_dir),
+            "--output-dir",
+            str(output_dir),
+        ]
+    )
+
+    report_path = output_dir / "001-menu.json"
+    report = json.loads(report_path.read_text(encoding="utf-8"))
+
+    assert result == 0
+    assert report_path.exists()
+    assert report["title"] == "Menu overlaps title"
+    assert report["priority"] == "Medium"
+
+
 def test_report_filename_removes_note_suffix():
     assert (
         _report_filename(Path("001-inventory-count-note.txt"))
         == "001-inventory-count.md"
     )
     assert _report_filename(Path("002-settings-save.txt")) == "002-settings-save.md"
+    assert (
+        _report_filename(Path("003-profile-link-note.txt"), "json")
+        == "003-profile-link.json"
+    )
 
 
 def test_help_documents_beginner_friendly_examples(capsys):
@@ -114,6 +198,7 @@ def test_help_documents_beginner_friendly_examples(capsys):
     assert "Examples:" in captured.out
     assert "Convert one sample note and print the Markdown:" in captured.out
     assert "Convert one note and save the report:" in captured.out
+    assert "Convert one note to JSON:" in captured.out
     assert "Convert every .txt note in sample-data/ to reports/:" in captured.out
     assert "Pass a short note directly:" in captured.out
     assert "Read a note from stdin:" in captured.out
@@ -128,5 +213,6 @@ def test_help_documents_main_commands(capsys):
     assert "python -m bug_report_tool sample-data/001-inventory-count-note.txt" in captured.out
     assert "--output reports/001-inventory-count.md" in captured.out
     assert "python -m bug_report_tool --batch" in captured.out
+    assert "--format json" in captured.out
     assert "--input-dir my-notes --output-dir my-reports" in captured.out
     assert '--text "Title: Button does not respond"' in captured.out

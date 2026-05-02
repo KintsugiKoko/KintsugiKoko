@@ -6,6 +6,7 @@ import argparse
 import sys
 from pathlib import Path
 
+from bug_report_tool.json_output import format_json
 from bug_report_tool.markdown import format_markdown
 from bug_report_tool.parser import parse_note
 
@@ -18,13 +19,13 @@ def main(argv: list[str] | None = None) -> int:
 
     try:
         if args.batch:
-            converted_count = _convert_batch(args.input_dir, args.output_dir)
+            converted_count = _convert_batch(args.input_dir, args.output_dir, args.format)
             print(f"Converted {converted_count} note(s) to {args.output_dir}.")
             return 0
 
         raw_note = _read_note(args)
-        markdown = format_markdown(parse_note(raw_note))
-        _write_report(markdown, args.output)
+        output_text = _format_report(raw_note, args.format)
+        _write_report(output_text, args.output)
     except (OSError, ValueError) as error:
         print(f"Error: {error}", file=sys.stderr)
         return 1
@@ -44,6 +45,9 @@ def build_parser() -> argparse.ArgumentParser:
 
   Convert one note and save the report:
     python -m bug_report_tool sample-data/001-inventory-count-note.txt --output reports/001-inventory-count.md
+
+  Convert one note to JSON:
+    python -m bug_report_tool sample-data/001-inventory-count-note.txt --format json
 
   Convert every .txt note in sample-data/ to reports/:
     python -m bug_report_tool --batch
@@ -80,7 +84,13 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--batch",
         action="store_true",
-        help="Convert every .txt note in --input-dir to Markdown reports in --output-dir.",
+        help="Convert every .txt note in --input-dir to reports in --output-dir.",
+    )
+    parser.add_argument(
+        "--format",
+        choices=["markdown", "json"],
+        default="markdown",
+        help="Output format. Default: markdown.",
     )
     parser.add_argument(
         "--input-dir",
@@ -105,17 +115,24 @@ def _read_note(args: argparse.Namespace) -> str:
     return Path(args.input).read_text(encoding="utf-8")
 
 
-def _write_report(markdown: str, output: str | None) -> None:
+def _format_report(raw_note: str, output_format: str) -> str:
+    report = parse_note(raw_note)
+    if output_format == "json":
+        return format_json(report)
+    return format_markdown(report)
+
+
+def _write_report(output_text: str, output: str | None) -> None:
     if not output:
-        print(markdown)
+        print(output_text)
         return
 
     output_path = Path(output)
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    output_path.write_text(f"{markdown}\n", encoding="utf-8")
+    output_path.write_text(f"{output_text}\n", encoding="utf-8")
 
 
-def _convert_batch(input_dir: str, output_dir: str) -> int:
+def _convert_batch(input_dir: str, output_dir: str, output_format: str) -> int:
     input_path = Path(input_dir)
     output_path = Path(output_dir)
 
@@ -129,15 +146,16 @@ def _convert_batch(input_dir: str, output_dir: str) -> int:
     output_path.mkdir(parents=True, exist_ok=True)
 
     for note_path in note_paths:
-        markdown = format_markdown(parse_note(note_path.read_text(encoding="utf-8")))
-        report_path = output_path / _report_filename(note_path)
-        report_path.write_text(f"{markdown}\n", encoding="utf-8")
+        output_text = _format_report(note_path.read_text(encoding="utf-8"), output_format)
+        report_path = output_path / _report_filename(note_path, output_format)
+        report_path.write_text(f"{output_text}\n", encoding="utf-8")
 
     return len(note_paths)
 
 
-def _report_filename(note_path: Path) -> str:
+def _report_filename(note_path: Path, output_format: str = "markdown") -> str:
     stem = note_path.stem
     if stem.endswith("-note"):
         stem = stem[: -len("-note")]
-    return f"{stem}.md"
+    extension = ".json" if output_format == "json" else ".md"
+    return f"{stem}{extension}"

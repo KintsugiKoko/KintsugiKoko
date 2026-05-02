@@ -2,7 +2,19 @@
 
 ## Status
 
-First version. This is a beginner-friendly Python CLI practice project for a learning portfolio.
+First version, in progress as a beginner-friendly QA portfolio tool.
+
+Done:
+
+- Converts rough QA notes into structured Markdown bug reports
+- Supports single-note input, stdin input, and batch conversion
+- Includes sample notes, generated reports, pytest coverage, and README examples
+- Supports JSON export for structured output review
+
+Next:
+
+- Keep improving validation rules as more realistic QA note examples are added
+- Add optional screenshot or attachment fields later if they stay simple to maintain
 
 ## Goal
 
@@ -12,7 +24,7 @@ This project connects my interest in games with practical software habits. Games
 
 This is a practice coding project, separate from my professional shipped-title QA work. It is meant to show how I am connecting real QA habits with Python, testing, documentation, and AI-assisted workflow practice.
 
-## QA Portfolio Value
+## Why This Matters for QA
 
 This project shows a small but practical QA workflow: take messy notes, preserve important details, structure the report, validate common fields, and create output that another person could review or act on.
 
@@ -39,6 +51,8 @@ The CLI accepts one plain text note, or a folder of plain text notes, and genera
 If a rough note leaves out a field, the tool marks it as `Not provided` instead of guessing.
 
 Severity and priority values are cleaned up when they use common wording or shorthand. For example, `med` becomes `Medium`, and `P1` becomes `High`. If the tool does not recognize a value, it keeps the original text and adds a warning in the Notes section.
+
+Markdown is the default output format. JSON output is also available when a structured export is easier to inspect or reuse.
 
 ## Validation Reference
 
@@ -89,6 +103,7 @@ qa-bug-report-tool/
 |       |-- __init__.py
 |       |-- __main__.py
 |       |-- cli.py
+|       |-- json_output.py
 |       |-- markdown.py
 |       |-- models.py
 |       `-- parser.py
@@ -146,6 +161,33 @@ Potion count stays the same until the page refreshes.
 This could confuse a player because the UI suggests the item was not used.
 ```
 
+## Demo
+
+Command:
+
+```powershell
+python -m bug_report_tool sample-data/001-inventory-count-note.txt
+```
+
+Sample terminal output:
+
+```text
+# Inventory count does not update after using potion
+
+| Field | Details |
+| --- | --- |
+| Severity | Medium |
+| Priority | Medium |
+| Environment | Windows 11, Chrome, practice inventory page |
+| Repro Rate | 3/3 |
+
+## Steps to Reproduce
+
+1. Open the inventory screen.
+2. Use one health potion.
+3. Look at the potion count.
+```
+
 ## Run the Tool
 
 From this project folder:
@@ -156,16 +198,34 @@ python -m bug_report_tool --help
 python -m bug_report_tool sample-data/001-inventory-count-note.txt
 ```
 
+Markdown is the default format. You can write it out explicitly:
+
+```powershell
+python -m bug_report_tool sample-data/001-inventory-count-note.txt --format markdown
+```
+
 Write the report to a file:
 
 ```powershell
 python -m bug_report_tool sample-data/001-inventory-count-note.txt --output reports/new-report.md
 ```
 
+Generate JSON instead of Markdown:
+
+```powershell
+python -m bug_report_tool sample-data/001-inventory-count-note.txt --format json
+```
+
 Convert every `.txt` note in `sample-data/` into matching `.md` files in `reports/`:
 
 ```powershell
 python -m bug_report_tool --batch
+```
+
+Batch mode can also write JSON reports:
+
+```powershell
+python -m bug_report_tool --batch --format json
 ```
 
 Use custom folders for batch mode:
@@ -189,7 +249,7 @@ python -m pip install -e . pytest
 python -m pytest
 ```
 
-The tests cover parsing, Markdown formatting, CLI output, batch mode, validation warnings, and help text examples.
+The tests cover parsing, Markdown formatting, JSON output, CLI output, stdin input, batch mode, validation warnings, and help text examples.
 
 ## Sample Bugs
 
@@ -202,6 +262,7 @@ These samples are fictional practice data. They are here to make the project eas
 - Building a small Python CLI that converts rough QA notes into structured Markdown bug reports
 - Organizing the project with a simple `src/` layout, sample data, generated reports, and examples
 - Supporting single-note conversion, batch conversion, and readable output filenames
+- Adding JSON export while keeping Markdown as the default output
 - Normalizing common severity and priority values while preserving unknown input with warning notes
 - Writing pytest validation for parser, formatter, CLI, batch mode, and help text behavior
 - Practicing Git recovery workflow: rejected Git push, `git status`, rebase, README conflict resolution, pytest validation, and safe pushing
