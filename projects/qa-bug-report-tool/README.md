@@ -10,11 +10,12 @@ Done:
 - Supports single-note input, stdin input, and batch conversion
 - Includes sample notes, generated reports, pytest coverage, and README examples
 - Supports JSON export for structured output review
+- Supports optional evidence fields for screenshots, logs, videos, or attachment links
 
 Next:
 
 - Keep improving validation rules as more realistic QA note examples are added
-- Add optional screenshot or attachment fields later if they stay simple to maintain
+- Add richer report templates later if they stay simple to maintain
 
 ## Goal
 
@@ -46,11 +47,14 @@ The CLI accepts one plain text note, or a folder of plain text notes, and genera
 - Expected result
 - Actual result
 - Repro rate
+- Evidence / attachments
 - Notes
 
 If a rough note leaves out a field, the tool marks it as `Not provided` instead of guessing.
 
 Severity and priority values are cleaned up when they use common wording or shorthand. For example, `med` becomes `Medium`, and `P1` becomes `High`. If the tool does not recognize a value, it keeps the original text and adds a warning in the Notes section.
+
+Evidence fields are optional. The parser accepts labels such as `Evidence`, `Attachments`, `Screenshots`, `Videos`, or `Logs` and keeps those items with the generated report.
 
 Markdown is the default output format. JSON output is also available when a structured export is easier to inspect or reuse.
 
@@ -81,6 +85,7 @@ For a before-and-after example with unknown values, see [examples/unknown-valida
 ```text
 qa-bug-report-tool/
 |-- README.md
+|-- CHANGELOG.md
 |-- pyproject.toml
 |-- examples/
 |   |-- README.md
@@ -127,6 +132,9 @@ Steps:
 Expected: Potion count decreases by one.
 Actual: Potion count stays the same until the page refreshes.
 Repro Rate: 3/3
+Evidence:
+- screenshots/inventory-count-before-after.png
+- logs/inventory-ui-refresh.log
 Notes: This could confuse a player because the UI suggests the item was not used.
 ```
 
@@ -155,6 +163,11 @@ Potion count decreases by one.
 ## Actual Result
 
 Potion count stays the same until the page refreshes.
+
+## Evidence / Attachments
+
+- screenshots/inventory-count-before-after.png
+- logs/inventory-ui-refresh.log
 
 ## Notes
 
@@ -264,6 +277,7 @@ These samples are fictional practice data. They are here to make the project eas
 - Supporting single-note conversion, batch conversion, and readable output filenames
 - Adding JSON export while keeping Markdown as the default output
 - Normalizing common severity and priority values while preserving unknown input with warning notes
+- Adding optional evidence fields for screenshots, logs, videos, and attachment links
 - Writing pytest validation for parser, formatter, CLI, batch mode, and help text behavior
 - Practicing Git recovery workflow: rejected Git push, `git status`, rebase, README conflict resolution, pytest validation, and safe pushing
 - Keeping the README clear, honest, and useful for a QA Engineer portfolio project
@@ -271,4 +285,4 @@ These samples are fictional practice data. They are here to make the project eas
 ## Future Improvements
 
 - Add a `--template` option for different report formats
-- Add screenshots or attachment links as optional report fields
+- Add richer evidence metadata, such as evidence type or capture notes

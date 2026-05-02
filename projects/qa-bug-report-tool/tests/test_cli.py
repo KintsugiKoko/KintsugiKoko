@@ -71,6 +71,7 @@ def test_cli_outputs_json_for_direct_text(capsys):
         "expected_result": "Not provided",
         "actual_result": "JSON worked.",
         "repro_rate": "Not provided",
+        "evidence": [],
         "notes": "No additional notes.",
     }
 
