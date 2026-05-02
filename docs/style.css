@@ -25,6 +25,7 @@ body {
   color: var(--ink);
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 a {
@@ -177,6 +178,7 @@ h3 {
 
 .section {
   padding: 4.5rem 1.25rem;
+  scroll-margin-top: 5rem;
 }
 
 .section.accent {
@@ -306,19 +308,45 @@ h3 {
   .nav {
     align-items: flex-start;
     flex-direction: column;
+    padding: 1rem;
+    width: 100%;
   }
 
   .nav-links {
     justify-content: flex-start;
+    row-gap: 0.55rem;
+    width: 100%;
   }
 
   .hero {
-    min-height: 68vh;
+    min-height: auto;
     padding: 4rem 1rem;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 11vw, 3rem);
+    line-height: 1.08;
+  }
+
+  h2 {
+    font-size: clamp(1.6rem, 8vw, 2.1rem);
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .hero-content,
+  .section,
+  .section-heading,
+  .section > p,
+  .section.accent > p {
+    min-width: 0;
   }
 
   .section {
     padding: 3.25rem 1rem;
+    scroll-margin-top: 9rem;
   }
 
   .project-grid,
