@@ -14,7 +14,7 @@ Use a simple numbered format:
 
 ## Report Index
 
-No reports have been added yet.
+- [001 - Outdated GitHub repository links](001-outdated-github-links.md)
 
 ## Reminder
 
