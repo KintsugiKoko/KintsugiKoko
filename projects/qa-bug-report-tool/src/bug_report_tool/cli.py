@@ -34,18 +34,44 @@ def main(argv: list[str] | None = None) -> int:
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
-        description="Turn rough QA notes into a structured Markdown bug report."
+        description=(
+            "Turn rough QA notes into structured Markdown bug reports. "
+            "Use it for one note at a time, or batch-convert a folder of .txt notes."
+        ),
+        epilog="""Examples:
+  Convert one sample note and print the Markdown:
+    python -m bug_report_tool sample-data/001-inventory-count-note.txt
+
+  Convert one note and save the report:
+    python -m bug_report_tool sample-data/001-inventory-count-note.txt --output reports/001-inventory-count.md
+
+  Convert every .txt note in sample-data/ to reports/:
+    python -m bug_report_tool --batch
+
+  Convert a custom notes folder:
+    python -m bug_report_tool --batch --input-dir my-notes --output-dir my-reports
+
+  Pass a short note directly:
+    python -m bug_report_tool --text "Title: Button does not respond"
+
+  Read a note from stdin:
+    Get-Content sample-data/001-inventory-count-note.txt | python -m bug_report_tool
+""",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
     )
     parser.add_argument(
         "input",
         nargs="?",
         default="-",
-        help="Path to a plain text QA note. Use '-' or omit this argument to read from stdin.",
+        help=(
+            "Path to one plain text QA note. Use '-' or omit this argument to read "
+            "from stdin."
+        ),
     )
     parser.add_argument(
         "-o",
         "--output",
-        help="Optional path for the generated Markdown report. Prints to stdout when omitted.",
+        help="Save one generated Markdown report to this path instead of printing it.",
     )
     parser.add_argument(
         "--text",
@@ -54,7 +80,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--batch",
         action="store_true",
-        help="Convert every .txt note in an input folder to Markdown reports.",
+        help="Convert every .txt note in --input-dir to Markdown reports in --output-dir.",
     )
     parser.add_argument(
         "--input-dir",

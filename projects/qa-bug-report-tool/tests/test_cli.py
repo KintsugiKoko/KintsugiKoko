@@ -1,5 +1,7 @@
 from pathlib import Path
 
+import pytest
+
 from bug_report_tool.cli import _report_filename, main
 
 
@@ -95,5 +97,36 @@ Actual: Save button does not respond.""",
 
 
 def test_report_filename_removes_note_suffix():
-    assert _report_filename(Path("001-inventory-count-note.txt")) == "001-inventory-count.md"
+    assert (
+        _report_filename(Path("001-inventory-count-note.txt"))
+        == "001-inventory-count.md"
+    )
     assert _report_filename(Path("002-settings-save.txt")) == "002-settings-save.md"
+
+
+def test_help_documents_beginner_friendly_examples(capsys):
+    with pytest.raises(SystemExit) as error:
+        main(["--help"])
+
+    captured = capsys.readouterr()
+
+    assert error.value.code == 0
+    assert "Examples:" in captured.out
+    assert "Convert one sample note and print the Markdown:" in captured.out
+    assert "Convert one note and save the report:" in captured.out
+    assert "Convert every .txt note in sample-data/ to reports/:" in captured.out
+    assert "Pass a short note directly:" in captured.out
+    assert "Read a note from stdin:" in captured.out
+
+
+def test_help_documents_main_commands(capsys):
+    with pytest.raises(SystemExit):
+        main(["--help"])
+
+    captured = capsys.readouterr()
+
+    assert "python -m bug_report_tool sample-data/001-inventory-count-note.txt" in captured.out
+    assert "--output reports/001-inventory-count.md" in captured.out
+    assert "python -m bug_report_tool --batch" in captured.out
+    assert "--input-dir my-notes --output-dir my-reports" in captured.out
+    assert '--text "Title: Button does not respond"' in captured.out
