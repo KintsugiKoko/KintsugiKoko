@@ -74,6 +74,7 @@ The projects here are public learning artifacts. They are meant to show directio
 - Markdown documentation and project writeups
 - Pytest basics and simple test coverage
 - Log parsing, bug report formatting, and structured QA summaries
+- Local AI conversation sync into Obsidian-style learning notes
 - AI-assisted workflows for planning, drafting, debugging, test ideas, and reflection
 - How to explain technical work clearly for both technical and non-technical readers
 
@@ -84,6 +85,7 @@ A good first project to review is the QA Bug Report Tool because it shows Python
 | Project | Status | Focus |
 | --- | --- | --- |
 | [QA Bug Report Tool](projects/qa-bug-report-tool/README.md) | First version | Python CLI, pytest, structured Markdown bug reports, QA note practice |
+| [Obsidian Conversation Sync Agent](projects/obsidian-conversation-sync-agent/README.md) | First version | Local Python CLI, exported AI conversations, connected Obsidian Markdown notes, documentation workflow |
 | [QA Bug Report Portfolio](projects/qa-bug-report-portfolio/README.md) | In progress | Sample bug reports, repro clarity, severity framing, QA documentation |
 | [Unreal Project Showcase](projects/unreal-project-showcase/README.md) | Work in progress | Unreal project notes, development logs, screenshots, QA/playtest observations |
 | [Learning Portfolio Homepage](docs/index.html) | In progress | Plain HTML/CSS, GitHub Pages, portfolio structure |

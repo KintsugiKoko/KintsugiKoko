@@ -1,0 +1,49 @@
+[
+  {
+    "id": "sample-conversation-001",
+    "title": "Turn AI Conversations Into Notes",
+    "create_time": 1777737600,
+    "update_time": 1777737900,
+    "mapping": {
+      "root": {
+        "message": null,
+        "parent": null,
+        "children": ["user-1"]
+      },
+      "user-1": {
+        "message": {
+          "id": "user-1",
+          "author": {
+            "role": "user"
+          },
+          "create_time": 1777737600,
+          "content": {
+            "content_type": "text",
+            "parts": [
+              "Help me turn useful AI conversations into Obsidian notes so I can keep learning in public."
+            ]
+          }
+        },
+        "parent": "root",
+        "children": ["assistant-1"]
+      },
+      "assistant-1": {
+        "message": {
+          "id": "assistant-1",
+          "author": {
+            "role": "assistant"
+          },
+          "create_time": 1777737900,
+          "content": {
+            "content_type": "text",
+            "parts": [
+              "Start by syncing exported conversations into Markdown, then add a human-reviewed summary and next steps."
+            ]
+          }
+        },
+        "parent": "user-1",
+        "children": []
+      }
+    }
+  }
+]

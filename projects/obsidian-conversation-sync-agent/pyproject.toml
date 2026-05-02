@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "obsidian-conversation-sync-agent"
+version = "0.1.0"
+description = "A local CLI agent that syncs exported AI conversations into Obsidian-friendly Markdown notes."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+  { name = "KintsugiKoko" }
+]
+
+[project.scripts]
+obsidian-conversation-sync = "obsidian_sync_agent.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

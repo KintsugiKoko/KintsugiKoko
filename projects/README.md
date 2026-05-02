@@ -9,6 +9,7 @@ These are not full game projects yet. They are small practice projects that help
 | Project | Status | Focus |
 | --- | --- | --- |
 | [QA Bug Report Tool](qa-bug-report-tool/README.md) | First version | Python CLI, pytest, structured Markdown bug reports, and QA note practice |
+| [Obsidian Conversation Sync Agent](obsidian-conversation-sync-agent/README.md) | First version | Local Python CLI that turns exported AI conversations into connected Obsidian-friendly Markdown notes |
 | [QA Bug Report Portfolio](qa-bug-report-portfolio/README.md) | Planned | Practicing clear bug reports, screenshots, steps to reproduce, and reflection |
 | [Unreal Project Showcase](unreal-project-showcase/README.md) | Work in progress | Documenting an Unreal project through development notes, screenshots, QA notes, and reflection |
 
@@ -205,6 +206,49 @@ This is a first step toward interactive work without trying to build a full game
 - What was confusing about making the page respond?
 - How does this connect to game systems or player feedback?
 - What is one small improvement I could make next?
+
+## 6. Obsidian Conversation Sync Agent
+
+### Goal
+
+Build a small local Python agent that turns exported AI conversations into Obsidian-friendly Markdown notes.
+
+### Skills Practiced
+
+- Python command line arguments
+- Reading local files and folders
+- Parsing JSON and text exports
+- Writing Markdown with YAML frontmatter
+- Creating tests for file-based workflows
+- Labeling AI-assisted notes clearly before using them as documentation
+
+### Why It Matters
+
+AI conversations can hold useful explanations, debugging notes, project decisions, and next steps. This project helps me keep that learning trail instead of letting it disappear in chat history.
+
+It also supports the larger portfolio habit: use AI as learning support, then review, organize, and document what I actually understand.
+
+### Suggested Files
+
+- `projects/obsidian-conversation-sync-agent/README.md`
+- `projects/obsidian-conversation-sync-agent/src/obsidian_sync_agent/`
+- `projects/obsidian-conversation-sync-agent/tests/`
+- `projects/obsidian-conversation-sync-agent/config.example.json`
+
+### Definition of Done
+
+- The agent reads exported `.json`, `.md`, and `.txt` conversation files.
+- The agent writes notes into a chosen Obsidian vault folder.
+- Generated notes are clearly marked as needing human review.
+- The project has sample data, tests, and beginner-friendly documentation.
+- The first version does not claim to directly access private chat accounts.
+
+### Reflection Questions
+
+- What kinds of conversations are worth saving as documentation?
+- What should stay private instead of going into a vault or public repo?
+- Which parts of JSON parsing were confusing?
+- How can this workflow help me write better learning logs?
 
 ## How I Want to Use This Roadmap
 
