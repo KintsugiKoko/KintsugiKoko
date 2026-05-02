@@ -5,3 +5,4 @@ __pycache__/
 build/
 dist/
 *.egg-info/
+projects/obsidian-conversation-sync-agent/config.local.json
