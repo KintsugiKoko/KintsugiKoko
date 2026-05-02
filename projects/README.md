@@ -4,6 +4,12 @@ This roadmap is for beginner-friendly projects that build skill gradually. The f
 
 These are not full game projects yet. They are small practice projects that help me build the habits I will need later: organizing files, writing clearly, making simple pages, using GitHub, and reflecting on what I learned.
 
+## Current Project Folders
+
+| Project | Status | Focus |
+| --- | --- | --- |
+| [QA Bug Report Portfolio](qa-bug-report-portfolio/README.md) | Planned | Practicing clear bug reports, screenshots, steps to reproduce, and reflection |
+
 ## 1. GitHub Profile README
 
 ### Goal
