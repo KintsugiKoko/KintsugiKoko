@@ -65,6 +65,33 @@ Stable IDs help protect save files when story text changes, thresholds are reord
 
 Future-facing systems such as narrative branches, card unlocks, companions, constellations, and ending paths are still WIP unless documented elsewhere. The save/load lesson here is that those systems will be safer to build later if persistent progress is identified by stable IDs from the beginning.
 
+## PIE Smoke Test Checklist
+
+This is a work-in-progress validation checklist for testing Nyx's core loop in Play In Editor. It is meant to support manual QA and developer confidence while the Unreal C++ systems are still changing. It does not claim finished gameplay or full automated coverage.
+
+The goal is to prove the loop can be exercised in a predictable way:
+
+```text
+Start cast -> bite -> reel -> catch -> offer to Starwell -> reward -> save -> load -> verify restored state
+```
+
+Suggested PIE smoke checks:
+
+| Step | Check | What I am looking for |
+| --- | --- | --- |
+| 1 | Start a cast | The fishing system enters a clear cast state without errors or unclear feedback. |
+| 2 | Force or wait for a bite | The bite state appears reliably, whether triggered through debug tooling or normal timing. |
+| 3 | Start reeling | The system moves from bite to reel state without skipping or duplicating state changes. |
+| 4 | Complete a catch | The catch resolves once, and any temporary fishing state is cleared safely. |
+| 5 | Offer the fish to the Starwell | The Starwell accepts the offering without requiring fragile actor setup. |
+| 6 | Confirm economy rewards | Echo Scales or other expected resources increase once and do not duplicate unexpectedly. |
+| 7 | Confirm Starwell progress | Offering progress updates and threshold checks remain understandable. |
+| 8 | Save current progress | Durable progress is captured without relying on transient runtime state. |
+| 9 | Load the save | Saved progress restores, while unsafe in-progress interactions return to a safe state such as `Idle`. |
+| 10 | Review restored presentation | UI, VFX, audio, or world feedback can refresh through Blueprint-facing hooks when those presentation layers exist. |
+
+This checklist connects the C++ architecture to QA practice. The important part is not only that the systems exist, but that I can describe how I would validate the player-facing loop, watch for regressions, and keep save/load behavior safe as the prototype grows.
+
 ## What This Showcase Is Meant To Show
 
 - How I explain unfinished technical work without overstating it
@@ -104,6 +131,7 @@ For each system I add to this showcase, I want to keep the writeup small and pra
 | 2026-05-02 | Showcase page created | Added a place to document the Unreal project while it is still in progress. |
 | 2026-05-02 | Added Nyx project details | Moved useful Unreal project details into this showcase while keeping the page honest about work-in-progress status. |
 | 2026-05-02 | Documented save/load reliability fix | Added notes on active cast restoration, Blueprint post-load events, and stable Starwell threshold IDs. |
+| 2026-05-02 | Added PIE smoke test checklist | Added a WIP manual validation checklist for the fishing, Starwell, economy, save, and load loop. |
 
 Future entries can track:
 
