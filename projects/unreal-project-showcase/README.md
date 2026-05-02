@@ -121,6 +121,90 @@ This note does not claim final fishing gameplay. The current documentation focus
 
 Areas that may still change include final tuning, UI, VFX, audio, animation, fish content, full player controls, and how future cards or upgrades affect the fishing loop.
 
+## Starwell Threshold System Note
+
+`AStarwell` is the current world-facing actor for the offering side of the Nyx loop. Its purpose is to accept completed fish offerings, convert them into reward progress, track Starwell state, and broadcast threshold-related events that future presentation or story systems can respond to.
+
+This is still work-in-progress prototype documentation. The Starwell is being presented as a gameplay systems anchor, not as finished narrative progression, final quest content, or complete player-facing unlock design.
+
+### Current Scope
+
+The Starwell currently represents the offering and threshold side of the prototype:
+
+- accepted fish offerings
+- Echo Scales generated from fish value
+- total offering progress
+- total fish accepted
+- total Echo Scales generated
+- configured offering thresholds
+- reached story unlock IDs
+- Blueprint-facing events for accepted fish, progress changes, threshold reaches, story unlock availability, and restored state
+- validation support for threshold setup
+
+### Offering To Threshold Flow
+
+The basic flow I am documenting is:
+
+```text
+Caught fish -> offer to AStarwell -> grant reward value -> increase OfferingProgress -> check thresholds -> record reached StoryUnlockId
+```
+
+The important idea is that the Starwell sits between moment-to-moment fishing and longer-term progression. A catch is a short interaction; Starwell progress is the longer-running record of what those offerings have contributed to.
+
+### Why Stable StoryUnlockId Values Matter
+
+`FStarwellOfferingThreshold` includes a `StoryUnlockId` so reached thresholds can be tracked by a stable key.
+
+That matters because content changes are normal during development. Threshold names, display text, order, reward tuning, and future narrative hooks may change. A save file should not break because a row moved in an array or a label was rewritten.
+
+Using stable IDs keeps the saved `ReachedStoryUnlockIds` list easier to reason about across save/load, content edits, and future expansion.
+
+### What The Starwell Should Own
+
+`AStarwell` should own the gameplay rules directly tied to offerings and threshold progress:
+
+- whether a fish offering is accepted
+- how offering value contributes to Starwell progress
+- when offering progress changes
+- which threshold IDs have already been reached
+- when threshold events should broadcast
+- how Starwell progress restores from saved data
+- whether threshold setup looks valid enough to test
+
+Keeping those responsibilities on the Starwell makes the actor easier to explain as a world-facing progression object.
+
+### What Should Stay Outside It
+
+The Starwell should not try to own every part of the game loop.
+
+Other systems should stay responsible for their own areas:
+
+- `UFishingComponent` should own casting, bite, reel, catch, and fish progress state.
+- Economy systems should own broader resource balances, costs, and upgrades.
+- UI, VFX, audio, and world presentation should respond through Blueprint-facing events.
+- Future story content should stay data-driven instead of being hard-coded into the actor.
+- Save helpers should coordinate cross-system capture and restore rather than relying on direct live Actor references.
+
+This separation keeps the Starwell connected to the loop without turning it into a catch-all system.
+
+### QA Questions
+
+Useful questions for testing this system:
+
+- Does offering a valid fish increase Starwell progress once?
+- Does the reward value stay understandable when fish values change?
+- Does a threshold fire only once after its required progress is reached?
+- Are empty or duplicate `StoryUnlockId` values caught before they become save/load problems?
+- Does loading saved Starwell progress restore reached IDs without replaying rewards?
+- Do Blueprint-facing events provide clean refresh points for presentation without owning the underlying rules?
+- Can debug tooling validate offering progress and threshold setup during PIE testing?
+
+### Known Limits
+
+This note does not claim finished Starwell gameplay, finished narrative content, or final progression balance. The current documentation focuses on system responsibilities, threshold safety, and how the Starwell connects fishing rewards to longer-term progress.
+
+Areas that may still change include final threshold content, story unlock design, reward tuning, UI, VFX, audio, level placement, and how future cards, upgrades, or narrative branches respond to Starwell progress.
+
 ## Save/Load Reliability Fix
 
 One recent Nyx improvement focused on making save/load behavior more reliable while the project is still a gameplay systems prototype. This note explains the reliability reasoning behind the fix at a portfolio level.
@@ -217,6 +301,7 @@ For each system I add to this showcase, I want to keep the writeup small and pra
 | 2026-05-02 | Documented save/load reliability fix | Added notes on active cast restoration, Blueprint post-load events, and stable Starwell threshold IDs. |
 | 2026-05-02 | Added PIE smoke test checklist | Added a WIP manual validation checklist for the fishing, Starwell, economy, save, and load loop. |
 | 2026-05-02 | Added fishing component system note | Documented the purpose, state flow, boundaries, QA questions, and limits for `UFishingComponent`. |
+| 2026-05-02 | Added Starwell threshold system note | Documented `AStarwell` responsibilities, threshold flow, stable `StoryUnlockId` values, QA questions, and limits. |
 
 Future entries can track:
 
@@ -255,8 +340,8 @@ Screenshots or short clips can be added once they show a useful tested state. Un
 ## Next Steps
 
 - Add one QA note from a PIE validation pass
-- Add a short Starwell threshold system note
 - Add class-level references from `Source/Nyx` if the source is shared publicly and the names can be verified directly
+- Add a short economy component system note
 - Decide which screenshot or clip would help explain the project without overselling it
 - Add a simple "known issues" table once there are real observations to track
 - Keep future updates specific, small, and tied to what was actually tested
