@@ -37,6 +37,90 @@ These are the current areas I want to document as the project develops. Names an
 | Validation helpers | Building notes around small checks that support reliability | What can be verified quickly before deeper playtesting? |
 | PIE validation | Using Play in Editor sessions to check behavior while iterating | What should be tested every time a system changes? |
 
+## Fishing Component System Note
+
+`UFishingComponent` is the current C++ system note I want to explain first because it sits at the front of the Nyx gameplay loop. Its purpose is to manage the fishing interaction: starting a cast, selecting a fish, waiting for a bite, reeling, completing or failing a catch, recording catch progress, and optionally offering the completed catch to the Starwell.
+
+This is still work-in-progress prototype documentation. The component is being presented as a focused gameplay system, not as finished player-facing fishing gameplay.
+
+### Current Scope
+
+The component currently represents the main fishing flow and related state:
+
+- available fish definitions
+- deterministic cast selection through seed and cast index
+- active fishing state
+- selected fish for the current cast
+- bite timing
+- reel tension
+- catch completion and failure
+- durable fishing progress such as discovered fish and catch counts
+- Blueprint-facing events for presentation layers
+- optional reward routing to `AStarwell` and economy systems
+
+### Basic State Flow
+
+The basic flow I am documenting is:
+
+```text
+Idle -> Casting -> FishBiting -> Reeling -> CatchComplete
+```
+
+There is also a failure path:
+
+```text
+Casting / FishBiting / Reeling -> CatchFailed
+```
+
+When loading saved progress, active runtime fishing state should return to `Idle` instead of trying to restore a half-finished cast.
+
+### What This Component Should Own
+
+`UFishingComponent` should own the gameplay rules directly tied to the fishing interaction:
+
+- whether a cast can start
+- which fish is selected for a cast
+- when a bite occurs
+- whether the player can start reeling
+- how tension changes during the prototype loop
+- when a catch resolves
+- when catch progress is recorded
+- when fishing state changes should notify Blueprint
+
+Keeping those responsibilities together makes the system easier to reason about during testing.
+
+### What Should Stay Outside It
+
+The fishing component should not try to own the entire game.
+
+Other systems should stay responsible for their own areas:
+
+- `AStarwell` should own offering progress, threshold checks, and Starwell unlock state.
+- Economy systems should own resources, costs, and rewards.
+- UI, VFX, audio, and animation should respond through Blueprint events instead of being hard-coded into the component.
+- Long-term save/load coordination should stay in save helpers instead of depending on live Actor state.
+- Final content tuning and presentation should remain separate from the core C++ rules.
+
+This separation is part of what I am practicing: keeping one gameplay component focused while still letting it connect to the rest of the loop.
+
+### QA Questions
+
+Useful questions for testing this component:
+
+- Can a cast start only when the fishing state allows it?
+- What happens if the player tries to reel before a bite?
+- Does a completed catch resolve once instead of duplicating rewards or progress?
+- Does a failed catch clear temporary state safely?
+- Does save/load preserve durable progress while returning active casts to `Idle`?
+- Do Blueprint-facing events give presentation layers enough information without owning gameplay rules?
+- Can debug tooling exercise the happy path and obvious failure paths in PIE?
+
+### Known Limits
+
+This note does not claim final fishing gameplay. The current documentation focuses on system boundaries and testable behavior.
+
+Areas that may still change include final tuning, UI, VFX, audio, animation, fish content, full player controls, and how future cards or upgrades affect the fishing loop.
+
 ## Save/Load Reliability Fix
 
 One recent Nyx improvement focused on making save/load behavior more reliable while the project is still a gameplay systems prototype. This note explains the reliability reasoning behind the fix at a portfolio level.
@@ -132,6 +216,7 @@ For each system I add to this showcase, I want to keep the writeup small and pra
 | 2026-05-02 | Added Nyx project details | Moved useful Unreal project details into this showcase while keeping the page honest about work-in-progress status. |
 | 2026-05-02 | Documented save/load reliability fix | Added notes on active cast restoration, Blueprint post-load events, and stable Starwell threshold IDs. |
 | 2026-05-02 | Added PIE smoke test checklist | Added a WIP manual validation checklist for the fishing, Starwell, economy, save, and load loop. |
+| 2026-05-02 | Added fishing component system note | Documented the purpose, state flow, boundaries, QA questions, and limits for `UFishingComponent`. |
 
 Future entries can track:
 
@@ -169,8 +254,8 @@ Screenshots or short clips can be added once they show a useful tested state. Un
 
 ## Next Steps
 
-- Add one short system note for the fishing component
 - Add one QA note from a PIE validation pass
+- Add a short Starwell threshold system note
 - Add class-level references from `Source/Nyx` if the source is shared publicly and the names can be verified directly
 - Decide which screenshot or clip would help explain the project without overselling it
 - Add a simple "known issues" table once there are real observations to track
