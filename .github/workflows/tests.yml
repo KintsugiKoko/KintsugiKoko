@@ -5,6 +5,21 @@ on:
   pull_request:
 
 jobs:
+  agent-guide-checks:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Check AGENTS.md guide rules
+        run: python scripts/check_agent_guides.py
+
   pytest:
     runs-on: ubuntu-latest
 

@@ -37,18 +37,56 @@ Treat this project like a training chamber. Each task should build one practical
 
 ## Second Brain ELO Prompt System
 
-For Second Brain work, next-step prompts should be organized by ELO tier when useful:
+For Second Brain work, prompt packs should use this ELO scale:
 
 | ELO | Rank | Use Case |
 |---:|---|---|
-| 1000 | Wood | Explain, guide, review safely, teach the concept |
-| 1400 | Gold | Make a scoped repo change with tests/docs |
-| 1800 | Diamond | Audit architecture, risks, verification, and portfolio positioning |
+| 1000 | Wood / GPT | GPT explanation, learning support, and reflection |
+| 1400 | Gold / Codex | Scoped repo edits, docs, tests, verification, small implementation tasks |
+| 1800 | Diamond / Codex | Audits, hardening passes, branch reviews, risk analysis, portfolio/recruiter signal |
 
-When suggesting next actions, provide both:
+## Prompt Lane Rule
 
-- ChatGPT prompt
-- Codex prompt
+For Second Brain work, prompt packs should include both lanes in this order:
+
+1. Codex Lane
+   - 🟡 ELO 1400 — Gold / Codex
+   - 💎 ELO 1800 — Diamond / Codex
+
+2. GPT Lane
+   - 🪵 ELO 1000 — Wood / GPT
+   - 🟡 ELO 1400 — Gold / GPT
+   - 💎 ELO 1800 — Diamond / GPT
+
+Rules:
+
+- Codex Lane always comes first.
+- GPT Lane always comes second.
+- Do not interleave Codex and GPT prompts.
+- Do not provide only one rank unless the user explicitly asks for a single prompt.
+- If one option is recommended, still provide the full prompt pack first, then label the recommendation separately.
+- Keep Wood, Gold, and Diamond labels consistent.
+- Do not include Wood prompts in Codex responses. Wood is reserved for GPT explanation, learning support, and reflection.
+
+Codex Lane is for:
+
+- Repository edits
+- Code changes
+- File creation
+- Tests
+- Documentation updates
+- Verification
+- Commits and PR summaries
+
+GPT Lane is for:
+
+- Planning
+- Review
+- Reflection
+- Learning support
+- Resume/portfolio framing
+- Senior critique
+- Next-step strategy
 
 Every prompt card should include:
 
@@ -59,56 +97,16 @@ Every prompt card should include:
 - Risk level
 - Copy-ready prompt
 
-Prompt-card heading examples:
+Prompt-card examples should follow this lane order:
 
-### 🪵 ELO 1000 — Wood / ChatGPT Guide
+### Codex Lane
 
-- Destination: ChatGPT
-- Use when: Keith needs the concept explained before acting.
-- Risk level: Low
-- Copy-ready prompt:
+#### 🟡 ELO 1400 — Gold / Codex
 
-```text
-Explain this repo change in plain language and tell me what I should learn from it.
-```
-
-### 🟡 ELO 1400 — Gold / ChatGPT Planning Pass
-
-- Destination: ChatGPT
-- Use when: Keith needs a scoped plan before asking Codex to edit files.
-- Risk level: Medium
-- Copy-ready prompt:
-
-```text
-Turn this goal into a scoped repo task with definition of done, likely files, verification steps, and a portfolio-safe summary.
-```
-
-### 💎 ELO 1800 — Diamond / ChatGPT Senior Review
-
-- Destination: ChatGPT
-- Use when: Keith needs risk, architecture, validation, or recruiter-positioning review.
-- Risk level: High
-- Copy-ready prompt:
-
-```text
-Review this project direction for risks, acceptance criteria, verification coverage, maintainability, and honest portfolio framing.
-```
-
-### 🪵 ELO 1000 — Wood / Codex Quest Starter
-
+- ELO number: 1400
+- Rank: Gold
 - Destination: Codex
-- Use when: Keith needs a safe repo review, explanation, or small guided check.
-- Risk level: Low
-- Copy-ready prompt:
-
-```text
-Review this file or diff and explain what changed, what I should learn, and whether it is safe to commit.
-```
-
-### 🟡 ELO 1400 — Gold / Codex Dungeon Run
-
-- Destination: Codex
-- Use when: Keith wants a scoped repo change with tests and docs.
+- Use when: Keith wants a scoped repo change with tests, docs, and verification.
 - Risk level: Medium
 - Copy-ready prompt:
 
@@ -116,16 +114,222 @@ Review this file or diff and explain what changed, what I should learn, and whet
 Make this scoped repo change, update tests/docs if behavior changes, run verification, and summarize exactly what changed.
 ```
 
-### 💎 ELO 1800 — Diamond / Codex Raid Lead
+#### 💎 ELO 1800 — Diamond / Codex
 
+- ELO number: 1800
+- Rank: Diamond
 - Destination: Codex
-- Use when: Keith needs a deeper audit of quality, risks, verification, and portfolio positioning.
+- Use when: Keith needs a deep repo audit covering quality, risks, verification, and portfolio positioning.
 - Risk level: High
 - Copy-ready prompt:
 
 ```text
 Audit this project for architecture risks, edge cases, verification gaps, maintainability issues, and honest recruiter-facing framing.
 ```
+
+### GPT Lane
+
+#### 🪵 ELO 1000 — Wood / GPT
+
+- ELO number: 1000
+- Rank: Wood
+- Destination: ChatGPT
+- Use when: Keith needs a concept explained, a safe review, or beginner-friendly learning support.
+- Risk level: Low
+- Copy-ready prompt:
+
+```text
+Explain this repo change in plain language and tell me what I should learn from it.
+```
+
+#### 🟡 ELO 1400 — Gold / GPT
+
+- ELO number: 1400
+- Rank: Gold
+- Destination: ChatGPT
+- Use when: Keith needs planning, review, or next-step strategy for a scoped task.
+- Risk level: Medium
+- Copy-ready prompt:
+
+```text
+Turn this goal into a scoped repo task with definition of done, likely files, verification steps, and a portfolio-safe summary.
+```
+
+#### 💎 ELO 1800 — Diamond / GPT
+
+- ELO number: 1800
+- Rank: Diamond
+- Destination: ChatGPT
+- Use when: Keith needs senior critique, risk analysis, resume/portfolio framing, or strategic review.
+- Risk level: High
+- Copy-ready prompt:
+
+```text
+Review this project direction for risks, acceptance criteria, verification coverage, maintainability, and honest portfolio framing.
+```
+
+## Codex Response Rules
+
+Codex should treat this repo as Keith McAvoy's Second Brain / public-development portfolio.
+
+Keith is a QA / Technical QA professional learning code in public. Codex should support scoped implementation, documentation, tests, verification, PR summaries, and portfolio cleanup without overstating Keith's coding, automation, or engineering experience.
+
+### Codex Rank Rules
+
+Codex should use only these ranks:
+
+| ELO | Rank | Use Case |
+|---:|---|---|
+| 1400 | Gold / Codex | Scoped repo edits, docs, tests, verification, small implementation tasks |
+| 1800 | Diamond / Codex | Audits, hardening passes, branch reviews, risk analysis, portfolio/recruiter signal |
+
+Do not include Wood prompts in Codex responses. Wood is reserved for GPT explanation, learning support, and reflection.
+
+### Codex Response Order
+
+For meaningful Codex work, respond in this order:
+
+1. Summary of what changed
+2. Files changed
+3. Verification performed
+4. What was not tested
+5. Known limitations / risks
+6. Portfolio or recruiter-signal note
+7. Suggested commit message
+8. Next prompt for GPT review
+9. Optional next Codex prompt, only if another repo edit is needed
+
+### Codex Prompt Rules
+
+When Codex suggests a follow-up Codex task, label it as either:
+
+#### 🟡 ELO 1400 — Gold / Codex
+
+Use for:
+
+- One scoped repo change
+- Documentation update
+- Test update
+- README polish
+- Small implementation task
+- Verification cleanup
+
+or:
+
+#### 💎 ELO 1800 — Diamond / Codex
+
+Use for:
+
+- Branch cleanup audit
+- Risk review
+- Multi-file hardening pass
+- PR narrative review
+- Portfolio/recruiter-signal review
+- Architecture or maintainability audit
+
+Do not include:
+
+- Wood-ranked Codex prompts
+- Legacy three-tier labels
+- Fourth-rank tiers
+- Interleaved GPT and Codex prompts
+
+### GPT Handoff Rule
+
+When Codex suggests a GPT follow-up, label it clearly as:
+
+## GPT Review Prompt
+
+The GPT prompt should be for:
+
+- Planning
+- Reflection
+- Learning support
+- Recruiter framing
+- Senior QA/tools review
+- Portfolio critique
+
+Codex should not try to provide beginner teaching inside the Codex response. If Keith needs beginner explanation, hand that off to GPT.
+
+### Scope Control Rules
+
+Codex should:
+
+- Prefer small, focused edits over broad rewrites
+- Avoid unrelated file changes
+- Preserve existing working behavior
+- Add or update tests when behavior changes
+- Update README/docs when behavior changes
+- Use fictional/sample data only
+- Avoid proprietary, NDA, or internal studio material
+- Keep WIP labels clear
+- Avoid claiming production readiness unless actually proven
+
+### Verification Rules
+
+Codex should always say what it verified.
+
+For QA tooling:
+
+- Run pytest when tests exist
+- Run relevant CLI commands when practical
+- Confirm README commands match behavior
+- List what was not tested
+
+For Project Nyx:
+
+- Do not claim PIE validation unless PIE was actually run
+- Mark placeholder art/systems clearly
+- State what was manually checked
+- State what remains WIP
+
+For portfolio/resume/landing page work:
+
+- Confirm links and labels
+- Confirm project statuses remain accurate
+- Confirm wording does not overstate coding, automation, or engineering experience
+- Confirm recruiter-facing claims are backed by visible evidence
+
+### Portfolio Safety Rules
+
+Codex should keep Keith's public positioning confident but accurate.
+
+Use language like:
+
+- Public-development portfolio
+- Scoped QA tooling project
+- First working version
+- WIP prototype
+- Human-reviewed AI-assisted workflow
+- Verification notes
+- Known limitations
+
+Avoid overusing:
+
+- Honest
+- Beginner
+- Not production-ready
+- Still learning
+
+Avoid claiming:
+
+- Software engineer
+- Automation engineer
+- Senior developer
+- Production-ready tool
+- Completed game prototype
+- Final art
+- Validated gameplay loop
+
+unless Keith explicitly provides evidence and asks for that framing.
+
+### Standard Codex Ending
+
+End meaningful Codex responses with:
+
+- Suggested commit message
+- GPT Review Prompt
+- Optional Gold / Codex or Diamond / Codex next step if needed
 
 Every meaningful task should include:
 
@@ -256,6 +460,51 @@ Keith owns the outcome. Codex writes or edits, but Keith verifies. Every Codex t
 - What should Keith learn from this diff?
 - What is the next smallest improvement?
 
+## Test Plan Agents
+
+Use these Test Plan Agents as role modes for planning, reviewing, and verifying QA work. They are not autonomous services and should not be described as production automation. They are supervised thinking roles that help Keith turn QA judgment into clear test plans, checks, and evidence.
+
+### Test Plan Lead
+
+- Defines the feature or documentation scope.
+- Names the user flow, risk areas, and acceptance criteria.
+- Separates in-scope checks from out-of-scope future work.
+- Keeps the plan small enough to verify in one focused pass.
+
+### Scenario Designer
+
+- Turns the goal into realistic happy-path, edge-case, and negative scenarios.
+- Uses fictional/sample data only.
+- Connects scenarios to player impact, QA workflow value, or portfolio evidence.
+- Avoids broad "test everything" prompts.
+
+### Verification Runner
+
+- Lists the exact manual checks, CLI commands, pytest commands, browser checks, or PIE smoke checks to run.
+- Records what passed, what failed, what was skipped, and why.
+- Does not claim verification passed unless the check was actually run.
+- Calls out remaining risk when verification is partial.
+
+### Regression Scout
+
+- Identifies nearby behavior that could break.
+- Suggests focused regression checks for related files, docs, commands, links, or workflows.
+- Looks for mismatches between README claims and real behavior.
+- Keeps regression scope practical for a beginner-maintained repo.
+
+### Evidence Scribe
+
+- Turns results into a clear summary for commits, PR descriptions, devlogs, learning logs, or portfolio notes.
+- Leads with evidence instead of hype.
+- Marks WIP, placeholder, partial validation, and not-run checks clearly.
+- Keeps AI assistance framed as human-reviewed workflow practice.
+
+## Agent Guide Automation Checks
+
+- Run `python scripts/check_agent_guides.py` after changing `AGENTS.md` files.
+- The check verifies the Codex-first prompt lane rules, Test Plan Agent roles, and key project-specific guide phrases.
+- GitHub Actions runs the same script so agent guide drift is easier to catch before merging.
+
 ## Review Checklist
 
 When updating portfolio content, check that:
@@ -273,9 +522,10 @@ When updating portfolio content, check that:
 - At the end of meaningful work, summarize what changed.
 - Include how to run or preview, tests run, known limitations, and a practical suggested commit message when relevant.
 - Always include copy-ready next-step prompts after meaningful work:
-  - ChatGPT prompts for planning, reflection, review, or learning context
-  - Codex prompts for concrete repository edits, validation, commits, or publishing
-  - Wood, Gold, and Diamond ELO levels when creating prompts or next steps
+  - Codex Lane first, for concrete repository edits, validation, commits, or publishing
+  - GPT Lane second, for planning, reflection, review, learning context, resume/portfolio framing, or strategy
+  - Gold / Codex or Diamond / Codex for Codex follow-ups
+  - Wood, Gold, and Diamond for GPT follow-ups when useful
 - Clearly say where each prompt belongs, such as ChatGPT, Codex, GitHub, or a local terminal.
 - Briefly explain why each next prompt or skill-building exercise matters, especially how it builds practical understanding.
 
@@ -288,6 +538,5 @@ At the end of meaningful work, provide:
 - Tests run
 - Known limitations
 - Suggested commit message
-- Wood ELO follow-up prompt
-- Gold ELO follow-up prompt
-- Diamond ELO follow-up prompt
+- GPT Review Prompt
+- Optional Gold / Codex or Diamond / Codex next step if needed
