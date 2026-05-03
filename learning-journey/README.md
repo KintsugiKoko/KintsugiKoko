@@ -41,6 +41,7 @@ Each weekly reflection should answer these questions in plain language:
 ## Log Index
 
 - [Week 01 - Starting the Rebuild](logs/2026-05-week-01.md)
+- [Week 01 - QA Tooling Practice](logs/2026-05-week-01-qa-tooling-practice.md)
 
 ## How to Add a New Log
 
