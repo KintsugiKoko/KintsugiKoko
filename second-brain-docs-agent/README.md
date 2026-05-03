@@ -29,9 +29,11 @@ It can help turn raw learning material into first-pass drafts for:
 
 The drafts are not final writing. They are a starting point for review.
 
-## Portfolio Blurb
+## Recruiter-Friendly Project Summary
 
-Second Brain Docs Agent is an early local-only, draft-only Python MVP for turning Obsidian notes and local chat exports into structured Markdown drafts for human review. It does not require API keys, does not publish externally, and does not connect to Confluence yet. The project supports my QA, game-dev, and agentic engineering workflow by helping turn raw learning notes into reviewable documentation while keeping privacy, WIP honesty, and human judgment at the center.
+Second Brain Docs Agent is an early local-first documentation helper that turns Obsidian notes and exported chat transcripts into structured Markdown drafts. It is draft-only, requires no API keys, does not publish externally yet, and keeps human review before anything is shared.
+
+As a portfolio project, it demonstrates QA-minded workflow design, documentation discipline, and practical agentic engineering by turning scattered learning notes, project decisions, action items, and conversation exports into reviewable documentation without pretending the drafts are final output.
 
 ## Why I Built It
 
