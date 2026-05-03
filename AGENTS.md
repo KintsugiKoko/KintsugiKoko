@@ -39,14 +39,93 @@ Treat this project like a training chamber. Each task should build one practical
 
 For Second Brain work, next-step prompts should be organized by ELO tier when useful:
 
-- Beginner ELO: explicit, guided, low-risk, learning-focused.
-- Intermediate ELO: scoped, practical, assumes basic repo/tool comfort.
-- Expert ELO: production-style, includes risks, acceptance criteria, verification, and portfolio/recruiter framing.
+| ELO | Rank | Use Case |
+|---:|---|---|
+| 1000 | Wood | Explain, guide, review safely, teach the concept |
+| 1400 | Gold | Make a scoped repo change with tests/docs |
+| 1800 | Diamond | Audit architecture, risks, verification, and portfolio positioning |
 
 When suggesting next actions, provide both:
 
 - ChatGPT prompt
 - Codex prompt
+
+Every prompt card should include:
+
+- ELO number
+- Rank
+- Destination: ChatGPT or Codex
+- Use when
+- Risk level
+- Copy-ready prompt
+
+Prompt-card heading examples:
+
+### 🪵 ELO 1000 — Wood / ChatGPT Guide
+
+- Destination: ChatGPT
+- Use when: Keith needs the concept explained before acting.
+- Risk level: Low
+- Copy-ready prompt:
+
+```text
+Explain this repo change in plain language and tell me what I should learn from it.
+```
+
+### 🟡 ELO 1400 — Gold / ChatGPT Planning Pass
+
+- Destination: ChatGPT
+- Use when: Keith needs a scoped plan before asking Codex to edit files.
+- Risk level: Medium
+- Copy-ready prompt:
+
+```text
+Turn this goal into a scoped repo task with definition of done, likely files, verification steps, and a portfolio-safe summary.
+```
+
+### 💎 ELO 1800 — Diamond / ChatGPT Senior Review
+
+- Destination: ChatGPT
+- Use when: Keith needs risk, architecture, validation, or recruiter-positioning review.
+- Risk level: High
+- Copy-ready prompt:
+
+```text
+Review this project direction for risks, acceptance criteria, verification coverage, maintainability, and honest portfolio framing.
+```
+
+### 🪵 ELO 1000 — Wood / Codex Quest Starter
+
+- Destination: Codex
+- Use when: Keith needs a safe repo review, explanation, or small guided check.
+- Risk level: Low
+- Copy-ready prompt:
+
+```text
+Review this file or diff and explain what changed, what I should learn, and whether it is safe to commit.
+```
+
+### 🟡 ELO 1400 — Gold / Codex Dungeon Run
+
+- Destination: Codex
+- Use when: Keith wants a scoped repo change with tests and docs.
+- Risk level: Medium
+- Copy-ready prompt:
+
+```text
+Make this scoped repo change, update tests/docs if behavior changes, run verification, and summarize exactly what changed.
+```
+
+### 💎 ELO 1800 — Diamond / Codex Raid Lead
+
+- Destination: Codex
+- Use when: Keith needs a deeper audit of quality, risks, verification, and portfolio positioning.
+- Risk level: High
+- Copy-ready prompt:
+
+```text
+Audit this project for architecture risks, edge cases, verification gaps, maintainability issues, and honest recruiter-facing framing.
+```
 
 Every meaningful task should include:
 
@@ -196,7 +275,7 @@ When updating portfolio content, check that:
 - Always include copy-ready next-step prompts after meaningful work:
   - ChatGPT prompts for planning, reflection, review, or learning context
   - Codex prompts for concrete repository edits, validation, commits, or publishing
-  - Beginner ELO, Intermediate ELO, and Expert ELO levels when creating prompts or next steps
+  - Wood, Gold, and Diamond ELO levels when creating prompts or next steps
 - Clearly say where each prompt belongs, such as ChatGPT, Codex, GitHub, or a local terminal.
 - Briefly explain why each next prompt or skill-building exercise matters, especially how it builds practical understanding.
 
@@ -209,6 +288,6 @@ At the end of meaningful work, provide:
 - Tests run
 - Known limitations
 - Suggested commit message
-- Beginner ELO follow-up prompt
-- Intermediate ELO follow-up prompt
-- Expert ELO follow-up prompt
+- Wood ELO follow-up prompt
+- Gold ELO follow-up prompt
+- Diamond ELO follow-up prompt

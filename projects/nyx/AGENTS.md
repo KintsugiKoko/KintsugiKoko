@@ -50,9 +50,11 @@ Use the loop: Plan → Implement → Verify → Document → Summarize → Portf
 
 When creating prompts or next steps, separate ChatGPT prompts from Codex prompts and use ELO tiers when useful:
 
-- Beginner ELO: explicit, guided, low-risk, learning-focused.
-- Intermediate ELO: scoped, practical, assumes basic repo/tool comfort.
-- Expert ELO: production-style review style, including risks, acceptance criteria, verification, maintainability, and portfolio/recruiter framing.
+| ELO | Rank | Use Case |
+|---:|---|---|
+| 1000 | Wood | Explain, guide, review safely, teach the concept |
+| 1400 | Gold | Make a scoped repo change with tests/docs |
+| 1800 | Diamond | Audit architecture, risks, verification, and portfolio positioning |
 
 ## Good Weekly Slices
 
@@ -125,6 +127,6 @@ At the end of meaningful work, provide:
 - Known limitations and WIP notes
 - Portfolio-safe summary
 - Suggested commit message
-- Beginner ELO ChatGPT prompt and Codex prompt
-- Intermediate ELO ChatGPT prompt and Codex prompt
-- Expert ELO ChatGPT prompt and Codex prompt
+- ELO 1000 Wood ChatGPT prompt and Codex prompt
+- ELO 1400 Gold ChatGPT prompt and Codex prompt
+- ELO 1800 Diamond ChatGPT prompt and Codex prompt
