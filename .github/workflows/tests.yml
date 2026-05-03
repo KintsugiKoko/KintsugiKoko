@@ -13,6 +13,7 @@ jobs:
         project:
           - projects/qa-bug-report-tool
           - projects/obsidian-conversation-sync-agent
+          - projects/community-pulse-report-tool
 
     steps:
       - name: Check out repository
