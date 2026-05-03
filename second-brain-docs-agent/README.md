@@ -2,9 +2,11 @@
 
 Status: early MVP, local-only, draft-only.
 
-Second Brain Docs Agent is a small Python project that turns local Obsidian notes and local ChatGPT-style exports into structured Markdown drafts. It is designed for human review, not automatic publishing.
+Second Brain Docs Agent is a local-first documentation helper built to turn Obsidian notes and exported chat transcripts into structured Markdown drafts for human review.
 
-This MVP is intentionally conservative:
+This early MVP is intentionally conservative: it runs locally, requires no API keys, does not publish externally, and keeps all output in draft form. The goal is to help organize daily learning notes, project updates, decisions, action items, and portfolio-worthy proof into clearer documentation before anything is shared.
+
+MVP boundaries:
 
 - local-only
 - draft-only
@@ -27,11 +29,15 @@ It can help turn raw learning material into first-pass drafts for:
 
 The drafts are not final writing. They are a starting point for review.
 
+## Portfolio Blurb
+
+Second Brain Docs Agent is an early local-only, draft-only Python MVP for turning Obsidian notes and local chat exports into structured Markdown drafts for human review. It does not require API keys, does not publish externally, and does not connect to Confluence yet. The project supports my QA, game-dev, and agentic engineering workflow by helping turn raw learning notes into reviewable documentation while keeping privacy, WIP honesty, and human judgment at the center.
+
 ## Why I Built It
 
 I use Obsidian to track Journey Journal entries, weekly reviews, project notes, prompt logs, and learning-in-public reflections. A lot of useful evidence starts in messy notes: what I built, what confused me, what I tested, what decisions I made, and what should happen next.
 
-I built this MVP to practice turning that raw learning trail into clearer documentation without losing the original notes. It supports my QA, game-dev, and agentic engineering workflow by helping me collect evidence before it becomes portfolio language.
+I built this MVP to practice turning that raw learning trail into clearer documentation without losing the original notes. It supports my QA/game-dev and agentic engineering workflow by turning scattered notes and conversations into reviewable project documentation, portfolio update drafts, and future Codex task prompts.
 
 The goal is not to replace human judgment. The goal is to make review easier.
 
