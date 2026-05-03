@@ -260,25 +260,29 @@ Suggested PIE smoke checks:
 
 This checklist connects the C++ architecture to QA practice. The important part is that I can describe how I would validate the player-facing loop, watch for regressions, and keep save/load behavior safe as the prototype grows.
 
-## Beginner Blender Placeholder Task Plan
+## Beginner Blender Placeholder Asset Checklist
 
-This PR/documentation note adds a beginner-friendly task plan for creating Blender placeholder assets for the Nyx vertical slice. The goal is not polished final art yet. The goal is to create readable PH assets and low-poly blockouts that can support gameplay testing while the prototype is still changing.
+This checklist is for creating beginner-friendly placeholder (PH) assets in Blender for the Nyx prototype slice. The goal is not polished final art yet. The goal is to create readable low-poly blockouts that can support gameplay testing while the prototype is still changing.
 
-What this plan covers:
+Suggested first-pass checklist:
 
-- Creating simple PH assets and low-poly blockouts in Blender
-- Practicing a Blender-to-Unreal workflow for early prototype assets
-- Checking scale, sockets, pivots, naming, and placement before assets are used in gameplay tests
-- Using PIE testing to confirm placeholder assets support the intended interaction flow
-- Keeping asset work clearly marked as WIP, prototype-focused, and safe to replace later
+| Step | Placeholder task | What I should check |
+| --- | --- | --- |
+| 1 | Create a simple soul-form fish blockout | Shape reads clearly from gameplay distance and stays easy to replace later. |
+| 2 | Create a chunky Starwell blockout | Scale, silhouette, and interaction space make the offering point understandable. |
+| 3 | Create a Nyx merchant/ferryman blockout | The placeholder supports role and placement without claiming final character art. |
+| 4 | Set clean names, pivots, and scale | Assets import into Unreal with predictable transforms and usable placement. |
+| 5 | Add sockets or attachment points only where needed | Future hooks for interaction, VFX, or UI markers stay intentional instead of guessed. |
+| 6 | Import into Unreal and place in a test area | The assets support the fishing, Starwell, and merchant flow during PIE checks. |
+| 7 | Record a short QA note or screenshot | The portfolio captures what worked, what looked unclear, and what should change next. |
 
-Why this matters for the vertical slice:
+Why this matters for the prototype slice:
 
-The Nyx vertical slice needs enough visual structure to test the fishing loop, Starwell interaction, reward feedback, save/load behavior, and basic world readability. Placeholder assets help make those systems testable without pretending that final models, animation, VFX, or presentation are complete.
+Nyx needs enough visual structure to test the fishing loop, Starwell interaction, reward feedback, save/load behavior, and basic world readability. Placeholder assets help make those systems testable without pretending that final models, animation, VFX, or presentation are complete.
 
 Recruiter-facing value:
 
-This plan shows how I am connecting beginner Blender practice to practical Unreal validation. It also keeps the scope honest: the asset work supports iteration, testing, sockets/pivots review, and clear documentation rather than claiming a finished art pipeline.
+This checklist shows how I am connecting beginner Blender practice to practical Unreal validation. It keeps the scope honest: the asset work supports iteration, testing, sockets/pivots review, and clear documentation rather than claiming a finished art pipeline.
 
 ## What This Showcase Is Meant To Show
 
@@ -323,7 +327,7 @@ For each system I add to this showcase, I want to keep the writeup small and pra
 | 2026-05-02 | Added fishing component system note | Documented the purpose, state flow, boundaries, QA questions, and limits for `UFishingComponent`. |
 | 2026-05-02 | Added Starwell threshold system note | Documented `AStarwell` responsibilities, threshold flow, stable `StoryUnlockId` values, QA questions, and limits. |
 | 2026-05-02 | Added first PIE smoke test result | Recorded a partial validation result for save/load behavior, active cast restoration, and follow-up Blueprint presentation checks. |
-| 2026-05-02 | Added Beginner Blender Placeholder Task Plan | Captured a WIP plan for PH assets, low-poly blockouts, Blender-to-Unreal workflow practice, sockets/pivots checks, and PIE validation support for the Nyx vertical slice. |
+| 2026-05-02 | Added Beginner Blender Placeholder Asset Checklist | Captured a WIP checklist for placeholder assets, low-poly blockouts, Blender-to-Unreal workflow practice, sockets/pivots checks, and PIE validation support for the Nyx prototype slice. |
 
 Future entries can track:
 
@@ -386,7 +390,7 @@ Screenshots or short clips can be added once they show a useful tested state. Un
 - Run a follow-up PIE pass focused on post-load presentation and Starwell threshold refresh behavior
 - Add class-level references from `Source/Nyx` if the source is shared publicly and the names can be verified directly
 - Add a short economy component system note
-- Create the first PH asset checklist for Blender-to-Unreal import, sockets, pivots, scale, and PIE placement checks
+- Use the placeholder asset checklist to create and test the first Blender-to-Unreal blockout
 - Decide which screenshot or clip would help explain the project without overselling it
 - Add a simple "known issues" table once there are real observations to track
 - Keep future updates specific, small, and tied to what was actually tested
