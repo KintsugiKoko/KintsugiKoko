@@ -39,6 +39,20 @@ Second Brain Docs Agent is an early local-first documentation helper that turns 
 
 As a portfolio project, it demonstrates QA-minded workflow design, documentation discipline, and practical agentic engineering by turning scattered learning notes, project decisions, action items, and conversation exports into reviewable documentation without pretending the drafts are final output.
 
+## Resume / LinkedIn Summary
+
+Resume bullet:
+
+- Built a local-only, draft-only documentation automation MVP that converts Obsidian notes and exported chat transcripts into human-reviewed Markdown drafts, demonstrating QA-minded workflow design, documentation discipline, and practical agentic engineering without API keys or external publishing.
+
+LinkedIn project blurb:
+
+Second Brain Docs Agent is a local-first documentation automation MVP I built to support my QA/game-dev and agentic engineering workflow.
+
+The tool turns Obsidian notes and exported chat transcripts into structured Markdown drafts for human review. It is intentionally conservative in this MVP stage: local-only, draft-only, no API keys, and no external publishing yet.
+
+The project reflects how I approach tooling as a QA-minded builder: capture messy work, extract decisions and tasks, create reviewable documentation, and turn scattered learning into reusable project and portfolio evidence.
+
 ## Why I Built It
 
 I use Obsidian to track Journey Journal entries, weekly reviews, project notes, prompt logs, and learning-in-public reflections. A lot of useful evidence starts in messy notes: what I built, what confused me, what I tested, what decisions I made, and what should happen next.
