@@ -1,0 +1,17 @@
+{
+  "title": "Nyx Docs Agent Planning Chat",
+  "messages": [
+    {
+      "role": "user",
+      "content": "I want a draft-only Second Brain Docs Agent that reads Obsidian notes and ChatGPT exports."
+    },
+    {
+      "role": "assistant",
+      "content": "Start with local ingestion, deterministic extraction, Markdown rendering, and a dry-run Confluence placeholder."
+    },
+    {
+      "role": "user",
+      "content": "Decision: no publishing yet and no real API keys. Next, create tests and sample notes tailored to QA, game development, Codex, and portfolio building."
+    }
+  ]
+}
