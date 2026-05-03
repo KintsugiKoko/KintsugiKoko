@@ -302,6 +302,7 @@ For each system I add to this showcase, I want to keep the writeup small and pra
 | 2026-05-02 | Added PIE smoke test checklist | Added a WIP manual validation checklist for the fishing, Starwell, economy, save, and load loop. |
 | 2026-05-02 | Added fishing component system note | Documented the purpose, state flow, boundaries, QA questions, and limits for `UFishingComponent`. |
 | 2026-05-02 | Added Starwell threshold system note | Documented `AStarwell` responsibilities, threshold flow, stable `StoryUnlockId` values, QA questions, and limits. |
+| 2026-05-02 | Added first PIE smoke test result | Recorded a partial validation result for save/load behavior, active cast restoration, and follow-up Blueprint presentation checks. |
 
 Future entries can track:
 
@@ -316,6 +317,28 @@ Future entries can track:
 ## QA and Playtest Notes
 
 This section will track practical observations from testing the project.
+
+### Recent Result
+
+Date: 2026-05-02
+
+Result: Partial
+
+What worked:
+
+- The save/load flow restored durable progress without trying to resume the active fishing cast.
+
+What failed or looked risky:
+
+- Blueprint presentation refresh still needs a follow-up pass to confirm UI, VFX, and audio update cleanly after load.
+
+Any bugs found:
+
+- None confirmed yet.
+
+Next action:
+
+- Run another PIE pass focused on post-load presentation and Starwell threshold refresh behavior.
 
 Suggested note format:
 
@@ -339,7 +362,7 @@ Screenshots or short clips can be added once they show a useful tested state. Un
 
 ## Next Steps
 
-- Add one QA note from a PIE validation pass
+- Run a follow-up PIE pass focused on post-load presentation and Starwell threshold refresh behavior
 - Add class-level references from `Source/Nyx` if the source is shared publicly and the names can be verified directly
 - Add a short economy component system note
 - Decide which screenshot or clip would help explain the project without overselling it
