@@ -1,0 +1,13 @@
+date,source,game_area,sentiment,text
+2026-05-01,fictional-feedback-form,Fishing,positive,"The casting loop felt relaxing and easy to understand after the first try."
+2026-05-01,fictional-feedback-form,Starwell,positive,"Offering fish to the Starwell made the session feel like it had a clear goal."
+2026-05-01,mock-playtest-note,Onboarding,negative,"I did not understand why the first soul-form fish mattered until later."
+2026-05-02,mock-community-digest,Merchant,positive,"Nyx being a merchant and ferryman sounds cozy and gives the run a personality."
+2026-05-02,mock-community-digest,UI,negative,"The reward summary would need clearer labels before I could tell what changed."
+2026-05-02,fictional-feedback-form,Fishing,mixed,"Waiting for a bite was calm, but I wanted a stronger cue when the fish was ready."
+2026-05-03,mock-playtest-note,Save Load,positive,"Loading back into a safe idle state made more sense than restoring a half-finished cast."
+2026-05-03,mock-playtest-note,Starwell,negative,"The Starwell threshold progress needs clearer feedback after an offering."
+2026-05-03,fictional-feedback-form,Merchant,neutral,"I want to know whether Nyx trades upgrades, story hints, or run bonuses."
+2026-05-04,mock-community-digest,Performance,negative,"The prototype should stay responsive when feedback effects are added."
+2026-05-04,fictional-feedback-form,Soul Fish,positive,"Soul-form fish variants could make collection feel personal without needing complex art yet."
+2026-05-04,mock-playtest-note,Onboarding,negative,"The first run needs a simple explanation of fishing, offering, and improving future runs."
