@@ -6,6 +6,67 @@ This repository is my GitHub profile and learning portfolio. Future Codex work s
 
 I love games. Intrepid closing forced a hard reset, but my love for games did not go away. I am using that reset as motivation to learn software development, GitHub, documentation, and AI-assisted workflows in public.
 
+## Purpose
+
+This repository exists to help Keith McAvoy grow from experienced Game QA / Technical QA into stronger QA tooling, automation, GitHub, documentation, and agent-supervised engineering habits.
+
+Keith is a QA professional learning code in public. The goal is not to pretend he is already a senior software engineer. The goal is to build honest, useful proof of growth through small QA-focused tools, tests, docs, and portfolio artifacts.
+
+## Core Identity
+
+Keith's lane:
+
+- Game QA / Technical QA professional
+- 7 years of game QA experience
+- Blizzard Entertainment and Intrepid Studios background
+- Strong QA judgment, bug communication, player-impact thinking, and systems validation
+- Actively building Python, pytest, GitHub, GitHub Actions, CLI tools, log triage, documentation, and AI-assisted QA workflows
+
+## Project Theme
+
+Treat this project like a training chamber. Each task should build one practical skill rep:
+
+- Reading code
+- Reviewing diffs
+- Writing tests
+- Improving README clarity
+- Creating QA tools
+- Running verification
+- Writing PR summaries
+- Maintaining honest portfolio documentation
+
+## Second Brain ELO Prompt System
+
+For Second Brain work, next-step prompts should be organized by ELO tier when useful:
+
+- Beginner ELO: explicit, guided, low-risk, learning-focused.
+- Intermediate ELO: scoped, practical, assumes basic repo/tool comfort.
+- Expert ELO: production-style, includes risks, acceptance criteria, verification, and portfolio/recruiter framing.
+
+When suggesting next actions, provide both:
+
+- ChatGPT prompt
+- Codex prompt
+
+Every meaningful task should include:
+
+- Goal
+- Context
+- Definition of done
+- Verification steps
+- Documentation update
+- Known limitations
+- Suggested commit message
+- Portfolio-safe summary
+
+Keep work honest. Do not overstate coding, automation, engineering, or production readiness.
+
+## Project-Specific Operating Guides
+
+- For QA Engineer Hyperbolic Time Chamber work, follow `projects/qa-engineer-hyperbolic-time-chamber/AGENTS.md`.
+- For Project Nyx work, follow `projects/nyx/AGENTS.md`.
+- When project-specific guidance conflicts with broad portfolio guidance, keep the root honesty, safety, and portfolio tone rules in force.
+
 ## Tone
 
 - Keep the tone honest, professional, resilient, game-connected, and beginner-friendly.
@@ -35,12 +96,31 @@ I love games. Intrepid closing forced a hard reset, but my love for games did no
 - Keep files simple and maintainable.
 - Prefer Markdown, plain HTML, and CSS unless I specifically ask for a framework.
 - Do not add frameworks, build tools, or external dependencies without a clear reason.
+- Use fictional/sample data only.
+- Do not use NDA, proprietary, or internal studio material.
 - Keep the repository structure easy to understand:
   - Root `README.md` for the GitHub profile and portfolio overview
   - `learning-journey/` for logs and reflections
   - `projects/` for the roadmap, writeups, and templates
   - `docs/` for the GitHub Pages site
 - Prefer small, focused edits over large rewrites unless I ask for a full rewrite.
+
+## QA Tooling Project Standards
+
+Each QA tool should include the project pieces that make it easy to review and learn from:
+
+- `README.md`
+- `sample-data/`
+- `src/`
+- `tests/`
+- `reports/` or output examples
+- `pyproject.toml` for Python projects
+- GitHub Actions when practical
+- Clear run instructions
+- Example input and example output
+- "What I Practiced"
+- "Known Limitations"
+- "Future Improvements"
 
 ## Portfolio Sync Goal
 
@@ -85,6 +165,18 @@ When a code, tooling, or project documentation change is made:
 - Mark unfinished systems as WIP and distinguish implemented work from planned ideas.
 - When AI assistance was involved, frame it as assisted workflow practice with human review, not as a replacement for understanding.
 
+## Agent Supervisor Habit
+
+Keith owns the outcome. Codex writes or edits, but Keith verifies. Every Codex task should answer:
+
+- What changed?
+- Why does it matter?
+- What tests prove it?
+- What could break?
+- What was not tested?
+- What should Keith learn from this diff?
+- What is the next smallest improvement?
+
 ## Review Checklist
 
 When updating portfolio content, check that:
@@ -100,9 +192,23 @@ When updating portfolio content, check that:
 ## Handoff Habit
 
 - At the end of meaningful work, summarize what changed.
-- Suggest a practical commit message.
-- Always include two copy-ready next-step prompts after each response:
-  - one for ChatGPT, focused on planning, reflection, review, or learning context
-  - one for Codex, focused on concrete repository edits, validation, commits, or publishing
+- Include how to run or preview, tests run, known limitations, and a practical suggested commit message when relevant.
+- Always include copy-ready next-step prompts after meaningful work:
+  - ChatGPT prompts for planning, reflection, review, or learning context
+  - Codex prompts for concrete repository edits, validation, commits, or publishing
+  - Beginner ELO, Intermediate ELO, and Expert ELO levels when creating prompts or next steps
 - Clearly say where each prompt belongs, such as ChatGPT, Codex, GitHub, or a local terminal.
 - Briefly explain why each next prompt or skill-building exercise matters, especially how it builds practical understanding.
+
+## Standard Output After Work
+
+At the end of meaningful work, provide:
+
+- Summary of files changed
+- How to run or preview
+- Tests run
+- Known limitations
+- Suggested commit message
+- Beginner ELO follow-up prompt
+- Intermediate ELO follow-up prompt
+- Expert ELO follow-up prompt
