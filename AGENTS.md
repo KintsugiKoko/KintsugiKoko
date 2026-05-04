@@ -235,6 +235,19 @@ When a code, tooling, or project documentation change is made:
 - If an uncommitted change appears unexpectedly, review it before staging or pushing.
 - After pushing, when practical, check the live GitHub page or README that a recruiter would see.
 
+## Git Safety Rules
+
+- Do not push directly to `master` or `main` unless Keith explicitly asks for that exact action.
+- Prefer feature branches and pull requests over direct `master` or `main` pushes.
+- Before any publish step, confirm the current branch, changed files, staged files, untracked files, and whether unrelated WIP is present.
+- If a feature branch has not been merged yet, stop and report:
+  - Current branch
+  - Whether a PR exists
+  - Whether the PR has been merged
+  - The safest next step
+- Do not assume a pushed branch, compare page, or local fast-forward means a PR was created or merged.
+- If local `master` or `main` has unrelated commits or WIP, protect that work before updating it and prefer a clean branch or PR path.
+
 ## PR And Recruiter Framing
 
 - Lead with evidence, not hype.
