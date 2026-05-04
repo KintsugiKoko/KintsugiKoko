@@ -11,6 +11,8 @@
   --accent-dark: #941a22;
   --panel-border: #20232b;
   --panel-shadow: rgba(7, 8, 12, 0.18);
+  --halftone-dark: rgba(32, 35, 43, 0.42);
+  --halftone-light: rgba(255, 255, 255, 0.2);
   --white: #ffffff;
   --motif: url("assets/skybound-space-motif.jpg");
 }
@@ -52,18 +54,37 @@ a:hover {
 }
 
 .letter-header {
+  position: relative;
   display: grid;
   grid-template-columns: 126px 1fr;
   gap: 24px;
   align-items: end;
   padding: 30px 34px 26px;
   background:
-    linear-gradient(90deg, rgba(7, 8, 12, 0.96) 0%, rgba(7, 8, 12, 0.92) 55%, rgba(7, 8, 12, 0.72) 100%),
+    linear-gradient(90deg, rgba(7, 8, 12, 0.92) 0%, rgba(7, 8, 12, 0.82) 42%, rgba(7, 8, 12, 0.36) 72%, rgba(7, 8, 12, 0.24) 100%),
+    linear-gradient(0deg, rgba(7, 8, 12, 0.38) 0%, rgba(7, 8, 12, 0.06) 45%, rgba(7, 8, 12, 0.26) 100%),
     var(--motif);
-  background-position: center 42%;
+  background-position: center 39%;
   background-size: cover;
   color: var(--white);
   border-bottom: 3px solid var(--accent);
+  overflow: hidden;
+}
+
+.letter-header::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 0 auto;
+  width: 43%;
+  background-image: radial-gradient(circle, var(--halftone-light) 1px, transparent 1.8px);
+  background-size: 8px 8px;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.letter-header > * {
+  position: relative;
+  z-index: 1;
 }
 
 .profile-card {
@@ -88,8 +109,8 @@ a:hover {
   margin: 0 0 8px;
   color: #ff6969;
   font-size: 0.76rem;
-  font-weight: 900;
-  letter-spacing: 0.09em;
+  font-weight: 800;
+  letter-spacing: 0.075em;
   text-transform: uppercase;
 }
 
@@ -99,14 +120,14 @@ h1 {
   font-size: clamp(2.35rem, 6vw, 3.75rem);
   line-height: 0.92;
   text-transform: uppercase;
-  text-shadow: 3px 3px 0 rgba(213, 52, 52, 0.38);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.55);
 }
 
 .role {
   margin: 10px 0 0;
   color: var(--white);
   font-size: 1.08rem;
-  font-weight: 900;
+  font-weight: 800;
   text-transform: uppercase;
 }
 
@@ -148,13 +169,33 @@ address a {
   width: 58px;
   height: 4px;
   background: var(--accent);
+  z-index: 2;
+}
+
+.quote-band::after {
+  content: "";
+  position: absolute;
+  top: 7px;
+  right: 12px;
+  width: 88px;
+  height: 28px;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.22) 1px, transparent 1.8px);
+  background-size: 7px 7px;
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.quote-band > * {
+  position: relative;
+  z-index: 1;
 }
 
 .quote-band p {
   margin: 0;
   color: var(--white);
   font-size: 0.98rem;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .quote-band span {
@@ -169,7 +210,7 @@ address a {
   background: var(--panel);
   border: 2px solid var(--panel-border);
   border-left: 5px solid var(--accent);
-  box-shadow: 6px 6px 0 var(--panel-shadow), 0 10px 24px rgba(0, 0, 0, 0.12);
+  box-shadow: inset 0 0 0 1px rgba(16, 17, 22, 0.05), 6px 6px 0 var(--panel-shadow), 0 10px 24px rgba(0, 0, 0, 0.12);
 }
 
 .letter-body::before {
@@ -180,6 +221,26 @@ address a {
   width: 84px;
   height: 4px;
   background: var(--accent);
+  z-index: 2;
+}
+
+.letter-body::after {
+  content: "";
+  position: absolute;
+  top: 9px;
+  right: 9px;
+  width: 92px;
+  height: 52px;
+  background-image: radial-gradient(circle, var(--halftone-dark) 1px, transparent 1.7px);
+  background-size: 7px 7px;
+  opacity: 0.13;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.letter-body > * {
+  position: relative;
+  z-index: 1;
 }
 
 .letter-body p {
@@ -193,7 +254,7 @@ address a {
 .signature {
   margin-top: 18px;
   color: var(--accent-dark);
-  font-weight: 900;
+  font-weight: 800;
 }
 
 @media (max-width: 720px) {
@@ -257,6 +318,10 @@ address a {
     border-bottom: 2pt solid var(--accent);
   }
 
+  .letter-header::before {
+    display: none;
+  }
+
   .profile-card {
     width: 86pt;
     height: 108pt;
@@ -291,7 +356,9 @@ address a {
   }
 
   .quote-band::before,
-  .letter-body::before {
+  .quote-band::after,
+  .letter-body::before,
+  .letter-body::after {
     display: none;
   }
 
