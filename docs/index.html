@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KintsugiKoko Learning Portfolio</title>
+  <meta name="color-scheme" content="dark">
+  <meta name="darkreader-lock">
+  <title>Keith McAvoy | Technical QA Portfolio</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="site-header">
     <nav class="nav" aria-label="Main navigation">
-      <a class="brand" href="#top">KintsugiKoko</a>
+      <a class="brand" href="#top">Keith McAvoy</a>
       <div class="nav-links">
         <a href="#about">About</a>
-        <a href="#games">Why Games</a>
-        <a href="#progress">Progress</a>
-        <a href="#goals">Goals</a>
-        <a href="#journey">Learning Journey</a>
+        <a href="#selected-work">Game Work</a>
         <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
+        <a href="#work-style">How I Work</a>
+        <a href="#learning">Learning</a>
         <a href="#contact">Contact</a>
       </div>
     </nav>
@@ -25,253 +25,196 @@
 
   <main id="top">
     <section class="hero">
-      <div class="title-art-cloud" aria-hidden="true">
-        <span>Warcraft III: Reforged</span>
-        <span>Diablo II: Resurrected</span>
-        <span>Overwatch 2</span>
-        <span>World of Warcraft</span>
-        <span>Diablo IV</span>
-        <span>Warcraft Rumble</span>
-        <span>Ashes of Creation</span>
-      </div>
+      <div class="hud-lines" aria-hidden="true"></div>
       <div class="hero-content">
-        <p class="eyebrow">Learning in public</p>
-        <h1>Games are the spark. GitHub is where I am rebuilding.</h1>
-        <p>
-          I am a Quality Engineer / Technical QA professional with 7 years of
-          game QA experience. Intrepid closed, but my love for games did not.
-          This portfolio tracks how I am growing into code, GitHub,
-          documentation, Unreal learning, and AI-assisted workflows in public.
+        <p class="eyebrow">Game QA / Technical QA Portfolio</p>
+        <h1>Keith McAvoy</h1>
+        <p class="role-line">QA Engineer / Technical QA / QA Tools</p>
+        <p class="brand-line">Game QA experience. Practical tools. Public-development portfolio.</p>
+        <p class="hero-summary">
+          QA / Technical QA professional with 7 years of game QA experience
+          across Blizzard Entertainment and Intrepid Studios. This portfolio
+          collects QA tooling, documentation, game prototype notes, and
+          human-reviewed AI-assisted workflows without pretending the learning
+          work is finished.
         </p>
+        <ul class="hero-proof" aria-label="Portfolio highlights">
+          <li><strong>7 years</strong><span>Game QA experience</span></li>
+          <li><strong>QA tools</strong><span>Python, pytest, docs</span></li>
+          <li><strong>Human review</strong><span>AI-assisted workflows</span></li>
+        </ul>
         <div class="hero-actions" aria-label="Portfolio links">
-          <a class="button" href="#progress">See Progress</a>
-          <a class="button secondary" href="#projects">View Projects</a>
-          <a class="button secondary" href="https://github.com/KintsugiKoko/KintsugiKoko">View GitHub Source</a>
+          <a class="button" href="#projects">View Projects</a>
+          <a class="button secondary" href="https://github.com/KintsugiKoko/KintsugiKoko">GitHub Source</a>
         </div>
+        <div class="profile-links" aria-label="External profile links">
+          <a href="https://github.com/KintsugiKoko">GitHub</a>
+          <span>/</span>
+          <a href="https://www.linkedin.com/in/keith-mcavoy-053710207">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section quick-path-section" aria-label="Recommended portfolio path">
+      <div class="quick-path">
+        <a href="#projects">
+          <span>Start Here</span>
+          <strong>Review the project evidence</strong>
+          <small>QA tools, WIP prototype notes, and local documentation workflows.</small>
+        </a>
+        <a href="#selected-work">
+          <span>Then</span>
+          <strong>Scan the game QA background</strong>
+          <small>Professional game work gives context for the QA judgment behind the tools.</small>
+        </a>
+        <a href="#learning">
+          <span>Finally</span>
+          <strong>Follow the learning track</strong>
+          <small>Python, GitHub, tests, docs, and agent-supervised engineering habits.</small>
+        </a>
       </div>
     </section>
 
     <section id="about" class="section">
       <div class="section-heading">
         <p class="eyebrow">About</p>
-        <h2>A portfolio with the learning left visible</h2>
+        <h2>QA experience with technical growth in progress</h2>
       </div>
       <p>
-        This site collects the work I can point to: small tools, project notes,
-        reflections, and the questions I am still working through.
+        This portfolio connects professional game QA experience with the
+        technical skills I am actively building: Python, pytest, GitHub,
+        documentation systems, QA-focused tooling, and AI-assisted workflows
+        with human review.
       </p>
       <p>
-        It is a working portfolio rather than a finished showcase, so
-        unfinished pieces are labeled and the process stays visible.
-      </p>
-    </section>
-
-    <section id="games" class="section accent">
-      <div class="section-heading">
-        <p class="eyebrow">Why Games</p>
-        <h2>The interest that keeps me curious</h2>
-      </div>
-      <p>
-        Games combine systems, stories, feedback, creativity, teamwork, and
-        problem solving. That mix is why this reset still feels connected to
-        the kind of work I care about. I am starting with foundations first so
-        future game-inspired projects can have clearer structure and better
-        documentation.
+        The goal is not to look like a finished senior engineering portfolio.
+        The goal is to show how I investigate problems, communicate risk, build
+        small tools, validate behavior, and document progress honestly.
       </p>
     </section>
 
-    <section id="progress" class="section">
+    <section id="selected-work" class="section panel-section">
       <div class="section-heading">
-        <p class="eyebrow">Progress</p>
-        <h2>What has moved from idea to practice</h2>
+        <p class="eyebrow">Selected Game Work</p>
+        <h2>Professional game QA work across major releases and updates</h2>
       </div>
-      <p>
-        The work has moved from a profile README into small artifacts a
-        reviewer can inspect: a QA CLI, project writeups, learning notes, and an
-        Unreal showcase.
-      </p>
-      <div class="progress-grid" aria-label="Current learning progress">
-        <article class="progress-item">
-          <span class="status">First version</span>
-          <h3>QA tooling practice</h3>
-          <p>
-            Built a small Python CLI for turning rough QA notes into structured
-            Markdown bug reports, with pytest coverage and sample reports.
-          </p>
-          <a class="text-link" href="https://github.com/KintsugiKoko/KintsugiKoko/blob/master/projects/qa-bug-report-tool/README.md">View QA tool</a>
-        </article>
-        <article class="progress-item">
-          <span class="status">First version</span>
-          <h3>AI workflow documentation</h3>
-          <p>
-            Started a local Obsidian conversation sync agent to turn exported
-            AI conversations into reviewable learning notes instead of losing
-            useful context.
-          </p>
-          <a class="text-link" href="https://github.com/KintsugiKoko/KintsugiKoko/blob/master/projects/obsidian-conversation-sync-agent/README.md">View sync agent</a>
-        </article>
-        <article class="progress-item">
-          <span class="status">In progress</span>
-          <h3>Unreal learning showcase</h3>
-          <p>
-            Documenting Nyx as a work-in-progress Unreal C++ prototype about
-            soul-form fish, Starwell offerings, and run-based progression.
-          </p>
-          <a class="text-link" href="https://github.com/KintsugiKoko/KintsugiKoko/blob/master/projects/unreal-project-showcase/README.md">View Unreal notes</a>
-        </article>
-        <article class="progress-item">
-          <span class="status">Growing habit</span>
-          <h3>GitHub workflow</h3>
-          <p>
-            Practicing focused commits, clean branches, stacked PRs, validation
-            summaries, and reviewer notes so the work is easier to follow.
-          </p>
-          <a class="text-link" href="https://github.com/KintsugiKoko/KintsugiKoko/tree/master/projects">View project docs</a>
-        </article>
-      </div>
-    </section>
-
-    <section id="goals" class="section accent">
-      <div class="section-heading">
-        <p class="eyebrow">Goals</p>
-        <h2>What I am building toward next</h2>
-      </div>
-      <p>
-        My next steps are intentionally practical: each one should produce
-        something I can explain, test, improve, and connect back to QA or
-        game-inspired work.
-      </p>
-      <ul class="goal-list">
-        <li>Improve the QA Bug Report Tool with clearer triage summaries, better examples, and more test coverage.</li>
-        <li>Keep documenting Nyx as a real Unreal learning project without pretending the prototype is finished.</li>
-        <li>Practice GitHub issue, branch, PR, review, and release-note habits in small repeatable loops.</li>
-        <li>Build more beginner-friendly Python utilities for QA, logs, notes, and documentation workflows.</li>
-        <li>Create a small game-inspired web interaction when the HTML, CSS, and JavaScript foundations are ready.</li>
+      <ul class="game-list" aria-label="Selected professional game work">
+        <li>Warcraft III: Reforged</li>
+        <li>StarCraft: Cartooned — StarCraft: Remastered graphics overhaul</li>
+        <li>Hearthstone expansions</li>
+        <li>Diablo II Switch port</li>
+        <li>Diablo II: Resurrected</li>
+        <li>Overwatch 2</li>
+        <li>World of Warcraft: Shadowlands</li>
+        <li>World of Warcraft: Dragonflight</li>
+        <li>Diablo IV</li>
+        <li>Warcraft Rumble</li>
+        <li>World of Warcraft: The War Within</li>
+        <li>Diablo IV: Vessel of Hatred</li>
+        <li>Ashes of Creation</li>
       </ul>
     </section>
 
-    <section id="journey" class="section">
+    <section id="projects" class="section">
       <div class="section-heading">
-        <p class="eyebrow">Learning Journey</p>
-        <h2>Notes from the rebuild</h2>
+        <p class="eyebrow">Featured Projects</p>
+        <h2>Practical tools and honest prototype documentation</h2>
       </div>
-      <p>
-        The logs capture the weekly notes behind the projects: what clicked,
-        what felt confusing, and what I want to try next.
-      </p>
-      <a class="text-link" href="https://github.com/KintsugiKoko/learning-journey">Open learning journey notes</a>
-    </section>
-
-    <section id="projects" class="section accent">
-      <div class="section-heading">
-        <p class="eyebrow">Projects</p>
-        <h2>Small builds, honest status</h2>
-      </div>
-      <p>
-        Start with the QA Bug Report Tool to see how I connect QA practice
-        with Python, pytest, and clear documentation.
-      </p>
       <div class="project-grid">
         <article class="project-card">
-          <span class="status">First version</span>
+          <span class="status">First working version</span>
           <h3>QA Bug Report Tool</h3>
           <p>
-            A Python CLI that turns rough QA notes into structured Markdown and
-            JSON bug reports, with pytest coverage and reusable QA workflow setup.
+            Python CLI that turns rough QA notes into structured Markdown bug
+            reports with severity, priority, repro steps, expected and actual
+            behavior, repro rate, and notes.
           </p>
-          <a class="text-link" href="https://github.com/KintsugiKoko/KintsugiKoko/blob/master/projects/qa-bug-report-tool/README.md">View QA tool</a>
+          <a class="text-link" href="https://github.com/KintsugiKoko/KintsugiKoko/blob/master/projects/qa-bug-report-tool/README.md">View project</a>
         </article>
         <article class="project-card">
-          <span class="status">First version</span>
-          <h3>Obsidian Conversation Sync Agent</h3>
+          <span class="status">Prototype / first version</span>
+          <h3>Community Pulse Report Tool</h3>
           <p>
-            A local Python CLI that turns exported AI conversations into
-            connected Obsidian-friendly Markdown notes with human-review
-            reminders.
+            Python CLI that turns fictional community feedback CSVs into
+            weekly sentiment reports with counts, repeated themes,
+            representative quotes, and human follow-up notes.
           </p>
-          <a class="text-link" href="https://github.com/KintsugiKoko/KintsugiKoko/blob/master/projects/obsidian-conversation-sync-agent/README.md">View agent notes</a>
+          <a class="text-link" href="https://github.com/KintsugiKoko/KintsugiKoko/blob/master/projects/community-pulse-report-tool/README.md">View project</a>
+        </article>
+        <article class="project-card">
+          <span class="status">WIP prototype</span>
+          <h3>Nyx — Cozy Cosmic Fishing Prototype</h3>
+          <p>
+            WIP Unreal C++ prototype documented through scoped weekly work,
+            QA-style verification, PIE smoke tests, PR summaries, devlogs, and
+            clear WIP boundaries.
+          </p>
+          <a class="text-link" href="https://github.com/KintsugiKoko/KintsugiKoko/blob/master/projects/unreal-project-showcase/README.md">View showcase</a>
         </article>
         <article class="project-card">
           <span class="status">Draft-Only MVP</span>
           <h3>Second Brain Docs Agent</h3>
           <p>
-            Local documentation helper that turns Obsidian notes and chat exports
-            into human-reviewed Markdown drafts for QA/game-dev portfolio
-            documentation.
+            Local documentation helper for turning Obsidian notes and chat
+            exports into human-reviewed Markdown drafts.
           </p>
-          <a class="text-link" href="https://github.com/KintsugiKoko/KintsugiKoko/tree/master/second-brain-docs-agent">View Repo</a>
-        </article>
-        <article class="project-card">
-          <span class="status">In progress</span>
-          <h3>QA Bug Report Portfolio</h3>
-          <p>
-            A growing set of sample bug reports for practicing repro clarity,
-            severity framing, priority notes, and player-facing impact.
-          </p>
-          <a class="text-link" href="https://github.com/KintsugiKoko/KintsugiKoko/blob/master/projects/qa-bug-report-portfolio/README.md">View QA portfolio</a>
-        </article>
-        <article class="project-card">
-          <span class="status">Work in progress</span>
-          <h3>Unreal Project Showcase</h3>
-          <p>
-            A WIP cozy cosmic fishing prototype about catching soul-form fish,
-            making Starwell offerings, and trading with Nyx, a tortoiseshell
-            merchant/ferryman, to improve future runs.
-          </p>
-          <a class="text-link" href="https://github.com/KintsugiKoko/KintsugiKoko/blob/master/projects/unreal-project-showcase/README.md">View showcase notes</a>
-        </article>
-        <article class="project-card">
-          <span class="status">In progress</span>
-          <h3>Learning Portfolio Homepage</h3>
-          <p>
-            A plain HTML and CSS homepage for organizing my learning work and
-            practicing GitHub Pages.
-          </p>
-          <a class="text-link" href="https://github.com/KintsugiKoko/KintsugiKoko/blob/master/docs/index.html">View homepage source</a>
-        </article>
-        <article class="project-card">
-          <span class="status">In progress</span>
-          <h3>Project Roadmap</h3>
-          <p>
-            A beginner-friendly plan for scoped projects that build practical
-            skills toward future game-inspired work.
-          </p>
-          <a class="text-link" href="https://github.com/KintsugiKoko/KintsugiKoko/tree/master/projects">View roadmap</a>
+          <a class="text-link" href="https://github.com/KintsugiKoko/KintsugiKoko/tree/master/second-brain-docs-agent">View project</a>
         </article>
       </div>
     </section>
 
-    <section id="skills" class="section">
+    <section id="work-style" class="section panel-section">
       <div class="section-heading">
-        <p class="eyebrow">Skills I'm Building</p>
-        <h2>Foundations before polish</h2>
+        <p class="eyebrow">How I Work</p>
+        <h2>Clear evidence before big claims</h2>
       </div>
-      <ul class="skill-list">
-        <li>Git and GitHub workflow basics</li>
-        <li>Markdown documentation</li>
-        <li>HTML structure</li>
-        <li>CSS layout and responsive design</li>
-        <li>Python CLI project structure</li>
-        <li>Project planning and reflection</li>
-        <li>AI-assisted learning workflows</li>
+      <ul class="work-list">
+        <li>Write clear repro steps, expected results, actual results, severity, priority, and player impact.</li>
+        <li>Use smoke, regression, and fix verification habits to keep changes grounded in observable behavior.</li>
+        <li>Turn repeated QA friction into small tools, examples, tests, and documentation.</li>
+        <li>Use AI assistance for planning, drafting, review, and reflection while keeping human judgment visible.</li>
       </ul>
+    </section>
+
+    <section id="learning" class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Goals / Learning Track</p>
+        <h2>Technical growth that supports QA work</h2>
+      </div>
+      <div class="track-grid">
+        <div>
+          <h3>Tools</h3>
+          <p>Python, pytest, CLI structure, Markdown output, GitHub Actions, and practical test coverage.</p>
+        </div>
+        <div>
+          <h3>Documentation</h3>
+          <p>README polish, devlogs, PR summaries, learning logs, validation notes, and portfolio-safe language.</p>
+        </div>
+        <div>
+          <h3>Game Prototypes</h3>
+          <p>Nyx Unreal notes, PIE smoke testing, SaveGame reliability, Blueprint presentation checks, and WIP labeling.</p>
+        </div>
+      </div>
     </section>
 
     <section id="contact" class="section contact-section">
       <div class="section-heading">
         <p class="eyebrow">Contact</p>
-        <h2>Follow the work on GitHub</h2>
+        <h2>Follow the work</h2>
       </div>
       <p>
-        The repository is the best place to inspect source, notes, commits, and
-        future updates.
+        The GitHub repository is the best place to inspect source, tests,
+        project notes, commits, and future updates.
       </p>
-      <a class="button" href="https://github.com/KintsugiKoko">GitHub profile</a>
+      <div class="hero-actions">
+        <a class="button" href="https://github.com/KintsugiKoko">GitHub</a>
+        <a class="button secondary" href="https://www.linkedin.com/in/keith-mcavoy-053710207">LinkedIn</a>
+      </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <p>KintsugiKoko learning portfolio. Built with plain HTML and CSS.</p>
+    <p>Keith McAvoy / KintsugiKoko. Built with plain HTML and CSS.</p>
   </footer>
 </body>
 </html>
