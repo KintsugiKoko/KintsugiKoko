@@ -11,7 +11,10 @@
   --accent: #d53434;
   --accent-dark: #941a22;
   --accent-soft: #fff0f0;
+  --panel-border: #20232b;
+  --panel-shadow: rgba(7, 8, 12, 0.2);
   --white: #ffffff;
+  --motif: url("assets/skybound-space-motif.jpg");
 }
 
 * {
@@ -24,17 +27,23 @@ body {
   color: var(--ink);
   font-family: "Segoe UI", Arial, sans-serif;
   font-size: 15px;
-  line-height: 1.48;
+  line-height: 1.58;
 }
 
 a {
   color: inherit;
   text-decoration-color: rgba(213, 52, 52, 0.82);
   text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+a:hover {
+  color: #ff6969;
+  text-decoration-thickness: 2px;
 }
 
 .referral-shell {
-  width: min(100%, 960px);
+  width: min(100%, 940px);
   margin: 32px auto;
   padding: 0 0 28px;
   overflow: hidden;
@@ -49,8 +58,12 @@ a {
   grid-template-columns: 126px 1fr;
   gap: 24px;
   align-items: end;
-  padding: 30px 34px 26px;
-  background: #0b0c11;
+  padding: 38px 34px 32px;
+  background:
+    linear-gradient(90deg, rgba(7, 8, 12, 0.95) 0%, rgba(7, 8, 12, 0.9) 48%, rgba(7, 8, 12, 0.58) 100%),
+    var(--motif);
+  background-position: center 40%;
+  background-size: cover;
   color: var(--white);
   border-bottom: 3px solid var(--accent);
 }
@@ -76,49 +89,67 @@ a {
 .eyebrow {
   margin: 0 0 8px;
   color: #ff6969;
-  font-size: 0.76rem;
-  font-weight: 900;
-  letter-spacing: 0.09em;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
 h1 {
   margin: 0;
   color: var(--white);
-  font-size: clamp(2.35rem, 6vw, 3.75rem);
-  line-height: 0.92;
+  font-size: clamp(2.18rem, 5.3vw, 3.35rem);
+  line-height: 0.96;
   text-transform: uppercase;
-  text-shadow: 3px 3px 0 rgba(213, 52, 52, 0.38);
+  text-shadow: 2px 2px 0 rgba(213, 52, 52, 0.34);
 }
 
 .role {
   margin: 10px 0 0;
   color: var(--white);
-  font-size: 1.08rem;
-  font-weight: 900;
+  font-size: 1rem;
+  font-weight: 800;
   text-transform: uppercase;
 }
 
 address {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 7px 15px;
   margin-top: 14px;
   color: #d9dce3;
+  font-size: 0.93rem;
   font-style: normal;
 }
 
 address a {
+  display: inline-flex;
+  width: fit-content;
+  max-width: 100%;
+  align-items: center;
   color: var(--white);
+  line-height: 1.25;
 }
 
 section {
-  margin: 16px 28px 0;
-  padding: 18px 20px;
+  position: relative;
+  margin: 15px 30px 0;
+  padding: 17px 19px;
   background: var(--panel);
-  border: 1px solid var(--line);
-  border-left: 5px solid var(--accent);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
+  border: 2px solid var(--panel-border);
+  border-left: 4px solid var(--accent);
+  box-shadow: 7px 7px 0 var(--panel-shadow), 0 8px 22px rgba(0, 0, 0, 0.11);
+}
+
+section::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: 16px;
+  width: 78px;
+  height: 4px;
+  background: var(--accent);
 }
 
 .quote-band {
@@ -133,7 +164,7 @@ section {
 .quote-band p {
   color: #ffffff;
   font-size: 0.98rem;
-  font-weight: 900;
+  font-weight: 600;
 }
 
 .referral-thesis {
@@ -144,23 +175,29 @@ section {
 .referral-thesis p {
   max-width: 74ch;
   color: #191b22;
-  font-size: 1.04rem;
-  font-weight: 800;
+  font-size: 1.06rem;
+  font-weight: 400;
+  line-height: 1.55;
+}
+
+.referral-thesis strong {
+  font-weight: 700;
 }
 
 h2 {
   margin: 0 0 9px;
   color: var(--accent-dark);
-  font-size: 0.82rem;
-  font-weight: 900;
-  letter-spacing: 0.1em;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.065em;
   text-transform: uppercase;
 }
 
 h3 {
   margin: 0 0 2px;
   color: var(--ink);
-  font-size: 1rem;
+  font-size: 0.98rem;
+  font-weight: 800;
 }
 
 p {
@@ -178,6 +215,7 @@ ul {
 
 li {
   margin: 6px 0;
+  line-height: 1.48;
 }
 
 .testimonial-flow {
@@ -187,12 +225,14 @@ li {
 
 .testimonial-flow p {
   max-width: 74ch;
+  color: #303640;
+  line-height: 1.55;
 }
 
 .source-line {
   color: var(--muted);
-  font-size: 0.88rem;
-  font-weight: 800;
+  font-size: 0.84rem;
+  font-weight: 500;
 }
 
 .experience-proof {
@@ -207,14 +247,17 @@ li {
 
 .experience-proof article,
 .portfolio-signal article {
+  position: relative;
   padding: 14px;
   background: var(--panel-soft);
-  border: 1px solid rgba(16, 17, 22, 0.1);
+  border: 1px solid rgba(16, 17, 22, 0.24);
+  box-shadow: inset 4px 0 0 rgba(213, 52, 52, 0.16);
 }
 
 .role-line {
   color: var(--muted);
-  font-weight: 800;
+  font-size: 0.9rem;
+  font-weight: 600;
 }
 
 .portfolio-signal {
@@ -260,12 +303,17 @@ li {
 .contact-copy p {
   margin-top: 8px;
   color: var(--white);
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1.55;
 }
 
 .contact-panel a {
+  display: inline-flex;
+  width: fit-content;
+  max-width: 100%;
+  align-items: center;
   color: var(--white);
+  line-height: 1.25;
 }
 
 .linkedin-verify {
@@ -276,7 +324,8 @@ li {
   max-width: 310px;
   padding: 10px;
   background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  box-shadow: 4px 4px 0 rgba(213, 52, 52, 0.18);
 }
 
 .linkedin-verify strong,
@@ -287,7 +336,8 @@ li {
 .linkedin-verify strong {
   color: var(--white);
   font-size: 0.8rem;
-  letter-spacing: 0.06em;
+  font-weight: 700;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 
@@ -434,6 +484,10 @@ li {
     break-inside: avoid;
   }
 
+  section::before {
+    display: none;
+  }
+
   .quote-band {
     background: #ffffff;
     color: #101116;
@@ -475,6 +529,7 @@ li {
   .portfolio-signal article {
     padding: 4pt;
     background: #ffffff;
+    box-shadow: none;
   }
 
   .contact-panel {
@@ -503,6 +558,7 @@ li {
     padding: 0;
     background: #ffffff;
     border: 0;
+    box-shadow: none;
   }
 
   .linkedin-verify strong,
