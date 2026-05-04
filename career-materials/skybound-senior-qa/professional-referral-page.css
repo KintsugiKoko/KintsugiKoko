@@ -15,10 +15,17 @@
   --panel-shadow: rgba(7, 8, 12, 0.2);
   --halftone-dark: rgba(32, 35, 43, 0.45);
   --halftone-light: rgba(255, 255, 255, 0.22);
-  --paper-gradient: linear-gradient(135deg, rgba(213, 52, 52, 0.03), transparent 38%),
-    linear-gradient(315deg, rgba(7, 8, 12, 0.025), transparent 45%);
-  --paper-gradient-soft: linear-gradient(135deg, rgba(213, 52, 52, 0.026), transparent 40%),
-    linear-gradient(315deg, rgba(7, 8, 12, 0.022), transparent 48%);
+  --paper-gradient: linear-gradient(135deg, rgba(213, 52, 52, 0.085), rgba(213, 52, 52, 0.035) 18%, transparent 42%),
+    linear-gradient(315deg, rgba(7, 8, 12, 0.065), rgba(7, 8, 12, 0.026) 22%, transparent 52%);
+  --paper-gradient-soft: linear-gradient(135deg, rgba(213, 52, 52, 0.055), rgba(213, 52, 52, 0.024) 20%, transparent 44%),
+    linear-gradient(315deg, rgba(7, 8, 12, 0.045), rgba(7, 8, 12, 0.018) 24%, transparent 54%);
+  --panel-surface: radial-gradient(ellipse at 88% 18%, rgba(213, 52, 52, 0.12), rgba(213, 52, 52, 0.052) 20%, transparent 44%),
+    linear-gradient(120deg, transparent 0 58%, rgba(213, 52, 52, 0.045) 58% 72%, transparent 72%),
+    linear-gradient(315deg, rgba(7, 8, 12, 0.075), rgba(7, 8, 12, 0.028) 24%, transparent 56%),
+    var(--paper-gradient);
+  --panel-surface-soft: radial-gradient(ellipse at 88% 20%, rgba(213, 52, 52, 0.075), rgba(213, 52, 52, 0.032) 22%, transparent 48%),
+    linear-gradient(120deg, transparent 0 62%, rgba(213, 52, 52, 0.028) 62% 76%, transparent 76%),
+    var(--paper-gradient-soft);
   --dark-panel-gradient: linear-gradient(135deg, rgba(213, 52, 52, 0.13), transparent 36%),
     linear-gradient(315deg, rgba(255, 255, 255, 0.035), transparent 48%);
   --white: #ffffff;
@@ -163,7 +170,7 @@ section {
   position: relative;
   margin: 15px 30px 0;
   padding: 17px 19px;
-  background: var(--paper-gradient), var(--panel);
+  background: var(--panel-surface), var(--panel);
   border: 2px solid var(--panel-border);
   border-left: 4px solid var(--accent);
   box-shadow: inset 0 0 0 1px rgba(16, 17, 22, 0.05), 7px 7px 0 var(--panel-shadow), 0 8px 22px rgba(0, 0, 0, 0.11);
@@ -184,13 +191,16 @@ section::before {
 section::after {
   content: "";
   position: absolute;
-  top: 8px;
-  right: 8px;
-  width: 96px;
-  height: 56px;
-  background-image: radial-gradient(circle, var(--halftone-dark) 1px, transparent 1.7px);
-  background-size: 7px 7px;
-  opacity: 0.16;
+  top: 9px;
+  right: 10px;
+  width: 148px;
+  height: 86px;
+  background-image:
+    radial-gradient(circle, var(--halftone-dark) 1px, transparent 1.75px),
+    radial-gradient(circle, rgba(213, 52, 52, 0.18) 0.85px, transparent 1.55px);
+  background-position: 0 0, 3px 3px;
+  background-size: 7px 7px, 10px 10px;
+  opacity: 0.18;
   pointer-events: none;
   z-index: 0;
 }
@@ -217,7 +227,7 @@ section > * {
 
 .referral-thesis {
   margin-top: 12px;
-  background: var(--paper-gradient), var(--paper);
+  background: var(--panel-surface), var(--paper);
 }
 
 .referral-thesis p {
@@ -267,7 +277,7 @@ li {
 }
 
 .testimonial-flow {
-  background: var(--paper-gradient), #fffdfd;
+  background: var(--panel-surface), #fffdfd;
   border-top-color: var(--panel-border);
 }
 
@@ -297,7 +307,7 @@ li {
 .portfolio-signal article {
   position: relative;
   padding: 14px;
-  background: var(--paper-gradient-soft), var(--panel-soft);
+  background: var(--panel-surface-soft), var(--panel-soft);
   border: 1px solid rgba(16, 17, 22, 0.24);
   box-shadow: inset 4px 0 0 rgba(213, 52, 52, 0.16), inset 0 0 0 1px rgba(255, 255, 255, 0.7);
 }
