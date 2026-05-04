@@ -260,6 +260,8 @@ Suggested PIE smoke checks:
 
 This checklist connects the C++ architecture to QA practice. The important part is that I can describe how I would validate the player-facing loop, watch for regressions, and keep save/load behavior safe as the prototype grows.
 
+Follow-up checklist: [Post-Load Presentation PIE Checklist](docs/testing/post-load-presentation-pie-checklist.md)
+
 ## Beginner Blender Placeholder Asset Checklist
 
 This checklist is for creating beginner-friendly placeholder (PH) assets in Blender for the Nyx prototype slice. The goal is not polished final art yet. The goal is to create readable low-poly blockouts that can support gameplay testing while the prototype is still changing.
@@ -328,6 +330,7 @@ For each system I add to this showcase, I want to keep the writeup small and pra
 | 2026-05-02 | Added Starwell threshold system note | Documented `AStarwell` responsibilities, threshold flow, stable `StoryUnlockId` values, QA questions, and limits. |
 | 2026-05-02 | Added first PIE smoke test result | Recorded a partial validation result for save/load behavior, active cast restoration, and follow-up Blueprint presentation checks. |
 | 2026-05-02 | Added Beginner Blender Placeholder Asset Checklist | Captured a WIP checklist for placeholder assets, low-poly blockouts, Blender-to-Unreal workflow practice, sockets/pivots checks, and PIE validation support for the Nyx prototype slice. |
+| 2026-05-04 | Added post-load presentation PIE checklist | Created a focused follow-up checklist for a future manual PIE pass around save/load presentation refresh. |
 
 Future entries can track:
 
@@ -363,7 +366,7 @@ Any bugs found:
 
 Next action:
 
-- Run another PIE pass focused on post-load presentation and Starwell threshold refresh behavior.
+- Run the [Post-Load Presentation PIE Checklist](docs/testing/post-load-presentation-pie-checklist.md) focused on presentation and Starwell threshold refresh behavior.
 
 Suggested note format:
 
@@ -387,7 +390,7 @@ Screenshots or short clips can be added once they show a useful tested state. Un
 
 ## Next Steps
 
-- Run a follow-up PIE pass focused on post-load presentation and Starwell threshold refresh behavior
+- Run the [Post-Load Presentation PIE Checklist](docs/testing/post-load-presentation-pie-checklist.md)
 - Add class-level references from `Source/Nyx` if the source is shared publicly and the names can be verified directly
 - Add a short economy component system note
 - Use the placeholder asset checklist to create and test the first Blender-to-Unreal blockout
