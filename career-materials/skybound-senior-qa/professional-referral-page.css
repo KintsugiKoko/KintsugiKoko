@@ -1,0 +1,527 @@
+:root {
+  --bg: #07080c;
+  --frame: #101218;
+  --frame-line: #2a2e38;
+  --ink: #101116;
+  --muted: #5b6370;
+  --paper: #fffaf7;
+  --panel: #ffffff;
+  --panel-soft: #f7f8fb;
+  --line: rgba(16, 17, 22, 0.14);
+  --accent: #d53434;
+  --accent-dark: #941a22;
+  --accent-soft: #fff0f0;
+  --white: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.48;
+}
+
+a {
+  color: inherit;
+  text-decoration-color: rgba(213, 52, 52, 0.82);
+  text-underline-offset: 3px;
+}
+
+.referral-shell {
+  width: min(100%, 960px);
+  margin: 32px auto;
+  padding: 0 0 28px;
+  overflow: hidden;
+  background: var(--frame);
+  border: 1px solid var(--frame-line);
+  border-top: 8px solid var(--accent);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+}
+
+.referral-header {
+  display: grid;
+  grid-template-columns: 126px 1fr;
+  gap: 24px;
+  align-items: end;
+  padding: 30px 34px 26px;
+  background: #0b0c11;
+  color: var(--white);
+  border-bottom: 3px solid var(--accent);
+}
+
+.profile-card {
+  width: 126px;
+  height: 156px;
+  margin: 0;
+  overflow: hidden;
+  background: #08090d;
+  border: 3px solid var(--white);
+  box-shadow: 7px 7px 0 var(--accent);
+}
+
+.profile-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 0%;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: #ff6969;
+  font-size: 0.76rem;
+  font-weight: 900;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  color: var(--white);
+  font-size: clamp(2.35rem, 6vw, 3.75rem);
+  line-height: 0.92;
+  text-transform: uppercase;
+  text-shadow: 3px 3px 0 rgba(213, 52, 52, 0.38);
+}
+
+.role {
+  margin: 10px 0 0;
+  color: var(--white);
+  font-size: 1.08rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+address {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px 15px;
+  margin-top: 14px;
+  color: #d9dce3;
+  font-style: normal;
+}
+
+address a {
+  color: var(--white);
+}
+
+section {
+  margin: 16px 28px 0;
+  padding: 18px 20px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--accent);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
+}
+
+.quote-band {
+  padding: 10px 16px;
+  background: #151821;
+  color: var(--white);
+  border-color: #272b35;
+  border-left-color: var(--accent);
+  box-shadow: none;
+}
+
+.quote-band p {
+  color: #ffffff;
+  font-size: 0.98rem;
+  font-weight: 900;
+}
+
+.referral-thesis {
+  margin-top: 12px;
+  background: var(--paper);
+}
+
+.referral-thesis p {
+  max-width: 74ch;
+  color: #191b22;
+  font-size: 1.04rem;
+  font-weight: 800;
+}
+
+h2 {
+  margin: 0 0 9px;
+  color: var(--accent-dark);
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+h3 {
+  margin: 0 0 2px;
+  color: var(--ink);
+  font-size: 1rem;
+}
+
+p {
+  margin: 0;
+}
+
+p + p {
+  margin-top: 8px;
+}
+
+ul {
+  margin: 9px 0 0 20px;
+  padding: 0;
+}
+
+li {
+  margin: 6px 0;
+}
+
+.testimonial-flow {
+  background: #fffdfd;
+  border-top: 4px solid var(--accent);
+}
+
+.testimonial-flow p {
+  max-width: 74ch;
+}
+
+.source-line {
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-weight: 800;
+}
+
+.experience-proof {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.experience-proof h2 {
+  grid-column: 1 / -1;
+}
+
+.experience-proof article,
+.portfolio-signal article {
+  padding: 14px;
+  background: var(--panel-soft);
+  border: 1px solid rgba(16, 17, 22, 0.1);
+}
+
+.role-line {
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.portfolio-signal {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.portfolio-signal h2,
+.portfolio-signal > p {
+  grid-column: 1 / -1;
+}
+
+.proof-brief p,
+.proof-brief li,
+.experience-proof li,
+.portfolio-signal p {
+  color: #303640;
+}
+
+.proof-brief strong,
+.experience-proof strong,
+.portfolio-signal strong {
+  color: var(--ink);
+}
+
+.contact-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  background: #0b0c11;
+  color: var(--white);
+  border-color: #242832;
+  border-left-color: var(--accent);
+}
+
+.contact-copy h2 {
+  margin: 0;
+  color: #ff6969;
+}
+
+.contact-copy p {
+  margin-top: 8px;
+  color: var(--white);
+  font-weight: 700;
+  line-height: 1.55;
+}
+
+.contact-panel a {
+  color: var(--white);
+}
+
+.linkedin-verify {
+  display: grid;
+  grid-template-columns: minmax(130px, 1fr) 84px;
+  gap: 12px;
+  align-items: center;
+  max-width: 310px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.linkedin-verify strong,
+.linkedin-verify span {
+  display: block;
+}
+
+.linkedin-verify strong {
+  color: var(--white);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.linkedin-verify span {
+  margin-top: 4px;
+  color: #d9dce3;
+  font-size: 0.82rem;
+  line-height: 1.25;
+}
+
+.linkedin-verify img {
+  display: block;
+  width: 84px;
+  height: 84px;
+  padding: 5px;
+  background: #ffffff;
+  border: 2px solid var(--white);
+}
+
+@media (max-width: 740px) {
+  body {
+    background: var(--bg);
+  }
+
+  .referral-shell {
+    margin: 0;
+    border-left: 0;
+    border-right: 0;
+    box-shadow: none;
+  }
+
+  .referral-header,
+  .experience-proof,
+  .portfolio-signal,
+  .contact-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .referral-header {
+    padding: 24px 20px 22px;
+  }
+
+  .profile-card {
+    width: 124px;
+    height: 154px;
+  }
+
+  section {
+    margin: 14px 14px 0;
+    padding: 16px;
+  }
+
+  .contact-panel {
+    display: block;
+  }
+
+  .contact-copy p {
+    margin-top: 10px;
+    text-align: left;
+  }
+
+  .linkedin-verify {
+    grid-template-columns: 1fr 78px;
+    max-width: 100%;
+    margin-top: 14px;
+  }
+
+  .linkedin-verify img {
+    width: 78px;
+    height: 78px;
+  }
+}
+
+@media print {
+  @page {
+    margin: 0.38in;
+  }
+
+  body {
+    background: #ffffff;
+    color: #101116;
+    font-size: 8.1pt;
+    line-height: 1.18;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .referral-shell {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+    border: 0;
+    border-top: 4pt solid var(--accent);
+    box-shadow: none;
+  }
+
+  .referral-header {
+    grid-template-columns: 70pt 1fr;
+    gap: 12pt;
+    padding: 0 0 6pt;
+    background: #ffffff;
+    color: #101116;
+    border-bottom: 2pt solid var(--accent);
+  }
+
+  .profile-card {
+    width: 70pt;
+    height: 88pt;
+    border-color: #101116;
+    box-shadow: 3pt 3pt 0 rgba(213, 52, 52, 0.22);
+  }
+
+  .eyebrow,
+  h1,
+  .role,
+  address,
+  address a {
+    color: #101116;
+  }
+
+  h1 {
+    font-size: 23pt;
+    text-shadow: none;
+  }
+
+  .role {
+    margin-top: 4pt;
+    font-size: 8.5pt;
+  }
+
+  address {
+    gap: 3pt 8pt;
+    margin-top: 5pt;
+  }
+
+  section {
+    margin: 5pt 0 0;
+    padding: 5pt 6pt;
+    background: #ffffff;
+    border: 0.5pt solid rgba(16, 17, 22, 0.18);
+    border-left: 3pt solid var(--accent);
+    box-shadow: none;
+    break-inside: avoid;
+  }
+
+  .quote-band {
+    background: #ffffff;
+    color: #101116;
+  }
+
+  .quote-band p,
+  .referral-thesis p {
+    color: #101116;
+    font-size: 8.5pt;
+  }
+
+  h2 {
+    margin-bottom: 3pt;
+    font-size: 6.8pt;
+  }
+
+  h3 {
+    font-size: 8pt;
+  }
+
+  p + p {
+    margin-top: 3pt;
+  }
+
+  ul {
+    margin-top: 3pt;
+  }
+
+  li {
+    margin: 0.5pt 0;
+  }
+
+  .experience-proof,
+  .portfolio-signal {
+    gap: 5pt;
+  }
+
+  .experience-proof article,
+  .portfolio-signal article {
+    padding: 4pt;
+    background: #ffffff;
+  }
+
+  .contact-panel {
+    display: block;
+    background: #ffffff;
+    color: #101116;
+  }
+
+  .contact-copy h2,
+  .contact-copy p,
+  .contact-panel a {
+    color: #101116;
+    text-align: left;
+  }
+
+  .source-line {
+    font-size: 7.2pt;
+  }
+
+  .linkedin-verify {
+    display: grid;
+    grid-template-columns: 1fr 54pt;
+    gap: 6pt;
+    max-width: none;
+    margin-top: 5pt;
+    padding: 0;
+    background: #ffffff;
+    border: 0;
+  }
+
+  .linkedin-verify strong,
+  .linkedin-verify span {
+    color: #101116;
+  }
+
+  .linkedin-verify strong {
+    font-size: 6.8pt;
+  }
+
+  .linkedin-verify span {
+    font-size: 6.8pt;
+  }
+
+  .linkedin-verify img {
+    width: 54pt;
+    height: 54pt;
+    padding: 2pt;
+    border: 0.5pt solid #101116;
+  }
+}
