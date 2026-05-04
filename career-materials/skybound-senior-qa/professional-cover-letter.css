@@ -154,6 +154,10 @@ address a {
   line-height: 1.25;
 }
 
+.pdf-contact-strip {
+  display: none;
+}
+
 .quote-band {
   position: relative;
   margin: 16px 28px 0;
@@ -474,5 +478,75 @@ address a {
     clip-path: inset(50%) !important;
     white-space: nowrap !important;
     border: 0 !important;
+  }
+}
+
+/* Final PDF export guardrails: keep the generated header art readable,
+   then expose real text links in a compact strip for PDF annotations. */
+@media print {
+  .letter-header {
+    display: block !important;
+    position: relative !important;
+    width: 100% !important;
+    height: 160pt !important;
+    min-height: 160pt !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    background: var(--motif) top center / 100% auto no-repeat, #07080c !important;
+    border-bottom: 2pt solid var(--accent) !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  .letter-header::before,
+  .letter-header::after {
+    display: none !important;
+  }
+
+  .letter-header .profile-card,
+  .letter-header .identity {
+    position: absolute !important;
+    width: 1pt !important;
+    height: 1pt !important;
+    margin: -1pt !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    clip: rect(0 0 0 0) !important;
+    clip-path: inset(50%) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .pdf-contact-strip {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    gap: 3pt 9pt !important;
+    margin: 5pt 0 6pt !important;
+    padding: 4pt 6pt !important;
+    background: #ffffff !important;
+    color: #101116 !important;
+    border: 0.6pt solid rgba(16, 17, 22, 0.22) !important;
+    border-left: 3pt solid var(--accent) !important;
+    font-size: 7pt !important;
+    line-height: 1.18 !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  .pdf-contact-strip span,
+  .pdf-contact-strip a {
+    color: #101116 !important;
+    display: inline-flex !important;
+    width: auto !important;
+    max-width: none !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+  }
+
+  .pdf-contact-strip a {
+    text-decoration: underline !important;
+    text-underline-offset: 1.5pt !important;
   }
 }
