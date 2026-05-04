@@ -546,7 +546,7 @@ h3 {
 
   .hero {
     min-height: auto;
-    padding: 3.75rem 1rem;
+    padding: 3rem 1rem;
   }
 
   .hud-lines {
@@ -596,6 +596,15 @@ h3 {
 }
 
 @media (max-width: 520px) {
+  .hero {
+    padding: 2rem 1rem 2.5rem;
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+  }
+
   h1 {
     font-size: 2.45rem;
   }
@@ -613,7 +622,31 @@ h3 {
     width: 100%;
   }
 
+  .hero-actions {
+    margin-top: 1rem;
+    order: 1;
+  }
+
   .hero-proof {
+    gap: 0.5rem;
     grid-template-columns: 1fr;
+    margin-top: 1rem;
+    order: 2;
+  }
+
+  .hero-proof li {
+    align-items: baseline;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: space-between;
+    padding: 0.65rem 0.75rem;
+  }
+
+  .hero-proof span {
+    text-align: right;
+  }
+
+  .profile-links {
+    order: 3;
   }
 }
