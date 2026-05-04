@@ -14,6 +14,10 @@
   --panel-shadow: rgba(7, 8, 12, 0.18);
   --halftone-dark: rgba(32, 35, 43, 0.42);
   --halftone-light: rgba(255, 255, 255, 0.2);
+  --paper-gradient: linear-gradient(135deg, rgba(213, 52, 52, 0.025), transparent 38%),
+    linear-gradient(315deg, rgba(7, 8, 12, 0.025), transparent 45%);
+  --paper-gradient-soft: linear-gradient(135deg, rgba(213, 52, 52, 0.022), transparent 40%),
+    linear-gradient(315deg, rgba(7, 8, 12, 0.022), transparent 48%);
   --white: #ffffff;
   --motif: url("assets/resume-header.png");
 }
@@ -62,10 +66,10 @@ a:hover {
   align-items: end;
   padding: 30px 34px 26px;
   background:
-    linear-gradient(90deg, rgba(7, 8, 12, 0.92) 0%, rgba(7, 8, 12, 0.82) 36%, rgba(7, 8, 12, 0.4) 66%, rgba(7, 8, 12, 0.56) 100%),
+    linear-gradient(90deg, rgba(7, 8, 12, 1) 0%, rgba(7, 8, 12, 0.98) 50%, rgba(7, 8, 12, 0.42) 72%, rgba(7, 8, 12, 0.28) 100%),
     linear-gradient(0deg, rgba(7, 8, 12, 0.42) 0%, rgba(7, 8, 12, 0.08) 42%, rgba(7, 8, 12, 0.32) 100%),
     var(--motif);
-  background-position: center 40%;
+  background-position: center top;
   background-size: cover;
   color: var(--white);
   border-bottom: 3px solid var(--accent);
@@ -182,7 +186,7 @@ section {
 section {
   position: relative;
   padding: 18px 20px;
-  background: var(--panel);
+  background: var(--paper-gradient), var(--panel);
   border: 2px solid var(--panel-border);
   border-left: 5px solid var(--accent);
   box-shadow: inset 0 0 0 1px rgba(16, 17, 22, 0.05), 6px 6px 0 var(--panel-shadow), 0 10px 24px rgba(0, 0, 0, 0.12);
@@ -257,7 +261,7 @@ li {
 .pill-list li {
   margin: 0;
   padding: 5px 9px;
-  background: var(--panel-soft);
+  background: var(--paper-gradient-soft), var(--panel-soft);
   border: 1px solid rgba(16, 17, 22, 0.13);
   border-bottom-color: rgba(213, 52, 52, 0.65);
   color: var(--ink);
@@ -268,7 +272,7 @@ li {
 .job {
   position: relative;
   padding: 14px;
-  background: var(--panel-soft);
+  background: var(--paper-gradient-soft), var(--panel-soft);
   border: 1px solid rgba(16, 17, 22, 0.22);
   box-shadow: inset 4px 0 0 rgba(213, 52, 52, 0.16), inset 0 0 0 1px rgba(255, 255, 255, 0.7);
 }
@@ -303,7 +307,7 @@ li {
 .portfolio-grid article {
   position: relative;
   padding: 14px;
-  background: var(--panel-soft);
+  background: var(--paper-gradient-soft), var(--panel-soft);
   border: 1px solid rgba(16, 17, 22, 0.22);
   border-top: 4px solid var(--accent);
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.72), 4px 4px 0 rgba(7, 8, 12, 0.08);
@@ -491,5 +495,58 @@ li {
 
   .portfolio-grid p {
     font-size: 7.5pt;
+  }
+}
+
+@media screen {
+  .resume-header {
+    display: block !important;
+    min-height: clamp(170px, 27vw, 260px) !important;
+    padding: 0 !important;
+    background: var(--motif) top center / 100% auto no-repeat, #07080c !important;
+  }
+
+  .resume-header::before {
+    display: none !important;
+  }
+
+  .resume-header > * {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: -1px !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    clip: rect(0 0 0 0) !important;
+    clip-path: inset(50%) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+  }
+}
+
+@media print {
+  .resume-header {
+    display: block !important;
+    min-height: 92pt !important;
+    padding: 0 !important;
+    background: var(--motif) top center / 100% auto no-repeat, #07080c !important;
+    border-bottom: 2pt solid var(--accent) !important;
+  }
+
+  .resume-header::before {
+    display: none !important;
+  }
+
+  .resume-header > * {
+    position: absolute !important;
+    width: 1pt !important;
+    height: 1pt !important;
+    margin: -1pt !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    clip: rect(0 0 0 0) !important;
+    clip-path: inset(50%) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
   }
 }

@@ -76,10 +76,10 @@ a:hover {
   align-items: end;
   padding: 38px 34px 32px;
   background:
-    linear-gradient(90deg, rgba(7, 8, 12, 0.92) 0%, rgba(7, 8, 12, 0.8) 42%, rgba(7, 8, 12, 0.32) 72%, rgba(7, 8, 12, 0.2) 100%),
+    linear-gradient(90deg, rgba(7, 8, 12, 1) 0%, rgba(7, 8, 12, 0.98) 48%, rgba(7, 8, 12, 0.4) 72%, rgba(7, 8, 12, 0.2) 100%),
     linear-gradient(0deg, rgba(7, 8, 12, 0.38) 0%, rgba(7, 8, 12, 0.05) 44%, rgba(7, 8, 12, 0.24) 100%),
     var(--motif);
-  background-position: center 38%;
+  background-position: center top;
   background-size: cover;
   color: var(--white);
   border-bottom: 3px solid var(--accent);
@@ -647,5 +647,58 @@ li {
     height: 54pt;
     padding: 2pt;
     border: 0.5pt solid #101116;
+  }
+}
+
+@media screen {
+  .referral-header {
+    display: block !important;
+    min-height: clamp(180px, 28vw, 270px) !important;
+    padding: 0 !important;
+    background: var(--motif) top center / 100% auto no-repeat, #07080c !important;
+  }
+
+  .referral-header::before {
+    display: none !important;
+  }
+
+  .referral-header > * {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: -1px !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    clip: rect(0 0 0 0) !important;
+    clip-path: inset(50%) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+  }
+}
+
+@media print {
+  .referral-header {
+    display: block !important;
+    min-height: 96pt !important;
+    padding: 0 !important;
+    background: var(--motif) top center / 100% auto no-repeat, #07080c !important;
+    border-bottom: 2pt solid var(--accent) !important;
+  }
+
+  .referral-header::before {
+    display: none !important;
+  }
+
+  .referral-header > * {
+    position: absolute !important;
+    width: 1pt !important;
+    height: 1pt !important;
+    margin: -1pt !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    clip: rect(0 0 0 0) !important;
+    clip-path: inset(50%) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
   }
 }

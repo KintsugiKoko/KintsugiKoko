@@ -13,6 +13,10 @@
   --panel-shadow: rgba(7, 8, 12, 0.18);
   --halftone-dark: rgba(32, 35, 43, 0.42);
   --halftone-light: rgba(255, 255, 255, 0.2);
+  --paper-gradient: linear-gradient(135deg, rgba(213, 52, 52, 0.025), transparent 38%),
+    linear-gradient(315deg, rgba(7, 8, 12, 0.025), transparent 45%);
+  --dark-panel-gradient: linear-gradient(135deg, rgba(213, 52, 52, 0.12), transparent 36%),
+    linear-gradient(315deg, rgba(255, 255, 255, 0.035), transparent 48%);
   --white: #ffffff;
   --motif: url("assets/cover-header.png");
 }
@@ -61,10 +65,10 @@ a:hover {
   align-items: end;
   padding: 30px 34px 26px;
   background:
-    linear-gradient(90deg, rgba(7, 8, 12, 0.92) 0%, rgba(7, 8, 12, 0.82) 42%, rgba(7, 8, 12, 0.36) 72%, rgba(7, 8, 12, 0.24) 100%),
+    linear-gradient(90deg, rgba(7, 8, 12, 1) 0%, rgba(7, 8, 12, 0.98) 48%, rgba(7, 8, 12, 0.42) 72%, rgba(7, 8, 12, 0.24) 100%),
     linear-gradient(0deg, rgba(7, 8, 12, 0.38) 0%, rgba(7, 8, 12, 0.06) 45%, rgba(7, 8, 12, 0.26) 100%),
     var(--motif);
-  background-position: center 39%;
+  background-position: center top;
   background-size: cover;
   color: var(--white);
   border-bottom: 3px solid var(--accent);
@@ -154,7 +158,7 @@ address a {
   position: relative;
   margin: 16px 28px 0;
   padding: 10px 16px;
-  background: #151821;
+  background: var(--dark-panel-gradient), #151821;
   color: var(--white);
   border: 2px solid #272b35;
   border-left: 5px solid var(--accent);
@@ -207,7 +211,7 @@ address a {
   position: relative;
   margin: 16px 28px 0;
   padding: 24px 26px;
-  background: var(--panel);
+  background: var(--paper-gradient), var(--panel);
   border: 2px solid var(--panel-border);
   border-left: 5px solid var(--accent);
   box-shadow: inset 0 0 0 1px rgba(16, 17, 22, 0.05), 6px 6px 0 var(--panel-shadow), 0 10px 24px rgba(0, 0, 0, 0.12);
@@ -249,6 +253,34 @@ address a {
 
 .letter-body p:first-child {
   font-weight: 800;
+}
+
+.gaming-achievements {
+  margin: 2px 0 13px;
+  padding: 10px 12px;
+  background: var(--paper-gradient), #fffafa;
+  border: 1px solid rgba(16, 17, 22, 0.18);
+  border-left: 4px solid var(--accent);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.7);
+}
+
+.gaming-achievements h2 {
+  margin: 0 0 5px;
+  color: var(--accent-dark);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.075em;
+  text-transform: uppercase;
+}
+
+.gaming-achievements p {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.42;
+}
+
+.gaming-achievements p + p {
+  margin-top: 5px;
 }
 
 .signature {
@@ -368,5 +400,79 @@ address a {
 
   .letter-body p {
     margin-bottom: 7pt;
+  }
+
+  .gaming-achievements {
+    margin: 1pt 0 6pt;
+    padding: 4pt 5pt;
+    background: #ffffff;
+    box-shadow: none;
+  }
+
+  .gaming-achievements h2 {
+    font-size: 7pt;
+    margin-bottom: 2pt;
+  }
+
+  .gaming-achievements p {
+    font-size: 8.2pt;
+    line-height: 1.18;
+  }
+
+  .gaming-achievements p + p {
+    margin-top: 2pt;
+  }
+}
+
+@media screen {
+  .letter-header {
+    display: block !important;
+    min-height: clamp(170px, 27vw, 260px) !important;
+    padding: 0 !important;
+    background: var(--motif) top center / 100% auto no-repeat, #07080c !important;
+  }
+
+  .letter-header::before {
+    display: none !important;
+  }
+
+  .letter-header > * {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: -1px !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    clip: rect(0 0 0 0) !important;
+    clip-path: inset(50%) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+  }
+}
+
+@media print {
+  .letter-header {
+    display: block !important;
+    min-height: 92pt !important;
+    padding: 0 !important;
+    background: var(--motif) top center / 100% auto no-repeat, #07080c !important;
+    border-bottom: 2pt solid var(--accent) !important;
+  }
+
+  .letter-header::before {
+    display: none !important;
+  }
+
+  .letter-header > * {
+    position: absolute !important;
+    width: 1pt !important;
+    height: 1pt !important;
+    margin: -1pt !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    clip: rect(0 0 0 0) !important;
+    clip-path: inset(50%) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
   }
 }
