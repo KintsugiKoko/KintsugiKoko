@@ -37,36 +37,47 @@ Treat this project like a training chamber. Each task should build one practical
 
 ## Second Brain ELO Prompt System
 
-For Second Brain work, prompt packs should use this ELO scale:
+For Second Brain work, keep the Codex/GPT split unambiguous.
+
+Operating split:
+
+- Codex handles scoped repo work and audits only.
+- GPT handles explanation, planning, reflection, and review.
+- GPT handoff stays separate from Codex next-step prompts.
+
+Codex uses only these ranks:
 
 | ELO | Rank | Use Case |
 |---:|---|---|
-| 1000 | Wood / GPT | GPT explanation, learning support, and reflection |
-| 1400 | Gold / Codex | Scoped repo edits, docs, tests, verification, small implementation tasks |
-| 1800 | Diamond / Codex | Audits, hardening passes, branch reviews, risk analysis, portfolio/recruiter signal |
+| 1400 | 🟡 Gold / Codex | Scoped repo edits, code/docs/tests, verification, commits, and PR summaries |
+| 1800 | 💎 Diamond / Codex | Audits, hardening passes, branch reviews, risk analysis, architecture/maintainability checks, and portfolio/recruiter-signal reviews |
+
+GPT handoff is separate from Codex follow-up prompts. GPT may use Wood / GPT, Gold / GPT, or Diamond / GPT when Keith explicitly asks for GPT rank options, but GPT should provide the single best next answer or next-step prompt based on the current sprint goal by default.
+
+Wood is reserved for GPT learning, reflection, and beginner explanation. Codex should never provide a Wood prompt.
 
 ## Prompt Lane Rule
 
-For Second Brain work, prompt packs should include both lanes in this order:
+For Second Brain work, Codex guidance appears before GPT handoff guidance. When next prompts are included, keep the lanes separate in this order:
 
 1. Codex Lane
    - 🟡 ELO 1400 — Gold / Codex
    - 💎 ELO 1800 — Diamond / Codex
 
-2. GPT Lane
-   - 🪵 ELO 1000 — Wood / GPT
-   - 🟡 ELO 1400 — Gold / GPT
-   - 💎 ELO 1800 — Diamond / GPT
+2. 🧠 Brain / GPT
+   - One best ChatGPT answer or next-step prompt based on the current sprint goal
 
 Rules:
 
 - Codex Lane always comes first.
-- GPT Lane always comes second.
+- 🧠 Brain / GPT comes second when a GPT handoff is included.
 - Do not interleave Codex and GPT prompts.
-- Do not provide only one rank unless the user explicitly asks for a single prompt.
-- If one option is recommended, still provide the full prompt pack first, then label the recommendation separately.
-- Keep Wood, Gold, and Diamond labels consistent.
+- GPT should provide one best next answer or next-step prompt based on current sprint goals.
+- GPT should not provide three rank options by default unless Keith explicitly asks.
+- Keep rank labels consistent when they are used.
 - Do not include Wood prompts in Codex responses. Wood is reserved for GPT explanation, learning support, and reflection.
+- Do not create a fourth rank.
+- Do not use legacy beginner/intermediate/expert prompt labels.
 
 Codex Lane is for:
 
@@ -78,7 +89,7 @@ Codex Lane is for:
 - Verification
 - Commits and PR summaries
 
-GPT Lane is for:
+🧠 Brain / GPT is for:
 
 - Planning
 - Review
@@ -88,16 +99,16 @@ GPT Lane is for:
 - Senior critique
 - Next-step strategy
 
-Every prompt card should include:
+Every Codex prompt card should include:
 
 - ELO number
 - Rank
-- Destination: ChatGPT or Codex
+- Destination: Codex
 - Use when
 - Risk level
 - Copy-ready prompt
 
-Prompt-card examples should follow this lane order:
+Prompt-card examples should follow this order:
 
 ### Codex Lane
 
@@ -106,12 +117,12 @@ Prompt-card examples should follow this lane order:
 - ELO number: 1400
 - Rank: Gold
 - Destination: Codex
-- Use when: Keith wants a scoped repo change with tests, docs, and verification.
+- Use when: Keith wants scoped repo edits, code/docs/tests, verification, commits, or PR summaries.
 - Risk level: Medium
 - Copy-ready prompt:
 
 ```text
-Make this scoped repo change, update tests/docs if behavior changes, run verification, and summarize exactly what changed.
+Make this scoped repo change, update code/docs/tests if behavior changes, run verification, and summarize exactly what changed.
 ```
 
 #### 💎 ELO 1800 — Diamond / Codex
@@ -119,53 +130,22 @@ Make this scoped repo change, update tests/docs if behavior changes, run verific
 - ELO number: 1800
 - Rank: Diamond
 - Destination: Codex
-- Use when: Keith needs a deep repo audit covering quality, risks, verification, and portfolio positioning.
+- Use when: Keith needs audits, hardening passes, branch reviews, risk analysis, architecture/maintainability checks, or portfolio/recruiter-signal reviews.
 - Risk level: High
 - Copy-ready prompt:
 
 ```text
-Audit this project for architecture risks, edge cases, verification gaps, maintainability issues, and honest recruiter-facing framing.
+Audit this project for risks, verification gaps, maintainability issues, branch/release readiness, and honest recruiter-facing framing.
 ```
 
-### GPT Lane
+### 🧠 Brain / GPT
 
-#### 🪵 ELO 1000 — Wood / GPT
-
-- ELO number: 1000
-- Rank: Wood
 - Destination: ChatGPT
-- Use when: Keith needs a concept explained, a safe review, or beginner-friendly learning support.
-- Risk level: Low
+- Use when: Keith needs planning, reflection, learning context, recruiter framing, senior critique, or next-step strategy.
 - Copy-ready prompt:
 
 ```text
-Explain this repo change in plain language and tell me what I should learn from it.
-```
-
-#### 🟡 ELO 1400 — Gold / GPT
-
-- ELO number: 1400
-- Rank: Gold
-- Destination: ChatGPT
-- Use when: Keith needs planning, review, or next-step strategy for a scoped task.
-- Risk level: Medium
-- Copy-ready prompt:
-
-```text
-Turn this goal into a scoped repo task with definition of done, likely files, verification steps, and a portfolio-safe summary.
-```
-
-#### 💎 ELO 1800 — Diamond / GPT
-
-- ELO number: 1800
-- Rank: Diamond
-- Destination: ChatGPT
-- Use when: Keith needs senior critique, risk analysis, resume/portfolio framing, or strategic review.
-- Risk level: High
-- Copy-ready prompt:
-
-```text
-Review this project direction for risks, acceptance criteria, verification coverage, maintainability, and honest portfolio framing.
+Review this current sprint goal and give me the single best next step, with the reason it matters and what I should verify before handing work back to Codex.
 ```
 
 ## Codex Response Rules
@@ -180,8 +160,8 @@ Codex should use only these ranks:
 
 | ELO | Rank | Use Case |
 |---:|---|---|
-| 1400 | Gold / Codex | Scoped repo edits, docs, tests, verification, small implementation tasks |
-| 1800 | Diamond / Codex | Audits, hardening passes, branch reviews, risk analysis, portfolio/recruiter signal |
+| 1400 | 🟡 Gold / Codex | Scoped repo edits, code/docs/tests, verification, commits, and PR summaries |
+| 1800 | 💎 Diamond / Codex | Audits, hardening passes, branch reviews, risk analysis, architecture/maintainability checks, and portfolio/recruiter-signal reviews |
 
 Do not include Wood prompts in Codex responses. Wood is reserved for GPT explanation, learning support, and reflection.
 
@@ -196,8 +176,9 @@ For meaningful Codex work, respond in this order:
 5. Known limitations / risks
 6. Portfolio or recruiter-signal note
 7. Suggested commit message
-8. Next prompt for GPT review
-9. Optional next Codex prompt, only if another repo edit is needed
+8. 🧠 Brain / GPT handoff with the single best planning, reflection, review, or framing prompt
+9. Gold / Codex follow-up prompt when a scoped repo next step is useful
+10. Diamond / Codex follow-up prompt for meaningful work where audit, hardening, branch review, or portfolio-signal review would help
 
 ### Codex Prompt Rules
 
@@ -229,7 +210,7 @@ Use for:
 
 Do not include:
 
-- Wood-ranked Codex prompts
+- Wood prompts in Codex responses
 - Legacy three-tier labels
 - Fourth-rank tiers
 - Interleaved GPT and Codex prompts
@@ -238,7 +219,13 @@ Do not include:
 
 When Codex suggests a GPT follow-up, label it clearly as:
 
-## GPT Review Prompt
+## 🧠 Brain / GPT
+
+GPT handoffs should be labeled as 🧠 Brain / GPT.
+
+GPT handoff is separate from Codex guidance. GPT should provide the single best next answer or next-step prompt based on the current sprint goal. GPT should not provide three rank options by default unless Keith explicitly asks.
+
+Wood is reserved for GPT learning, reflection, and beginner explanation. GPT may use Wood / GPT, Gold / GPT, or Diamond / GPT only when Keith explicitly asks for GPT rank options.
 
 The GPT prompt should be for:
 
@@ -249,7 +236,7 @@ The GPT prompt should be for:
 - Senior QA/tools review
 - Portfolio critique
 
-Codex should not try to provide beginner teaching inside the Codex response. If Keith needs beginner explanation, hand that off to GPT.
+Codex should not try to provide beginner teaching inside the Codex response. If Keith needs beginner explanation, hand that off to GPT. GPT should not be framed as doing repo edits directly; GPT plans, explains, reflects, reviews, and helps shape prompts for Keith to hand to Codex.
 
 ### Scope Control Rules
 
@@ -328,8 +315,9 @@ unless Keith explicitly provides evidence and asks for that framing.
 End meaningful Codex responses with:
 
 - Suggested commit message
-- GPT Review Prompt
-- Optional Gold / Codex or Diamond / Codex next step if needed
+- 🧠 Brain / GPT handoff
+- Gold / Codex follow-up prompt when a scoped repo next step is useful
+- Diamond / Codex follow-up prompt for meaningful work where audit, hardening, branch review, or portfolio-signal review would help
 
 Every meaningful task should include:
 
@@ -523,9 +511,10 @@ When updating portfolio content, check that:
 - Include how to run or preview, tests run, known limitations, and a practical suggested commit message when relevant.
 - Always include copy-ready next-step prompts after meaningful work:
   - Codex Lane first, for concrete repository edits, validation, commits, or publishing
-  - GPT Lane second, for planning, reflection, review, learning context, resume/portfolio framing, or strategy
-  - Gold / Codex or Diamond / Codex for Codex follow-ups
-  - Wood, Gold, and Diamond for GPT follow-ups when useful
+  - 🧠 Brain / GPT second, as one best planning, reflection, review, learning, resume/portfolio, or strategy handoff based on current sprint goals
+  - Gold / Codex when a scoped repo next step is useful
+  - Diamond / Codex for meaningful work where audit, hardening, branch review, or portfolio-signal review would help
+  - No default Wood / Gold / Diamond GPT menu unless Keith explicitly asks for GPT rank options
 - Clearly say where each prompt belongs, such as ChatGPT, Codex, GitHub, or a local terminal.
 - Briefly explain why each next prompt or skill-building exercise matters, especially how it builds practical understanding.
 
@@ -538,5 +527,6 @@ At the end of meaningful work, provide:
 - Tests run
 - Known limitations
 - Suggested commit message
-- GPT Review Prompt
-- Optional Gold / Codex or Diamond / Codex next step if needed
+- 🧠 Brain / GPT handoff with one best sprint-aware planning, reflection, review, or framing prompt
+- Gold / Codex follow-up prompt when a scoped repo next step is useful
+- Diamond / Codex follow-up prompt for meaningful work where audit, hardening, branch review, or portfolio-signal review would help

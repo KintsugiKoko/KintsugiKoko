@@ -8,6 +8,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
+WOOD_CODEX_LABEL = "Wood " + "/ Codex"
 
 
 def read(path: str) -> str:
@@ -30,11 +31,48 @@ def require_order(text: str, labels: list[tuple[str, str]]) -> None:
         last_index = index
 
 
+def agent_guides() -> list[Path]:
+    return sorted(ROOT.rglob("AGENTS.md"))
+
+
+def check_no_response_format_drift() -> None:
+    disallowed_phrases = [
+        WOOD_CODEX_LABEL,
+        "Wood-ranked Codex",
+        "Beginner ELO",
+        "Intermediate ELO",
+        "Expert ELO",
+        "Beginner / Codex",
+        "Intermediate / Codex",
+        "Expert / Codex",
+        "Beginner / GPT",
+        "Intermediate / GPT",
+        "Expert / GPT",
+        "Do not provide only one rank unless",
+        "If one option is recommended, still provide the full prompt pack",
+        "GPT Lane always comes second.",
+        "Wood, Gold, and Diamond for GPT follow-ups when useful",
+    ]
+
+    for path in agent_guides():
+        text = path.read_text(encoding="utf-8")
+        rel_path = path.relative_to(ROOT)
+        for phrase in disallowed_phrases:
+            if phrase in text:
+                raise AssertionError(
+                    f"Response-format drift in {rel_path}: {phrase}"
+                )
+
+
 def check_root_prompt_lanes(root_agents: str) -> None:
     require_contains(root_agents, "## Prompt Lane Rule", "Prompt Lane Rule section")
     require_contains(root_agents, "## Codex Response Rules", "Codex Response Rules section")
     require_contains(root_agents, "Codex Lane always comes first.", "Codex-first rule")
-    require_contains(root_agents, "GPT Lane always comes second.", "GPT-second rule")
+    require_contains(
+        root_agents,
+        "🧠 Brain / GPT comes second when a GPT handoff is included.",
+        "GPT handoff second rule",
+    )
     require_contains(
         root_agents,
         "Do not interleave Codex and GPT prompts.",
@@ -42,16 +80,21 @@ def check_root_prompt_lanes(root_agents: str) -> None:
     )
     require_contains(
         root_agents,
-        "Do not provide only one rank unless the user explicitly asks for a single prompt.",
-        "full-rank default rule",
+        "GPT should provide the single best next answer or next-step prompt based on the current sprint goal.",
+        "single best GPT handoff rule",
+    )
+    require_contains(
+        root_agents,
+        "GPT should not provide three rank options by default unless Keith explicitly asks.",
+        "no default GPT rank menu rule",
     )
     require_contains(
         root_agents,
         "Do not include Wood prompts in Codex responses.",
         "no Wood prompts in Codex responses rule",
     )
-    if "Wood / Codex" in root_agents:
-        raise AssertionError("Wood / Codex should not appear in root AGENTS.md")
+    if WOOD_CODEX_LABEL in root_agents:
+        raise AssertionError(f"{WOOD_CODEX_LABEL} should not appear in root AGENTS.md")
 
     require_order(
         root_agents,
@@ -59,18 +102,24 @@ def check_root_prompt_lanes(root_agents: str) -> None:
             ("Codex Lane", "1. Codex Lane"),
             ("Gold / Codex", "ELO 1400 — Gold / Codex"),
             ("Diamond / Codex", "ELO 1800 — Diamond / Codex"),
-            ("GPT Lane", "2. GPT Lane"),
-            ("Wood / GPT", "ELO 1000 — Wood / GPT"),
-            ("Gold / GPT", "ELO 1400 — Gold / GPT"),
-            ("Diamond / GPT", "ELO 1800 — Diamond / GPT"),
+            ("Brain / GPT", "2. 🧠 Brain / GPT"),
+            (
+                "single best GPT prompt",
+                "One best ChatGPT answer or next-step prompt based on the current sprint goal",
+            ),
         ],
     )
 
-    require_contains(root_agents, "## GPT Review Prompt", "GPT handoff heading")
+    require_contains(root_agents, "## 🧠 Brain / GPT", "GPT handoff heading")
     require_contains(
         root_agents,
-        "Optional Gold / Codex or Diamond / Codex next step if needed",
-        "optional Codex next step rule",
+        "GPT handoff is separate from Codex guidance.",
+        "separate GPT handoff rule",
+    )
+    require_contains(
+        root_agents,
+        "Diamond / Codex follow-up prompt for meaningful work where audit, hardening, branch review, or portfolio-signal review would help",
+        "required Diamond / Codex next step rule",
     )
 
 
@@ -115,6 +164,7 @@ def check_project_guides() -> None:
 
 def main() -> None:
     root_agents = read("AGENTS.md")
+    check_no_response_format_drift()
     check_root_prompt_lanes(root_agents)
     check_test_plan_agents(root_agents)
     check_project_guides()
