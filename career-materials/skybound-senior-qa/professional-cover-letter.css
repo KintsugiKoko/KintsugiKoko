@@ -14,7 +14,7 @@
   --halftone-dark: rgba(32, 35, 43, 0.42);
   --halftone-light: rgba(255, 255, 255, 0.2);
   --white: #ffffff;
-  --motif: url("assets/skybound-space-motif.jpg");
+  --motif: url("assets/cover-header.png");
 }
 
 * {
