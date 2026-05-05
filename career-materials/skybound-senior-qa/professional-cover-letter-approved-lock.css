@@ -48,6 +48,7 @@
     white-space: nowrap !important;
     border: 0 !important;
     box-shadow: none !important;
+    pointer-events: none !important;
   }
 
   .letter-header > .profile-card,
@@ -64,6 +65,7 @@
     white-space: nowrap !important;
     border: 0 !important;
     box-shadow: none !important;
+    pointer-events: none !important;
   }
 
   .letter-header .header-link-overlays {
