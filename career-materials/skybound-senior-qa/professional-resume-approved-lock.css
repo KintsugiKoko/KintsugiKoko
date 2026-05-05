@@ -2,6 +2,13 @@
    Robot header, dark cinematic frame, comic-panel structure. */
 
 @media screen, print {
+  *,
+  *::before,
+  *::after {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
   body {
     background: #07080c !important;
   }
@@ -190,6 +197,39 @@
   }
 }
 
+@media screen {
+  .summary,
+  .strengths,
+  .resume-shell > section {
+    padding: 20px 24px !important;
+  }
+
+  .job,
+  .game-work,
+  .portfolio-tools {
+    padding: 16px 18px !important;
+  }
+
+  .summary p,
+  .resume-shell p,
+  .resume-shell li {
+    line-height: 1.48 !important;
+  }
+
+  .summary p,
+  .game-work p,
+  .portfolio-tools p,
+  .resume-shell > section > p {
+    width: 100% !important;
+    max-width: min(154ch, calc(100% - clamp(48px, 6%, 120px))) !important;
+  }
+
+  .job p,
+  .job li {
+    max-width: min(138ch, calc(100% - clamp(28px, 4%, 80px))) !important;
+  }
+}
+
 @media print {
   @page {
     margin: 0;
@@ -198,7 +238,7 @@
   body {
     background: #07080c !important;
     font-size: 6.85pt !important;
-    line-height: 1.06 !important;
+    line-height: 1.08 !important;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
@@ -218,12 +258,12 @@
   .strengths,
   .resume-shell > section {
     margin: 4pt 16pt 0 !important;
-    padding: 4pt 6pt !important;
+    padding: 4.4pt 6.8pt !important;
   }
 
   .job {
     margin: 3pt 0 0 !important;
-    padding: 4pt 6pt !important;
+    padding: 4.2pt 6.5pt !important;
   }
 
   .pill-list {
@@ -247,9 +287,22 @@
   p,
   li {
     font-size: 6.4pt !important;
+    line-height: 1.14 !important;
+  }
+
+  .summary p,
+  .game-work p,
+  .portfolio-tools p,
+  .resume-shell > section > p {
+    max-width: min(126ch, calc(100% - 24pt)) !important;
+  }
+
+  .job p,
+  .job li {
+    max-width: none !important;
   }
 
   li {
-    margin: 0.4pt 0 !important;
+    margin: 0.45pt 0 !important;
   }
 }

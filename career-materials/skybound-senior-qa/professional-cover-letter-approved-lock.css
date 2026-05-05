@@ -2,6 +2,13 @@
    Preserve the supplied Battle Beast-style header and comic-panel body. */
 
 @media screen, print {
+  *,
+  *::before,
+  *::after {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
   body {
     background: #07080c !important;
   }
@@ -186,6 +193,37 @@
   }
 }
 
+@media screen {
+  .quote-band {
+    padding: 12px 18px !important;
+  }
+
+  .letter-body {
+    padding: 26px 30px !important;
+  }
+
+  .letter-body p {
+    line-height: 1.55 !important;
+    width: 100% !important;
+    max-width: min(154ch, calc(100% - clamp(56px, 6%, 130px))) !important;
+  }
+
+  .gaming-achievements {
+    padding: 12px 14px !important;
+  }
+
+  .gaming-achievements p {
+    line-height: 1.48 !important;
+    width: 100% !important;
+    max-width: min(150ch, calc(100% - clamp(48px, 6%, 120px))) !important;
+  }
+
+  .quote-band p {
+    width: 100% !important;
+    max-width: min(126ch, calc(100% - clamp(42px, 5%, 110px))) !important;
+  }
+}
+
 @media print {
   @page {
     margin: 0;
@@ -194,7 +232,7 @@
   body {
     background: #07080c !important;
     font-size: 9.1pt !important;
-    line-height: 1.26 !important;
+    line-height: 1.28 !important;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
@@ -212,20 +250,26 @@
 
   .quote-band {
     margin: 6pt 18pt 0 !important;
-    padding: 6pt 10pt !important;
+    padding: 6.5pt 10.5pt !important;
   }
 
   .letter-body {
     margin: 6pt 18pt 0 !important;
-    padding: 10pt 12pt !important;
+    padding: 10.5pt 12.5pt !important;
   }
 
   .letter-body p {
-    margin-bottom: 5pt !important;
+    margin-bottom: 5.1pt !important;
+    max-width: min(132ch, calc(100% - 28pt)) !important;
   }
 
   .gaming-achievements {
     margin: 1pt 0 5pt !important;
-    padding: 4pt 6pt !important;
+    padding: 4.5pt 6.5pt !important;
+  }
+
+  .gaming-achievements p,
+  .quote-band p {
+    max-width: min(128ch, calc(100% - 24pt)) !important;
   }
 }
