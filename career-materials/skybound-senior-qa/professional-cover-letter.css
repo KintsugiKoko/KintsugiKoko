@@ -18,7 +18,7 @@
   --dark-panel-gradient: linear-gradient(135deg, rgba(213, 52, 52, 0.12), transparent 36%),
     linear-gradient(315deg, rgba(255, 255, 255, 0.035), transparent 48%);
   --white: #ffffff;
-  --motif: url("assets/cover-header.png");
+  --motif: url("assets/cover-header-final.png");
 }
 
 * {

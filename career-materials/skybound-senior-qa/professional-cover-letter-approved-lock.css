@@ -20,11 +20,11 @@
     display: block !important;
     position: relative !important;
     width: 100% !important;
-    min-height: clamp(235px, 28.8vw, 472px) !important;
-    height: clamp(235px, 28.8vw, 472px) !important;
+    min-height: clamp(193px, 22.2vw, 340px) !important;
+    height: clamp(193px, 22.2vw, 340px) !important;
     padding: 0 !important;
     overflow: hidden !important;
-    background: url("assets/cover-header.png") top center / 100% auto no-repeat, #07080c !important;
+    background: url("assets/cover-header-final.png") top center / 100% auto no-repeat, #07080c !important;
     border-top: 0 !important;
     border-bottom: 4px solid #d53434 !important;
   }
@@ -203,9 +203,9 @@
   }
 
   .letter-header {
-    min-height: 176pt !important;
-    height: 176pt !important;
-    background: url("assets/cover-header.png") top center / 100% auto no-repeat, #07080c !important;
+    min-height: 135pt !important;
+    height: 135pt !important;
+    background: url("assets/cover-header-final.png") top center / 100% auto no-repeat, #07080c !important;
   }
 
   .quote-band {

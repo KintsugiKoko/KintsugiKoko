@@ -19,7 +19,7 @@
   --paper-gradient-soft: linear-gradient(135deg, rgba(213, 52, 52, 0.022), transparent 40%),
     linear-gradient(315deg, rgba(7, 8, 12, 0.022), transparent 48%);
   --white: #ffffff;
-  --motif: url("assets/resume-header.png");
+  --motif: url("assets/resume-header-final.png");
 }
 
 * {
