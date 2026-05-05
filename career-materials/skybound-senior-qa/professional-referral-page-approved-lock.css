@@ -1,0 +1,325 @@
+/* Final approved Reference visual lock.
+   Match the supplied reference art; do not reinterpret or flatten it. */
+
+@media screen, print {
+  body {
+    background: #07080c !important;
+  }
+
+  .referral-shell {
+    width: min(100%, 1562px) !important;
+    margin: 0 auto !important;
+    padding: 0 0 22px !important;
+    background: #07080c !important;
+    border: 0 !important;
+    border-top: 8px solid #d53434 !important;
+    box-shadow: none !important;
+  }
+
+  .referral-header {
+    display: block !important;
+    position: relative !important;
+    width: 100% !important;
+    min-height: clamp(248px, 27.6vw, 430px) !important;
+    height: clamp(248px, 27.6vw, 430px) !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    background: url("assets/ref-header.png") top center / 100% auto no-repeat, #07080c !important;
+    border-top: 0 !important;
+    border-bottom: 4px solid #d53434 !important;
+    isolation: auto !important;
+  }
+
+  .referral-header::before,
+  .referral-header::after {
+    display: none !important;
+    content: none !important;
+  }
+
+  .referral-header > * {
+    display: block !important;
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: -1px !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    clip: rect(0 0 0 0) !important;
+    clip-path: inset(50%) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .referral-header .profile-photo-mask,
+  .referral-header .profile-card,
+  .referral-header .identity {
+    display: block !important;
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: -1px !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    clip: rect(0 0 0 0) !important;
+    clip-path: inset(50%) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    z-index: 0 !important;
+  }
+
+  .referral-header .profile-photo-mask {
+    display: block !important;
+    position: absolute !important;
+    top: clamp(24px, 3.6vw, 56px) !important;
+    left: clamp(26px, 2.7vw, 44px) !important;
+    z-index: 4 !important;
+    width: clamp(172px, 16.4vw, 256px) !important;
+    height: clamp(210px, 21.6vw, 338px) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    clip: auto !important;
+    clip-path: none !important;
+    white-space: normal !important;
+    border: 0 !important;
+    background: #07080c !important;
+    border-radius: 6px 18px 24px 6px !important;
+    box-shadow:
+      inset 0 0 0 2px rgba(255, 255, 255, 0.1),
+      0 0 0 3px #07080c !important;
+    pointer-events: none !important;
+  }
+
+  .referral-header .profile-card {
+    display: block !important;
+    position: absolute !important;
+    top: clamp(34px, 4.2vw, 66px) !important;
+    left: clamp(40px, 3.8vw, 60px) !important;
+    z-index: 5 !important;
+    width: clamp(122px, 12.1vw, 188px) !important;
+    height: clamp(178px, 17.6vw, 274px) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    clip: auto !important;
+    clip-path: none !important;
+    white-space: normal !important;
+    border: 3px solid #ffffff !important;
+    border-radius: 2px 12px 18px 2px !important;
+    background: #07080c !important;
+    box-shadow:
+      0 0 0 4px #d53434,
+      7px 7px 0 rgba(7, 8, 12, 0.5) !important;
+  }
+
+  .referral-header .profile-card img {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center 15% !important;
+    border: 0 !important;
+    filter: none !important;
+    transform: none !important;
+  }
+
+  .referral-thesis,
+  .proof-brief,
+  .testimonial-flow,
+  .experience-proof,
+  .portfolio-signal,
+  .contact-panel,
+  .experience-proof article {
+    position: relative !important;
+    overflow: hidden !important;
+    background:
+      radial-gradient(ellipse at 90% 20%, rgba(213, 52, 52, 0.18), rgba(213, 52, 52, 0.08) 20%, transparent 46%),
+      linear-gradient(124deg, rgba(255, 255, 255, 0.99) 0%, rgba(255, 250, 247, 0.98) 50%, rgba(238, 231, 229, 0.94) 100%),
+      #fffaf7 !important;
+    border: 1.5px solid rgba(16, 17, 22, 0.42) !important;
+    border-left: 5px solid #d53434 !important;
+    box-shadow:
+      8px 8px 0 rgba(7, 8, 12, 0.34),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.64) !important;
+  }
+
+  .referral-thesis,
+  .proof-brief,
+  .testimonial-flow,
+  .experience-proof,
+  .portfolio-signal,
+  .contact-panel {
+    margin-top: 12px !important;
+    border-top: 2px solid rgba(16, 17, 22, 0.82) !important;
+  }
+
+  .referral-thesis::before,
+  .proof-brief::before,
+  .testimonial-flow::before,
+  .experience-proof::before,
+  .portfolio-signal::before,
+  .contact-panel::before {
+    content: "" !important;
+    display: block !important;
+    position: absolute !important;
+    top: -2px !important;
+    left: 18px !important;
+    z-index: 2 !important;
+    width: 92px !important;
+    height: 5px !important;
+    background:
+      linear-gradient(90deg, #d53434 0 56px, rgba(16, 17, 22, 0.64) 56px 76px, transparent 76px) !important;
+    box-shadow: 0 5px 0 rgba(16, 17, 22, 0.22) !important;
+  }
+
+  .referral-thesis::after,
+  .proof-brief::after,
+  .testimonial-flow::after,
+  .experience-proof::after,
+  .portfolio-signal::after,
+  .contact-panel::after {
+    content: "" !important;
+    display: block !important;
+    position: absolute !important;
+    top: 9px !important;
+    right: 10px !important;
+    z-index: 0 !important;
+    width: min(34%, 190px) !important;
+    height: min(78%, 118px) !important;
+    background-image:
+      radial-gradient(circle, rgba(213, 52, 52, 0.24) 1.25px, transparent 2.05px),
+      radial-gradient(circle, rgba(16, 17, 22, 0.12) 0.8px, transparent 1.65px) !important;
+    background-position: 0 0, 4px 4px !important;
+    background-size: 8px 8px !important;
+    opacity: 0.58 !important;
+    pointer-events: none !important;
+  }
+
+  .referral-thesis > *,
+  .proof-brief > *,
+  .testimonial-flow > *,
+  .experience-proof > *,
+  .portfolio-signal > *,
+  .contact-panel > * {
+    position: relative !important;
+    z-index: 1 !important;
+  }
+
+  .contact-panel,
+  .contact-panel p,
+  .contact-panel span,
+  .contact-panel a,
+  .contact-panel strong {
+    color: #101116 !important;
+  }
+
+  .contact-panel h2 {
+    color: #a90f18 !important;
+  }
+
+  .contact-panel a {
+    text-decoration-color: #d53434 !important;
+  }
+}
+
+@media print {
+  @page {
+    margin: 0;
+  }
+
+  body {
+    background: #07080c !important;
+    font-size: 7.8pt !important;
+    line-height: 1.13 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .referral-header {
+    min-height: 166pt !important;
+    height: 166pt !important;
+    background: url("assets/ref-header.png") top center / 100% auto no-repeat, #07080c !important;
+  }
+
+  .referral-header .profile-photo-mask {
+    top: 13pt !important;
+    left: 16pt !important;
+    width: 86pt !important;
+    height: 132pt !important;
+    border-radius: 3pt 9pt 12pt 3pt !important;
+    box-shadow:
+      inset 0 0 0 1pt rgba(255, 255, 255, 0.1),
+      0 0 0 2pt #07080c !important;
+  }
+
+  .referral-header .profile-card {
+    top: 18pt !important;
+    left: 23pt !important;
+    width: 60pt !important;
+    height: 88pt !important;
+    border: 1.5pt solid #ffffff !important;
+    border-radius: 1pt 5pt 8pt 1pt !important;
+    box-shadow:
+      0 0 0 2pt #d53434,
+      3pt 3pt 0 rgba(7, 8, 12, 0.5) !important;
+  }
+
+  .referral-header .profile-card img {
+    object-fit: cover !important;
+    object-position: center 15% !important;
+    filter: none !important;
+    transform: none !important;
+  }
+
+  section {
+    margin: 4pt 28pt 0 !important;
+    padding: 5pt 7pt !important;
+  }
+
+  .referral-thesis,
+  .proof-brief,
+  .testimonial-flow,
+  .experience-proof,
+  .portfolio-signal,
+  .contact-panel {
+    margin-top: 4pt !important;
+    box-shadow: 4pt 4pt 0 rgba(7, 8, 12, 0.28) !important;
+  }
+
+  .referral-thesis p {
+    max-width: 72ch !important;
+    font-size: 8.2pt !important;
+    line-height: 1.2 !important;
+  }
+
+  .experience-proof {
+    gap: 5pt !important;
+  }
+
+  .experience-proof article {
+    padding: 5pt !important;
+  }
+
+  li {
+    margin: 0.6pt 0 !important;
+  }
+
+  .linkedin-verify img {
+    width: 48pt !important;
+    height: 48pt !important;
+  }
+
+  .referral-thesis::after,
+  .proof-brief::after,
+  .testimonial-flow::after,
+  .experience-proof::after,
+  .portfolio-signal::after,
+  .contact-panel::after {
+    width: 54pt !important;
+    height: 34pt !important;
+    background-size: 5pt 5pt !important;
+    opacity: 0.24 !important;
+  }
+}

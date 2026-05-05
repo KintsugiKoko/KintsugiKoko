@@ -531,7 +531,7 @@ li {
 @media print {
   .resume-header {
     display: block !important;
-    min-height: 92pt !important;
+    min-height: 130pt !important;
     padding: 0 !important;
     background: var(--motif) top center / 100% auto no-repeat, #07080c !important;
     border-bottom: 2pt solid var(--accent) !important;
@@ -552,6 +552,523 @@ li {
     clip-path: inset(50%) !important;
     white-space: nowrap !important;
     border: 0 !important;
+  }
+
+  .pdf-contact-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3pt 9pt;
+    align-items: center;
+    padding: 4pt 0 5pt;
+    color: #101116;
+    border-bottom: 1pt solid rgba(16, 17, 22, 0.22);
+    font-size: 7.2pt;
+    font-weight: 600;
+    line-height: 1.12;
+  }
+
+  .pdf-contact-strip a {
+    color: #101116;
+    text-decoration: underline;
+    text-decoration-color: var(--accent);
+    text-decoration-thickness: 0.7pt;
+    text-underline-offset: 1.5pt;
+  }
+}
+
+/* EoD submission polish: compact one-page PDF resume with visible panel styling. */
+@media screen, print {
+  .resume-shell section,
+  .resume-shell .job,
+  .resume-shell .portfolio-grid article {
+    background:
+      radial-gradient(circle at 94% 18%, rgba(213, 52, 52, 0.12), transparent 18%),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(249, 247, 245, 0.96) 58%, rgba(239, 235, 232, 0.9)),
+      #ffffff !important;
+    border: 1.5px solid rgba(16, 17, 22, 0.24) !important;
+    border-left: 5px solid var(--accent) !important;
+    box-shadow: 5px 5px 0 rgba(7, 8, 12, 0.16) !important;
+  }
+
+  .resume-shell section::after {
+    content: "" !important;
+    display: block !important;
+    position: absolute !important;
+    top: 10px !important;
+    right: 12px !important;
+    width: 82px !important;
+    height: 46px !important;
+    background-image: radial-gradient(circle, rgba(213, 52, 52, 0.18) 1px, transparent 1.8px) !important;
+    background-size: 7px 7px !important;
+    opacity: 0.55 !important;
+    pointer-events: none !important;
+  }
+
+  .resume-shell section::before {
+    content: "" !important;
+    display: block !important;
+    position: absolute !important;
+    top: -2px !important;
+    left: 18px !important;
+    width: 58px !important;
+    height: 4px !important;
+    background: var(--accent) !important;
+    z-index: 2 !important;
+  }
+}
+
+@media print {
+  @page {
+    margin: 0.22in;
+  }
+
+  body {
+    font-size: 7.1pt !important;
+    line-height: 1.12 !important;
+  }
+
+  .resume-shell {
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 0 4pt !important;
+    border-top-width: 3pt !important;
+  }
+
+  .resume-header {
+    height: 126pt !important;
+    min-height: 126pt !important;
+    background: var(--motif) top center / 100% auto no-repeat, #07080c !important;
+  }
+
+  .pdf-contact-strip {
+    margin: 3pt 0 4pt !important;
+    padding: 3pt 5pt !important;
+    font-size: 6.4pt !important;
+    line-height: 1.08 !important;
+    gap: 2pt 8pt !important;
+  }
+
+  .quote-band,
+  section {
+    margin: 4pt 0 0 !important;
+    padding: 5pt 7pt !important;
+  }
+
+  section::after {
+    width: 52pt !important;
+    height: 30pt !important;
+    top: 5pt !important;
+    right: 6pt !important;
+    background-size: 5pt 5pt !important;
+    opacity: 0.24 !important;
+  }
+
+  section::before {
+    width: 34pt !important;
+    height: 2pt !important;
+    left: 8pt !important;
+  }
+
+  h2 {
+    margin-bottom: 3pt !important;
+    font-size: 7.4pt !important;
+    letter-spacing: 0.06em !important;
+  }
+
+  h3 {
+    font-size: 7.4pt !important;
+    line-height: 1.08 !important;
+  }
+
+  p {
+    margin-bottom: 2pt !important;
+  }
+
+  .summary p,
+  .dense-copy,
+  .portfolio-line {
+    font-size: 7.05pt !important;
+    line-height: 1.16 !important;
+  }
+
+  .pill-list {
+    gap: 2pt !important;
+  }
+
+  .pill-list li {
+    padding: 1pt 3.2pt !important;
+    font-size: 6.2pt !important;
+    line-height: 1.05 !important;
+  }
+
+  .job {
+    padding: 3.5pt 5pt !important;
+    margin-top: 3pt !important;
+  }
+
+  .job-heading p {
+    font-size: 6.8pt !important;
+    margin-top: 0.5pt !important;
+  }
+
+  ul {
+    margin-top: 2pt !important;
+    padding-left: 11pt !important;
+  }
+
+  li {
+    margin: 0.25pt 0 !important;
+    line-height: 1.11 !important;
+  }
+
+  .two-column {
+    grid-template-columns: 3fr 1fr !important;
+    gap: 5pt !important;
+  }
+}
+
+@media screen {
+  .resume-header {
+    position: relative !important;
+  }
+
+  .resume-header::after {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    z-index: 0;
+    width: 52%;
+    background:
+      radial-gradient(ellipse at 74% 42%, rgba(213, 52, 52, 0.12), transparent 34%),
+      linear-gradient(90deg, rgba(7, 8, 12, 0.99) 0%, rgba(7, 8, 12, 0.96) 72%, rgba(7, 8, 12, 0) 100%);
+    pointer-events: none;
+  }
+
+  .resume-header .profile-card {
+    display: none !important;
+  }
+
+  .resume-header > div,
+  .resume-header .contact-block {
+    position: absolute !important;
+    left: clamp(24px, 4.6vw, 52px) !important;
+    width: min(50%, 520px) !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    clip: auto !important;
+    clip-path: none !important;
+    white-space: normal !important;
+    border: 0 !important;
+    z-index: 2 !important;
+  }
+
+  .resume-header > div {
+    top: clamp(30px, 5vw, 52px) !important;
+  }
+
+  .resume-header .contact-block {
+    top: clamp(156px, 18.5vw, 182px) !important;
+    display: flex !important;
+    flex-flow: row wrap !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 7px 16px !important;
+    color: #ffffff !important;
+    font-size: clamp(0.78rem, 1.7vw, 0.98rem) !important;
+    line-height: 1.18 !important;
+    text-align: left !important;
+  }
+
+  .resume-header .eyebrow {
+    color: #ff4242 !important;
+    font-size: clamp(0.78rem, 1.75vw, 1rem) !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.07em !important;
+  }
+
+  .resume-header h1 {
+    color: #ffffff !important;
+    font-size: clamp(2.6rem, 6.2vw, 4.45rem) !important;
+    line-height: 0.9 !important;
+  }
+
+  .resume-header .role {
+    color: #ffffff !important;
+    font-size: clamp(0.9rem, 2vw, 1.18rem) !important;
+    font-weight: 800 !important;
+  }
+
+  .resume-header .contact-block a {
+    color: #ffffff !important;
+    display: inline-flex !important;
+    width: fit-content !important;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .resume-header::after {
+    width: 100%;
+    background: linear-gradient(90deg, rgba(7, 8, 12, 0.96), rgba(7, 8, 12, 0.64));
+  }
+
+  .resume-header > div,
+  .resume-header .contact-block {
+    width: calc(100% - 40px) !important;
+    left: 20px !important;
+  }
+}
+
+@media print {
+  .resume-header {
+    position: relative !important;
+  }
+
+  .resume-header::after {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    z-index: 0;
+    width: 53%;
+    background:
+      radial-gradient(ellipse at 74% 42%, rgba(213, 52, 52, 0.11), transparent 34%),
+      linear-gradient(90deg, rgba(7, 8, 12, 0.99) 0%, rgba(7, 8, 12, 0.96) 74%, rgba(7, 8, 12, 0) 100%);
+    pointer-events: none;
+  }
+
+  .resume-header .profile-card {
+    display: none !important;
+  }
+
+  .resume-header > div,
+  .resume-header .contact-block {
+    position: absolute !important;
+    left: 24pt !important;
+    width: 262pt !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    clip: auto !important;
+    clip-path: none !important;
+    white-space: normal !important;
+    border: 0 !important;
+    z-index: 2 !important;
+  }
+
+  .resume-header > div {
+    top: 23pt !important;
+  }
+
+  .resume-header .contact-block {
+    top: 91pt !important;
+    display: flex !important;
+    flex-flow: row wrap !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 3pt 9pt !important;
+    color: #ffffff !important;
+    font-size: 7.1pt !important;
+    line-height: 1.12 !important;
+    text-align: left !important;
+  }
+
+  .resume-header .eyebrow {
+    color: #ff4242 !important;
+    font-size: 8.2pt !important;
+    letter-spacing: 0.06em !important;
+  }
+
+  .resume-header h1 {
+    color: #ffffff !important;
+    font-size: 33pt !important;
+    line-height: 0.9 !important;
+  }
+
+  .resume-header .role {
+    color: #ffffff !important;
+    font-size: 9.2pt !important;
+    font-weight: 800 !important;
+  }
+
+  .resume-header .contact-block a {
+    color: #ffffff !important;
+    display: inline-flex !important;
+    width: fit-content !important;
+  }
+
+  .pdf-contact-strip {
+    display: none !important;
+  }
+}
+
+@media screen {
+  .resume-header::after {
+    width: 62%;
+    background: #07080c !important;
+  }
+
+  .resume-header > div,
+  .resume-header .contact-block {
+    width: min(57%, 620px) !important;
+  }
+
+  .resume-header > div {
+    top: clamp(34px, 5.3vw, 56px) !important;
+  }
+
+  .resume-header .contact-block {
+    top: clamp(190px, 22vw, 204px) !important;
+  }
+
+  .resume-header h1 {
+    font-size: clamp(2.6rem, 5.2vw, 3.55rem) !important;
+    white-space: nowrap !important;
+  }
+
+  .resume-header .role {
+    font-size: clamp(0.82rem, 1.75vw, 1rem) !important;
+    white-space: nowrap !important;
+  }
+}
+
+@media print {
+  .resume-header::after {
+    width: 62%;
+    background: #07080c !important;
+  }
+
+  .resume-header > div,
+  .resume-header .contact-block {
+    width: 312pt !important;
+  }
+
+  .resume-header .contact-block {
+    top: 97pt !important;
+  }
+
+  .resume-header h1 {
+    font-size: 28pt !important;
+    white-space: nowrap !important;
+  }
+
+  .resume-header .role {
+    font-size: 8pt !important;
+    white-space: nowrap !important;
+  }
+}
+
+@media screen {
+  .resume-header .profile-card {
+    position: absolute !important;
+    top: clamp(32px, 4.4vw, 46px) !important;
+    left: clamp(22px, 3.6vw, 38px) !important;
+    z-index: 3 !important;
+    display: block !important;
+    width: clamp(92px, 12vw, 118px) !important;
+    height: clamp(146px, 17vw, 184px) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    clip: auto !important;
+    clip-path: none !important;
+    white-space: normal !important;
+    background: #07080c !important;
+    border: 3px solid #ffffff !important;
+    box-shadow: 6px 6px 0 var(--accent), 0 10px 22px rgba(0, 0, 0, 0.28) !important;
+  }
+
+  .resume-header .profile-card img {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    filter: none !important;
+  }
+
+  .resume-header > div,
+  .resume-header .contact-block {
+    left: clamp(138px, 16vw, 176px) !important;
+    width: min(43%, 475px) !important;
+  }
+
+  .resume-header h1 {
+    font-size: clamp(2.25rem, 4.4vw, 3.1rem) !important;
+  }
+
+  .resume-header .contact-block {
+    top: clamp(184px, 21vw, 198px) !important;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .resume-header .profile-card {
+    position: relative !important;
+    top: auto !important;
+    left: 20px !important;
+    width: 92px !important;
+    height: 146px !important;
+    margin-top: 22px !important;
+  }
+
+  .resume-header > div,
+  .resume-header .contact-block {
+    left: 126px !important;
+    width: calc(100% - 146px) !important;
+  }
+
+  .resume-header h1 {
+    font-size: clamp(1.95rem, 9vw, 2.45rem) !important;
+  }
+
+  .resume-header .role {
+    white-space: normal !important;
+  }
+}
+
+@media print {
+  .resume-header .profile-card {
+    position: absolute !important;
+    top: 20pt !important;
+    left: 20pt !important;
+    z-index: 3 !important;
+    display: block !important;
+    width: 54pt !important;
+    height: 82pt !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    clip: auto !important;
+    clip-path: none !important;
+    white-space: normal !important;
+    background: #07080c !important;
+    border: 1.5pt solid #ffffff !important;
+    box-shadow: 3pt 3pt 0 var(--accent) !important;
+  }
+
+  .resume-header .profile-card img {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    filter: none !important;
+  }
+
+  .resume-header > div,
+  .resume-header .contact-block {
+    left: 90pt !important;
+    width: 250pt !important;
+  }
+
+  .resume-header h1 {
+    font-size: 24pt !important;
+  }
+
+  .resume-header .contact-block {
+    top: 92pt !important;
   }
 }
 

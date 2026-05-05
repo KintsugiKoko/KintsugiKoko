@@ -457,7 +457,7 @@ address a {
 @media print {
   .letter-header {
     display: block !important;
-    min-height: 92pt !important;
+    min-height: 118pt !important;
     padding: 0 !important;
     background: var(--motif) top center / 100% auto no-repeat, #07080c !important;
     border-bottom: 2pt solid var(--accent) !important;
@@ -478,6 +478,417 @@ address a {
     clip-path: inset(50%) !important;
     white-space: nowrap !important;
     border: 0 !important;
+  }
+
+  .pdf-contact-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3pt 9pt;
+    align-items: center;
+    padding: 4pt 0 5pt;
+    color: #101116;
+    border-bottom: 1pt solid rgba(16, 17, 22, 0.22);
+    font-size: 7.4pt;
+    font-weight: 600;
+    line-height: 1.15;
+  }
+
+  .pdf-contact-strip a {
+    color: #101116;
+    text-decoration: underline;
+    text-decoration-color: var(--accent);
+    text-decoration-thickness: 0.7pt;
+    text-underline-offset: 1.5pt;
+  }
+}
+
+/* EoD submission polish: restore comic-panel surfaces without hurting letter readability. */
+@media screen, print {
+  .quote-band,
+  .letter-body,
+  .gaming-achievements {
+    position: relative !important;
+    background:
+      radial-gradient(circle at 92% 16%, rgba(213, 52, 52, 0.12), transparent 18%),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.99), rgba(249, 246, 244, 0.97) 58%, rgba(239, 235, 232, 0.92)),
+      #ffffff !important;
+    color: #101116 !important;
+    border: 1.5px solid rgba(16, 17, 22, 0.28) !important;
+    border-left: 5px solid var(--accent) !important;
+    box-shadow: 5px 5px 0 rgba(7, 8, 12, 0.16) !important;
+    overflow: hidden !important;
+  }
+
+  .quote-band::before,
+  .letter-body::before,
+  .gaming-achievements::before {
+    content: "" !important;
+    display: block !important;
+    position: absolute !important;
+    top: -2px !important;
+    left: 18px !important;
+    width: 58px !important;
+    height: 4px !important;
+    background: var(--accent) !important;
+    z-index: 2 !important;
+  }
+
+  .quote-band::after,
+  .letter-body::after,
+  .gaming-achievements::after {
+    content: "" !important;
+    display: block !important;
+    position: absolute !important;
+    top: 10px !important;
+    right: 12px !important;
+    width: 86px !important;
+    height: 52px !important;
+    background-image: radial-gradient(circle, rgba(213, 52, 52, 0.18) 1px, transparent 1.8px) !important;
+    background-size: 7px 7px !important;
+    opacity: 0.48 !important;
+    pointer-events: none !important;
+  }
+
+  .quote-band p,
+  .letter-body p,
+  .gaming-achievements p,
+  .gaming-achievements h2 {
+    position: relative !important;
+    z-index: 1 !important;
+  }
+}
+
+@media print {
+  .quote-band,
+  .letter-body,
+  .gaming-achievements {
+    box-shadow: 3pt 3pt 0 rgba(7, 8, 12, 0.14) !important;
+  }
+
+  .quote-band::after,
+  .letter-body::after,
+  .gaming-achievements::after {
+    width: 48pt !important;
+    height: 30pt !important;
+    top: 6pt !important;
+    right: 7pt !important;
+    opacity: 0.2 !important;
+    background-size: 5pt 5pt !important;
+  }
+}
+
+@media screen {
+  .letter-header {
+    position: relative !important;
+  }
+
+  .letter-header::after {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    z-index: 0;
+    width: 51%;
+    background:
+      radial-gradient(ellipse at 74% 42%, rgba(213, 52, 52, 0.12), transparent 34%),
+      linear-gradient(90deg, rgba(7, 8, 12, 0.99) 0%, rgba(7, 8, 12, 0.96) 72%, rgba(7, 8, 12, 0) 100%);
+    pointer-events: none;
+  }
+
+  .letter-header .profile-card {
+    display: none !important;
+  }
+
+  .letter-header .identity {
+    position: absolute !important;
+    top: clamp(30px, 5vw, 52px) !important;
+    left: clamp(24px, 4.6vw, 52px) !important;
+    width: min(49%, 500px) !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    clip: auto !important;
+    clip-path: none !important;
+    white-space: normal !important;
+    border: 0 !important;
+    z-index: 2 !important;
+  }
+
+  .letter-header .identity address {
+    display: flex !important;
+    flex-flow: row wrap !important;
+    align-items: center !important;
+    gap: 7px 16px !important;
+    margin-top: clamp(12px, 2.2vw, 18px) !important;
+    color: #ffffff !important;
+    font-size: clamp(0.78rem, 1.7vw, 0.98rem) !important;
+    line-height: 1.18 !important;
+  }
+
+  .letter-header .eyebrow {
+    color: #ff4242 !important;
+    font-size: clamp(0.78rem, 1.75vw, 1rem) !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.07em !important;
+  }
+
+  .letter-header h1 {
+    color: #ffffff !important;
+    font-size: clamp(2.6rem, 6.2vw, 4.35rem) !important;
+    line-height: 0.9 !important;
+  }
+
+  .letter-header .role {
+    color: #ffffff !important;
+    font-size: clamp(0.9rem, 2vw, 1.18rem) !important;
+    font-weight: 800 !important;
+  }
+
+  .letter-header address a {
+    color: #ffffff !important;
+    display: inline-flex !important;
+    width: fit-content !important;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .letter-header::after {
+    width: 100%;
+    background: linear-gradient(90deg, rgba(7, 8, 12, 0.96), rgba(7, 8, 12, 0.64));
+  }
+
+  .letter-header .identity {
+    width: calc(100% - 40px) !important;
+    left: 20px !important;
+  }
+}
+
+@media print {
+  .letter-header {
+    position: relative !important;
+  }
+
+  .letter-header::after {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    z-index: 0;
+    width: 53%;
+    background:
+      radial-gradient(ellipse at 74% 42%, rgba(213, 52, 52, 0.11), transparent 34%),
+      linear-gradient(90deg, rgba(7, 8, 12, 0.99) 0%, rgba(7, 8, 12, 0.96) 74%, rgba(7, 8, 12, 0) 100%);
+    pointer-events: none;
+  }
+
+  .letter-header .profile-card {
+    display: none !important;
+  }
+
+  .letter-header .identity {
+    position: absolute !important;
+    top: 21pt !important;
+    left: 24pt !important;
+    width: 260pt !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    clip: auto !important;
+    clip-path: none !important;
+    white-space: normal !important;
+    border: 0 !important;
+    z-index: 2 !important;
+  }
+
+  .letter-header .identity address {
+    display: flex !important;
+    flex-flow: row wrap !important;
+    align-items: center !important;
+    gap: 3pt 9pt !important;
+    margin-top: 8pt !important;
+    color: #ffffff !important;
+    font-size: 7pt !important;
+    line-height: 1.12 !important;
+  }
+
+  .letter-header .eyebrow {
+    color: #ff4242 !important;
+    font-size: 7.9pt !important;
+    letter-spacing: 0.06em !important;
+  }
+
+  .letter-header h1 {
+    color: #ffffff !important;
+    font-size: 31pt !important;
+    line-height: 0.9 !important;
+  }
+
+  .letter-header .role {
+    color: #ffffff !important;
+    font-size: 8.8pt !important;
+    font-weight: 800 !important;
+  }
+
+  .letter-header address a {
+    color: #ffffff !important;
+    display: inline-flex !important;
+    width: fit-content !important;
+  }
+
+  .pdf-contact-strip {
+    display: none !important;
+  }
+}
+
+@media screen {
+  .letter-header::after {
+    width: 61%;
+    background:
+      radial-gradient(ellipse at 76% 42%, rgba(213, 52, 52, 0.1), transparent 33%),
+      linear-gradient(90deg, #07080c 0%, #07080c 78%, rgba(7, 8, 12, 0) 100%);
+  }
+
+  .letter-header .identity {
+    width: min(56%, 590px) !important;
+    top: clamp(34px, 5.2vw, 56px) !important;
+  }
+
+  .letter-header h1 {
+    font-size: clamp(2.55rem, 5.15vw, 3.45rem) !important;
+    white-space: nowrap !important;
+  }
+
+  .letter-header .role {
+    font-size: clamp(0.82rem, 1.75vw, 1rem) !important;
+    white-space: nowrap !important;
+  }
+
+  .letter-header .identity address {
+    margin-top: clamp(10px, 1.8vw, 15px) !important;
+  }
+}
+
+@media print {
+  .letter-header::after {
+    width: 62%;
+    background: #07080c !important;
+  }
+
+  .letter-header .identity {
+    width: 300pt !important;
+    top: 20pt !important;
+  }
+
+  .letter-header h1 {
+    font-size: 27pt !important;
+    white-space: nowrap !important;
+  }
+
+  .letter-header .role {
+    font-size: 8pt !important;
+    white-space: nowrap !important;
+  }
+
+  .letter-header .identity address {
+    margin-top: 6pt !important;
+  }
+}
+
+@media screen {
+  .letter-header .profile-card {
+    position: absolute !important;
+    top: clamp(32px, 4.4vw, 46px) !important;
+    left: clamp(22px, 3.6vw, 38px) !important;
+    z-index: 3 !important;
+    display: block !important;
+    width: clamp(92px, 12vw, 118px) !important;
+    height: clamp(146px, 17vw, 184px) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    clip: auto !important;
+    clip-path: none !important;
+    white-space: normal !important;
+    background: #07080c !important;
+    border: 3px solid #ffffff !important;
+    box-shadow: 6px 6px 0 var(--accent), 0 10px 22px rgba(0, 0, 0, 0.28) !important;
+  }
+
+  .letter-header .profile-card img {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    filter: none !important;
+  }
+
+  .letter-header .identity {
+    left: clamp(138px, 16vw, 176px) !important;
+    width: min(43%, 465px) !important;
+  }
+
+  .letter-header h1 {
+    font-size: clamp(2.22rem, 4.35vw, 3.05rem) !important;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .letter-header .profile-card {
+    position: relative !important;
+    top: auto !important;
+    left: 20px !important;
+    width: 92px !important;
+    height: 146px !important;
+    margin-top: 22px !important;
+  }
+
+  .letter-header .identity {
+    left: 126px !important;
+    width: calc(100% - 146px) !important;
+  }
+
+  .letter-header h1 {
+    font-size: clamp(1.95rem, 9vw, 2.45rem) !important;
+  }
+}
+
+@media print {
+  .letter-header .profile-card {
+    position: absolute !important;
+    top: 19pt !important;
+    left: 20pt !important;
+    z-index: 3 !important;
+    display: block !important;
+    width: 52pt !important;
+    height: 78pt !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    clip: auto !important;
+    clip-path: none !important;
+    white-space: normal !important;
+    background: #07080c !important;
+    border: 1.5pt solid #ffffff !important;
+    box-shadow: 3pt 3pt 0 var(--accent) !important;
+  }
+
+  .letter-header .profile-card img {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    filter: none !important;
+  }
+
+  .letter-header .identity {
+    left: 88pt !important;
+    width: 250pt !important;
+  }
+
+  .letter-header h1 {
+    font-size: 24pt !important;
   }
 }
 
@@ -518,6 +929,62 @@ address a {
     box-shadow: none !important;
   }
 
+  .letter-header .header-link-overlays {
+    display: block !important;
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    clip: auto !important;
+    clip-path: none !important;
+    white-space: normal !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    z-index: 4 !important;
+    pointer-events: none !important;
+  }
+
+  .letter-header .header-link-overlays a {
+    display: block !important;
+    position: absolute !important;
+    overflow: hidden !important;
+    color: transparent !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+    pointer-events: auto !important;
+  }
+
+  .letter-header .phone-link {
+    left: 21.2% !important;
+    top: 68.5% !important;
+    width: 12.5% !important;
+    height: 7.5% !important;
+  }
+
+  .letter-header .email-link {
+    left: 3% !important;
+    top: 77.2% !important;
+    width: 18.5% !important;
+    height: 6.8% !important;
+  }
+
+  .letter-header .linkedin-link {
+    left: 7.1% !important;
+    top: 86.2% !important;
+    width: 7.5% !important;
+    height: 6.5% !important;
+  }
+
+  .letter-header .portfolio-link {
+    left: 18.5% !important;
+    top: 86.2% !important;
+    width: 18.5% !important;
+    height: 6.5% !important;
+  }
+
   .pdf-contact-strip {
     display: flex !important;
     flex-wrap: wrap !important;
@@ -548,5 +1015,122 @@ address a {
   .pdf-contact-strip a {
     text-decoration: underline !important;
     text-underline-offset: 1.5pt !important;
+  }
+}
+
+/* Approved reference lock: use the supplied Cover reference art directly.
+   Do not overlay, wash out, or flatten the approved visual system. */
+@media screen, print {
+  body {
+    background: #07080c !important;
+  }
+
+  .letter-shell {
+    width: min(100%, 1644px) !important;
+    margin: 0 auto !important;
+    padding: 0 0 18px !important;
+    background: #07080c !important;
+    border: 0 !important;
+    border-top: 8px solid var(--accent) !important;
+    box-shadow: none !important;
+  }
+
+  .letter-header {
+    display: block !important;
+    position: relative !important;
+    width: 100% !important;
+    min-height: clamp(235px, 28.8vw, 472px) !important;
+    height: clamp(235px, 28.8vw, 472px) !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    background: var(--motif) top center / 100% auto no-repeat, #07080c !important;
+    border-bottom: 4px solid var(--accent) !important;
+  }
+
+  .letter-header::before,
+  .letter-header::after {
+    display: none !important;
+  }
+
+  .letter-header > * {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: -1px !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    clip: rect(0 0 0 0) !important;
+    clip-path: inset(50%) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .pdf-contact-strip {
+    display: none !important;
+  }
+
+  .quote-band,
+  .letter-body,
+  .gaming-achievements {
+    background:
+      radial-gradient(circle at 93% 16%, rgba(213, 52, 52, 0.17), transparent 20%),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.99), rgba(249, 246, 244, 0.97) 58%, rgba(238, 232, 229, 0.92)),
+      #ffffff !important;
+    border: 1.5px solid rgba(16, 17, 22, 0.32) !important;
+    border-left: 5px solid var(--accent) !important;
+    box-shadow: 7px 7px 0 rgba(7, 8, 12, 0.28) !important;
+  }
+
+  .quote-band::after,
+  .letter-body::after,
+  .gaming-achievements::after {
+    background-image: radial-gradient(circle, rgba(213, 52, 52, 0.22) 1.2px, transparent 2px) !important;
+    background-size: 8px 8px !important;
+    opacity: 0.46 !important;
+  }
+}
+
+@media print {
+  @page {
+    margin: 0;
+  }
+
+  body {
+    background: #07080c !important;
+    font-size: 9.1pt !important;
+    line-height: 1.26 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .letter-shell {
+    width: 100% !important;
+    padding-bottom: 8pt !important;
+  }
+
+  .letter-header {
+    min-height: 176pt !important;
+    height: 176pt !important;
+    background: var(--motif) top center / 100% auto no-repeat, #07080c !important;
+  }
+
+  .quote-band {
+    margin: 6pt 18pt 0 !important;
+    padding: 6pt 10pt !important;
+  }
+
+  .letter-body {
+    margin: 6pt 18pt 0 !important;
+    padding: 10pt 12pt !important;
+  }
+
+  .letter-body p {
+    margin-bottom: 5pt !important;
+  }
+
+  .gaming-achievements {
+    margin: 1pt 0 5pt !important;
+    padding: 4pt 6pt !important;
   }
 }

@@ -1,0 +1,229 @@
+/* Final approved Skybound visual lock for the cover letter.
+   Preserve the supplied Battle Beast-style header and comic-panel body. */
+
+@media screen, print {
+  body {
+    background: #07080c !important;
+  }
+
+  .letter-shell {
+    width: min(100%, 1644px) !important;
+    margin: 0 auto !important;
+    padding: 0 0 18px !important;
+    background: #07080c !important;
+    border: 0 !important;
+    border-top: 8px solid #d53434 !important;
+    box-shadow: none !important;
+  }
+
+  .letter-header {
+    display: block !important;
+    position: relative !important;
+    width: 100% !important;
+    min-height: clamp(235px, 28.8vw, 472px) !important;
+    height: clamp(235px, 28.8vw, 472px) !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    background: url("assets/cover-header.png") top center / 100% auto no-repeat, #07080c !important;
+    border-top: 0 !important;
+    border-bottom: 4px solid #d53434 !important;
+  }
+
+  .letter-header::before,
+  .letter-header::after {
+    display: none !important;
+    content: none !important;
+  }
+
+  .letter-header > * {
+    display: block !important;
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: -1px !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    clip: rect(0 0 0 0) !important;
+    clip-path: inset(50%) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .letter-header > .profile-card,
+  .letter-header > .identity {
+    display: block !important;
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: -1px !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    clip: rect(0 0 0 0) !important;
+    clip-path: inset(50%) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .letter-header .header-link-overlays {
+    display: block !important;
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    clip: auto !important;
+    clip-path: none !important;
+    pointer-events: none !important;
+  }
+
+  .letter-header .header-link-overlays a {
+    display: block !important;
+    position: absolute !important;
+    overflow: hidden !important;
+    color: transparent !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+    pointer-events: auto !important;
+  }
+
+  .letter-header .phone-link {
+    left: 21.2% !important;
+    top: 68.5% !important;
+    width: 12.5% !important;
+    height: 7.5% !important;
+  }
+
+  .letter-header .email-link {
+    left: 3% !important;
+    top: 77.2% !important;
+    width: 18.5% !important;
+    height: 6.8% !important;
+  }
+
+  .letter-header .linkedin-link {
+    left: 7.1% !important;
+    top: 86.2% !important;
+    width: 7.5% !important;
+    height: 6.5% !important;
+  }
+
+  .letter-header .portfolio-link {
+    left: 18.5% !important;
+    top: 86.2% !important;
+    width: 18.5% !important;
+    height: 6.5% !important;
+  }
+
+  .pdf-contact-strip {
+    display: none !important;
+  }
+
+  .quote-band,
+  .letter-body,
+  .gaming-achievements {
+    position: relative !important;
+    overflow: hidden !important;
+    background:
+      radial-gradient(ellipse at 92% 17%, rgba(213, 52, 52, 0.17), rgba(213, 52, 52, 0.07) 20%, transparent 46%),
+      linear-gradient(124deg, rgba(255, 255, 255, 0.99), rgba(255, 250, 247, 0.98) 52%, rgba(238, 231, 229, 0.94)),
+      #fffaf7 !important;
+    color: #101116 !important;
+    border: 1.5px solid rgba(16, 17, 22, 0.42) !important;
+    border-left: 5px solid #d53434 !important;
+    box-shadow: 8px 8px 0 rgba(7, 8, 12, 0.34) !important;
+  }
+
+  .quote-band::before,
+  .letter-body::before,
+  .gaming-achievements::before {
+    content: "" !important;
+    display: block !important;
+    position: absolute !important;
+    top: -2px !important;
+    left: 18px !important;
+    z-index: 2 !important;
+    width: 92px !important;
+    height: 5px !important;
+    background: linear-gradient(90deg, #d53434 0 56px, rgba(16, 17, 22, 0.64) 56px 76px, transparent 76px) !important;
+  }
+
+  .quote-band::after,
+  .letter-body::after,
+  .gaming-achievements::after {
+    content: "" !important;
+    display: block !important;
+    position: absolute !important;
+    top: 10px !important;
+    right: 12px !important;
+    z-index: 0 !important;
+    width: min(30%, 170px) !important;
+    height: min(76%, 104px) !important;
+    background-image:
+      radial-gradient(circle, rgba(213, 52, 52, 0.23) 1.2px, transparent 2px),
+      radial-gradient(circle, rgba(16, 17, 22, 0.1) 0.8px, transparent 1.6px) !important;
+    background-position: 0 0, 4px 4px !important;
+    background-size: 8px 8px !important;
+    opacity: 0.54 !important;
+    pointer-events: none !important;
+  }
+
+  .quote-band > *,
+  .letter-body > *,
+  .gaming-achievements > * {
+    position: relative !important;
+    z-index: 1 !important;
+  }
+
+  .quote-band p,
+  .quote-band span {
+    color: #101116 !important;
+  }
+}
+
+@media print {
+  @page {
+    margin: 0;
+  }
+
+  body {
+    background: #07080c !important;
+    font-size: 9.1pt !important;
+    line-height: 1.26 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .letter-shell {
+    width: 100% !important;
+    padding-bottom: 8pt !important;
+  }
+
+  .letter-header {
+    min-height: 176pt !important;
+    height: 176pt !important;
+    background: url("assets/cover-header.png") top center / 100% auto no-repeat, #07080c !important;
+  }
+
+  .quote-band {
+    margin: 6pt 18pt 0 !important;
+    padding: 6pt 10pt !important;
+  }
+
+  .letter-body {
+    margin: 6pt 18pt 0 !important;
+    padding: 10pt 12pt !important;
+  }
+
+  .letter-body p {
+    margin-bottom: 5pt !important;
+  }
+
+  .gaming-achievements {
+    margin: 1pt 0 5pt !important;
+    padding: 4pt 6pt !important;
+  }
+}

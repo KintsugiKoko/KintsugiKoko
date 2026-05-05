@@ -32,6 +32,414 @@
   --motif: url("assets/ref-header.png");
 }
 
+/* EoD submission polish: restore stronger referral panel identity and real-photo frame. */
+@media screen, print {
+  .referral-thesis,
+  .proof-brief,
+  .testimonial-flow,
+  .experience-proof,
+  .portfolio-signal,
+  .contact-panel,
+  .experience-proof article {
+    position: relative !important;
+    background:
+      radial-gradient(circle at 92% 18%, rgba(213, 52, 52, 0.17), transparent 20%),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.99), rgba(249, 246, 244, 0.96) 58%, rgba(238, 232, 229, 0.92)),
+      #ffffff !important;
+    border: 1.5px solid rgba(16, 17, 22, 0.3) !important;
+    border-left: 5px solid var(--accent) !important;
+    box-shadow: 6px 6px 0 rgba(7, 8, 12, 0.18) !important;
+    overflow: hidden !important;
+  }
+
+  .referral-thesis::before,
+  .proof-brief::before,
+  .testimonial-flow::before,
+  .experience-proof::before,
+  .portfolio-signal::before,
+  .contact-panel::before {
+    content: "" !important;
+    display: block !important;
+    position: absolute !important;
+    top: -2px !important;
+    left: 18px !important;
+    width: 64px !important;
+    height: 4px !important;
+    background: linear-gradient(90deg, var(--accent), rgba(213, 52, 52, 0.15)) !important;
+    z-index: 2 !important;
+  }
+
+  .referral-thesis::after,
+  .proof-brief::after,
+  .testimonial-flow::after,
+  .experience-proof::after,
+  .portfolio-signal::after,
+  .contact-panel::after {
+    content: "" !important;
+    display: block !important;
+    position: absolute !important;
+    top: 10px !important;
+    right: 12px !important;
+    width: 110px !important;
+    height: 72px !important;
+    background-image: radial-gradient(circle, rgba(213, 52, 52, 0.2) 1.2px, transparent 2px) !important;
+    background-size: 8px 8px !important;
+    opacity: 0.5 !important;
+    pointer-events: none !important;
+  }
+
+  .referral-header .profile-card {
+    display: block !important;
+    position: absolute !important;
+    z-index: 5 !important;
+    overflow: hidden !important;
+    background: #07080c !important;
+    border: 3px solid #ffffff !important;
+    box-shadow: 7px 7px 0 var(--accent), 0 10px 22px rgba(0, 0, 0, 0.28) !important;
+    clip: auto !important;
+    clip-path: none !important;
+  }
+
+  .referral-header .profile-card img {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center 34% !important;
+    filter: none !important;
+  }
+}
+
+@media screen {
+  .referral-header .profile-card {
+    top: clamp(28px, 4.5vw, 50px) !important;
+    left: clamp(26px, 4.8vw, 58px) !important;
+    width: clamp(98px, 13vw, 138px) !important;
+    height: clamp(136px, 16vw, 180px) !important;
+  }
+}
+
+@media print {
+  .referral-header .profile-card {
+    top: 14pt !important;
+    left: 18pt !important;
+    width: 54pt !important;
+    height: 76pt !important;
+    border-width: 1.4pt !important;
+    box-shadow: 3pt 3pt 0 var(--accent) !important;
+  }
+
+  .referral-thesis::after,
+  .proof-brief::after,
+  .testimonial-flow::after,
+  .experience-proof::after,
+  .portfolio-signal::after,
+  .contact-panel::after {
+    width: 54pt !important;
+    height: 34pt !important;
+    background-size: 5pt 5pt !important;
+    opacity: 0.22 !important;
+  }
+}
+
+/* End-of-file approved reference lock. Keep this last.
+   Target: dark cinematic banner, red top/bottom rules, large name left,
+   character art right, contact row left/lower, black field and halftone. */
+@media screen, print {
+  .referral-header {
+    display: block !important;
+    position: relative !important;
+    width: 100% !important;
+    min-height: clamp(248px, 27.6vw, 430px) !important;
+    height: clamp(248px, 27.6vw, 430px) !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    background: var(--motif) top center / 100% auto no-repeat, #07080c !important;
+    border-top: 0 !important;
+    border-bottom: 4px solid var(--accent) !important;
+    isolation: auto !important;
+  }
+
+  .referral-header::before,
+  .referral-header::after {
+    display: none !important;
+    content: none !important;
+  }
+
+  .referral-header > * {
+    display: block !important;
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: -1px !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    clip: rect(0 0 0 0) !important;
+    clip-path: inset(50%) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+}
+
+@media print {
+  .referral-header {
+    min-height: 166pt !important;
+    height: 166pt !important;
+    background: var(--motif) top center / 100% auto no-repeat, #07080c !important;
+  }
+}
+
+/* Approved reference absolute lock: this final block intentionally wins over
+   older stacked rules. The Reference header must be the supplied art only. */
+@media screen, print {
+  .referral-header {
+    display: block !important;
+    position: relative !important;
+    width: 100% !important;
+    min-height: clamp(248px, 27.6vw, 430px) !important;
+    height: clamp(248px, 27.6vw, 430px) !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    background: var(--motif) top center / 100% auto no-repeat, #07080c !important;
+    border-bottom: 4px solid var(--accent) !important;
+    isolation: auto !important;
+  }
+
+  .referral-header::before,
+  .referral-header::after {
+    display: none !important;
+  }
+
+  .referral-header > * {
+    display: block !important;
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: -1px !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    clip: rect(0 0 0 0) !important;
+    clip-path: inset(50%) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .referral-thesis,
+  .proof-brief,
+  .testimonial-flow,
+  .experience-proof,
+  .portfolio-signal,
+  .contact-panel,
+  .experience-proof article {
+    background:
+      radial-gradient(circle at 92% 16%, rgba(213, 52, 52, 0.19), transparent 21%),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.99), rgba(249, 246, 244, 0.96) 58%, rgba(237, 231, 229, 0.91)),
+      #ffffff !important;
+    border: 1.5px solid rgba(16, 17, 22, 0.34) !important;
+    border-left: 5px solid var(--accent) !important;
+    box-shadow: 8px 8px 0 rgba(7, 8, 12, 0.32) !important;
+  }
+}
+
+@media print {
+  .referral-header {
+    min-height: 166pt !important;
+    height: 166pt !important;
+    background: var(--motif) top center / 100% auto no-repeat, #07080c !important;
+  }
+}
+
+/* Absolute final lock: the approved Reference header image is the source of truth. */
+@media screen, print {
+  .referral-header {
+    display: block !important;
+    position: relative !important;
+    width: 100% !important;
+    min-height: clamp(248px, 27.6vw, 430px) !important;
+    height: clamp(248px, 27.6vw, 430px) !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    background: var(--motif) top center / 100% auto no-repeat, #07080c !important;
+    border-bottom: 4px solid var(--accent) !important;
+    isolation: auto !important;
+  }
+
+  .referral-header::before,
+  .referral-header::after {
+    display: none !important;
+  }
+
+  .referral-header > * {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: -1px !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    clip: rect(0 0 0 0) !important;
+    clip-path: inset(50%) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .referral-thesis,
+  .proof-brief,
+  .testimonial-flow,
+  .experience-proof,
+  .portfolio-signal,
+  .contact-panel,
+  .experience-proof article {
+    background:
+      radial-gradient(circle at 92% 16%, rgba(213, 52, 52, 0.19), transparent 21%),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.99), rgba(249, 246, 244, 0.96) 58%, rgba(237, 231, 229, 0.91)),
+      #ffffff !important;
+    border: 1.5px solid rgba(16, 17, 22, 0.34) !important;
+    border-left: 5px solid var(--accent) !important;
+    box-shadow: 8px 8px 0 rgba(7, 8, 12, 0.32) !important;
+  }
+}
+
+@media print {
+  .referral-header {
+    min-height: 166pt !important;
+    height: 166pt !important;
+    background: var(--motif) top center / 100% auto no-repeat, #07080c !important;
+  }
+}
+
+/* Approved reference lock: use the supplied Reference art directly.
+   Preserve the dark header, paper-gradient panels, halftone, and red accents. */
+@media screen, print {
+  body {
+    background: #07080c !important;
+  }
+
+  .referral-shell {
+    width: min(100%, 1562px) !important;
+    margin: 0 auto !important;
+    padding: 0 0 18px !important;
+    background: #07080c !important;
+    border: 0 !important;
+    border-top: 8px solid var(--accent) !important;
+    box-shadow: none !important;
+  }
+
+  .referral-header {
+    display: block !important;
+    position: relative !important;
+    width: 100% !important;
+    min-height: clamp(248px, 27.6vw, 430px) !important;
+    height: clamp(248px, 27.6vw, 430px) !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    background: var(--motif) top center / 100% auto no-repeat, #07080c !important;
+    border-bottom: 4px solid var(--accent) !important;
+    isolation: auto !important;
+  }
+
+  .referral-header::before,
+  .referral-header::after {
+    display: none !important;
+  }
+
+  .referral-header > * {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: -1px !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    clip: rect(0 0 0 0) !important;
+    clip-path: inset(50%) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .referral-thesis,
+  .proof-brief,
+  .testimonial-flow,
+  .experience-proof,
+  .portfolio-signal,
+  .contact-panel,
+  .experience-proof article {
+    background:
+      radial-gradient(circle at 92% 16%, rgba(213, 52, 52, 0.19), transparent 21%),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.99), rgba(249, 246, 244, 0.96) 58%, rgba(237, 231, 229, 0.91)),
+      #ffffff !important;
+    border: 1.5px solid rgba(16, 17, 22, 0.34) !important;
+    border-left: 5px solid var(--accent) !important;
+    box-shadow: 8px 8px 0 rgba(7, 8, 12, 0.32) !important;
+  }
+
+  .referral-thesis::after,
+  .proof-brief::after,
+  .testimonial-flow::after,
+  .experience-proof::after,
+  .portfolio-signal::after,
+  .contact-panel::after {
+    background-image: radial-gradient(circle, rgba(213, 52, 52, 0.24) 1.2px, transparent 2px) !important;
+    background-size: 8px 8px !important;
+    opacity: 0.52 !important;
+  }
+}
+
+@media print {
+  @page {
+    margin: 0;
+  }
+
+  body {
+    background: #07080c !important;
+    font-size: 7.8pt !important;
+    line-height: 1.13 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .referral-shell {
+    width: 100% !important;
+    padding-bottom: 7pt !important;
+  }
+
+  .referral-header {
+    min-height: 166pt !important;
+    height: 166pt !important;
+    background: var(--motif) top center / 100% auto no-repeat, #07080c !important;
+  }
+
+  section {
+    margin: 4pt 28pt 0 !important;
+    padding: 5pt 7pt !important;
+  }
+
+  .referral-thesis p {
+    max-width: 72ch !important;
+    font-size: 8.2pt !important;
+    line-height: 1.2 !important;
+  }
+
+  .experience-proof {
+    gap: 5pt !important;
+  }
+
+  .experience-proof article {
+    padding: 5pt !important;
+  }
+
+  li {
+    margin: 0.6pt 0 !important;
+  }
+
+  .linkedin-verify img {
+    width: 48pt !important;
+    height: 48pt !important;
+  }
+}
+
 * {
   box-sizing: border-box;
 }
@@ -700,5 +1108,499 @@ li {
     clip-path: inset(50%) !important;
     white-space: nowrap !important;
     border: 0 !important;
+  }
+}
+
+@media screen {
+  .referral-header {
+    position: relative !important;
+  }
+
+  .referral-header::after {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 20%;
+    z-index: 0;
+    width: 39%;
+    background:
+      radial-gradient(ellipse at 70% 44%, rgba(213, 52, 52, 0.12), transparent 32%),
+      linear-gradient(90deg, rgba(7, 8, 12, 0.96) 0%, rgba(7, 8, 12, 0.92) 76%, rgba(7, 8, 12, 0) 100%);
+    pointer-events: none;
+  }
+
+  .referral-header .profile-card {
+    display: none !important;
+  }
+
+  .referral-header .identity {
+    position: absolute !important;
+    top: clamp(36px, 5.2vw, 58px) !important;
+    left: clamp(210px, 23vw, 260px) !important;
+    width: min(39%, 455px) !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    clip: auto !important;
+    clip-path: none !important;
+    white-space: normal !important;
+    border: 0 !important;
+    z-index: 2 !important;
+  }
+
+  .referral-header .identity address {
+    display: flex !important;
+    flex-flow: row wrap !important;
+    align-items: center !important;
+    gap: 7px 16px !important;
+    margin-top: clamp(12px, 2.2vw, 18px) !important;
+    color: #ffffff !important;
+    font-size: clamp(0.78rem, 1.7vw, 0.98rem) !important;
+    line-height: 1.18 !important;
+  }
+
+  .referral-header .eyebrow {
+    color: #ff4242 !important;
+    font-size: clamp(0.78rem, 1.7vw, 0.98rem) !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.07em !important;
+  }
+
+  .referral-header h1 {
+    color: #ffffff !important;
+    font-size: clamp(2.45rem, 5.8vw, 4rem) !important;
+    line-height: 0.9 !important;
+  }
+
+  .referral-header .role {
+    color: #ffffff !important;
+    font-size: clamp(0.88rem, 1.9vw, 1.12rem) !important;
+    font-weight: 800 !important;
+  }
+
+  .referral-header address a {
+    color: #ffffff !important;
+    display: inline-flex !important;
+    width: fit-content !important;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .referral-header::after {
+    inset: 0;
+    width: 100%;
+    background: linear-gradient(90deg, rgba(7, 8, 12, 0.96), rgba(7, 8, 12, 0.64));
+  }
+
+  .referral-header .identity {
+    width: calc(100% - 40px) !important;
+    left: 20px !important;
+  }
+}
+
+@media print {
+  .referral-header {
+    position: relative !important;
+  }
+
+  .referral-header::after {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 20%;
+    z-index: 0;
+    width: 41%;
+    background:
+      radial-gradient(ellipse at 70% 44%, rgba(213, 52, 52, 0.1), transparent 32%),
+      linear-gradient(90deg, rgba(7, 8, 12, 0.96) 0%, rgba(7, 8, 12, 0.92) 76%, rgba(7, 8, 12, 0) 100%);
+    pointer-events: none;
+  }
+
+  .referral-header .profile-card {
+    display: none !important;
+  }
+
+  .referral-header .identity {
+    position: absolute !important;
+    top: 19pt !important;
+    left: 135pt !important;
+    width: 236pt !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    clip: auto !important;
+    clip-path: none !important;
+    white-space: normal !important;
+    border: 0 !important;
+    z-index: 2 !important;
+  }
+
+  .referral-header .identity address {
+    display: flex !important;
+    flex-flow: row wrap !important;
+    align-items: center !important;
+    gap: 3pt 8pt !important;
+    margin-top: 7pt !important;
+    color: #ffffff !important;
+    font-size: 6.5pt !important;
+    line-height: 1.12 !important;
+  }
+
+  .referral-header .eyebrow {
+    color: #ff4242 !important;
+    font-size: 7.2pt !important;
+    letter-spacing: 0.06em !important;
+  }
+
+  .referral-header h1 {
+    color: #ffffff !important;
+    font-size: 27pt !important;
+    line-height: 0.9 !important;
+  }
+
+  .referral-header .role {
+    color: #ffffff !important;
+    font-size: 7.9pt !important;
+    font-weight: 800 !important;
+  }
+
+  .referral-header address a {
+    color: #ffffff !important;
+    display: inline-flex !important;
+    width: fit-content !important;
+  }
+}
+
+@media screen {
+  .referral-header::after {
+    inset: 0 auto 0 clamp(150px, 15vw, 176px);
+    width: 57%;
+    background:
+      radial-gradient(ellipse at 72% 44%, rgba(213, 52, 52, 0.1), transparent 32%),
+      linear-gradient(90deg, #07080c 0%, #07080c 78%, rgba(7, 8, 12, 0) 100%);
+  }
+
+  .referral-header .identity {
+    left: clamp(236px, 25vw, 282px) !important;
+    width: min(46%, 500px) !important;
+    top: clamp(40px, 5.4vw, 58px) !important;
+  }
+
+  .referral-header h1 {
+    font-size: clamp(2.45rem, 5vw, 3.4rem) !important;
+    white-space: nowrap !important;
+  }
+
+  .referral-header .role {
+    font-size: clamp(0.76rem, 1.52vw, 0.92rem) !important;
+    white-space: nowrap !important;
+  }
+
+  .referral-header .identity address {
+    font-size: clamp(0.72rem, 1.4vw, 0.88rem) !important;
+    margin-top: clamp(10px, 1.8vw, 15px) !important;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .referral-header .identity {
+    left: 20px !important;
+    width: calc(100% - 40px) !important;
+  }
+
+  .referral-header .role {
+    white-space: normal !important;
+  }
+}
+
+@media print {
+  .referral-header::after {
+    inset: 0 auto 0 82pt;
+    width: 58%;
+    background: #07080c !important;
+  }
+
+  .referral-header .identity {
+    left: 150pt !important;
+    width: 270pt !important;
+    top: 18pt !important;
+  }
+
+  .referral-header h1 {
+    font-size: 24pt !important;
+    white-space: nowrap !important;
+  }
+
+  .referral-header .role {
+    font-size: 6.8pt !important;
+    white-space: nowrap !important;
+  }
+
+  .referral-header .identity address {
+    font-size: 6pt !important;
+    margin-top: 5pt !important;
+  }
+}
+
+@media screen {
+  .referral-header .profile-photo-mask {
+    position: absolute !important;
+    inset: 0 auto 0 0 !important;
+    z-index: 3 !important;
+    display: block !important;
+    width: clamp(280px, 28vw, 330px) !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    clip: auto !important;
+    clip-path: none !important;
+    white-space: normal !important;
+    border: 0 !important;
+    background: #07080c !important;
+    pointer-events: none !important;
+  }
+
+  .referral-header {
+    isolation: isolate !important;
+  }
+
+  .referral-header::before {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 auto 0 0 !important;
+    z-index: 2 !important;
+    display: block !important;
+    width: clamp(280px, 28vw, 330px) !important;
+    background: #07080c !important;
+    pointer-events: none !important;
+  }
+
+  .referral-header .profile-card {
+    position: absolute !important;
+    top: clamp(32px, 4.4vw, 42px) !important;
+    left: clamp(28px, 4vw, 42px) !important;
+    z-index: 5 !important;
+    display: block !important;
+    width: clamp(106px, 13.5vw, 136px) !important;
+    height: clamp(160px, 18vw, 198px) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    clip: auto !important;
+    clip-path: none !important;
+    white-space: normal !important;
+    background: #07080c !important;
+    border: 3px solid #ffffff !important;
+    box-shadow: 7px 7px 0 var(--accent), 0 12px 24px rgba(0, 0, 0, 0.32) !important;
+  }
+
+  .referral-header .profile-card img {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    filter: none !important;
+  }
+
+  .referral-header::after {
+    inset: 0 auto 0 clamp(176px, 17vw, 210px);
+    width: 55%;
+  }
+
+  .referral-header .identity {
+    left: clamp(230px, 24vw, 276px) !important;
+    width: min(45%, 490px) !important;
+    z-index: 5 !important;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .referral-header .profile-card {
+    position: relative !important;
+    top: auto !important;
+    left: 20px !important;
+    width: 96px !important;
+    height: 150px !important;
+    margin-top: 22px !important;
+  }
+}
+
+@media print {
+  .referral-header .profile-photo-mask {
+    position: absolute !important;
+    inset: 0 auto 0 0 !important;
+    z-index: 3 !important;
+    display: block !important;
+    width: 150pt !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    clip: auto !important;
+    clip-path: none !important;
+    white-space: normal !important;
+    border: 0 !important;
+    background: #07080c !important;
+    pointer-events: none !important;
+  }
+
+  .referral-header {
+    isolation: isolate !important;
+  }
+
+  .referral-header::before {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 auto 0 0 !important;
+    z-index: 2 !important;
+    display: block !important;
+    width: 150pt !important;
+    background: #07080c !important;
+    pointer-events: none !important;
+  }
+
+  .referral-header .profile-card {
+    position: absolute !important;
+    top: 12pt !important;
+    left: 18pt !important;
+    z-index: 5 !important;
+    display: block !important;
+    width: 54pt !important;
+    height: 76pt !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    clip: auto !important;
+    clip-path: none !important;
+    white-space: normal !important;
+    background: #07080c !important;
+    border: 1.5pt solid #ffffff !important;
+    box-shadow: 3pt 3pt 0 var(--accent) !important;
+  }
+
+  .referral-header .profile-card img {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    filter: none !important;
+  }
+
+  .referral-header::after {
+    inset: 0 auto 0 80pt;
+    width: 60%;
+  }
+
+  .referral-header .identity {
+    left: 132pt !important;
+    width: 270pt !important;
+    z-index: 5 !important;
+  }
+}
+
+/* Final EoD override: keep this at the end so older stacked rules cannot flatten the referral panels. */
+@media screen, print {
+  .referral-thesis,
+  .proof-brief,
+  .testimonial-flow,
+  .experience-proof,
+  .portfolio-signal,
+  .contact-panel,
+  .experience-proof article {
+    position: relative !important;
+    background:
+      radial-gradient(circle at 92% 18%, rgba(213, 52, 52, 0.17), transparent 20%),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.99), rgba(249, 246, 244, 0.96) 58%, rgba(238, 232, 229, 0.92)),
+      #ffffff !important;
+    border: 1.5px solid rgba(16, 17, 22, 0.3) !important;
+    border-left: 5px solid var(--accent) !important;
+    box-shadow: 6px 6px 0 rgba(7, 8, 12, 0.18) !important;
+    overflow: hidden !important;
+  }
+
+  .referral-thesis::before,
+  .proof-brief::before,
+  .testimonial-flow::before,
+  .experience-proof::before,
+  .portfolio-signal::before,
+  .contact-panel::before {
+    content: "" !important;
+    display: block !important;
+    position: absolute !important;
+    top: -2px !important;
+    left: 18px !important;
+    width: 64px !important;
+    height: 4px !important;
+    background: linear-gradient(90deg, var(--accent), rgba(213, 52, 52, 0.15)) !important;
+    z-index: 2 !important;
+  }
+
+  .referral-thesis::after,
+  .proof-brief::after,
+  .testimonial-flow::after,
+  .experience-proof::after,
+  .portfolio-signal::after,
+  .contact-panel::after {
+    content: "" !important;
+    display: block !important;
+    position: absolute !important;
+    top: 10px !important;
+    right: 12px !important;
+    width: 110px !important;
+    height: 72px !important;
+    background-image: radial-gradient(circle, rgba(213, 52, 52, 0.2) 1.2px, transparent 2px) !important;
+    background-size: 8px 8px !important;
+    opacity: 0.5 !important;
+    pointer-events: none !important;
+  }
+
+  .referral-header > * {
+    display: block !important;
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: -1px !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    clip: rect(0 0 0 0) !important;
+    clip-path: inset(50%) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+}
+
+@media screen {
+  .referral-header .profile-card {
+    top: clamp(28px, 4.5vw, 50px) !important;
+    left: clamp(26px, 4.8vw, 58px) !important;
+    width: clamp(98px, 13vw, 138px) !important;
+    height: clamp(136px, 16vw, 180px) !important;
+  }
+}
+
+@media print {
+  .referral-header .profile-card {
+    top: 14pt !important;
+    left: 18pt !important;
+    width: 54pt !important;
+    height: 76pt !important;
+    border-width: 1.4pt !important;
+    box-shadow: 3pt 3pt 0 var(--accent) !important;
+  }
+
+  .referral-thesis::after,
+  .proof-brief::after,
+  .testimonial-flow::after,
+  .experience-proof::after,
+  .portfolio-signal::after,
+  .contact-panel::after {
+    width: 54pt !important;
+    height: 34pt !important;
+    background-size: 5pt 5pt !important;
+    opacity: 0.22 !important;
   }
 }
