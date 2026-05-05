@@ -20,11 +20,11 @@
     display: block !important;
     position: relative !important;
     width: 100% !important;
-    min-height: clamp(248px, 27.6vw, 430px) !important;
-    height: clamp(248px, 27.6vw, 430px) !important;
+    min-height: clamp(286px, 33.2vw, 520px) !important;
+    height: clamp(286px, 33.2vw, 520px) !important;
     padding: 0 !important;
     overflow: hidden !important;
-    background: url("assets/ref-header.png") top center / 100% auto no-repeat, #07080c !important;
+    background: url("assets/ref-header-final.png") top center / 100% auto no-repeat, #07080c !important;
     border-top: 0 !important;
     border-bottom: 4px solid #d53434 !important;
     isolation: auto !important;
@@ -238,9 +238,9 @@
   }
 
   .referral-header {
-    min-height: 166pt !important;
-    height: 166pt !important;
-    background: url("assets/ref-header.png") top center / 100% auto no-repeat, #07080c !important;
+    min-height: 204pt !important;
+    height: 204pt !important;
+    background: url("assets/ref-header-final.png") top center / 100% auto no-repeat, #07080c !important;
   }
 
   .referral-header .profile-photo-mask {
