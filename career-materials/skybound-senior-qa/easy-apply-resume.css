@@ -1,0 +1,176 @@
+@page {
+  size: Letter;
+  margin: 0.28in 0.34in 0.3in;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+body {
+  margin: 0;
+  background: #ffffff;
+  color: #151515;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 8.98pt;
+  line-height: 1.24;
+}
+
+.resume-page {
+  position: relative;
+  min-height: 10.42in;
+}
+
+.hero {
+  margin: 0 0 0.1in;
+  border-top: 4px solid #d53434;
+  border-bottom: 2px solid #d53434;
+  background: #07080c;
+}
+
+.hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.contact-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.05in 0.13in;
+  align-items: center;
+  margin: 0 0 0.075in;
+  padding: 0 0 0.06in;
+  border-bottom: 1px solid #1a1a1a;
+  font-size: 7.95pt;
+}
+
+a {
+  color: #111111;
+  text-decoration: underline;
+  text-decoration-color: #d53434;
+}
+
+section {
+  margin: 0.082in 0 0;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+h2 {
+  margin: 0 0 0.034in;
+  padding-bottom: 0.018in;
+  border-bottom: 1px solid #d2d2d2;
+  color: #b5121b;
+  font-size: 9.4pt;
+  line-height: 1;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+h3 {
+  margin: 0;
+  color: #111111;
+  font-size: 9.1pt;
+  line-height: 1.08;
+}
+
+p {
+  margin: 0 0 0.032in;
+}
+
+ul {
+  margin: 0.018in 0 0 0.16in;
+  padding: 0;
+}
+
+li {
+  margin: 0.012in 0;
+  padding-left: 0.015in;
+}
+
+.summary {
+  font-size: 8.85pt;
+}
+
+.skills-line {
+  font-size: 8pt;
+  font-weight: 600;
+  line-height: 1.24;
+}
+
+.job {
+  margin-top: 0.062in;
+}
+
+.job-meta {
+  margin: 0.01in 0 0;
+  color: #333333;
+  font-size: 7.72pt;
+}
+
+.compact-grid {
+  display: grid;
+  grid-template-columns: 1fr 0.28fr;
+  gap: 0.16in;
+  align-items: start;
+}
+
+.dense,
+.portfolio-block p {
+  font-size: 7.7pt;
+  line-height: 1.18;
+}
+
+.portfolio-block p {
+  margin-bottom: 0.024in;
+  padding-right: 0.76in;
+}
+
+.resume-footer {
+  display: grid;
+  grid-template-columns: 1fr 1.05in;
+  gap: 0.14in;
+  align-items: end;
+  margin-top: 0.105in;
+  padding-top: 0.07in;
+  border-top: 1px solid #d2d2d2;
+}
+
+.competitive-block {
+  margin: 0;
+}
+
+.competitive-block h2 {
+  border-bottom: 0;
+  margin-bottom: 0.03in;
+}
+
+.competitive-block p:last-child {
+  margin-bottom: 0;
+}
+
+.qr-card {
+  display: block;
+  width: 1.02in;
+  justify-self: end;
+  color: #b5121b;
+  text-align: center;
+  font-size: 6.25pt;
+  font-weight: 700;
+  line-height: 1.04;
+  text-decoration: none;
+}
+
+.qr-card img {
+  display: block;
+  width: 0.62in;
+  height: 0.62in;
+  margin: 0 auto 0.018in;
+}
+
+strong {
+  font-weight: 700;
+}
