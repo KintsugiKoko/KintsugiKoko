@@ -142,6 +142,65 @@
   }
 }
 
+/* Final profile-photo source rule: vertical comic card, no circular crop. */
+@media screen, print {
+  .referral-header .profile-card.profile-card--vertical {
+    display: block !important;
+    position: absolute !important;
+    z-index: 5 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    clip: auto !important;
+    clip-path: none !important;
+    white-space: normal !important;
+    background: #07080c !important;
+    border: 2px solid #ffffff !important;
+    border-radius: 4px !important;
+    box-shadow: 4px 4px 0 var(--accent) !important;
+  }
+
+  .referral-header .profile-card.profile-card--vertical img {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center 15% !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    filter: none !important;
+    transform: none !important;
+  }
+}
+
+@media screen {
+  .referral-header .profile-card.profile-card--vertical {
+    top: clamp(34px, 4.15vw, 64px) !important;
+    left: clamp(40px, 3.75vw, 58px) !important;
+    width: clamp(158px, 14.6vw, 228px) !important;
+    height: clamp(224px, 20.2vw, 316px) !important;
+  }
+}
+
+@media print {
+  .referral-header .profile-card.profile-card--vertical {
+    top: 13pt !important;
+    left: 16pt !important;
+    width: 86pt !important;
+    height: 132pt !important;
+    border: 1.2pt solid #ffffff !important;
+    border-radius: 2pt !important;
+    box-shadow: 2pt 2pt 0 var(--accent) !important;
+  }
+
+  .referral-header .profile-card.profile-card--vertical img {
+    object-fit: cover !important;
+    object-position: center 15% !important;
+    filter: none !important;
+    transform: none !important;
+  }
+}
+
 /* End-of-file approved reference lock. Keep this last.
    Target: dark cinematic banner, red top/bottom rules, large name left,
    character art right, contact row left/lower, black field and halftone. */
