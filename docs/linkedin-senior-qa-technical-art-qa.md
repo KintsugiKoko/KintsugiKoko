@@ -1,3 +1,44 @@
+# LinkedIn Paste Priority Plan
+
+Use this section first. It is designed to add the strongest Art QA / Technical QA signal to the current LinkedIn profile without rewriting the whole page. Do not change the LinkedIn headline.
+
+## Paste First
+
+Senior QA / Technical QA / Art QA professional with 7+ years across Blizzard Entertainment, Activision, and Intrepid Studios. My strongest lane is evidence-driven QA for asset-heavy game work: telemetry capture, technical validation, graphical/content issue investigation, Unreal-based content validation, Jira triage, and clear cross-discipline reporting.
+
+At Blizzard and Activision, I worked in direct Art QA and technical capture workflows across AAA/live-service projects, including Warcraft III: Reforged art test suite capture/parsing, World of Warcraft: Shadowlands / Dragonflight Art QA checks, Diablo Immortal live-service data validation, Diablo IV environment/equipment validation, Overwatch 2 validation support, Modern Warfare II Art QA passes, and early Tech Art environment/character validation on Blizzard Project Odyssey before the project was cancelled.
+
+## Paste Second
+
+Blizzard Entertainment / Activision | Test Analyst, Contract -- Art QA / Technical Capture / Game QA
+
+- Performed direct Art QA, technical capture, and telemetry/data workflow validation across Blizzard and Activision AAA/live-service projects.
+- Supported Warcraft III: Reforged art test suite capture/parsing, World of Warcraft: Shadowlands / Dragonflight Art QA checks, Diablo IV environment/equipment validation, Overwatch 2 validation support, and multiple Modern Warfare II Art QA validation passes.
+- Contributed roughly 6 months to Blizzard Project Odyssey, an unreleased/cancelled project, during early Tech Art phases for environment and character validation.
+
+## Paste Third
+
+Intrepid Studios | QA Engineer II -- Ashes of Creation, Economy / Narrative
+
+- Spent 3 years on Ashes of Creation validating Unreal Engine systems across economy, equipment-facing content, weapons, mounts, MTX cosmetics, market assets, materials, alphas, weighting/shaping concerns, armor/weapon VFX, artisan stations, caravans/vehicles, and asset-heavy implementation issues.
+- Converted project goals into structured test plans, acceptance criteria, playtest guides, Jira-ready bug templates, and leadership-facing risk/status notes.
+- Communicated actionable findings to QA, Design, Engineering, Art/Tech Art, Production, Support, and leadership partners.
+
+## Paste Fourth
+
+Blizzard Entertainment | Test Analyst, Data -- Diablo Immortal
+
+- Supported roughly 3 years of Diablo Immortal live-service data quality through validation, discrepancy investigation, telemetry/data review, SQL-supported analysis, and stakeholder reporting.
+- Investigated data and pipeline issues by comparing expected behavior against observed results, telemetry signals, pipeline output, release context, and player-facing impact.
+
+## Optional
+
+Selected validation scope: Warcraft III: Reforged, World of Warcraft: Shadowlands / Dragonflight, Diablo Immortal, Diablo IV, Overwatch 2, Modern Warfare II, Blizzard Project Odyssey, and Ashes of Creation.
+
+## Do Not Touch
+
+Do not change the LinkedIn headline.
+
 # LinkedIn About
 
 Use this as additive copy to fold into the existing About section, not as a mandatory full replacement. Keep any current wording that is already working, then add the Art QA / Technical QA evidence where it strengthens the profile.
