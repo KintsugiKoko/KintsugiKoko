@@ -595,6 +595,21 @@ h3 {
   color: var(--muted);
 }
 
+.supporting-note {
+  border-left: 3px solid rgba(90, 192, 176, 0.5);
+  color: var(--muted);
+  margin-top: -0.35rem;
+  padding-left: 0.9rem;
+}
+
+.supporting-card {
+  border-style: dashed;
+}
+
+.supporting-card::before {
+  background: linear-gradient(180deg, rgba(90, 192, 176, 0.8), rgba(206, 168, 91, 0.45));
+}
+
 .status {
   color: var(--teal);
   display: inline-block;

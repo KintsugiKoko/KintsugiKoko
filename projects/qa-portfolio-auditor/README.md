@@ -2,11 +2,17 @@
 
 ## Status
 
-Portfolio-safe prototype.
+Portfolio-safe meta-QA prototype.
 
 QA Portfolio Auditor checks my portfolio tools for demo readiness, documentation coverage, recruiter-safe wording, evidence completeness, and overclaim risk before publishing.
 
 This is a self-audit tool for a Senior QA / Technical QA / Art QA portfolio. It checks local/static portfolio metadata and wording for review readiness, but it does not replace manual review, perform full browser automation, crawl the live site, connect to private tools, or claim perfect validation.
+
+## Portfolio Role
+
+This is a secondary/supporting artifact, not one of the main proof projects. The main recruiter path should still start with QA Bug Report Tool, Nyx Test Planner, Art Telemetry QA, Community Pulse, and External QA Handoff Manager.
+
+QA Portfolio Auditor strengthens that path by showing the meta-QA layer: release-readiness thinking, evidence completeness, recruiter-safe wording review, overclaim control, tool/documentation readiness, and human-reviewed QA discipline.
 
 ## What It Answers
 
