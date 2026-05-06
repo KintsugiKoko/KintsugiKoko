@@ -232,6 +232,7 @@ h3 {
 
 .metric-list,
 .missing-list,
+.artifact-list,
 .check-list {
   margin: 1rem 0 0;
   padding-left: 1.2rem;
@@ -239,12 +240,64 @@ h3 {
 
 .metric-list li,
 .missing-list li,
+.artifact-list li,
 .check-list li {
   margin-bottom: 0.35rem;
 }
 
 .missing-list strong {
   color: var(--bad);
+}
+
+.tool-card h4 {
+  font-size: 0.96rem;
+  margin: 1.1rem 0 0;
+}
+
+.artifact-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.artifact-list li {
+  background: rgba(5, 7, 11, 0.48);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--warn);
+  border-radius: 6px;
+  padding: 0.75rem;
+}
+
+.artifact-list li[data-status="Present"] {
+  border-left-color: var(--good);
+}
+
+.artifact-list li[data-status="Missing"] {
+  border-left-color: var(--bad);
+}
+
+.artifact-list strong,
+.artifact-list span,
+.artifact-list small,
+.artifact-list em {
+  display: block;
+}
+
+.artifact-list span {
+  color: var(--amber);
+  font-weight: 900;
+}
+
+.artifact-list li[data-status="Present"] span {
+  color: var(--good);
+}
+
+.artifact-list li[data-status="Missing"] span {
+  color: var(--bad);
+}
+
+.artifact-list small,
+.artifact-list em {
+  color: var(--muted);
 }
 
 .actions {

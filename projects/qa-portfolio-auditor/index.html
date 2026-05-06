@@ -25,21 +25,22 @@
       <p class="eyebrow">Portfolio-Safe Prototype</p>
       <h1>QA Portfolio Auditor</h1>
       <p class="lead">
-        Checks portfolio tools for demo readiness, documentation coverage,
-        recruiter-safe wording, evidence completeness, and overclaim risk
+        Checks portfolio tools for local/static demo references, documentation
+        coverage, recruiter-safe wording, artifact evidence, and overclaim risk
         before publishing.
       </p>
       <p class="boundary-note">
-        This is a self-audit aid using sample metadata. It does not perform
-        full browser automation, replace manual review, connect to Unreal,
-        connect to Jira, or use private studio data.
+        This is a self-audit aid using sample metadata and local artifact
+        status fields. It does not perform full browser automation, crawl the
+        live site, replace manual review, connect to Unreal, connect to Jira,
+        or use private studio data.
       </p>
     </section>
 
     <section id="summary" class="section">
       <div class="section-heading">
         <p class="eyebrow">Audit Summary</p>
-        <h2>Working-demo readiness snapshot</h2>
+        <h2>Local/static metadata readiness snapshot</h2>
       </div>
       <div id="summary-grid" class="summary-grid" aria-label="Portfolio audit summary"></div>
     </section>
@@ -50,10 +51,10 @@
         <h2>What each card checks</h2>
       </div>
       <ul class="check-list">
-        <li>One-liner, status label, demo/sample output, and README/docs link.</li>
+        <li>One-liner, status label, demo/sample output, and README/docs path.</li>
         <li>Portfolio-safe disclaimer language and known limitations.</li>
-        <li>Evidence focus, recruiter clarity, and missing artifacts.</li>
-        <li>Forbidden claims around Unreal automation, Jira integration, private data, production readiness, and replacing human review.</li>
+        <li>Artifact/link evidence status using Present, Missing, and Needs Review labels.</li>
+        <li>Forbidden claims in audited local/static metadata text around Unreal automation, Jira integration, private data, production readiness, and replacing human review.</li>
       </ul>
     </section>
 

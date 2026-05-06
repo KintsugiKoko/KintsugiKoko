@@ -11,6 +11,29 @@
     "required_phrases": ["portfolio-safe", "human-reviewed", "Markdown export"],
     "forbidden_phrases": ["production-ready", "real Jira integration", "private studio data"],
     "required_artifacts": ["README", "sample-data", "reports", "tests", "pyproject.toml"],
+    "expected_artifacts": [
+      {
+        "label": "README",
+        "path": "projects/qa-bug-report-tool/README.md",
+        "type": "documentation",
+        "status": "Present",
+        "recommended_action": "Keep README linked from the portfolio path."
+      },
+      {
+        "label": "Sample note data",
+        "path": "projects/qa-bug-report-tool/sample-data/001-inventory-count-note.txt",
+        "type": "sample-data",
+        "status": "Present",
+        "recommended_action": "Keep sample data fictional and portfolio-safe."
+      },
+      {
+        "label": "Generated Markdown report",
+        "path": "projects/qa-bug-report-tool/reports/001-inventory-count.md",
+        "type": "sample-output",
+        "status": "Present",
+        "recommended_action": "Re-run sample conversion after behavior changes."
+      }
+    ],
     "known_limitations": "Practice QA CLI, not a production bug tracker or replacement for human triage."
   },
   {
@@ -25,6 +48,29 @@
     "required_phrases": ["portfolio-safe", "human-reviewed", "Markdown export"],
     "forbidden_phrases": ["automated engine validation", "live Unreal automation", "production-ready"],
     "required_artifacts": ["live planner page", "README", "case study", "Markdown export"],
+    "expected_artifacts": [
+      {
+        "label": "Planner page",
+        "path": "docs/nyx-test-planner.html",
+        "type": "demo",
+        "status": "Present",
+        "recommended_action": "Keep linked from the homepage project card."
+      },
+      {
+        "label": "Planner README",
+        "path": "projects/nyx-test-planner/README.md",
+        "type": "documentation",
+        "status": "Present",
+        "recommended_action": "Keep limitations clear around manual PIE validation."
+      },
+      {
+        "label": "Case study",
+        "path": "docs/nyx-test-planner-case-study.md",
+        "type": "case-study",
+        "status": "Present",
+        "recommended_action": "Keep result marked pending until manual PIE validation is run."
+      }
+    ],
     "known_limitations": "Planning aid only; manual PIE/prototype validation remains pending until actually run."
   },
   {
@@ -39,6 +85,29 @@
     "required_phrases": ["mock data", "mock Unreal-style telemetry", "human-reviewed", "Jira-ready reports", "risk summaries"],
     "forbidden_phrases": ["Unreal plugin", "real studio telemetry", "replaces Tech Art review"],
     "required_artifacts": ["README", "sample data", "reports", "tests", "report showcase"],
+    "expected_artifacts": [
+      {
+        "label": "README",
+        "path": "projects/art-telemetry-qa/README.md",
+        "type": "documentation",
+        "status": "Present",
+        "recommended_action": "Keep Unreal/plugin boundary language visible."
+      },
+      {
+        "label": "Mock telemetry sample",
+        "path": "projects/art-telemetry-qa/samples/sample_art_telemetry.csv",
+        "type": "sample-data",
+        "status": "Present",
+        "recommended_action": "Keep sample data fictional and public."
+      },
+      {
+        "label": "Report showcase",
+        "path": "docs/art-qa-telemetry-report-showcase.md",
+        "type": "sample-output",
+        "status": "Present",
+        "recommended_action": "Keep the showcase framed as mock Unreal-style telemetry."
+      }
+    ],
     "known_limitations": "Human-reviewed reports do not replace Tech Art, Performance, Engineering, or human QA judgment."
   },
   {
@@ -53,6 +122,29 @@
     "required_phrases": ["mock", "human-reviewed", "risk notes", "Markdown export"],
     "forbidden_phrases": ["private player data", "production-ready", "real studio telemetry"],
     "required_artifacts": ["README", "sample CSV", "report output", "tests"],
+    "expected_artifacts": [
+      {
+        "label": "README",
+        "path": "projects/community-pulse-report-tool/README.md",
+        "type": "documentation",
+        "status": "Present",
+        "recommended_action": "Keep mock/sample feedback boundary visible."
+      },
+      {
+        "label": "Sample feedback CSV",
+        "path": "projects/community-pulse-report-tool/sample-data/weekly-feedback-sample.csv",
+        "type": "sample-data",
+        "status": "Present",
+        "recommended_action": "Keep all feedback fictional."
+      },
+      {
+        "label": "Weekly sentiment report",
+        "path": "projects/community-pulse-report-tool/reports/weekly-sentiment-report.md",
+        "type": "sample-output",
+        "status": "Present",
+        "recommended_action": "Refresh sample output after report format changes."
+      }
+    ],
     "known_limitations": "Draft aid for human review, not a live social listening platform or automated community decision-maker."
   },
   {
@@ -67,6 +159,29 @@
     "required_phrases": ["mock data", "external QA coordination", "human-reviewed", "Markdown export"],
     "forbidden_phrases": ["real Jira integration", "private studio data", "production pipeline integration"],
     "required_artifacts": ["README", "browser prototype", "scenario matrix", "bug standards", "Markdown export"],
+    "expected_artifacts": [
+      {
+        "label": "Browser prototype page",
+        "path": "docs/external-qa-handoff-manager.html",
+        "type": "demo",
+        "status": "Present",
+        "recommended_action": "Keep the no-Jira/no-vendor-integration note visible."
+      },
+      {
+        "label": "Project README",
+        "path": "projects/external-qa-handoff-manager/README.md",
+        "type": "documentation",
+        "status": "Present",
+        "recommended_action": "Keep static MVP limitations clear."
+      },
+      {
+        "label": "Saved sample handoff export",
+        "path": "projects/external-qa-handoff-manager/docs/sample-handoff-output.md",
+        "type": "sample-output",
+        "status": "Missing",
+        "recommended_action": "Optional next step: save one Markdown export as a reviewable sample output."
+      }
+    ],
     "known_limitations": "Static human-reviewed MVP with hard-coded sample data and no live vendor/Jira integration."
   }
 ]

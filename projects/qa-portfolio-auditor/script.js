@@ -24,6 +24,29 @@ const PORTFOLIO_TOOLS = [
     disclaimer: "Portfolio-safe sample notes only; human-reviewed output and known limitations are documented.",
     requiredPhrases: ["portfolio-safe", "human-reviewed", "Markdown export"],
     requiredArtifacts: ["README", "sample-data", "reports", "tests", "pyproject.toml"],
+    expectedArtifacts: [
+      {
+        label: "README",
+        path: "projects/qa-bug-report-tool/README.md",
+        type: "documentation",
+        status: "Present",
+        recommendedAction: "Keep README linked from the portfolio path."
+      },
+      {
+        label: "Sample note data",
+        path: "projects/qa-bug-report-tool/sample-data/001-inventory-count-note.txt",
+        type: "sample-data",
+        status: "Present",
+        recommendedAction: "Keep sample data fictional and portfolio-safe."
+      },
+      {
+        label: "Generated Markdown report",
+        path: "projects/qa-bug-report-tool/reports/001-inventory-count.md",
+        type: "sample-output",
+        status: "Present",
+        recommendedAction: "Re-run sample conversion after behavior changes."
+      }
+    ],
     knownLimitations: "Practice QA CLI, not a production bug tracker or replacement for human triage.",
     claimsToAudit: "Structured Markdown and JSON bug report export with pytest coverage."
   },
@@ -39,6 +62,29 @@ const PORTFOLIO_TOOLS = [
     disclaimer: "Portfolio-safe browser prototype; does not connect to Unreal, Jira, private tools, studio data, or automated test runners.",
     requiredPhrases: ["portfolio-safe", "human-reviewed", "Markdown export"],
     requiredArtifacts: ["live planner page", "README", "case study", "Markdown export"],
+    expectedArtifacts: [
+      {
+        label: "Planner page",
+        path: "docs/nyx-test-planner.html",
+        type: "demo",
+        status: "Present",
+        recommendedAction: "Keep linked from the homepage project card."
+      },
+      {
+        label: "Planner README",
+        path: "projects/nyx-test-planner/README.md",
+        type: "documentation",
+        status: "Present",
+        recommendedAction: "Keep limitations clear around manual PIE validation."
+      },
+      {
+        label: "Case study",
+        path: "docs/nyx-test-planner-case-study.md",
+        type: "case-study",
+        status: "Present",
+        recommendedAction: "Keep result marked pending until manual PIE validation is run."
+      }
+    ],
     knownLimitations: "Planning aid only; manual PIE/prototype validation remains pending until actually run.",
     claimsToAudit: "Browser-based planning prototype with Markdown test-plan export."
   },
@@ -54,6 +100,29 @@ const PORTFOLIO_TOOLS = [
     disclaimer: "Uses mock data only for human-reviewed reports; not an Unreal plugin, not live Unreal automation, not real studio telemetry, and not Jira automation.",
     requiredPhrases: ["mock data", "mock Unreal-style telemetry", "human-reviewed", "Jira-ready reports", "risk summaries"],
     requiredArtifacts: ["README", "sample data", "reports", "tests", "report showcase"],
+    expectedArtifacts: [
+      {
+        label: "README",
+        path: "projects/art-telemetry-qa/README.md",
+        type: "documentation",
+        status: "Present",
+        recommendedAction: "Keep Unreal/plugin boundary language visible."
+      },
+      {
+        label: "Mock telemetry sample",
+        path: "projects/art-telemetry-qa/samples/sample_art_telemetry.csv",
+        type: "sample-data",
+        status: "Present",
+        recommendedAction: "Keep sample data fictional and public."
+      },
+      {
+        label: "Report showcase",
+        path: "docs/art-qa-telemetry-report-showcase.md",
+        type: "sample-output",
+        status: "Present",
+        recommendedAction: "Keep the showcase framed as mock Unreal-style telemetry."
+      }
+    ],
     knownLimitations: "Does not replace Tech Art, Performance, Engineering, or human QA judgment.",
     claimsToAudit: "Mock telemetry parsing and Jira-ready report drafting for human-reviewed Art QA evidence."
   },
@@ -69,6 +138,29 @@ const PORTFOLIO_TOOLS = [
     disclaimer: "Uses fictional sample feedback only and does not connect to private player data, forums, APIs, or internal tools.",
     requiredPhrases: ["mock", "human-reviewed", "risk notes", "Markdown export"],
     requiredArtifacts: ["README", "sample CSV", "report output", "tests"],
+    expectedArtifacts: [
+      {
+        label: "README",
+        path: "projects/community-pulse-report-tool/README.md",
+        type: "documentation",
+        status: "Present",
+        recommendedAction: "Keep mock/sample feedback boundary visible."
+      },
+      {
+        label: "Sample feedback CSV",
+        path: "projects/community-pulse-report-tool/sample-data/weekly-feedback-sample.csv",
+        type: "sample-data",
+        status: "Present",
+        recommendedAction: "Keep all feedback fictional."
+      },
+      {
+        label: "Weekly sentiment report",
+        path: "projects/community-pulse-report-tool/reports/weekly-sentiment-report.md",
+        type: "sample-output",
+        status: "Present",
+        recommendedAction: "Refresh sample output after report format changes."
+      }
+    ],
     knownLimitations: "Draft aid for human review, not a live social listening platform or automated community decision-maker.",
     claimsToAudit: "Mock feedback summarization and Markdown report export."
   },
@@ -84,6 +176,29 @@ const PORTFOLIO_TOOLS = [
     disclaimer: "Mock data only for human-reviewed external QA coordination; does not connect to Jira, vendor portals, private studio workflows, internal test plans, or live production data.",
     requiredPhrases: ["mock data", "external QA coordination", "human-reviewed", "Markdown export"],
     requiredArtifacts: ["README", "browser prototype", "scenario matrix", "bug standards", "Markdown export"],
+    expectedArtifacts: [
+      {
+        label: "Browser prototype page",
+        path: "docs/external-qa-handoff-manager.html",
+        type: "demo",
+        status: "Present",
+        recommendedAction: "Keep the no-Jira/no-vendor-integration note visible."
+      },
+      {
+        label: "Project README",
+        path: "projects/external-qa-handoff-manager/README.md",
+        type: "documentation",
+        status: "Present",
+        recommendedAction: "Keep static MVP limitations clear."
+      },
+      {
+        label: "Saved sample handoff export",
+        path: "projects/external-qa-handoff-manager/docs/sample-handoff-output.md",
+        type: "sample-output",
+        status: "Missing",
+        recommendedAction: "Optional next step: save one Markdown export as a reviewable sample output."
+      }
+    ],
     knownLimitations: "Static MVP with hard-coded sample data and no live vendor/Jira integration.",
     claimsToAudit: "External QA handoff planning with human-reviewed Markdown export."
   }
@@ -101,6 +216,27 @@ function includesPhrase(text, phrase) {
 
 function findForbiddenClaims(text) {
   return FORBIDDEN_PHRASES.filter((phrase) => includesPhrase(text, phrase));
+}
+
+function normalizeArtifactStatus(status) {
+  const allowedStatuses = ["Present", "Missing", "Needs Review"];
+  return allowedStatuses.includes(status) ? status : "Needs Review";
+}
+
+function auditArtifacts(tool) {
+  return (tool.expectedArtifacts || []).map((artifact) => {
+    const status = normalizeArtifactStatus(artifact.status);
+    const recommendedAction = artifact.recommendedAction
+      || (status === "Present"
+        ? "Keep this artifact linked and current."
+        : "Review this artifact before publishing.");
+
+    return {
+      ...artifact,
+      status,
+      recommendedAction
+    };
+  });
 }
 
 function findMissingSafeLanguage(tool) {
@@ -137,6 +273,14 @@ function auditTool(tool) {
   const missingSafeLanguage = findMissingSafeLanguage(tool);
   missingSafeLanguage.forEach((phrase) => missingItems.push(`Missing encouraged safe phrase: ${phrase}`));
 
+  const artifactEvidence = auditArtifacts(tool);
+  if (artifactEvidence.length === 0) {
+    missingItems.push("Missing local artifact/link evidence metadata");
+  }
+  artifactEvidence
+    .filter((artifact) => artifact.status !== "Present")
+    .forEach((artifact) => missingItems.push(`${artifact.status} artifact: ${artifact.label}`));
+
   const overclaimRisks = findForbiddenClaims(tool.claimsToAudit || "");
 
   let overallStatus = "Pass";
@@ -153,6 +297,7 @@ function auditTool(tool) {
     overallStatus,
     passedChecks,
     missingItems,
+    artifactEvidence,
     overclaimRisks,
     recommendedNextAction
   };
@@ -244,13 +389,29 @@ function renderToolCards(audits) {
     const metrics = document.createElement("ul");
     metrics.className = "metric-list";
     metrics.innerHTML = `
-      <li><strong>Demo readiness:</strong> ${tool.demoLink || tool.sampleOutput ? "Ready for review" : "Missing demo/sample output"}</li>
-      <li><strong>Documentation readiness:</strong> ${tool.docsLink ? "README/docs linked" : "Missing docs link"}</li>
+      <li><strong>Demo reference:</strong> ${tool.demoLink || tool.sampleOutput ? "Path listed in metadata" : "Missing demo/sample output path"}</li>
+      <li><strong>Documentation reference:</strong> ${tool.docsLink ? "README/docs path listed" : "Missing docs path"}</li>
       <li><strong>Recruiter clarity:</strong> ${tool.oneLiner && tool.evidenceFocus ? "Clear" : "Needs wording"}</li>
       <li><strong>Portfolio-safe disclaimer:</strong> ${tool.disclaimer ? "Present" : "Missing"}</li>
-      <li><strong>Overclaim risk:</strong> ${tool.overclaimRisks.length ? tool.overclaimRisks.join(", ") : "No forbidden claims found in audited claim text"}</li>
-      <li><strong>Evidence completeness:</strong> ${tool.requiredArtifacts.join(", ")}</li>
+      <li><strong>Overclaim scan:</strong> ${tool.overclaimRisks.length ? tool.overclaimRisks.join(", ") : "No forbidden claims found in audited local/static metadata claim text"}</li>
+      <li><strong>Required evidence types:</strong> ${tool.requiredArtifacts.join(", ")}</li>
     `;
+
+    const artifactsHeading = document.createElement("h4");
+    artifactsHeading.textContent = "Artifact / Link Evidence";
+
+    const artifacts = document.createElement("ul");
+    artifacts.className = "artifact-list";
+    artifacts.innerHTML = tool.artifactEvidence.length
+      ? tool.artifactEvidence.map((artifact) => `
+        <li data-status="${artifact.status}">
+          <strong>${artifact.label}</strong>
+          <span>${artifact.status}</span>
+          <small>${artifact.type} / ${artifact.path}</small>
+          <em>${artifact.recommendedAction}</em>
+        </li>
+      `).join("")
+      : "<li data-status=\"Needs Review\"><strong>No artifact metadata</strong><span>Needs Review</span><small>Add expectedArtifacts metadata before publishing.</small></li>";
 
     const missing = document.createElement("ul");
     missing.className = "missing-list";
@@ -259,7 +420,7 @@ function renderToolCards(audits) {
       : "<li>No missing required items from metadata checks.</li>";
     missing.innerHTML = `${missingText}<li><strong>Next action:</strong> ${tool.recommendedNextAction}</li>`;
 
-    article.append(statusRow, heading, oneLiner, metrics, missing);
+    article.append(statusRow, heading, oneLiner, metrics, artifactsHeading, artifacts, missing);
     grid.append(article);
   });
 }
@@ -281,6 +442,7 @@ function buildMarkdownReport(audits) {
     `- Pass with Notes: ${notesCount}`,
     `- Needs Review: ${reviewCount}`,
     "- Scope: demo readiness, documentation coverage, recruiter-safe wording, evidence completeness, and overclaim risk.",
+    "- Artifact/link evidence is based on local/static metadata unless a separate filesystem check is run.",
     "",
     "## Tool-by-tool Status",
     ""
@@ -296,10 +458,29 @@ function buildMarkdownReport(audits) {
     lines.push(`- README/docs: ${tool.docsLink || "Missing"}`);
     lines.push(`- Passed checks: ${tool.passedChecks.join("; ") || "None"}`);
     lines.push(`- Missing items: ${tool.missingItems.join("; ") || "None"}`);
-    lines.push(`- Overclaim risks: ${tool.overclaimRisks.join("; ") || "None found in audited claim text"}`);
+    lines.push(`- Overclaim risks: ${tool.overclaimRisks.join("; ") || "None found in audited local/static metadata claim text"}`);
     lines.push(`- Recommended next action: ${tool.recommendedNextAction}`);
     lines.push("");
   });
+
+  lines.push("## Local Artifact / Link Evidence", "");
+  audits.forEach((tool) => {
+    lines.push(`### ${tool.name}`);
+    if (tool.artifactEvidence.length === 0) {
+      lines.push("- No artifact metadata listed.");
+    } else {
+      tool.artifactEvidence.forEach((artifact) => {
+        lines.push(`- ${artifact.label} (${artifact.type})`);
+        lines.push(`  - Path: ${artifact.path}`);
+        lines.push(`  - Status: ${artifact.status}`);
+        lines.push(`  - Recommended action: ${artifact.recommendedAction}`);
+      });
+    }
+    lines.push("");
+  });
+
+  lines.push("> Limitation: This check is based on local/static portfolio metadata unless a repo filesystem check script is run. It does not crawl the live site or validate external deployment health.");
+  lines.push("");
 
   lines.push("## Final Recruiter-Readiness Summary", "");
   if (reviewCount === 0) {
