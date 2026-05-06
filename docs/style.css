@@ -1,19 +1,19 @@
 :root {
   color-scheme: dark;
-  --bg: #050810;
-  --bg-2: #080f19;
-  --section: #07101a;
-  --panel: #101827;
-  --panel-2: #0d1420;
-  --ink: #f7ead8;
-  --muted: #d4dee8;
-  --soft: #a8b4c2;
-  --line: #334155;
-  --gold: #e0b45f;
-  --amber: #f2c879;
-  --teal: #58d5c9;
-  --blue: #91bde0;
-  --shadow: 0 18px 42px rgba(0, 0, 0, 0.32);
+  --bg: #030302;
+  --bg-2: #080705;
+  --section: #090806;
+  --panel: #12100d;
+  --panel-2: #17130e;
+  --ink: #fff4df;
+  --muted: #eadfca;
+  --soft: #b9ad99;
+  --line: #4b4134;
+  --gold: #d6a24e;
+  --amber: #f0c872;
+  --teal: #c79a52;
+  --blue: #d8c3a0;
+  --shadow: 0 22px 50px rgba(0, 0, 0, 0.45);
   --content-max: 1120px;
 }
 
@@ -28,8 +28,8 @@ html {
 body {
   background-color: var(--bg);
   background-image:
-    linear-gradient(90deg, rgba(88, 213, 201, 0.035) 0 1px, transparent 1px 72px),
-    linear-gradient(180deg, #050810, #07101a 48%, #080d13);
+    linear-gradient(90deg, rgba(214, 162, 78, 0.045) 0 1px, transparent 1px 88px),
+    linear-gradient(180deg, #020201, #090806 48%, #050403);
   color: var(--ink);
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.6;
@@ -42,7 +42,7 @@ a {
 }
 
 .site-header {
-  background-color: #050810;
+  background-color: rgba(3, 3, 2, 0.98);
   border-bottom: 1px solid var(--line);
   backdrop-filter: blur(14px);
   position: sticky;
@@ -80,7 +80,7 @@ a {
 }
 
 .nav-links a {
-  color: #d8e1ec;
+  color: var(--muted);
   font-size: 0.93rem;
   text-decoration: none;
 }
@@ -92,11 +92,15 @@ a {
 
 .hero {
   align-items: center;
-  background-color: #070d16;
+  background-color: #030302;
   background-image:
-    linear-gradient(105deg, #050810, #081621 58%, #050810),
-    linear-gradient(180deg, #080d14, #08111a);
-  border-bottom: 1px solid #1f6d70;
+    linear-gradient(90deg, rgba(3, 3, 2, 0.98) 0%, rgba(3, 3, 2, 0.94) 34%, rgba(3, 3, 2, 0.68) 58%, rgba(3, 3, 2, 0.38) 100%),
+    linear-gradient(180deg, rgba(3, 3, 2, 0.92), rgba(3, 3, 2, 0.56) 52%, rgba(3, 3, 2, 0.94)),
+    url("assets/kintsugi-koko-2026.png");
+  background-position: center, center, center right;
+  background-repeat: no-repeat;
+  background-size: cover, cover, cover;
+  border-bottom: 1px solid rgba(214, 162, 78, 0.42);
   display: flex;
   min-height: 68vh;
   overflow: hidden;
@@ -106,8 +110,8 @@ a {
 
 .hero::before {
   background:
-    linear-gradient(90deg, transparent, rgba(214, 167, 79, 0.2), transparent),
-    linear-gradient(180deg, transparent, rgba(77, 182, 170, 0.1), transparent);
+    linear-gradient(90deg, transparent, rgba(240, 200, 114, 0.42), transparent),
+    linear-gradient(180deg, transparent, rgba(214, 162, 78, 0.14), transparent);
   content: "";
   inset: auto 0 5.5rem;
   height: 1px;
@@ -115,7 +119,7 @@ a {
 }
 
 .hud-lines {
-  border: 1px solid #164e56;
+  border: 1px solid rgba(214, 162, 78, 0.32);
   border-left: 0;
   border-radius: 0 0 0 72px;
   height: 56%;
@@ -127,7 +131,7 @@ a {
 
 .hud-lines::before,
 .hud-lines::after {
-  background: var(--teal);
+  background: var(--gold);
   content: "";
   height: 1px;
   position: absolute;
@@ -152,6 +156,8 @@ a {
 
 .hero-content {
   max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
   position: relative;
   z-index: 1;
 }
@@ -225,8 +231,8 @@ h3 {
 }
 
 .hero-proof li {
-  background-color: var(--panel);
-  border: 1px solid #3b536e;
+  background-color: rgba(18, 16, 13, 0.88);
+  border: 1px solid rgba(216, 195, 160, 0.34);
   border-radius: 6px;
   padding: 0.75rem 0.85rem;
 }
@@ -256,7 +262,7 @@ h3 {
 
 .button {
   align-items: center;
-  background: var(--gold);
+  background: linear-gradient(180deg, var(--amber), var(--gold));
   border: 1px solid var(--gold);
   border-radius: 4px;
   color: #111722;
@@ -277,15 +283,15 @@ h3 {
 }
 
 .button.secondary {
-  background-color: #0d1420;
-  border-color: #4b6682;
+  background-color: rgba(18, 16, 13, 0.88);
+  border-color: rgba(216, 195, 160, 0.48);
   color: var(--ink);
 }
 
 .button.secondary:hover,
 .button.secondary:focus-visible {
-  background: rgba(77, 182, 170, 0.12);
-  border-color: var(--teal);
+  background: rgba(214, 162, 78, 0.14);
+  border-color: var(--amber);
 }
 
 .profile-links {
@@ -300,7 +306,7 @@ h3 {
 .profile-links a {
   color: var(--ink);
   font-weight: 800;
-  text-decoration-color: rgba(77, 182, 170, 0.6);
+  text-decoration-color: rgba(214, 162, 78, 0.72);
   text-underline-offset: 0.24em;
 }
 
@@ -316,10 +322,12 @@ h3 {
 }
 
 .panel-section {
-  background-color: #08111a;
-  background-image: linear-gradient(90deg, rgba(88, 213, 201, 0.08), transparent 32%);
-  border-bottom: 1px solid #164e56;
-  border-top: 1px solid #164e56;
+  background-color: #080705;
+  background-image:
+    linear-gradient(90deg, rgba(214, 162, 78, 0.11), transparent 34%),
+    linear-gradient(180deg, rgba(255, 244, 223, 0.025), transparent);
+  border-bottom: 1px solid rgba(214, 162, 78, 0.38);
+  border-top: 1px solid rgba(214, 162, 78, 0.38);
   max-width: none;
 }
 
@@ -356,7 +364,7 @@ h3 {
 }
 
 .section-heading h2::after {
-  background: linear-gradient(90deg, var(--teal), var(--gold), transparent);
+  background: linear-gradient(90deg, var(--gold), var(--amber), transparent);
   content: "";
   display: block;
   height: 2px;
@@ -371,7 +379,7 @@ h3 {
 }
 
 .quick-path-section {
-  background-color: #050810;
+  background-color: #040302;
   border-bottom: 1px solid var(--line);
   max-width: none;
   padding-bottom: 1.4rem;
@@ -389,7 +397,7 @@ h3 {
 
 .quick-path a {
   background-color: var(--panel);
-  border: 1px solid #334155;
+  border: 1px solid var(--line);
   border-radius: 6px;
   color: var(--muted);
   padding: 1rem;
@@ -399,7 +407,7 @@ h3 {
 
 .quick-path a:hover,
 .quick-path a:focus-visible {
-  border-color: rgba(77, 182, 170, 0.5);
+  border-color: rgba(240, 200, 114, 0.62);
   transform: translateY(-2px);
 }
 
@@ -459,8 +467,8 @@ h3 {
 .track-grid > div,
 .project-card {
   background-color: var(--panel);
-  background-image: linear-gradient(180deg, #101827, #0d1420);
-  border: 1px solid #334155;
+  background-image: linear-gradient(180deg, #17130e, #100e0b);
+  border: 1px solid var(--line);
   box-shadow: var(--shadow);
   position: relative;
 }
@@ -518,7 +526,7 @@ h3 {
 
 .project-card:hover,
 .project-card:focus-within {
-  border-color: #58d5c9;
+  border-color: var(--amber);
   transform: translateY(-2px);
 }
 
@@ -553,7 +561,7 @@ h3 {
 }
 
 .site-footer {
-  background: #05070c;
+  background: #030302;
   border-top: 1px solid var(--line);
   color: var(--soft);
   padding: 1.4rem 1.25rem;
@@ -583,6 +591,11 @@ h3 {
   }
 
   .hero {
+    background-image:
+      linear-gradient(180deg, rgba(3, 3, 2, 0.97) 0%, rgba(3, 3, 2, 0.88) 58%, rgba(3, 3, 2, 0.97) 100%),
+      url("assets/kintsugi-koko-2026.png");
+    background-position: center, 62% center;
+    background-size: cover, auto 100%;
     min-height: auto;
     padding: 3rem 1rem;
   }
