@@ -27,12 +27,36 @@ body {
   background-color: var(--bg);
   background-image:
     linear-gradient(90deg, rgba(214, 162, 78, 0.045) 0 1px, transparent 1px 88px),
+    radial-gradient(circle at 82% 18%, rgba(214, 162, 78, 0.16), transparent 28rem),
     linear-gradient(180deg, #020201, #090806 48%, #050403);
   color: var(--ink);
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.6;
   margin: 0;
   overflow-x: hidden;
+  position: relative;
+}
+
+body::before {
+  background:
+    linear-gradient(90deg, rgba(3, 3, 2, 0.98), rgba(3, 3, 2, 0.72) 56%, rgba(3, 3, 2, 0.4)),
+    url("assets/kintsugi-koko-2026.png");
+  background-position: center right;
+  background-repeat: no-repeat;
+  background-size: min(78rem, 100vw) auto;
+  content: "";
+  inset: 0;
+  opacity: 0.34;
+  pointer-events: none;
+  position: fixed;
+  z-index: 0;
+}
+
+.planner-header,
+main,
+.planner-footer {
+  position: relative;
+  z-index: 1;
 }
 
 a {
@@ -97,10 +121,39 @@ a {
 
 .hero {
   align-items: center;
+  background-image:
+    linear-gradient(90deg, rgba(3, 3, 2, 0.98), rgba(3, 3, 2, 0.84) 54%, rgba(3, 3, 2, 0.48)),
+    linear-gradient(180deg, rgba(3, 3, 2, 0.84), rgba(3, 3, 2, 0.96)),
+    url("assets/kintsugi-koko-2026.png");
+  background-position: center, center, center right;
+  background-repeat: no-repeat;
+  background-size: cover, cover, cover;
+  border-bottom: 1px solid rgba(214, 162, 78, 0.34);
+  border-top: 1px solid rgba(214, 162, 78, 0.2);
   display: grid;
   gap: 1.5rem;
   grid-template-columns: minmax(0, 1.7fr) minmax(280px, 0.8fr);
   min-height: 58vh;
+  max-width: none;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero > * {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: var(--content-max);
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+
+.hero > div {
+  max-width: 760px;
+}
+
+.hero-card {
+  max-width: 340px;
 }
 
 .eyebrow {
@@ -232,6 +285,24 @@ h3 {
 .controls-section,
 .form-section {
   padding-top: 1rem;
+}
+
+.controls-section,
+.export-section {
+  background-image:
+    linear-gradient(90deg, rgba(214, 162, 78, 0.08), transparent 36%),
+    linear-gradient(180deg, rgba(255, 244, 223, 0.025), transparent);
+  border-bottom: 1px solid rgba(214, 162, 78, 0.24);
+  border-top: 1px solid rgba(214, 162, 78, 0.24);
+  max-width: none;
+}
+
+.controls-section > *,
+.export-section > * {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: var(--content-max);
+  width: 100%;
 }
 
 .control-grid {
@@ -368,14 +439,22 @@ button:focus-visible {
 
 .planner-footer {
   background-color: #030302;
-  border-top: 1px solid var(--line);
-  color: var(--soft);
-  padding: 1.4rem 1.25rem;
-  text-align: center;
+  background-image:
+    linear-gradient(90deg, rgba(3, 3, 2, 0.96), rgba(3, 3, 2, 0.86) 46%, rgba(3, 3, 2, 0.56)),
+    url("assets/kintsugi-koko-2026.png");
+  background-position: center, center right;
+  background-repeat: no-repeat;
+  background-size: cover, cover;
+  border-top: 1px solid rgba(214, 162, 78, 0.42);
+  color: var(--muted);
+  padding: 3rem 1.25rem;
+  position: relative;
+  text-align: left;
 }
 
 .planner-footer p {
-  margin: 0;
+  margin: 0 auto;
+  max-width: var(--content-max);
 }
 
 @media (max-width: 860px) {
@@ -392,6 +471,19 @@ button:focus-visible {
   .nav-links {
     justify-content: flex-start;
     width: 100%;
+  }
+
+  .hero {
+    background-image:
+      linear-gradient(180deg, rgba(3, 3, 2, 0.97), rgba(3, 3, 2, 0.84) 54%, rgba(3, 3, 2, 0.98)),
+      url("assets/kintsugi-koko-2026.png");
+    background-position: center, 62% center;
+    background-size: cover, auto 100%;
+  }
+
+  .hero > div,
+  .hero-card {
+    max-width: none;
   }
 
   .summary-grid,
@@ -421,6 +513,12 @@ button:focus-visible {
 
   .lead {
     font-size: 1.1rem;
+  }
+
+  body::before {
+    background-position: 62% center;
+    background-size: auto 100%;
+    opacity: 0.22;
   }
 
   button {
