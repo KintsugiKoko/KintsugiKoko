@@ -103,17 +103,17 @@ The projects here are public learning artifacts. They are meant to show directio
 
 ## Best First Review Path
 
-For a quick review of my QA portfolio, start here:
+If you only have a few minutes to review this portfolio, start here:
 
-1. **QA Bug Report Tool** — Shows structured bug writing, repro quality, severity/priority thinking, Markdown export, JSON output, and pytest-backed validation.
+1. **[QA Bug Report Tool](projects/qa-bug-report-tool/README.md)** — Shows structured bug writing, repro quality, severity/priority thinking, Markdown export, JSON output, and pytest-backed validation.
 
-2. **Nyx Test Planner** — Live-demos QA planning judgment by turning early gameplay ideas into human-reviewed test scenarios, risk notes, status tracking, and Markdown test-plan exports.
+2. **[Nyx Test Planner](docs/nyx-test-planner.html)** — Live-demos QA planning judgment by turning early gameplay ideas into human-reviewed test scenarios, risk notes, status tracking, and Markdown test-plan exports.
 
-3. **Art Telemetry QA** — Shows Art QA / Technical QA evidence work by parsing mock Unreal-style art validation data into risk summaries, owner-routing notes, regression notes, and Jira-ready reports without claiming live Unreal automation.
+3. **[Art Telemetry QA](projects/art-telemetry-qa/README.md)** — Shows Art QA / Technical QA evidence work by parsing mock Unreal-style art validation data into risk summaries, owner-routing notes, regression notes, and Jira-ready reports without claiming live Unreal automation.
 
-4. **Community Pulse** — Turns mock player/playtest feedback into structured theme summaries, risk notes, and human-reviewed QA follow-up reports.
+4. **[Community Pulse](projects/community-pulse-report-tool/README.md)** — Turns mock player/playtest feedback into structured theme summaries, risk notes, and human-reviewed QA follow-up reports.
 
-5. **External QA Handoff Manager** — Demonstrates QA leadership and offsite QA coordination by turning feature goals into outsource-ready test packets, scenario coverage, bug-quality standards, evidence requirements, intake review checklists, and Markdown handoff exports.
+5. **[External QA Handoff Manager](projects/external-qa-handoff-manager/README.md)** — Demonstrates QA leadership and external/offsite QA coordination by turning feature goals into outsource-ready test packets, scenario coverage, bug-quality standards, evidence requirements, intake review checklists, and Markdown handoff exports.
 
 These projects stay portfolio-safe: mock data, human-reviewed QA reports, planning scenarios, and no claim of live Unreal automation, private studio data, Jira integration, or production pipeline ownership.
 
