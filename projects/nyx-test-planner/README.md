@@ -1,6 +1,6 @@
 # Nyx Test Planner
 
-The Nyx Test Planner is a small live browser tool for turning Nyx gameplay ideas into a visible QA plan.
+Nyx Test Planner is a browser-based QA planning prototype that demonstrates how I turn early gameplay ideas into human-reviewed test scenarios, risk notes, and validation-ready Markdown plans before implementation gets messy.
 
 It is built for public portfolio review and project planning. It does not connect to Unreal Engine, Jira, private studio tools, internal data, or automated test runners.
 
