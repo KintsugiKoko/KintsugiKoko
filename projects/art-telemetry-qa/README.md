@@ -4,7 +4,7 @@
 
 MVP portfolio prototype.
 
-Art Telemetry QA is a portfolio-safe Python CLI that parses mock Unreal-style art validation data and generates readable QA reports.
+Art Telemetry QA is a portfolio-safe Python QA tooling prototype that turns mock Unreal-style art telemetry and asset validation data into human-reviewed Art QA findings, risk scores, and Jira-ready reports.
 
 It demonstrates Art QA / Technical QA validation thinking: capture, parse, isolate, report, and validate-fix workflows. It uses mock data only and does not use private studio data, proprietary schemas, Unreal project files, internal telemetry, Jira, or studio tools.
 
