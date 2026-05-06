@@ -8,7 +8,7 @@ Art Telemetry QA is a portfolio-safe Python QA tooling prototype that turns mock
 
 It demonstrates Art QA / Technical QA validation thinking: capture, parse, isolate, report, and validate-fix workflows. It uses mock data only and does not use private studio data, proprietary schemas, Unreal project files, internal telemetry, Jira, or studio tools.
 
-This is not a real Unreal plugin yet. Unreal integration is documented as a future plan.
+This is not an Unreal plugin and does not automate Unreal. Any Unreal-facing work remains a future planning note that would need public, non-proprietary sample data and separate validation.
 
 ## Portfolio Showcase
 

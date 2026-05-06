@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark">
+  <meta name="darkreader-lock">
+  <title>External QA Handoff Manager | Keith McAvoy</title>
+  <link rel="stylesheet" href="nyx-test-planner.css">
+</head>
+<body>
+  <header class="planner-header">
+    <nav class="planner-nav" aria-label="External QA Handoff Manager navigation">
+      <a class="brand" href="index.html">Keith McAvoy</a>
+      <div class="nav-links">
+        <a href="#handoff">Handoff</a>
+        <a href="#scenarios">Scenarios</a>
+        <a href="#export">Export</a>
+        <a href="https://github.com/KintsugiKoko/KintsugiKoko/tree/master/projects/external-qa-handoff-manager">Source Notes</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">QA Leadership / Offsite Coordination Prototype</p>
+        <h1>External QA Handoff Manager</h1>
+        <p class="lead">
+          A browser-based planning prototype for turning feature goals into
+          outsource-ready QA packets, scenario coverage, evidence requirements,
+          bug-quality standards, and intake review notes.
+        </p>
+        <p class="scope-note">
+          This uses mock data only. It does not connect to Jira, vendor portals,
+          private studio workflows, internal test plans, or live production data.
+          The export is a human-reviewed Markdown draft.
+        </p>
+      </div>
+      <aside class="hero-card" aria-label="Handoff purpose">
+        <span>Purpose</span>
+        <strong>Show how QA leadership turns ambiguity into reviewable external test coverage.</strong>
+        <small>Scenario matrix, bug standards, evidence rules, intake checks, and follow-up notes stay visible.</small>
+      </aside>
+    </section>
+
+    <section class="section reviewer-path" aria-labelledby="reviewer-path-title">
+      <div class="section-heading">
+        <p class="eyebrow">Reviewer Path</p>
+        <h2 id="reviewer-path-title">How to read this tool</h2>
+      </div>
+      <div class="path-grid">
+        <article>
+          <span>1</span>
+          <h3>Scan the packet</h3>
+          <p>Start with the feature goal, build context, coverage count, and high-risk scenarios.</p>
+        </article>
+        <article>
+          <span>2</span>
+          <h3>Review standards</h3>
+          <p>Check whether bugs, evidence, and intake expectations are clear enough for offsite QA.</p>
+        </article>
+        <article>
+          <span>3</span>
+          <h3>Export Markdown</h3>
+          <p>Generate the handoff draft and treat it as human-reviewed planning evidence, not a Jira or studio-tool integration.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="handoff" class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Handoff Snapshot</p>
+        <h2>Sample external QA packet</h2>
+      </div>
+      <div class="summary-grid" aria-label="Handoff summary">
+        <article>
+          <span id="scenario-count">0</span>
+          <p>Scenario checks</p>
+        </article>
+        <article>
+          <span id="high-risk-count">0</span>
+          <p>High-risk items</p>
+        </article>
+        <article>
+          <span id="evidence-count">0</span>
+          <p>Evidence requirements</p>
+        </article>
+        <article>
+          <span id="intake-count">0</span>
+          <p>Lead intake checks</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="scenarios" class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Scenario Matrix</p>
+        <h2>Coverage by area, risk, and expected evidence</h2>
+      </div>
+      <div id="scenario-list" class="scenario-list" aria-live="polite"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Bug Standards</p>
+        <h2>What a useful external QA bug should include</h2>
+      </div>
+      <div id="bug-standards" class="scenario-list" aria-live="polite"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Evidence And Intake</p>
+        <h2>What QA lead review should confirm</h2>
+      </div>
+      <div id="evidence-list" class="scenario-list" aria-live="polite"></div>
+    </section>
+
+    <section id="export" class="section export-section">
+      <div class="section-heading">
+        <p class="eyebrow">Markdown Export</p>
+        <h2>Generate the handoff draft</h2>
+      </div>
+      <div class="export-actions">
+        <button id="export-markdown" type="button">Generate Markdown</button>
+        <button id="copy-markdown" class="secondary" type="button">Copy Markdown</button>
+      </div>
+      <textarea id="markdown-output" rows="18" readonly aria-label="Generated external QA handoff Markdown"></textarea>
+    </section>
+  </main>
+
+  <footer class="planner-footer">
+    <p>External QA Handoff Manager is a portfolio-safe browser prototype using mock data and human-reviewed Markdown export.</p>
+  </footer>
+
+  <script src="external-qa-handoff-manager.js"></script>
+</body>
+</html>

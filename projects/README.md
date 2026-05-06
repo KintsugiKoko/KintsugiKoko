@@ -9,15 +9,17 @@ These are not full game projects yet. They are small practice projects that help
 | Project | Status | Focus |
 | --- | --- | --- |
 | [QA Bug Report Tool](qa-bug-report-tool/README.md) | First version | Python CLI, pytest, structured Markdown bug reports, and QA note practice |
+| [Nyx Test Planner](nyx-test-planner/README.md) | Live planning prototype | Browser-based QA planning board for Nyx scenarios, risk, status, and Markdown test plan drafts |
 | [Art Telemetry QA](art-telemetry-qa/README.md) | MVP prototype | Mock Unreal-style Art QA telemetry parsing, validation rules, risk scoring, Jira-ready report drafts, and [report showcase](../docs/art-qa-telemetry-report-showcase.md) |
+| [Community Pulse](community-pulse-report-tool/README.md) | First version | Mock player/playtest feedback grouping, risk notes, readiness summary, and Markdown report drafts |
+| [External QA Handoff Manager](external-qa-handoff-manager/README.md) | First version | Offsite QA handoff planning, scenario coverage, evidence requirements, intake checklist, and Markdown export |
 | [Obsidian Conversation Sync Agent](obsidian-conversation-sync-agent/README.md) | First version | Local Python CLI that turns exported AI conversations into connected Obsidian-friendly Markdown notes |
 | [QA Bug Report Portfolio](qa-bug-report-portfolio/README.md) | Planned | Practicing clear bug reports, screenshots, steps to reproduce, and reflection |
 | [Unreal Project Showcase](unreal-project-showcase/README.md) | Work in progress | Documenting an Unreal project through development notes, QA notes, reflection, and [test level scenarios](../docs/unreal-test-levels-and-scenarios.md) |
-| [Nyx Test Planner](nyx-test-planner/README.md) | Live planning prototype | Browser-based QA planning board for Nyx scenarios, risk, status, and Markdown test plan drafts |
 
 ## Good Starting Point
 
-Start with the [QA Bug Report Tool](qa-bug-report-tool/README.md). It is the first Python CLI project in this portfolio and includes sample notes, generated reports, tests, and documentation.
+Start with the [QA Bug Report Tool](qa-bug-report-tool/README.md), then review [Nyx Test Planner](nyx-test-planner/README.md), [Art Telemetry QA](art-telemetry-qa/README.md), [Community Pulse](community-pulse-report-tool/README.md), and [External QA Handoff Manager](external-qa-handoff-manager/README.md). Together they show bug writing, planning, mock data parsing, risk summaries, and human-reviewed Markdown exports.
 
 ## 1. GitHub Profile README
 
