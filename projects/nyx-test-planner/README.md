@@ -12,9 +12,21 @@ It is built for public portfolio review and project planning. It does not connec
 - Human-reviewed AI-assisted planning habits
 - Plain HTML, CSS, and JavaScript without a framework
 
+## QA Portfolio Signal
+
+This tool is meant to show test-planning judgment, not completed Nyx gameplay. A reviewer should be able to see how a broad prototype idea becomes scoped checks, risk labels, PIE readiness notes, and a Markdown plan that still needs human review.
+
 ## Live Tool
 
 [Open the Nyx Test Planner](https://kintsugikoko.github.io/KintsugiKoko/nyx-test-planner.html)
+
+## Best Reviewer Path
+
+1. Open the live planner.
+2. Scan the planning snapshot to see total, high-risk, ready, and blocked checks.
+3. Filter by `Ready for PIE` or `High` risk to see the clearest validation targets.
+4. Generate the Markdown draft and review the Method / Limitations section.
+5. Treat the export as planning evidence, not proof that the Unreal pass has already run.
 
 ## Related Portfolio Docs
 

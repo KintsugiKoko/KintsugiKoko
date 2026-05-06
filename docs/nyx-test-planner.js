@@ -246,6 +246,8 @@ function generateMarkdown() {
     "",
     "This draft was generated from the browser-based Nyx Test Planner.",
     "",
+    "Status: Draft planning artifact for human review. This export is not proof that a PIE validation pass has already run.",
+    "",
     "## Summary",
     "",
     `- Total scenarios in current view: ${scenarios.length}`,
@@ -276,6 +278,13 @@ function generateMarkdown() {
   lines.push("- This is a planning aid, not an automated Unreal test runner.");
   lines.push("- Scenarios use public, portfolio-safe Nyx project notes only.");
   lines.push("- Keith reviews and adjusts the plan before treating it as real validation scope.");
+  lines.push("- Passing or failing results should be recorded only after a real manual PIE pass.");
+  lines.push("");
+  lines.push("## What This Does Not Prove");
+  lines.push("");
+  lines.push("- It does not validate the full Nyx gameplay loop.");
+  lines.push("- It does not confirm final UI, art, VFX, audio, tuning, or progression.");
+  lines.push("- It does not replace hands-on QA observation, bug notes, screenshots, clips, or follow-up risk review.");
 
   return lines.join("\n");
 }

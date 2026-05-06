@@ -206,6 +206,7 @@ h3 {
 }
 
 .hero-card,
+.path-grid article,
 .summary-grid article,
 .scenario-card,
 .scenario-form,
@@ -254,10 +255,38 @@ h3 {
 
 .summary-grid,
 .control-grid,
+.path-grid,
 .scenario-list,
 .project-grid {
   display: grid;
   gap: 1rem;
+}
+
+.reviewer-path {
+  padding-bottom: 2.5rem;
+}
+
+.path-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 1.5rem;
+}
+
+.path-grid article {
+  padding: 1.15rem;
+}
+
+.path-grid span {
+  color: var(--amber);
+  display: inline-block;
+  font-size: 1.7rem;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 0.85rem;
+}
+
+.path-grid p {
+  color: var(--muted);
+  margin: 0;
 }
 
 .summary-grid {
@@ -488,6 +517,7 @@ button:focus-visible {
 
   .summary-grid,
   .control-grid,
+  .path-grid,
   .scenario-form {
     grid-template-columns: 1fr;
   }
