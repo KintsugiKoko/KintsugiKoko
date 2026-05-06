@@ -47,9 +47,9 @@ Areas of contribution included:
 - Clear, actionable defect reporting for engineering and design partners
 - Collaboration with QA, design, engineering, production, analytics/telemetry, and support partners
 
-## Art QA / Performance QA Evidence
+## Art QA / Performance QA Validation
 
-One of my stronger lanes is evidence-driven Art QA: capturing data, parsing results, validating content at scale, isolating regressions, and turning visual or asset-heavy issues into clean reports for Tech Art, Performance, Engineering, Design, and QA partners.
+One of my stronger lanes is practical Art QA validation: capturing data, parsing results, validating content at scale, isolating regressions, and turning visual or asset-heavy issues into clean reports for Tech Art, Performance, Engineering, Design, and QA partners.
 
 The practical strength is QA ownership around graphical/content issues: telemetry-assisted investigation, Unreal-based content validation, equipment and environment passes, multi-build regression awareness, Jira triage, and test planning. I am not presenting this as shader-authoring or graphics-engineering work.
 
