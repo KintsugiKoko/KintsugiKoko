@@ -12,6 +12,7 @@ jobs:
       matrix:
         project:
           - projects/qa-bug-report-tool
+          - projects/art-telemetry-qa
           - projects/obsidian-conversation-sync-agent
           - projects/community-pulse-report-tool
 

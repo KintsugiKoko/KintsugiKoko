@@ -1,0 +1,7 @@
+asset_id,asset_name,asset_path,asset_type,map_name,platform,build_label,texture_size_px,triangle_count,material_slot_count,translucent_material_count,alpha_coverage_pct,particle_count,bounds_extent_m,load_warning_count,asset_load_ms,naming_valid,path_valid
+ART001,SM_Starwell_Blockout,/Game/Nyx/Environment/Starwell/SM_Starwell_Blockout,Static Mesh,Map_Starwell_Test,Windows,Nyx-WIP-0.4,2048,42000,4,0,0,0,8.5,0,880,true,true
+ART002,SK_Nyx_Cat_Merchant_WIP,/Game/Nyx/Characters/Nyx/SK_Nyx_Cat_Merchant_WIP,Skeletal Mesh,Map_Merchant_Test,Windows,Nyx-WIP-0.4,4096,126000,8,1,18,0,3.2,1,1780,true,true
+ART003,VFX_Starwell_Offering_Burst,/Game/Nyx/VFX/Starwell/VFX_Starwell_Offering_Burst,VFX,Map_Starwell_Test,Windows,Nyx-WIP-0.4,4096,24000,9,8,64,4200,14,4,3100,true,true
+ART004,SM_CosmicFish_SoulForm_01,/Game/Nyx/Fish/SoulForms/SM_CosmicFish_SoulForm_01,Static Mesh,Map_Fishing_Test,Windows,Nyx-WIP-0.4,8192,118000,5,2,44,0,2.5,0,1200,true,true
+ART005,SM_Merchant_Caravan_Wagon,/Game/Nyx/Vehicles/Caravan/SM_Merchant_Caravan_Wagon,Static Mesh,Map_Route_Test,Windows,Nyx-WIP-0.4,8192,188000,10,0,0,0,62,5,4200,false,false
+ART006,T_MissingSlot_DebugMesh,/Game/Nyx/Temp/T_MissingSlot_DebugMesh,Static Mesh,Map_Debug_ArtQA,Windows,Nyx-WIP-0.4,1024,8000,0,0,0,0,1.2,0,400,false,false

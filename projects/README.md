@@ -9,6 +9,7 @@ These are not full game projects yet. They are small practice projects that help
 | Project | Status | Focus |
 | --- | --- | --- |
 | [QA Bug Report Tool](qa-bug-report-tool/README.md) | First version | Python CLI, pytest, structured Markdown bug reports, and QA note practice |
+| [Art Telemetry QA](art-telemetry-qa/README.md) | MVP prototype | Mock Unreal-style Art QA telemetry parsing, validation rules, risk scoring, and Jira-ready report drafts |
 | [Obsidian Conversation Sync Agent](obsidian-conversation-sync-agent/README.md) | First version | Local Python CLI that turns exported AI conversations into connected Obsidian-friendly Markdown notes |
 | [QA Bug Report Portfolio](qa-bug-report-portfolio/README.md) | Planned | Practicing clear bug reports, screenshots, steps to reproduce, and reflection |
 | [Unreal Project Showcase](unreal-project-showcase/README.md) | Work in progress | Documenting an Unreal project through development notes, screenshots, QA notes, and reflection |

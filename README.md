@@ -108,6 +108,7 @@ A good first project to review is the QA Bug Report Tool because it shows Python
 | Project | Status | Focus |
 | --- | --- | --- |
 | [QA Bug Report Tool](projects/qa-bug-report-tool/README.md) | First version | Python CLI, pytest, structured Markdown bug reports, QA note practice |
+| [Art Telemetry QA](projects/art-telemetry-qa/README.md) | MVP prototype | Mock Unreal-style Art QA telemetry parsing, asset-risk scoring, owner routing, Jira-ready report drafts |
 | [Obsidian Conversation Sync Agent](projects/obsidian-conversation-sync-agent/README.md) | First version | Local Python CLI, exported AI conversations, connected Obsidian Markdown notes, documentation workflow |
 | [QA Bug Report Portfolio](projects/qa-bug-report-portfolio/README.md) | In progress | Sample bug reports, repro clarity, severity framing, QA documentation |
 | [Unreal Project Showcase](projects/unreal-project-showcase/README.md) | Work in progress | Unreal project notes, development logs, screenshots, QA/playtest observations |

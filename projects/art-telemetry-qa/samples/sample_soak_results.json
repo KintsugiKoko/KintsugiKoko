@@ -1,0 +1,32 @@
+[
+  {
+    "asset_id": "ART001",
+    "duration_minutes": 30,
+    "warning_spikes": 0,
+    "hitch_count": 0,
+    "memory_growth_mb": 12.5,
+    "average_frame_ms": 12.2,
+    "p95_frame_ms": 18.4,
+    "notes": "Clean blockout baseline."
+  },
+  {
+    "asset_id": "ART003",
+    "duration_minutes": 90,
+    "warning_spikes": 9,
+    "hitch_count": 17,
+    "memory_growth_mb": 248.2,
+    "average_frame_ms": 22.8,
+    "p95_frame_ms": 43.6,
+    "notes": "Mock long-running VFX loop with warning spikes."
+  },
+  {
+    "asset_id": "ART005",
+    "duration_minutes": 75,
+    "warning_spikes": 5,
+    "hitch_count": 10,
+    "memory_growth_mb": 126.4,
+    "average_frame_ms": 19.1,
+    "p95_frame_ms": 34.2,
+    "notes": "Mock route soak pass with streaming and load warnings."
+  }
+]

@@ -1,0 +1,81 @@
+[
+  {
+    "asset_id": "ART001",
+    "gameplay_asset": true,
+    "has_collision": true,
+    "lod_count": 3,
+    "missing_material_slots": [],
+    "skeletal_weighting_warnings": 0,
+    "naming_warnings": [],
+    "path_warnings": [],
+    "validation_notes": "Starwell blockout is clean enough for current planning."
+  },
+  {
+    "asset_id": "ART002",
+    "gameplay_asset": true,
+    "has_collision": true,
+    "lod_count": 1,
+    "missing_material_slots": [],
+    "skeletal_weighting_warnings": 3,
+    "naming_warnings": [],
+    "path_warnings": [],
+    "validation_notes": "Mock skeletal mesh has weighting warnings in deformation poses."
+  },
+  {
+    "asset_id": "ART003",
+    "gameplay_asset": false,
+    "has_collision": false,
+    "lod_count": 1,
+    "missing_material_slots": [],
+    "skeletal_weighting_warnings": 0,
+    "naming_warnings": [],
+    "path_warnings": [],
+    "validation_notes": "Mock VFX capture is intentionally heavy."
+  },
+  {
+    "asset_id": "ART004",
+    "gameplay_asset": false,
+    "has_collision": false,
+    "lod_count": 2,
+    "missing_material_slots": [],
+    "skeletal_weighting_warnings": 0,
+    "naming_warnings": [],
+    "path_warnings": [],
+    "validation_notes": "Soul-form material uses alpha heavily."
+  },
+  {
+    "asset_id": "ART005",
+    "gameplay_asset": true,
+    "has_collision": false,
+    "lod_count": 0,
+    "missing_material_slots": [
+      "M_Caravan_Wood_Trim",
+      "M_Caravan_Wheel_Metal"
+    ],
+    "skeletal_weighting_warnings": 0,
+    "naming_warnings": [
+      "Asset suffix does not match current vehicle naming convention."
+    ],
+    "path_warnings": [
+      "Vehicle asset lives outside the current gameplay transport folder."
+    ],
+    "validation_notes": "Mock gameplay-facing vehicle with missing collision and material assignment issues."
+  },
+  {
+    "asset_id": "ART006",
+    "gameplay_asset": false,
+    "has_collision": false,
+    "lod_count": 0,
+    "missing_material_slots": [
+      "M_Debug_Default"
+    ],
+    "skeletal_weighting_warnings": 0,
+    "naming_warnings": [
+      "Temporary prefix is not valid for content review."
+    ],
+    "path_warnings": [
+      "Temp folder should not be used for reviewed content."
+    ],
+    "validation_notes": "Mock debug asset for naming and missing material examples."
+  }
+]

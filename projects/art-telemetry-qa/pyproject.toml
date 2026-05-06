@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "art-telemetry-qa"
+version = "0.1.0"
+description = "A portfolio-safe Python CLI for mock Unreal-style Art QA telemetry validation."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+  { name = "KintsugiKoko" }
+]
+
+[project.scripts]
+art-telemetry-qa = "art_telemetry_qa.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
