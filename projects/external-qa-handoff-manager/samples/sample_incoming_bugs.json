@@ -1,0 +1,53 @@
+[
+  {
+    "bug_id": "EXT-001",
+    "bug_title": "Saddle variant B stays visible after unequip",
+    "build": "Mock-0.9.42",
+    "platform": "PC",
+    "scenario": "Swap equipment while mounted",
+    "steps": "Equip saddle B, mount up, unequip saddle, rotate camera.",
+    "expected": "Saddle mesh hides after unequip.",
+    "actual": "Saddle B remains visible until remount.",
+    "repro_rate": "4/4",
+    "evidence_attached": true,
+    "screenshot_video_reference": "video_mount_swap_001.mp4 @ 00:18",
+    "severity_suggestion": "High",
+    "known_issue_match": false,
+    "suggested_owner": "Engineering",
+    "notes": "Strong repro and clear capture."
+  },
+  {
+    "bug_id": "EXT-004",
+    "bug_title": "Cosmetic disappears sometimes",
+    "build": "",
+    "platform": "PC",
+    "scenario": "Unknown",
+    "steps": "It happened after swapping a few things.",
+    "expected": "",
+    "actual": "Cosmetic missing.",
+    "repro_rate": "",
+    "evidence_attached": false,
+    "screenshot_video_reference": "",
+    "severity_suggestion": "High",
+    "known_issue_match": false,
+    "suggested_owner": "QA",
+    "notes": "Too vague for developer review."
+  },
+  {
+    "bug_id": "EXT-005",
+    "bug_title": "Wrong icon shown for empty saddle slot",
+    "build": "Mock-0.9.42",
+    "platform": "PC",
+    "scenario": "Empty equipment slot",
+    "steps": "Remove saddle equipment and inspect inventory.",
+    "expected": "Empty slot icon appears.",
+    "actual": "Previous saddle icon remains in inventory only.",
+    "repro_rate": "5/5",
+    "evidence_attached": true,
+    "screenshot_video_reference": "empty_slot_icon_005.png",
+    "severity_suggestion": "Low",
+    "known_issue_match": true,
+    "suggested_owner": "UI",
+    "notes": "Known issue A."
+  }
+]

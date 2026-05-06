@@ -125,7 +125,7 @@ These projects stay portfolio-safe: mock data, human-reviewed QA reports, planni
 | [Nyx Test Planner](docs/nyx-test-planner.html) | Live planning prototype | Browser-based QA planning board for Nyx scenarios, risk, status, and Markdown test plan drafts |
 | [Art Telemetry QA](projects/art-telemetry-qa/README.md) | MVP prototype | Mock Unreal-style Art QA telemetry parsing, asset-risk scoring, owner routing, Jira-ready report drafts, [report showcase](docs/art-qa-telemetry-report-showcase.md) |
 | [Community Pulse](projects/community-pulse-report-tool/README.md) | First version | Mock player/playtest feedback grouping, risk notes, readiness summary, and Markdown report drafts |
-| [External QA Handoff Manager](docs/external-qa-handoff-manager.html) | First version | Offsite QA handoff planning, scenario coverage, evidence requirements, intake checklist, and Markdown export |
+| [External QA Handoff Manager](projects/external-qa-handoff-manager/README.md) | Portfolio-safe prototype | External QA coordination, bug-quality standards, scenario handoffs, intake review discipline, [live demo](docs/external-qa-handoff-manager.html) |
 | [Obsidian Conversation Sync Agent](projects/obsidian-conversation-sync-agent/README.md) | First version | Local Python CLI, exported AI conversations, connected Obsidian Markdown notes, documentation workflow |
 | [QA Bug Report Portfolio](projects/qa-bug-report-portfolio/README.md) | In progress | Sample bug reports, repro clarity, severity framing, QA documentation |
 | [Unreal Project Showcase](projects/unreal-project-showcase/README.md) | Work in progress | Unreal project notes, development logs, QA/playtest observations, [test level scenarios](docs/unreal-test-levels-and-scenarios.md) |

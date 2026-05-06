@@ -1,0 +1,55 @@
+{
+  "feature": "Mount Equipment Visual Validation",
+  "build": "Mock-0.9.42",
+  "environment": "PC development build, mock external QA environment",
+  "test_window": "Two-day external QA pass",
+  "test_owner": "QA Lead",
+  "external_qa_team": "Mock External QA Vendor A",
+  "objective": "Validate that mount equipment visuals attach, swap, hide, and persist correctly across common player-facing flows.",
+  "in_scope": [
+    "Mount equipment attach points",
+    "Visual swaps",
+    "Spawn and despawn behavior",
+    "Inventory equip flow",
+    "Screenshot and video evidence"
+  ],
+  "out_of_scope": [
+    "Balance tuning",
+    "Final art approval",
+    "Animation polish sign-off",
+    "Production pipeline validation"
+  ],
+  "known_issues": [
+    "Known Issue A: saddle icon mismatch in inventory only.",
+    "Known Issue B: cosmetic preview lighting is under separate review."
+  ],
+  "scenario_matrix": [
+    {
+      "scenario": "Equip saddle variant A",
+      "priority": "High",
+      "platform": "PC",
+      "evidence_required": "Screenshot and repro steps",
+      "owner_routing": "Art / QA",
+      "status": "Ready",
+      "notes": "Validate attach point and material visibility."
+    },
+    {
+      "scenario": "Swap equipment while mounted",
+      "priority": "High",
+      "platform": "PC",
+      "evidence_required": "Video and repro rate",
+      "owner_routing": "Engineering / QA",
+      "status": "Ready",
+      "notes": "Watch for stale mesh or wrong variant."
+    },
+    {
+      "scenario": "Spawn mount after zone reload",
+      "priority": "Medium",
+      "platform": "PC",
+      "evidence_required": "Screenshot",
+      "owner_routing": "Engineering",
+      "status": "Ready",
+      "notes": "Check persistence after reload."
+    }
+  ]
+}
