@@ -18,6 +18,11 @@ I am a Senior QA / Technical QA / Art QA professional with 7+ years across Blizz
 
 At Blizzard and Activision, I supported Art QA and technical capture work across Warcraft III: Reforged, World of Warcraft: Shadowlands / Dragonflight, Diablo Immortal, Diablo IV, Overwatch 2, Modern Warfare II, and Blizzard Project Odyssey before the project was cancelled. At Intrepid Studios, I spent 3 years on Ashes of Creation validating Unreal Engine content across economy and equipment-facing systems, weapons, mounts, cosmetics, materials, VFX-adjacent checks, artisan stations, caravans/vehicles, and asset-heavy implementation issues.
 
+# Resume-Safe Project Bullets
+
+- Built Art Telemetry QA, a portfolio-safe Technical QA tool that parses mock Unreal-style art validation data into risk summaries, owner-routing notes, and Jira-ready reports for human-reviewed Art QA / Technical QA evidence work.
+- Built Nyx Test Planner, a browser-based QA planning prototype that turns early gameplay ideas into human-reviewed test scenarios, risk notes, status tracking, and Markdown test-plan exports without claiming automated Unreal testing.
+
 # Application Field Answer
 
 Yes. I have direct Art QA specialist and technical capture experience using telemetry/data workflows across Blizzard, Activision, and Intrepid Studios. This includes Warcraft III: Reforged art test suite capture/parsing, WoW Shadowlands/Dragonflight Art QA checks, Diablo IV environment/equipment validation, Overwatch 2 validation support, MWII Art QA passes, roughly 6 months on Blizzard Project Odyssey during early Tech Art environment/character validation, and 3 years on Ashes of Creation validating Unreal Engine asset-heavy content across equipment, mounts, weapons, cosmetics, materials, VFX-adjacent checks, artisan stations, and caravans/vehicles.
