@@ -13,14 +13,15 @@ These are not full game projects yet. They are small practice projects that help
 | [Art Telemetry QA](art-telemetry-qa/README.md) | MVP prototype | Mock Unreal-style Art QA telemetry parsing, validation rules, risk scoring, Jira-ready report drafts, and [report showcase](../docs/art-qa-telemetry-report-showcase.md) |
 | [Community Pulse](community-pulse-report-tool/README.md) | First version | Mock player/playtest feedback grouping, risk notes, readiness summary, and Markdown report drafts |
 | [External QA Handoff Manager](external-qa-handoff-manager/README.md) | First version | Offsite QA handoff planning, scenario coverage, evidence requirements, intake checklist, and Markdown export |
-| [QA Portfolio Auditor](qa-portfolio-auditor/README.md) | Portfolio-safe meta-QA prototype | Supporting self-audit layer for demo readiness, documentation coverage, recruiter-safe wording, evidence completeness, overclaim risk checks, and [live auditor](../docs/qa-portfolio-auditor.html) |
 | [Obsidian Conversation Sync Agent](obsidian-conversation-sync-agent/README.md) | First version | Local Python CLI that turns exported AI conversations into connected Obsidian-friendly Markdown notes |
 | [QA Bug Report Portfolio](qa-bug-report-portfolio/README.md) | Planned | Practicing clear bug reports, screenshots, steps to reproduce, and reflection |
 | [Unreal Project Showcase](unreal-project-showcase/README.md) | Work in progress | Documenting an Unreal project through development notes, QA notes, reflection, and [test level scenarios](../docs/unreal-test-levels-and-scenarios.md) |
 
 ## Good Starting Point
 
-Start with the [QA Bug Report Tool](qa-bug-report-tool/README.md), then review [Nyx Test Planner](nyx-test-planner/README.md), [Art Telemetry QA](art-telemetry-qa/README.md), [Community Pulse](community-pulse-report-tool/README.md), and [External QA Handoff Manager](external-qa-handoff-manager/README.md). Optional support layer: [QA Portfolio Auditor](qa-portfolio-auditor/README.md) checks those artifacts for demo readiness, documentation coverage, recruiter-safe wording, evidence completeness, and overclaim risk before publishing.
+Start with the [QA Bug Report Tool](qa-bug-report-tool/README.md), [Art Telemetry QA](art-telemetry-qa/README.md), and [Nyx Test Planner](nyx-test-planner/README.md). Then review [Community Pulse](community-pulse-report-tool/README.md) and [External QA Handoff Manager](external-qa-handoff-manager/README.md) for additional reporting and coordination examples.
+
+Optional support layer: [QA Portfolio Auditor](../docs/qa-portfolio-auditor.html) checks those artifacts for demo readiness, documentation coverage, recruiter-safe wording, evidence completeness, and overclaim risk before publishing. It uses static/mock portfolio metadata and human-reviewed checks; it does not crawl the live site, perform browser automation, validate deployment health, connect to Jira or Unreal, or replace manual review.
 
 ## 1. GitHub Profile README
 

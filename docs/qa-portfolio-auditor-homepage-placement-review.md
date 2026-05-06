@@ -1,21 +1,21 @@
-# QA Portfolio Auditor Positioning Review
+# QA Portfolio Auditor Homepage Placement Review
 
 ## Purpose
 
-This review checks whether QA Portfolio Auditor is discoverable as a recruiter-facing Senior QA / Technical QA support artifact without making it compete with the primary QA project evidence.
+This review checks whether QA Portfolio Auditor is discoverable as a recruiter-facing Senior QA / Technical QA support artifact without making it compete with the primary QA project evidence on the live homepage.
 
 ## Where QA Portfolio Auditor Appears Now
 
 - `README.md`
-  - Listed in Featured Projects.
-  - Mentioned as an optional item in Best First Review Path.
+  - Mentioned as an optional support layer in Best First Review Path.
+  - Removed from the equal-weight Featured Projects table.
 - `projects/README.md`
-  - Listed in Current Project Folders.
   - Mentioned as an optional support layer in Good Starting Point.
+  - Removed from the equal-weight Current Project Folders table.
 - `docs/index.html`
-  - Listed in the homepage Projects section.
-  - Framed with an optional support-layer note before the project grid.
-  - Card status uses "Portfolio-safe meta-QA prototype."
+  - Appears as a linked optional support-layer note above the project grid.
+  - Links to the live `qa-portfolio-auditor.html` page.
+  - Removed from the main Featured Projects card grid.
 - `projects/qa-portfolio-auditor/README.md`
   - Status and portfolio role clarify it is a secondary/supporting artifact.
 
@@ -28,8 +28,8 @@ It should be reviewed after the core tools, not before them.
 ## Main Recruiter Path After Update
 
 1. QA Bug Report Tool - bug quality, repro discipline, severity/priority thinking, Markdown/JSON output, and pytest-backed validation.
-2. Nyx Test Planner - QA planning judgment, risk notes, expected results, status tracking, and Markdown test-plan exports.
-3. Art Telemetry QA - Art QA / Technical QA evidence using mock Unreal-style telemetry, risk summaries, owner routing, regression notes, and Jira-ready report drafting.
+2. Art Telemetry QA - Art QA / Technical QA evidence using mock Unreal-style telemetry, risk summaries, owner routing, regression notes, and Jira-ready report drafting.
+3. Nyx Test Planner - QA planning judgment, risk notes, expected results, status tracking, and Markdown test-plan exports.
 4. Community Pulse - mock player/playtest feedback grouping, repeated themes, risk notes, and human-reviewed QA follow-up reports.
 5. External QA Handoff Manager - external QA coordination, scenario coverage, evidence requirements, intake checklist, and Markdown handoff exports.
 6. Optional support layer: QA Portfolio Auditor - meta-QA review for tool readiness, documentation coverage, evidence completeness, recruiter-safe wording, and overclaim risk.
@@ -54,7 +54,8 @@ The updated copy keeps QA Portfolio Auditor portfolio-safe by saying:
 - `node --check projects\qa-portfolio-auditor\script.js` - passed.
 - `node scripts\audit-portfolio-artifacts.js` - passed; checked 15 artifacts, found 1 intentional missing artifact, and 0 metadata mismatches.
 - JavaScript smoke check for auditor export/model - passed.
-- Local homepage HTTP check from `docs/` - passed; confirmed QA Portfolio Auditor, optional support-layer wording, meta-QA status, and limitation language are present.
+- Local homepage HTTP check from `docs/` - passed; confirmed QA Portfolio Auditor appears as a linked optional support layer, not as a project card.
+- Static homepage check - passed; confirmed the QA Portfolio Auditor card was removed from the project grid.
 - `python -m pytest` in `projects/qa-bug-report-tool` - 26 passed.
 - `python -m pytest` in `projects/art-telemetry-qa` - 14 passed.
 - `python -m pytest` in `projects/community-pulse-report-tool` - 9 passed.
@@ -65,11 +66,11 @@ The updated copy keeps QA Portfolio Auditor portfolio-safe by saying:
 ## Known Limitations
 
 - This pass updates source files only; it is not pushed live yet.
-- The homepage card links to the GitHub project README, not a live hosted auditor page.
+- The homepage links to the live auditor page, but the auditor remains a supporting link rather than a project card.
 - QA Portfolio Auditor still uses static/mock metadata in the browser UI.
 - The local artifact script checks repo paths only and does not crawl the live site.
 - Human review is still required before publishing.
 
 ## Ready To Commit / Push
 
-Ready to commit after review. The changes are scoped to portfolio positioning, homepage copy/style, QA Portfolio Auditor README positioning, and this review report.
+Ready to commit after review. The changes are scoped to homepage placement, README/project index positioning, and this review report.
