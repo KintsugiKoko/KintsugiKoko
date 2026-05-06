@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark">
+  <meta name="darkreader-lock">
+  <title>QA Portfolio Auditor</title>
+  <link rel="stylesheet" href="qa-portfolio-auditor.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Auditor navigation">
+      <a class="brand" href="index.html">Keith McAvoy</a>
+      <div class="nav-links">
+        <a href="#summary">Summary</a>
+        <a href="#tools">Tool Cards</a>
+        <a href="#export">Export</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">Portfolio-Safe Meta-QA Prototype</p>
+      <h1>QA Portfolio Auditor</h1>
+      <p class="lead">
+        Checks portfolio tools for local/static demo references, documentation
+        coverage, recruiter-safe wording, artifact evidence, and overclaim risk
+        before publishing.
+      </p>
+      <p class="boundary-note">
+        This is a self-audit aid using sample metadata and local artifact
+        status fields. It does not perform full browser automation, crawl the
+        live site, replace manual review, connect to Unreal, connect to Jira,
+        or use private studio data.
+      </p>
+    </section>
+
+    <section id="summary" class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Audit Summary</p>
+        <h2>Local/static metadata readiness snapshot</h2>
+      </div>
+      <div id="summary-grid" class="summary-grid" aria-label="Portfolio audit summary"></div>
+    </section>
+
+    <section class="section model-note">
+      <div class="section-heading">
+        <p class="eyebrow">Audit Model</p>
+        <h2>What each card checks</h2>
+      </div>
+      <ul class="check-list">
+        <li>One-liner, status label, demo/sample output, and README/docs path.</li>
+        <li>Portfolio-safe disclaimer language and known limitations.</li>
+        <li>Artifact/link evidence status using Present, Missing, and Needs Review labels.</li>
+        <li>Forbidden claims in audited local/static metadata text around Unreal automation, Jira integration, private data, production readiness, and replacing human review.</li>
+      </ul>
+    </section>
+
+    <section id="tools" class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Tool Cards</p>
+        <h2>Portfolio tools reviewed for safe publishing</h2>
+      </div>
+      <div id="tool-grid" class="tool-grid" aria-live="polite"></div>
+    </section>
+
+    <section id="export" class="section export-panel">
+      <div class="section-heading">
+        <p class="eyebrow">Markdown Export</p>
+        <h2>Human-reviewed audit report draft</h2>
+      </div>
+      <div class="actions">
+        <button id="export-report" type="button">Generate Markdown Report</button>
+        <button id="copy-report" class="secondary" type="button">Copy Markdown</button>
+      </div>
+      <textarea id="markdown-output" rows="18" readonly aria-label="Generated portfolio audit report"></textarea>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>QA Portfolio Auditor is a portfolio-safe prototype. Keith still owns the final review before publishing.</p>
+  </footer>
+
+  <script src="qa-portfolio-auditor.js"></script>
+</body>
+</html>
