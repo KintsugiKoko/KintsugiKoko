@@ -606,7 +606,9 @@ h3 {
 
 .text-link {
   color: var(--amber);
+  display: inline-block;
   font-weight: 800;
+  margin-right: 1rem;
   text-decoration: underline;
   text-underline-offset: 0.24em;
 }

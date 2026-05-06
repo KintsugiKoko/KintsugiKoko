@@ -105,13 +105,15 @@ The projects here are public learning artifacts. They are meant to show directio
 
 A good first project to review is the QA Bug Report Tool because it shows Python, pytest, Markdown documentation, sample data, and responsible AI-assisted workflow practice in one small project.
 
+For Art QA / Technical QA review, the strongest follow-up path is [Art Telemetry QA](projects/art-telemetry-qa/README.md), the [Art QA Telemetry Report Showcase](docs/art-qa-telemetry-report-showcase.md), the [Nyx Test Planner](docs/nyx-test-planner.html), and the [Unreal Test Levels And Scenarios](docs/unreal-test-levels-and-scenarios.md). These stay portfolio-safe: mock data, human-reviewed QA reports, planning scenarios, and no claim of live Unreal automation.
+
 | Project | Status | Focus |
 | --- | --- | --- |
 | [QA Bug Report Tool](projects/qa-bug-report-tool/README.md) | First version | Python CLI, pytest, structured Markdown bug reports, QA note practice |
-| [Art Telemetry QA](projects/art-telemetry-qa/README.md) | MVP prototype | Mock Unreal-style Art QA telemetry parsing, asset-risk scoring, owner routing, Jira-ready report drafts |
+| [Art Telemetry QA](projects/art-telemetry-qa/README.md) | MVP prototype | Mock Unreal-style Art QA telemetry parsing, asset-risk scoring, owner routing, Jira-ready report drafts, [report showcase](docs/art-qa-telemetry-report-showcase.md) |
 | [Obsidian Conversation Sync Agent](projects/obsidian-conversation-sync-agent/README.md) | First version | Local Python CLI, exported AI conversations, connected Obsidian Markdown notes, documentation workflow |
 | [QA Bug Report Portfolio](projects/qa-bug-report-portfolio/README.md) | In progress | Sample bug reports, repro clarity, severity framing, QA documentation |
-| [Unreal Project Showcase](projects/unreal-project-showcase/README.md) | Work in progress | Unreal project notes, development logs, screenshots, QA/playtest observations |
+| [Unreal Project Showcase](projects/unreal-project-showcase/README.md) | Work in progress | Unreal project notes, development logs, QA/playtest observations, [test level scenarios](docs/unreal-test-levels-and-scenarios.md) |
 | [Nyx Test Planner](docs/nyx-test-planner.html) | Live planning prototype | Browser-based QA planning board for Nyx scenarios, risk, status, and Markdown test plan drafts |
 | [Learning Portfolio Homepage](docs/index.html) | In progress | Plain HTML/CSS, GitHub Pages, portfolio structure |
 | [Project Roadmap](projects/README.md) | In progress | Beginner project planning, project reflection, learning path |

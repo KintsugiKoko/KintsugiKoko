@@ -16,6 +16,11 @@ It is built for public portfolio review and project planning. It does not connec
 
 [Open the Nyx Test Planner](https://kintsugikoko.github.io/KintsugiKoko/nyx-test-planner.html)
 
+## Related Portfolio Docs
+
+- [Unreal Test Levels And Scenarios](../../docs/unreal-test-levels-and-scenarios.md)
+- [Tool Audit Report](../../docs/tool-audit-report.md)
+
 ## Current Scope
 
 The planner starts with sample scenarios for:

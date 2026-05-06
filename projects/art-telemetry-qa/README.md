@@ -10,6 +10,11 @@ It demonstrates Art QA / Technical QA validation thinking: capture, parse, isola
 
 This is not a real Unreal plugin yet. Unreal integration is documented as a future plan.
 
+## Portfolio Showcase
+
+- [Art QA Telemetry Report Showcase](../../docs/art-qa-telemetry-report-showcase.md)
+- [Tool Audit Report](../../docs/tool-audit-report.md)
+
 ## Why This Exists
 
 Art QA can involve more than visual spot checks. Asset-heavy work often needs structured evidence: texture budgets, material slots, alpha/translucency risk, skeletal weighting warnings, LOD coverage, collision setup, VFX density, soak test behavior, load warnings, and naming/path hygiene.
