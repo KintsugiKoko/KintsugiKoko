@@ -115,6 +115,8 @@ If you only have a few minutes to review this portfolio, start here:
 
 5. **[External QA Handoff Manager](projects/external-qa-handoff-manager/README.md)** — Demonstrates QA leadership and external/offsite QA coordination by turning feature goals into outsource-ready test packets, scenario coverage, bug-quality standards, evidence requirements, intake review checklists, and Markdown handoff exports.
 
+6. **[QA Portfolio Auditor](projects/qa-portfolio-auditor/README.md)** — Checks portfolio tools for demo readiness, documentation coverage, recruiter-safe wording, evidence completeness, and overclaim risk before publishing.
+
 These projects stay portfolio-safe: mock data, human-reviewed QA reports, planning scenarios, and no claim of live Unreal automation, private studio data, Jira integration, or production pipeline ownership.
 
 ## Featured Projects
@@ -126,6 +128,7 @@ These projects stay portfolio-safe: mock data, human-reviewed QA reports, planni
 | [Art Telemetry QA](projects/art-telemetry-qa/README.md) | MVP prototype | Mock Unreal-style Art QA telemetry parsing, asset-risk scoring, owner routing, Jira-ready report drafts, [report showcase](docs/art-qa-telemetry-report-showcase.md) |
 | [Community Pulse](projects/community-pulse-report-tool/README.md) | First version | Mock player/playtest feedback grouping, risk notes, readiness summary, and Markdown report drafts |
 | [External QA Handoff Manager](projects/external-qa-handoff-manager/README.md) | Portfolio-safe prototype | External QA coordination, bug-quality standards, scenario handoffs, intake review discipline, [live demo](docs/external-qa-handoff-manager.html) |
+| [QA Portfolio Auditor](projects/qa-portfolio-auditor/README.md) | Portfolio-safe prototype | Meta-QA review for demo readiness, documentation coverage, recruiter-safe wording, evidence completeness, overclaim risk, [live demo](docs/qa-portfolio-auditor.html) |
 | [Obsidian Conversation Sync Agent](projects/obsidian-conversation-sync-agent/README.md) | First version | Local Python CLI, exported AI conversations, connected Obsidian Markdown notes, documentation workflow |
 | [QA Bug Report Portfolio](projects/qa-bug-report-portfolio/README.md) | In progress | Sample bug reports, repro clarity, severity framing, QA documentation |
 | [Unreal Project Showcase](projects/unreal-project-showcase/README.md) | Work in progress | Unreal project notes, development logs, QA/playtest observations, [test level scenarios](docs/unreal-test-levels-and-scenarios.md) |

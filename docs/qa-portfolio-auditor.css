@@ -1,0 +1,289 @@
+:root {
+  color-scheme: dark;
+  --bg: #050607;
+  --panel: #10141c;
+  --panel-2: #171d27;
+  --ink: #fff4df;
+  --muted: #d8cebd;
+  --soft: #98a4b4;
+  --line: #344152;
+  --gold: #e3b45f;
+  --cyan: #73d8d0;
+  --green: #8ddc9d;
+  --warn: #f0c872;
+  --risk: #ff8e8e;
+  --shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background:
+    radial-gradient(circle at 78% 0%, rgba(115, 216, 208, 0.12), transparent 28rem),
+    linear-gradient(180deg, #050607, #0b0f16 52%, #050607);
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+}
+
+a {
+  color: var(--gold);
+}
+
+.auditor-header,
+main,
+footer {
+  margin: 0 auto;
+  max-width: 1180px;
+  padding: 2rem 1.25rem;
+}
+
+.auditor-header {
+  padding-top: 4rem;
+}
+
+.eyebrow {
+  color: var(--gold);
+  font-size: 0.78rem;
+  font-weight: 800;
+  margin: 0 0 0.65rem;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  font-size: clamp(2.4rem, 7vw, 5.2rem);
+  line-height: 0.95;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  line-height: 1.1;
+}
+
+.lede,
+.rules-panel p,
+footer p {
+  color: var(--muted);
+  max-width: 760px;
+}
+
+.header-actions,
+.toolbar {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.header-actions a,
+button {
+  background: linear-gradient(180deg, #f0c872, #d6a24e);
+  border: 1px solid var(--gold);
+  border-radius: 6px;
+  color: #0d1117;
+  cursor: pointer;
+  display: inline-flex;
+  font-weight: 800;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0.65rem 0.9rem;
+  text-decoration: none;
+}
+
+.summary-panel,
+.audit-grid,
+.rules-panel {
+  display: grid;
+  gap: 1rem;
+}
+
+.summary-panel {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.summary-panel article,
+.rules-panel,
+.audit-card,
+.report-panel {
+  background: linear-gradient(180deg, var(--panel-2), var(--panel));
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  padding: 1rem;
+}
+
+.summary-panel span,
+.status-pill,
+.audit-meta {
+  color: var(--soft);
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.summary-panel strong {
+  display: block;
+  font-size: 2rem;
+  line-height: 1.1;
+}
+
+.rules-panel {
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+  margin-top: 1rem;
+}
+
+.rules-panel ul {
+  color: var(--muted);
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.toolbar {
+  justify-content: space-between;
+  margin: 1.25rem 0;
+}
+
+.toolbar label {
+  color: var(--muted);
+  display: grid;
+  gap: 0.35rem;
+}
+
+select,
+textarea {
+  background: #080b10;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--ink);
+  font: inherit;
+  padding: 0.7rem;
+}
+
+.audit-grid {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.audit-card {
+  border-left: 4px solid var(--cyan);
+}
+
+.audit-card[data-status="Pass"] {
+  border-left-color: var(--green);
+}
+
+.audit-card[data-status="Pass with Notes"] {
+  border-left-color: var(--warn);
+}
+
+.audit-card[data-status="Needs Review"] {
+  border-left-color: var(--risk);
+}
+
+.status-pill {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--gold);
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  padding: 0.25rem 0.55rem;
+}
+
+.check-list {
+  display: grid;
+  gap: 0.4rem;
+  margin: 1rem 0;
+}
+
+.check-row {
+  align-items: center;
+  border-bottom: 1px solid rgba(52, 65, 82, 0.7);
+  color: var(--muted);
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 0.35rem;
+}
+
+.check-row strong {
+  color: var(--ink);
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.6rem 0;
+}
+
+.tag {
+  background: #080b10;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 0.8rem;
+  padding: 0.2rem 0.5rem;
+}
+
+.risk {
+  color: var(--risk);
+  font-weight: 800;
+}
+
+.ok {
+  color: var(--green);
+  font-weight: 800;
+}
+
+.note {
+  color: var(--warn);
+  font-weight: 800;
+}
+
+.card-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.report-panel {
+  margin-top: 1.25rem;
+}
+
+textarea {
+  min-height: 360px;
+  width: 100%;
+}
+
+:focus-visible {
+  outline: 3px solid var(--cyan);
+  outline-offset: 3px;
+}
+
+@media (max-width: 840px) {
+  .summary-panel,
+  .rules-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  button,
+  select {
+    width: 100%;
+  }
+}

@@ -1,0 +1,38 @@
+[
+  {
+    "tool_name": "QA Bug Report Tool",
+    "project_category": "QA reporting CLI",
+    "status_label": "First version",
+    "demo_link_or_path": "",
+    "readme_docs_link_or_path": "projects/qa-bug-report-tool/README.md",
+    "evidence_focus": "Bug quality, repro clarity, severity framing, Markdown output, pytest coverage",
+    "known_limitations": "Local CLI prototype; human review still required."
+  },
+  {
+    "tool_name": "Nyx Test Planner",
+    "project_category": "Browser QA planning prototype",
+    "status_label": "Live planning prototype",
+    "demo_link_or_path": "docs/nyx-test-planner.html",
+    "readme_docs_link_or_path": "projects/nyx-test-planner/README.md",
+    "evidence_focus": "QA planning, risk notes, scenario coverage, Markdown export",
+    "known_limitations": "Browser planning board; does not run automated Unreal tests."
+  },
+  {
+    "tool_name": "Art Telemetry QA",
+    "project_category": "Technical QA / Art QA tool",
+    "status_label": "MVP prototype",
+    "demo_link_or_path": "",
+    "readme_docs_link_or_path": "projects/art-telemetry-qa/README.md",
+    "evidence_focus": "Mock telemetry parsing, risk scoring, owner routing, Jira-ready reports",
+    "known_limitations": "No live Unreal integration; mock data only."
+  },
+  {
+    "tool_name": "QA Capture Review Board",
+    "project_category": "Watchlist / not present on current branch",
+    "status_label": "Not present",
+    "demo_link_or_path": "",
+    "readme_docs_link_or_path": "",
+    "evidence_focus": "Planned capture review evidence packs, if added later",
+    "known_limitations": "Watchlist entry only."
+  }
+]

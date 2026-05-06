@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark">
+  <title>QA Portfolio Auditor | Keith McAvoy</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="auditor-header">
+    <p class="eyebrow">Portfolio-safe meta-QA prototype</p>
+    <h1>QA Portfolio Auditor</h1>
+    <p class="lede">
+      Check portfolio tools for demo readiness, documentation coverage,
+      recruiter-safe wording, evidence completeness, and overclaim risk before publishing.
+    </p>
+    <div class="header-actions">
+      <a href="../../docs/index.html#projects">Portfolio Home</a>
+      <a href="README.md">Project README</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="summary-panel" aria-label="Audit summary">
+      <article>
+        <span>Tools Audited</span>
+        <strong id="tool-count">0</strong>
+      </article>
+      <article>
+        <span>Pass</span>
+        <strong id="pass-count">0</strong>
+      </article>
+      <article>
+        <span>Pass With Notes</span>
+        <strong id="notes-count">0</strong>
+      </article>
+      <article>
+        <span>Needs Review</span>
+        <strong id="review-count">0</strong>
+      </article>
+    </section>
+
+    <section class="rules-panel">
+      <div>
+        <p class="eyebrow">Audit Rules</p>
+        <h2>Recruiter-readiness checks</h2>
+        <p>
+          This prototype reviews project metadata for the signals a recruiter or
+          technical reviewer needs: what the tool is, how to inspect it, what
+          evidence it provides, and where the safe boundaries are.
+        </p>
+      </div>
+      <ul>
+        <li>Working demo path or sample output</li>
+        <li>README/docs link</li>
+        <li>Status label and one-liner</li>
+        <li>Portfolio-safe disclaimer</li>
+        <li>Evidence focus and known limitations</li>
+        <li>Forbidden claim scan</li>
+      </ul>
+    </section>
+
+    <section class="toolbar" aria-label="Audit controls">
+      <label>
+        Filter
+        <select id="status-filter">
+          <option value="all">All tools</option>
+          <option value="Pass">Pass</option>
+          <option value="Pass with Notes">Pass with Notes</option>
+          <option value="Needs Review">Needs Review</option>
+        </select>
+      </label>
+      <button id="copy-report" type="button">Copy Markdown Report</button>
+      <button id="download-report" type="button">Download Markdown</button>
+    </section>
+
+    <section id="audit-grid" class="audit-grid" aria-label="Portfolio tool audit cards"></section>
+
+    <section class="report-panel">
+      <div class="panel-heading">
+        <p class="eyebrow">Markdown Export</p>
+        <h2>Portfolio Tool Audit Summary</h2>
+      </div>
+      <textarea id="audit-report" rows="20" aria-label="Generated audit Markdown"></textarea>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      Human-reviewed portfolio audit prototype. No private studio data, live Jira
+      integration, Unreal integration, or full browser automation is claimed.
+    </p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
