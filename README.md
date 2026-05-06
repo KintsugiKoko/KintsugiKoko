@@ -2,14 +2,16 @@
 
 Also building here as **KintsugiKoko**.
 
-I am a Quality Engineer / Technical QA professional with 7 years of game QA experience, now building a public learning portfolio around Python, GitHub, AI-assisted QA workflows, documentation, and project-based problem solving.
+I am a Quality Engineer / Technical QA / Art QA specialist with 7 years of game QA experience, now building a public learning portfolio around Python, GitHub, AI-assisted QA workflows, documentation, and project-based problem solving.
 
 This GitHub is meant to give recruiters and collaborators a practical view of how I think, learn, document, test, and improve. It is not a polished senior engineering portfolio. It is a real record of professional QA experience meeting active technical growth.
 
 ## Recruiter Snapshot
 
-- Quality Engineer / Technical QA background with 7 years of professional game QA experience across Blizzard Entertainment and Intrepid Studios
-- Experienced in gameplay systems validation, exploratory testing, smoke and regression testing, build verification, release readiness, and player-impact risk communication
+- Quality Engineer / Technical QA / Art QA background with 7 years of professional game QA experience across Blizzard Entertainment, Activision, and Intrepid Studios
+- Experienced in gameplay systems validation, Art QA validation, exploratory testing, smoke and regression testing, build verification, release readiness, and player-impact risk communication
+- Direct Art QA specialist experience with telemetry capture/parsing, graphical/content issue investigation, asset-heavy systems validation, test plan ownership, Jira triage, and cross-discipline reporting
+- Unreal Engine experience through 3 years on Ashes of Creation, including validation of equipment-facing systems, content implementation issues, and developer/test environment behavior
 - Strong at writing clear bug reports with repro steps, expected vs. actual behavior, severity, priority, regression context, and player-facing impact
 - Comfortable working cross-functionally with QA, design, engineering, production, support, and leadership partners
 - Currently extending QA practice into Python, Git/GitHub, structured Markdown documentation, test automation basics, log triage, and AI-assisted QA tooling
@@ -18,36 +20,50 @@ This GitHub is meant to give recruiters and collaborators a practical view of ho
 
 ### Intrepid Studios
 
-QA Engineer II / Game Designer experience connected to **Ashes of Creation**, with work focused on player-facing quality, MMO systems risk, regression coverage, build validation, bug reporting, and design-informed QA feedback.
+QA Engineer II / Game Designer experience connected to **Ashes of Creation**, with work focused on player-facing quality, MMO systems risk, regression coverage, build validation, bug reporting, design-informed QA feedback, and Unreal-based content validation.
 
 Areas of contribution included:
 
 - Investigating gameplay, world, content, UI/UX, stability, progression, and edge-case issues
+- Validating economy and equipment-adjacent content including weapons, mounts, MTX cosmetics, artisan stations, caravans/vehicles, materials, VFX-adjacent checks, and Unreal-based asset implementation issues
 - Communicating repro steps, expected results, actual results, severity, and player impact
 - Partnering with design, engineering, production, QA leadership, and support stakeholders
 - Providing feedback on usability friction, exploit paths, content readability, tuning concerns, and systems clarity
 
-### Blizzard Entertainment
+### Blizzard Entertainment / Activision
 
-Game QA / Quality Assurance experience across multiple Blizzard franchises and high-visibility release cycles.
+Game QA / Quality Assurance experience across multiple Blizzard and Activision franchises, including Art QA and telemetry-driven validation work across high-visibility release cycles.
 
 Areas of contribution included:
 
 - Feature-area coverage across gameplay, UI, content, compatibility, regression, live-service updates, and player-impact validation
+- Telemetry capture and parsing for Art QA test suites, including Warcraft III: Reforged work
+- Art QA checks and graphical/content validation across World of Warcraft, Diablo, Diablo Immortal, and Modern Warfare II work
 - Milestone and release testing through smoke passes, regression passes, fix validation, blocker escalation, and issue trend communication
 - Clear, actionable defect reporting for engineering and design partners
 - Collaboration with QA, design, engineering, production, analytics/telemetry, and support partners
+
+## Art QA / Performance QA Evidence
+
+One of my stronger lanes is evidence-driven Art QA: capturing data, parsing results, validating content at scale, isolating regressions, and turning visual or asset-heavy issues into clean reports for Tech Art, Performance, Engineering, Design, and QA partners.
+
+The practical strength is QA ownership around graphical/content issues: telemetry-assisted investigation, Unreal-based content validation, equipment and environment passes, multi-build regression awareness, Jira triage, and test planning. I am not presenting this as shader-authoring or graphics-engineering work.
 
 ## Selected Game Work
 
 Selected professional game work includes:
 
 - Warcraft III: Reforged
+- StarCraft: Cartooned
+- Hearthstone expansions
+- Diablo II Switch port
 - Diablo II: Resurrected
 - Overwatch 2
 - World of Warcraft: Shadowlands
 - World of Warcraft: Dragonflight
 - Diablo IV
+- Diablo Immortal
+- Modern Warfare II
 - Warcraft Rumble
 - World of Warcraft: The War Within
 - Diablo IV: Vessel of Hatred
