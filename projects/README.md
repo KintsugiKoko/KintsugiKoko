@@ -12,6 +12,7 @@ These are not full game projects yet. They are small practice projects that help
 | [Obsidian Conversation Sync Agent](obsidian-conversation-sync-agent/README.md) | First version | Local Python CLI that turns exported AI conversations into connected Obsidian-friendly Markdown notes |
 | [QA Bug Report Portfolio](qa-bug-report-portfolio/README.md) | Planned | Practicing clear bug reports, screenshots, steps to reproduce, and reflection |
 | [Unreal Project Showcase](unreal-project-showcase/README.md) | Work in progress | Documenting an Unreal project through development notes, screenshots, QA notes, and reflection |
+| [Nyx Test Planner](nyx-test-planner/README.md) | Live planning prototype | Browser-based QA planning board for Nyx scenarios, risk, status, and Markdown test plan drafts |
 
 ## Good Starting Point
 

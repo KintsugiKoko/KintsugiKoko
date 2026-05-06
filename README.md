@@ -111,6 +111,7 @@ A good first project to review is the QA Bug Report Tool because it shows Python
 | [Obsidian Conversation Sync Agent](projects/obsidian-conversation-sync-agent/README.md) | First version | Local Python CLI, exported AI conversations, connected Obsidian Markdown notes, documentation workflow |
 | [QA Bug Report Portfolio](projects/qa-bug-report-portfolio/README.md) | In progress | Sample bug reports, repro clarity, severity framing, QA documentation |
 | [Unreal Project Showcase](projects/unreal-project-showcase/README.md) | Work in progress | Unreal project notes, development logs, screenshots, QA/playtest observations |
+| [Nyx Test Planner](docs/nyx-test-planner.html) | Live planning prototype | Browser-based QA planning board for Nyx scenarios, risk, status, and Markdown test plan drafts |
 | [Learning Portfolio Homepage](docs/index.html) | In progress | Plain HTML/CSS, GitHub Pages, portfolio structure |
 | [Project Roadmap](projects/README.md) | In progress | Beginner project planning, project reflection, learning path |
 

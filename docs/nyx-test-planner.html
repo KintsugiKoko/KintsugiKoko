@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark">
+  <meta name="darkreader-lock">
+  <title>Nyx Test Planner | Keith McAvoy</title>
+  <link rel="stylesheet" href="nyx-test-planner.css">
+</head>
+<body>
+  <header class="planner-header">
+    <nav class="planner-nav" aria-label="Planner navigation">
+      <a class="brand" href="index.html">Keith McAvoy</a>
+      <div class="nav-links">
+        <a href="#plan">Plan</a>
+        <a href="#scenarios">Scenarios</a>
+        <a href="#export">Export</a>
+        <a href="https://github.com/KintsugiKoko/KintsugiKoko/tree/master/projects/nyx-test-planner">Source Notes</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Live QA Planning Tool / WIP Prototype</p>
+        <h1>Nyx Test Planner</h1>
+        <p class="lead">
+          A browser-based planning board for turning Nyx gameplay ideas into
+          clear QA scenarios, risk notes, and exportable Markdown test plans.
+        </p>
+        <p class="scope-note">
+          This is a portfolio-safe planning prototype. It does not connect to
+          Unreal, private tools, Jira, studio data, or automated test runners.
+          Keith still reviews the plan and owns the testing decisions.
+        </p>
+      </div>
+      <aside class="hero-card" aria-label="Planner purpose">
+        <span>Purpose</span>
+        <strong>Show test-planning judgment before implementation gets messy.</strong>
+        <small>Risk, scope, status, expected results, and follow-up notes stay visible.</small>
+      </aside>
+    </section>
+
+    <section id="plan" class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Planning Snapshot</p>
+        <h2>Core loop coverage for Nyx</h2>
+      </div>
+      <div class="summary-grid" aria-label="Plan summary">
+        <article>
+          <span id="total-count">0</span>
+          <p>Total scenarios</p>
+        </article>
+        <article>
+          <span id="high-risk-count">0</span>
+          <p>High-risk checks</p>
+        </article>
+        <article>
+          <span id="ready-count">0</span>
+          <p>Ready for PIE</p>
+        </article>
+        <article>
+          <span id="blocked-count">0</span>
+          <p>Blocked / needs setup</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section controls-section" aria-label="Planner controls">
+      <div class="control-grid">
+        <label>
+          Search
+          <input id="search-input" type="search" placeholder="Search title, area, notes, steps">
+        </label>
+        <label>
+          Area
+          <select id="area-filter">
+            <option value="all">All areas</option>
+          </select>
+        </label>
+        <label>
+          Status
+          <select id="status-filter">
+            <option value="all">All statuses</option>
+          </select>
+        </label>
+        <label>
+          Risk
+          <select id="risk-filter">
+            <option value="all">All risks</option>
+          </select>
+        </label>
+      </div>
+    </section>
+
+    <section id="scenarios" class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Scenario Board</p>
+        <h2>Planned checks by risk, status, and gameplay area</h2>
+      </div>
+      <div id="scenario-list" class="scenario-list" aria-live="polite"></div>
+    </section>
+
+    <section class="section form-section">
+      <div class="section-heading">
+        <p class="eyebrow">Add A Draft Scenario</p>
+        <h2>Capture a new test idea</h2>
+      </div>
+      <form id="scenario-form" class="scenario-form">
+        <label>
+          Scenario title
+          <input id="scenario-title" required maxlength="90" placeholder="Example: Offering fish updates Starwell progress">
+        </label>
+        <label>
+          Area
+          <select id="scenario-area"></select>
+        </label>
+        <label>
+          Type
+          <select id="scenario-type"></select>
+        </label>
+        <label>
+          Risk
+          <select id="scenario-risk"></select>
+        </label>
+        <label>
+          Status
+          <select id="scenario-status"></select>
+        </label>
+        <label class="span-two">
+          Steps / notes
+          <textarea id="scenario-notes" rows="4" placeholder="What should be set up, observed, and verified?"></textarea>
+        </label>
+        <div class="form-actions span-two">
+          <button type="submit">Add Scenario</button>
+          <button id="reset-plan" class="secondary" type="button">Reset Sample Plan</button>
+        </div>
+      </form>
+    </section>
+
+    <section id="export" class="section export-section">
+      <div class="section-heading">
+        <p class="eyebrow">Markdown Export</p>
+        <h2>Turn the current board into a test plan draft</h2>
+      </div>
+      <div class="export-actions">
+        <button id="export-markdown" type="button">Generate Markdown</button>
+        <button id="copy-markdown" class="secondary" type="button">Copy Markdown</button>
+      </div>
+      <textarea id="markdown-output" rows="16" readonly aria-label="Generated Markdown test plan"></textarea>
+    </section>
+  </main>
+
+  <footer class="planner-footer">
+    <p>Nyx Test Planner is a local browser prototype. Data stays in this browser through localStorage.</p>
+  </footer>
+
+  <script src="nyx-test-planner.js"></script>
+</body>
+</html>
