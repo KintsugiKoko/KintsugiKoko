@@ -1,0 +1,72 @@
+[
+  {
+    "name": "QA Bug Report Tool",
+    "project_category": "QA tooling / Python CLI",
+    "status_label": "First version",
+    "demo_link_or_path": "projects/qa-bug-report-tool/README.md",
+    "readme_docs_link_or_path": "projects/qa-bug-report-tool/README.md",
+    "sample_output": "projects/qa-bug-report-tool/reports/001-inventory-count.md",
+    "one_liner": "Converts rough QA notes into structured Markdown and JSON bug reports.",
+    "evidence_focus": "Bug writing, repro quality, severity/priority thinking, pytest-backed validation, Markdown export.",
+    "required_phrases": ["portfolio-safe", "human-reviewed", "Markdown export"],
+    "forbidden_phrases": ["production-ready", "real Jira integration", "private studio data"],
+    "required_artifacts": ["README", "sample-data", "reports", "tests", "pyproject.toml"],
+    "known_limitations": "Practice QA CLI, not a production bug tracker or replacement for human triage."
+  },
+  {
+    "name": "Nyx Test Planner",
+    "project_category": "QA planning / browser prototype",
+    "status_label": "Live planning prototype",
+    "demo_link_or_path": "docs/nyx-test-planner.html",
+    "readme_docs_link_or_path": "projects/nyx-test-planner/README.md",
+    "sample_output": "docs/nyx-test-planner-case-study.md",
+    "one_liner": "Turns early Nyx gameplay ideas into human-reviewed test scenarios, risk notes, status tracking, and Markdown test-plan exports.",
+    "evidence_focus": "QA planning judgment, risk/status tracking, expected results, Markdown export, and planned PIE validation notes.",
+    "required_phrases": ["portfolio-safe", "human-reviewed", "Markdown export"],
+    "forbidden_phrases": ["automated engine validation", "live Unreal automation", "production-ready"],
+    "required_artifacts": ["live planner page", "README", "case study", "Markdown export"],
+    "known_limitations": "Planning aid only; manual PIE/prototype validation remains pending until actually run."
+  },
+  {
+    "name": "Art Telemetry QA",
+    "project_category": "Art QA / Technical QA Python CLI",
+    "status_label": "MVP prototype",
+    "demo_link_or_path": "projects/art-telemetry-qa/README.md",
+    "readme_docs_link_or_path": "projects/art-telemetry-qa/README.md",
+    "sample_output": "docs/art-qa-telemetry-report-showcase.md",
+    "one_liner": "Parses mock Unreal-style telemetry into Art QA risk summaries, owner-routing notes, regression notes, and Jira-ready reports.",
+    "evidence_focus": "Mock Unreal-style telemetry, Art QA evidence, risk summaries, owner routing, and Jira-ready reports.",
+    "required_phrases": ["mock data", "mock Unreal-style telemetry", "human-reviewed", "Jira-ready reports", "risk summaries"],
+    "forbidden_phrases": ["Unreal plugin", "real studio telemetry", "replaces Tech Art review"],
+    "required_artifacts": ["README", "sample data", "reports", "tests", "report showcase"],
+    "known_limitations": "Human-reviewed reports do not replace Tech Art, Performance, Engineering, or human QA judgment."
+  },
+  {
+    "name": "Community Pulse",
+    "project_category": "Community QA / Python CLI",
+    "status_label": "First version",
+    "demo_link_or_path": "projects/community-pulse-report-tool/README.md",
+    "readme_docs_link_or_path": "projects/community-pulse-report-tool/README.md",
+    "sample_output": "projects/community-pulse-report-tool/reports/weekly-sentiment-report.md",
+    "one_liner": "Turns mock player/playtest feedback into structured theme summaries, risk notes, and human-reviewed QA follow-up reports.",
+    "evidence_focus": "Mock feedback grouping, repeated themes, readiness summary, risk notes, and Markdown export.",
+    "required_phrases": ["mock", "human-reviewed", "risk notes", "Markdown export"],
+    "forbidden_phrases": ["private player data", "production-ready", "real studio telemetry"],
+    "required_artifacts": ["README", "sample CSV", "report output", "tests"],
+    "known_limitations": "Draft aid for human review, not a live social listening platform or automated community decision-maker."
+  },
+  {
+    "name": "External QA Handoff Manager",
+    "project_category": "QA leadership / browser prototype",
+    "status_label": "First working version",
+    "demo_link_or_path": "docs/external-qa-handoff-manager.html",
+    "readme_docs_link_or_path": "projects/external-qa-handoff-manager/README.md",
+    "sample_output": "Generated Markdown handoff draft",
+    "one_liner": "Turns feature goals into outsource-ready test packets with scenario coverage, bug-quality standards, evidence requirements, intake review, and Markdown handoff exports.",
+    "evidence_focus": "External QA coordination, evidence requirements, intake checklist, scenario coverage, and Markdown export.",
+    "required_phrases": ["mock data", "external QA coordination", "human-reviewed", "Markdown export"],
+    "forbidden_phrases": ["real Jira integration", "private studio data", "production pipeline integration"],
+    "required_artifacts": ["README", "browser prototype", "scenario matrix", "bug standards", "Markdown export"],
+    "known_limitations": "Static human-reviewed MVP with hard-coded sample data and no live vendor/Jira integration."
+  }
+]
