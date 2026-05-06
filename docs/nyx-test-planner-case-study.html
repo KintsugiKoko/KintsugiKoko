@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark">
+  <meta name="darkreader-lock">
+  <title>Nyx Test Planner Case Study | Keith McAvoy</title>
+  <link rel="stylesheet" href="nyx-test-planner.css">
+</head>
+<body>
+  <header class="planner-header">
+    <nav class="planner-nav" aria-label="Case study navigation">
+      <a class="brand" href="index.html">Keith McAvoy</a>
+      <div class="nav-links">
+        <a href="nyx-test-planner.html">Planner</a>
+        <a href="https://github.com/KintsugiKoko/KintsugiKoko/blob/master/docs/nyx-test-planner-case-study.md">Source Note</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">QA Case Study / Planned Manual Validation</p>
+        <h1>Starwell Offering Unlock Validation</h1>
+        <p class="lead">
+          How one Nyx gameplay idea becomes a human-reviewed QA validation path.
+        </p>
+        <p class="scope-note">
+          This is a portfolio-safe planning artifact. It does not claim automated
+          Unreal testing, live Jira integration, private studio tooling, or
+          production pipeline integration.
+        </p>
+      </div>
+      <aside class="hero-card" aria-label="Validation status">
+        <span>Result</span>
+        <strong>Pending manual PIE validation.</strong>
+        <small>The scenario documents the planned validation path and expected evidence.</small>
+      </aside>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Overview</p>
+        <h2>From scenario planning to validation evidence</h2>
+      </div>
+      <p>
+        This case study shows how one Nyx gameplay idea moves from planning into
+        a human-reviewed QA validation path. It connects QA planning judgment,
+        risk thinking, expected results, manual PIE/prototype validation notes,
+        evidence capture, and pass/fail/follow-up decisions without claiming
+        completed validation.
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Scenario</p>
+        <h2>Starwell Offering Unlock Validation</h2>
+      </div>
+      <p>
+        The planned scenario checks whether offering a qualifying soul-fish to
+        the Starwell advances the intended unlock or progression state in a
+        clear, understandable way. The validation focus is not the full Nyx
+        gameplay loop; it is the specific player-facing moment where a fish
+        offering should create visible progress and leave enough evidence for
+        review.
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Risk</p>
+        <h2>Why this scenario matters</h2>
+      </div>
+      <ul class="steps-list">
+        <li>Player risk: the player may not understand whether the offering worked, or progress may feel lost, duplicated, or unclear.</li>
+        <li>Design risk: unlock thresholds, reward timing, or Starwell feedback may not match the intended pacing.</li>
+        <li>Technical / QA risk: the offering may update progress more than once, fail silently, or need save/load regression follow-up.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Coverage</p>
+        <h2>What the planner captures</h2>
+      </div>
+      <ul class="steps-list">
+        <li>Scenario title, gameplay area, test type, risk level, and status</li>
+        <li>Setup notes, offering action, observed feedback, progress check, and follow-up questions</li>
+        <li>Expected result and Markdown export for human review</li>
+        <li>Follow-up paths for bug reports, tuning notes, missing dependencies, regression checks, save/load validation, or UI clarity notes</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Manual Validation</p>
+        <h2>How this would be checked in PIE</h2>
+      </div>
+      <p>
+        The reviewer would open the relevant Nyx prototype state, prepare or
+        simulate the required fish / Starwell setup, perform the offering
+        action, and observe the first visible result. Evidence capture should
+        include a screenshot or short clip reference when practical, the
+        exported Markdown test plan from Nyx Test Planner, and notes about the
+        build or prototype version under review.
+      </p>
+      <p>
+        This method does not claim automated Unreal tests. Nyx Test Planner is a
+        browser-based planning prototype and does not connect to Unreal, Jira,
+        private tools, studio data, or automated test runners.
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Expected Result</p>
+        <h2>Clear pass conditions</h2>
+      </div>
+      <ul class="steps-list">
+        <li>The Starwell offering interaction accepts the qualifying fish only when setup requirements are met.</li>
+        <li>Starwell progress or unlock state advances once.</li>
+        <li>The player-facing feedback communicates that the offering was accepted.</li>
+        <li>Placeholder or WIP presentation remains clearly labeled.</li>
+        <li>No duplicate reward, repeated unlock, immediate softlock, or unclear failure state is observed.</li>
+        <li>Any missing setup dependency is recorded as a follow-up instead of treated as a passed validation.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Result</p>
+        <h2>Pending manual PIE validation</h2>
+      </div>
+      <p>
+        This case study documents the planned validation path and expected
+        evidence. A pass/fail decision should be recorded only after a real
+        manual PIE or prototype review.
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Evidence</p>
+        <h2>What to capture next</h2>
+      </div>
+      <ul class="steps-list">
+        <li>Screenshot or short clip of the gameplay state</li>
+        <li>Exported Markdown plan from Nyx Test Planner</li>
+        <li>Notes on build / prototype version</li>
+        <li>Pass/fail status</li>
+        <li>Bug or follow-up note if needed</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="planner-footer">
+    <p>This case study is a human-reviewed QA planning and validation artifact.</p>
+  </footer>
+</body>
+</html>

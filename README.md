@@ -105,7 +105,7 @@ The projects here are public learning artifacts. They are meant to show directio
 
 A good first project to review is the QA Bug Report Tool because it shows Python, pytest, Markdown documentation, sample data, and responsible AI-assisted workflow practice in one small project.
 
-For Art QA / Technical QA review, the strongest follow-up path is [Art Telemetry QA](projects/art-telemetry-qa/README.md), the [Art QA Telemetry Report Showcase](docs/art-qa-telemetry-report-showcase.md), the [Nyx Test Planner](docs/nyx-test-planner.html), and the [Unreal Test Levels And Scenarios](docs/unreal-test-levels-and-scenarios.md). These stay portfolio-safe: mock data, human-reviewed QA reports, planning scenarios, and no claim of live Unreal automation.
+For Art QA / Technical QA review, the strongest follow-up path is [Art Telemetry QA](projects/art-telemetry-qa/README.md), the [Art QA Telemetry Report Showcase](docs/art-qa-telemetry-report-showcase.md), the [Nyx Test Planner](docs/nyx-test-planner.html), the [Nyx Test Planner Case Study](docs/nyx-test-planner-case-study.md), and the [Unreal Test Levels And Scenarios](docs/unreal-test-levels-and-scenarios.md). These stay portfolio-safe: mock data, human-reviewed QA reports, planning scenarios, and no claim of live Unreal automation.
 
 | Project | Status | Focus |
 | --- | --- | --- |

@@ -20,13 +20,18 @@ This tool is meant to show test-planning judgment, not completed Nyx gameplay. A
 
 [Open the Nyx Test Planner](https://kintsugikoko.github.io/KintsugiKoko/nyx-test-planner.html)
 
+## Case Study
+
+[Case study: turning one planned scenario into a human-reviewed QA validation pass](../../docs/nyx-test-planner-case-study.md)
+
 ## Best Reviewer Path
 
 1. Open the live planner.
 2. Scan the planning snapshot to see total, high-risk, ready, and blocked checks.
 3. Filter by `Ready for PIE` or `High` risk to see the clearest validation targets.
-4. Generate the Markdown draft and review the Method / Limitations section.
-5. Treat the export as planning evidence, not proof that the Unreal pass has already run.
+4. Review the case study to see how one Starwell offering idea becomes a planned validation path.
+5. Generate the Markdown draft and review the Method / Limitations section.
+6. Treat the export as planning evidence, not proof that the Unreal pass has already run.
 
 ## Related Portfolio Docs
 
