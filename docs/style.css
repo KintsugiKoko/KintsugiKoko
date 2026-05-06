@@ -35,10 +35,33 @@ body {
   line-height: 1.6;
   margin: 0;
   overflow-x: hidden;
+  position: relative;
+}
+
+body::before {
+  background:
+    linear-gradient(90deg, rgba(3, 3, 2, 0.98), rgba(3, 3, 2, 0.84) 54%, rgba(3, 3, 2, 0.52)),
+    url("assets/kintsugi-koko-2026.png");
+  background-position: center right;
+  background-repeat: no-repeat;
+  background-size: min(82rem, 112vw) auto;
+  content: "";
+  inset: 0;
+  opacity: 0.16;
+  pointer-events: none;
+  position: fixed;
+  z-index: 0;
 }
 
 a {
   color: inherit;
+}
+
+.site-header,
+main,
+.site-footer {
+  position: relative;
+  z-index: 1;
 }
 
 .site-header {
@@ -318,7 +341,13 @@ h3 {
 .section {
   background-color: var(--section);
   padding: 5rem 1.25rem;
+  position: relative;
   scroll-margin-top: 5rem;
+}
+
+.section > * {
+  position: relative;
+  z-index: 1;
 }
 
 .panel-section {
@@ -336,6 +365,37 @@ h3 {
   margin-right: auto;
   max-width: var(--content-max);
   width: 100%;
+}
+
+#art-qa,
+#projects,
+#learning {
+  isolation: isolate;
+  overflow: hidden;
+}
+
+#art-qa::before,
+#projects::before,
+#learning::before {
+  background:
+    linear-gradient(90deg, rgba(9, 8, 6, 0.98) 0%, rgba(9, 8, 6, 0.88) 42%, rgba(9, 8, 6, 0.62) 100%),
+    linear-gradient(180deg, rgba(9, 8, 6, 0.7), rgba(9, 8, 6, 0.94)),
+    url("assets/kintsugi-koko-2026.png");
+  background-position: center, center, center right;
+  background-repeat: no-repeat;
+  background-size: cover, cover, min(64rem, 120vw) auto;
+  content: "";
+  inset: 0;
+  opacity: 0.34;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+}
+
+#art-qa::before,
+#learning::before {
+  background-position: center, center, 78% center;
+  opacity: 0.22;
 }
 
 #selected-work > * {
