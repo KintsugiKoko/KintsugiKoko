@@ -176,10 +176,10 @@
       },
       {
         "label": "Saved sample handoff export",
-        "path": "projects/external-qa-handoff-manager/docs/sample-handoff-output.md",
+        "path": "projects/external-qa-handoff-manager/reports/sample_handoff_packet.md",
         "type": "sample-output",
-        "status": "Missing",
-        "recommended_action": "Optional next step: save one Markdown export as a reviewable sample output."
+        "status": "Present",
+        "recommended_action": "Keep the saved export aligned with the browser-generated Markdown sample."
       }
     ],
     "known_limitations": "Static human-reviewed MVP with hard-coded sample data and no live vendor/Jira integration."

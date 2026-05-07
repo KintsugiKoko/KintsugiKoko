@@ -5,8 +5,8 @@
 ## Summary
 
 - Artifacts checked: 15
-- Present: 14
-- Missing: 1
+- Present: 15
+- Missing: 0
 - Metadata mismatches: 0
 
 ## Results
@@ -125,11 +125,11 @@
 
 ### External QA Handoff Manager - Saved sample handoff export
 - Type: sample-output
-- Path: projects/external-qa-handoff-manager/docs/sample-handoff-output.md
-- Metadata status: Missing
-- Local filesystem status: Missing
+- Path: projects/external-qa-handoff-manager/reports/sample_handoff_packet.md
+- Metadata status: Present
+- Local filesystem status: Present
 - Status matches metadata: Yes
-- Recommended action: Optional next step: save one Markdown export as a reviewable sample output.
+- Recommended action: Keep the saved export aligned with the browser-generated Markdown sample.
 
 ## Limitations
 

@@ -12,6 +12,10 @@ It uses mock data only. It does not connect to Jira, vendor portals, private stu
 
 [Open the External QA Handoff Manager](https://kintsugikoko.github.io/KintsugiKoko/external-qa-handoff-manager.html)
 
+## Sample Output
+
+- [Saved sample handoff packet](reports/sample_handoff_packet.md)
+
 ## What It Demonstrates
 
 - QA leadership around external/offsite test coordination
