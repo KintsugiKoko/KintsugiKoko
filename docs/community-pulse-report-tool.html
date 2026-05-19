@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark">
+  <meta name="darkreader-lock">
+  <title>Community Pulse | Local CSV Community QA Reporting</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="index.html#top">Keith McAvoy</a>
+      <div class="nav-links">
+        <a href="index.html#projects">Projects</a>
+        <a href="index.html#work-style">How I Work</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hud-lines" aria-hidden="true"></div>
+      <div class="hero-content">
+        <p class="eyebrow">Community QA / QA Lead / Technical QA Artifact</p>
+        <h1>Community Pulse</h1>
+        <p class="role-line">Local CSV reporting support for Community QA review</p>
+        <p class="hero-summary">
+          Community Pulse is a local CSV-based reporting support prototype that
+          turns fictional or manually prepared feedback into QA-aware,
+          human-reviewed reports and External QA handoff context. It preserves
+          exact quotes, keeps evidence traceable, and makes safe workflow
+          boundaries visible.
+        </p>
+        <div class="hero-actions" aria-label="Community Pulse links">
+          <a class="button" href="https://github.com/KintsugiKoko/KintsugiKoko/blob/master/projects/community-pulse-report-tool/README.md">Project README</a>
+          <a class="button secondary" href="https://github.com/KintsugiKoko/KintsugiKoko/blob/master/projects/community-pulse-report-tool/reports/high-engagement-feedback-review-report.md">Full report</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <p class="eyebrow">What It Models</p>
+        <h2>High-engagement feedback, organized into reviewable QA context</h2>
+      </div>
+      <div class="track-grid">
+        <div>
+          <h3>Local feedback records</h3>
+          <p>Manually prepared CSV rows model fictional accounts, posts, topics, sentiment labels, and exact feedback notes.</p>
+        </div>
+        <div>
+          <h3>Structured review</h3>
+          <p>The CLI produces Markdown reports with sentiment counts, local feedback inputs, topic splits, exact quotes, and human follow-up notes.</p>
+        </div>
+        <div>
+          <h3>External QA handoff</h3>
+          <p>A compact sample export shows how community signals can become QA-ready context without Jira integration or live platform access.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section panel-section">
+      <div class="section-heading">
+        <p class="eyebrow">Live Artifacts</p>
+        <h2>Review the source, sample data, reports, and tests</h2>
+      </div>
+      <div class="project-grid">
+        <article class="project-card">
+          <span class="status">Documentation</span>
+          <h3>README</h3>
+          <p>Explains the local CSV workflow, safe boundaries, commands, and what the tool does not do.</p>
+          <a class="text-link" href="https://github.com/KintsugiKoko/KintsugiKoko/blob/master/projects/community-pulse-report-tool/README.md">Open README</a>
+        </article>
+        <article class="project-card">
+          <span class="status">Fictional sample</span>
+          <h3>High-engagement CSV</h3>
+          <p>Fictional local feedback records with repeated topics, mixed sentiment, and traceable quote text.</p>
+          <a class="text-link" href="https://github.com/KintsugiKoko/KintsugiKoko/blob/master/projects/community-pulse-report-tool/sample-data/high-engagement-feedback-sample.csv">Open CSV</a>
+        </article>
+        <article class="project-card">
+          <span class="status">Generated report</span>
+          <h3>High-engagement report</h3>
+          <p>Markdown output showing Local Feedback Inputs, topic splits, representative quotes, and Method / Limitations.</p>
+          <a class="text-link" href="https://github.com/KintsugiKoko/KintsugiKoko/blob/master/projects/community-pulse-report-tool/reports/high-engagement-feedback-review-report.md">Open report</a>
+        </article>
+        <article class="project-card">
+          <span class="status">Handoff artifact</span>
+          <h3>External QA handoff</h3>
+          <p>Sample QA-ready context with exact quotes, priority, affected area, local input, and human verification notes.</p>
+          <a class="text-link" href="https://github.com/KintsugiKoko/KintsugiKoko/blob/master/projects/community-pulse-report-tool/reports/external-qa-handoff-sample.md">Open handoff</a>
+        </article>
+        <article class="project-card">
+          <span class="status">Traceability test</span>
+          <h3>Test coverage</h3>
+          <p>Pytest coverage verifies no em dash usage and checks handoff quote/source/area/sentiment alignment against the CSV.</p>
+          <a class="text-link" href="https://github.com/KintsugiKoko/KintsugiKoko/blob/master/projects/community-pulse-report-tool/tests/test_user_facing_text.py">Open tests</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Report Preview</p>
+        <h2>High-engagement feedback review summary</h2>
+      </div>
+      <div class="track-grid">
+        <div>
+          <h3>Total records reviewed</h3>
+          <p><strong>20</strong> fictional local feedback records.</p>
+        </div>
+        <div>
+          <h3>Sentiment snapshot</h3>
+          <p>7 negative, 6 mixed, 6 positive, 1 neutral.</p>
+        </div>
+        <div>
+          <h3>Local Feedback Inputs</h3>
+          <p>mock-comment-digest, mock-social-post, and mock-playtest-summary.</p>
+        </div>
+        <div>
+          <h3>Top topics</h3>
+          <p>Fishing timing, Onboarding clarity, Starwell offerings, Nyx merchant clarity, and Performance comfort.</p>
+        </div>
+        <div>
+          <h3>Topic opinion splits</h3>
+          <p>Fishing timing: 1 negative, 2 mixed, 3 positive. Onboarding clarity: 3 negative, 2 mixed, 1 positive.</p>
+        </div>
+        <div>
+          <h3>Exact quote example</h3>
+          <p>"Fishing is relaxing, but the bite cue is too quiet when chat is moving fast."</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section panel-section">
+      <div class="section-heading">
+        <p class="eyebrow">External QA Handoff Preview</p>
+        <h2>Community signals turned into QA-ready context</h2>
+      </div>
+      <div class="project-grid">
+        <article class="project-card">
+          <span class="status">P1</span>
+          <h3>Onboarding clarity</h3>
+          <p>"I could not tell why the first soul-fish mattered or what to do next."</p>
+          <p>Local input: mock-comment-digest. QA action: recheck first-session tutorial prompts and reward explanation.</p>
+        </article>
+        <article class="project-card">
+          <span class="status">P2</span>
+          <h3>Fishing timing</h3>
+          <p>"Fishing is relaxing, but the bite cue is too quiet when chat is moving fast."</p>
+          <p>Local input: mock-social-post. QA action: review bite cue visibility and audio readability during busy moments.</p>
+        </article>
+        <article class="project-card">
+          <span class="status">P2</span>
+          <h3>Starwell offerings</h3>
+          <p>"The Starwell progress changed, but I did not notice it until someone pointed it out."</p>
+          <p>Local input: mock-comment-digest. QA action: check reward summary clarity after offering completion.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Traceable Evidence Handling</p>
+        <h2>Exact quotes and source alignment stay reviewable</h2>
+      </div>
+      <ul class="work-list">
+        <li>Representative quotes are copied exactly from the CSV `text` field.</li>
+        <li>The External QA handoff sample is tested against the high-engagement CSV.</li>
+        <li>Local input, affected area, and sentiment are checked for alignment with the same CSV row.</li>
+        <li>Missing context remains a human review responsibility before routing to QA, design, production, community, or External QA partners.</li>
+      </ul>
+    </section>
+
+    <section class="section panel-section">
+      <div class="section-heading">
+        <p class="eyebrow">Safe Workflow Boundaries</p>
+        <h2>Local reporting support, not live platform automation</h2>
+      </div>
+      <ul class="work-list">
+        <li>No live ingestion, scraping, monitoring, browser automation, or platform collection.</li>
+        <li>No private APIs, proprietary systems, Jira integration, or live community platform connections.</li>
+        <li>No automated moderation, automated player decisions, generated screenshots, generated evidence, or generated art.</li>
+        <li>No LLM calls, embeddings, OCR, or hidden external processing.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Portfolio Value</p>
+        <h2>Why this belongs in a QA portfolio</h2>
+      </div>
+      <p>
+        Community Pulse shows practical QA Lead and Community QA judgment:
+        traceability, triage thinking, quote preservation, evidence handling,
+        human review, External QA handoff discipline, and cross-functional
+        communication. It is intentionally scoped as a local demo so the
+        recruiter-facing evidence stays clear and safe.
+      </p>
+      <div class="hero-actions">
+        <a class="button" href="index.html#projects">Back to projects</a>
+        <a class="button secondary" href="https://github.com/KintsugiKoko/KintsugiKoko/tree/master/projects/community-pulse-report-tool">View source folder</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <p class="eyebrow">Community Pulse</p>
+      <h2>Local feedback reporting, documented clearly.</h2>
+      <p>Portfolio-safe Community QA tooling with human-reviewed outputs and traceable sample evidence.</p>
+      <div class="footer-links" aria-label="Footer links">
+        <a href="#top">Back to top</a>
+        <a href="index.html">Homepage</a>
+        <a href="https://github.com/KintsugiKoko/KintsugiKoko">GitHub Source</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
