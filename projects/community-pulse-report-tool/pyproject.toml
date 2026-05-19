@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "community-pulse-report-tool"
 version = "0.1.0"
-description = "A beginner-friendly CLI that turns fictional community feedback CSV data into weekly Markdown sentiment reports."
+description = "A local CSV reporting support prototype that turns fictional community feedback records into Markdown feedback review reports."
 readme = "README.md"
 requires-python = ">=3.10"
 authors = [
