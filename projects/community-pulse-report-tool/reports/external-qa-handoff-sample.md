@@ -10,10 +10,10 @@ This sample shows how manually prepared community feedback records can become QA
 
 | Feedback theme | Priority | Affected game area | Sentiment signal | Exact quote copied from sample CSV | Local feedback input | Suggested QA action | Human verification note |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Onboarding clarity | P1 | Onboarding clarity | Negative | "I could not tell why the first soul-fish mattered or what to do next." | mock-playtest-summary | Recheck first-session tutorial prompts and reward explanation. | Verify this concern against QA notes before routing to design. |
-| Fishing timing | P2 | Fishing timing | Mixed | "Fishing is relaxing in the event, but the bite cue is too quiet when chat is moving fast." | mock-social-post | Review bite cue visibility and audio readability during busy moments. | Confirm whether this applies to event flow only or broader fishing feedback. |
-| Starwell offerings | P2 | Starwell offerings | Negative | "Offering fish sounds cool, but I need to know what changed after the Starwell accepts it." | mock-comment-digest | Add a follow-up check for reward summary clarity after offering completion. | Validate whether the current prototype has enough feedback messaging. |
-| Nyx merchant clarity | P3 | Nyx merchant clarity | Mixed | "Nyx as a merchant is memorable, but I do not know if she sells upgrades or just story hints." | mock-social-post | Review merchant copy and upgrade/service framing in the next prototype pass. | Confirm intended feature scope before writing bugs. |
+| Onboarding clarity | P1 | Onboarding clarity | Negative | "I could not tell why the first soul-fish mattered or what to do next." | mock-comment-digest | Recheck first-session tutorial prompts and reward explanation. | Verify this concern against QA notes before routing to design. |
+| Fishing timing | P2 | Fishing timing | Mixed | "Fishing is relaxing, but the bite cue is too quiet when chat is moving fast." | mock-social-post | Review bite cue visibility and audio readability during busy moments. | Confirm whether this applies to a specific flow or broader fishing feedback. |
+| Starwell offerings | P2 | Starwell offerings | Negative | "The Starwell progress changed, but I did not notice it until someone pointed it out." | mock-comment-digest | Add a follow-up check for reward summary clarity after offering completion. | Validate whether the current prototype has enough feedback messaging. |
+| Nyx merchant clarity | P3 | Nyx merchant clarity | Mixed | "Nyx is charming, but I cannot tell what services are available yet." | mock-social-post | Review merchant copy and upgrade/service framing in the next prototype pass. | Confirm intended feature scope before writing bugs. |
 
 ## Suggested QA Follow-up
 
