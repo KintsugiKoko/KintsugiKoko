@@ -1,0 +1,2 @@
+date,source,game_area,sentiment,text,account,post_id,keyword,topic,conversation_id
+2026-05-01,manual-feedback-export,Example Area,mixed,"Replace this with one exact feedback note from a local CSV you are allowed to use.",fictional-account,mock-post-001,example-keyword,Example topic,example-thread-001

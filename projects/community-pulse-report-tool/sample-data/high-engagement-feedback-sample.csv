@@ -1,0 +1,21 @@
+date,source,game_area,sentiment,text,account,post_id,keyword,topic,conversation_id
+2026-05-01,mock-social-post,Fishing,positive,"The new casting timing feels calm once I understand the rhythm.",mock-studio-account,mock-post-001,fishing,Fishing timing,mock-thread-001
+2026-05-01,mock-social-post,Fishing,mixed,"Fishing is relaxing, but the bite cue is too quiet when chat is moving fast.",mock-studio-account,mock-post-001,fishing,Fishing timing,mock-thread-001
+2026-05-01,mock-comment-digest,Onboarding,negative,"I could not tell why the first soul-fish mattered or what to do next.",mock-community-team,mock-post-002,onboarding,Onboarding clarity,mock-thread-002
+2026-05-02,mock-comment-digest,Onboarding,mixed,"The intro is cute, but I need one clearer sentence before the first cast.",mock-community-team,mock-post-002,onboarding,Onboarding clarity,mock-thread-002
+2026-05-02,mock-playtest-summary,Onboarding,negative,"The first run explains fishing, but the offering step still feels hidden.",mock-playtest-lab,mock-post-003,onboarding,Onboarding clarity,mock-thread-003
+2026-05-02,mock-social-post,Starwell,positive,"Offering a soul-fish to the Starwell makes the run feel like it has a purpose.",mock-studio-account,mock-post-004,starwell,Starwell offerings,mock-thread-004
+2026-05-03,mock-comment-digest,Starwell,negative,"The Starwell progress changed, but I did not notice it until someone pointed it out.",mock-community-team,mock-post-004,starwell,Starwell offerings,mock-thread-004
+2026-05-03,mock-social-post,Fishing,positive,"The fishing pace is cozy and gives me time to read the scene.",mock-studio-account,mock-post-001,fishing,Fishing timing,mock-thread-001
+2026-05-03,mock-comment-digest,Fishing,negative,"The bite timing feels inconsistent when the visual cue is behind the bobber.",mock-community-team,mock-post-001,fishing,Fishing timing,mock-thread-001
+2026-05-04,mock-playtest-summary,Merchant,positive,"Nyx as a merchant and ferryman makes the prototype feel more memorable.",mock-playtest-lab,mock-post-005,nyx,Nyx merchant clarity,mock-thread-005
+2026-05-04,mock-social-post,Merchant,mixed,"Nyx is charming, but I cannot tell what services are available yet.",mock-studio-account,mock-post-005,nyx,Nyx merchant clarity,mock-thread-005
+2026-05-04,mock-comment-digest,Performance,neutral,"I would want to see the feedback effects tested after more fish variants are added.",mock-community-team,mock-post-006,performance,Performance comfort,mock-thread-006
+2026-05-05,mock-social-post,Starwell,mixed,"The Starwell goal is interesting, but the reward feedback needs a stronger moment.",mock-studio-account,mock-post-004,starwell,Starwell offerings,mock-thread-004
+2026-05-05,mock-playtest-summary,Onboarding,negative,"I missed the connection between fishing, offerings, and future run upgrades.",mock-playtest-lab,mock-post-003,onboarding,Onboarding clarity,mock-thread-003
+2026-05-05,mock-comment-digest,Fishing,mixed,"The slow fishing pace is cozy for me, but some players may want a faster option.",mock-community-team,mock-post-001,fishing,Fishing timing,mock-thread-001
+2026-05-06,mock-social-post,Onboarding,positive,"The opening objective works better when the first prompt mentions the Starwell.",mock-studio-account,mock-post-002,onboarding,Onboarding clarity,mock-thread-002
+2026-05-06,mock-playtest-summary,Starwell,negative,"The offering animation needs clearer confirmation before I trust the progress change.",mock-playtest-lab,mock-post-004,starwell,Starwell offerings,mock-thread-004
+2026-05-06,mock-comment-digest,Merchant,negative,"The shop idea is fun, but the upgrade names need clearer player-facing labels.",mock-community-team,mock-post-005,nyx,Nyx merchant clarity,mock-thread-005
+2026-05-07,mock-social-post,Fishing,positive,"The fishing loop feels like the right cozy base for a longer run.",mock-studio-account,mock-post-001,fishing,Fishing timing,mock-thread-001
+2026-05-07,mock-comment-digest,Onboarding,mixed,"I understand the mood immediately, but the first objective needs a cleaner path.",mock-community-team,mock-post-002,onboarding,Onboarding clarity,mock-thread-002
