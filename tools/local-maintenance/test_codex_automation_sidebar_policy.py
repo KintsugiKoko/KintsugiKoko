@@ -153,6 +153,113 @@ def test_archives_duplicate_automation_runs_but_keeps_canonical(tmp_path):
     assert summary["automation_runs_archived"] == 1
 
 
+def test_consolidates_dated_duplicate_titles(tmp_path):
+    codex_home = _make_codex_home(tmp_path)
+    _write_session_index(
+        codex_home,
+        [
+            {
+                "id": "daily-old",
+                "thread_name": "2026-05-25 - Daily Obsidian conversation sync",
+                "updated_at": "2026-05-25T16:00:00Z",
+            },
+            {
+                "id": "daily-new",
+                "thread_name": "Daily Obsidian conversation sync",
+                "updated_at": "2026-05-26T16:00:00Z",
+            },
+        ],
+    )
+    _write_session_file(codex_home, "daily-old")
+    _write_session_file(codex_home, "daily-new")
+
+    summary = policy.apply_policy(codex_home, timestamp="test")
+
+    rows = _read_session_index(codex_home)
+    assert [row["id"] for row in rows if policy._automation_title_base(row["thread_name"])] == ["daily-new"]
+    assert summary["session_index_rows_removed"] == 1
+    assert (codex_home / "archived_sessions" / "rollout-daily-old.jsonl").exists()
+
+
+def test_dates_active_automation_rows(tmp_path):
+    codex_home = _make_codex_home(tmp_path)
+    _write_session_index(
+        codex_home,
+        [
+            {
+                "id": "daily-new",
+                "thread_name": "Daily Obsidian conversation sync",
+                "updated_at": "2026-05-26T16:00:00Z",
+            },
+            {
+                "id": "overnight-new",
+                "thread_name": "Overnight portfolio goal",
+                "updated_at": "2026-05-27T06:00:00Z",
+            },
+        ],
+    )
+
+    summary = policy.apply_policy(codex_home, timestamp="test", date_active_rows=True)
+
+    rows = _read_session_index(codex_home)
+    assert [row["thread_name"] for row in rows] == [
+        "2026-05-26 - Daily Obsidian conversation sync",
+        "2026-05-27 - Overnight portfolio goal",
+    ]
+    assert summary["session_index_rows_dated"] == 2
+
+
+def test_routes_automation_threads_to_project_without_changing_execution_cwd(tmp_path):
+    codex_home = _make_codex_home(tmp_path)
+    project_root = tmp_path / "Cron Jobs"
+    project_root.mkdir()
+    _write_session_index(
+        codex_home,
+        [
+            {
+                "id": "daily-new",
+                "thread_name": "Daily Obsidian conversation sync",
+                "updated_at": "2026-05-26T16:00:00Z",
+            },
+        ],
+    )
+    _write_automation_run(codex_home, "daily-obsidian-conversation-sync", "daily-new", "PENDING_REVIEW")
+    _write_global_state(codex_home, "daily-new")
+    _write_state_thread(codex_home, "daily-new", "Daily Obsidian conversation sync")
+
+    summary = policy.apply_policy(codex_home, timestamp="test", project_root=project_root)
+
+    project_root_text = str(project_root.resolve())
+    global_state = json.loads((codex_home / ".codex-global-state.json").read_text(encoding="utf-8"))
+    assert global_state["thread-workspace-root-hints"]["daily-new"] == project_root_text
+    assert project_root_text in global_state["project-order"]
+    assert summary["project_thread_hints_updated"] == 1
+    assert summary["state_thread_cwds_updated"] == 1
+    assert summary["automation_run_source_cwds_updated"] == 1
+
+    state_connection = sqlite3.connect(codex_home / "state_5.sqlite")
+    try:
+        cwd = state_connection.execute("select cwd from threads where id = ?", ("daily-new",)).fetchone()[0]
+    finally:
+        state_connection.close()
+    assert cwd == policy._sqlite_cwd_for_project(project_root_text)
+
+    automation_connection = sqlite3.connect(codex_home / "sqlite" / "codex-dev.db")
+    try:
+        source_cwd = automation_connection.execute(
+            "select source_cwd from automation_runs where thread_id = ?",
+            ("daily-new",),
+        ).fetchone()[0]
+        automation_cwds = automation_connection.execute(
+            "select cwds from automations where id = ?",
+            ("daily-obsidian-conversation-sync",),
+        ).fetchone()[0]
+    finally:
+        automation_connection.close()
+    assert source_cwd == project_root_text
+    assert automation_cwds is None or project_root_text not in automation_cwds
+
+
 def test_second_run_is_idempotent(tmp_path):
     codex_home = _make_codex_home(tmp_path)
     _write_session_index(
@@ -341,3 +448,31 @@ def _read_session_index(codex_home: Path) -> list[dict[str, str]]:
 def _write_session_file(codex_home: Path, thread_id: str) -> None:
     session_path = codex_home / "sessions" / "2026" / "05" / f"rollout-{thread_id}.jsonl"
     session_path.write_text(f'{{"id": "{thread_id}"}}\n', encoding="utf-8")
+
+
+def _write_global_state(codex_home: Path, thread_id: str) -> None:
+    (codex_home / ".codex-global-state.json").write_text(
+        json.dumps(
+            {
+                "project-order": ["C:\\Users\\mcavo\\OneDrive\\Documents\\New project"],
+                "electron-saved-workspace-roots": ["C:\\Users\\mcavo\\OneDrive\\Documents\\New project"],
+                "thread-workspace-root-hints": {
+                    thread_id: "C:\\Users\\mcavo\\OneDrive\\Documents\\New project",
+                },
+            }
+        ),
+        encoding="utf-8",
+    )
+
+
+def _write_state_thread(codex_home: Path, thread_id: str, title: str) -> None:
+    connection = sqlite3.connect(codex_home / "state_5.sqlite")
+    try:
+        connection.execute("create table threads (id TEXT PRIMARY KEY, title TEXT, cwd TEXT)")
+        connection.execute(
+            "insert into threads (id, title, cwd) values (?, ?, ?)",
+            (thread_id, title, "\\\\?\\C:\\Users\\mcavo\\OneDrive\\Documents\\New project"),
+        )
+        connection.commit()
+    finally:
+        connection.close()

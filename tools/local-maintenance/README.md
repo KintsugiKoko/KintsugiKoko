@@ -29,6 +29,16 @@ To write changes, use both explicit flags:
 python .\tools\local-maintenance\codex_automation_sidebar_policy.py --apply --confirm APPLY_LOCAL_CODEX_AUTOMATION_POLICY
 ```
 
+Optional local hygiene flags:
+
+```powershell
+python .\tools\local-maintenance\codex_automation_sidebar_policy.py --date-active-rows --project-root "C:\Users\mcavo\OneDrive\Documents\Cron Jobs"
+```
+
+`--date-active-rows` prefixes matching sidebar rows with the row date, such as `2026-05-27 - Daily Obsidian conversation sync`, so recurring automation chats are easier to scan.
+
+`--project-root` updates matching sidebar/project routing metadata for existing automation chats. It does not change the automation execution workspace, because the actual job may still need to run from the configured project repo.
+
 Before any write, the helper creates backups under:
 
 ```text

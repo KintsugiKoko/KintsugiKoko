@@ -26,6 +26,8 @@ DEFAULT_AUTOMATIONS = {
 
 CONFIRMATION_PHRASE = "APPLY_LOCAL_CODEX_AUTOMATION_POLICY"
 POLICY_MARKER = "Automation result delivery policy:"
+DATE_PREFIX_RE = re.compile(r"^\d{4}-\d{2}-\d{2} - (.+)$")
+DATE_SUFFIX_RE = re.compile(r"^(.+) - \d{4}-\d{2}-\d{2}$")
 POLICY_TEXT = (
     "Automation result delivery policy:\n"
     "- Routine successful runs, nothing-changed runs, no-content runs, and ordinary daily status reports should finish as a concise inbox/status item.\n"
@@ -62,17 +64,40 @@ def main() -> int:
         default="",
         help=f"Required with --apply. Must equal {CONFIRMATION_PHRASE}.",
     )
+    parser.add_argument(
+        "--date-active-rows",
+        action="store_true",
+        help="Prefix matching active sidebar rows with their updated date for easier scanning.",
+    )
+    parser.add_argument(
+        "--project-root",
+        type=Path,
+        default=None,
+        help="Optional local project root to use for matching automation thread sidebar routing metadata.",
+    )
     args = parser.parse_args()
 
     if args.apply and args.confirm != CONFIRMATION_PHRASE:
         parser.error(f"--apply requires --confirm {CONFIRMATION_PHRASE}")
 
-    summary = apply_policy(args.codex_home, dry_run=not args.apply)
+    summary = apply_policy(
+        args.codex_home,
+        dry_run=not args.apply,
+        date_active_rows=args.date_active_rows,
+        project_root=args.project_root,
+    )
     print(json.dumps(summary, indent=2, sort_keys=True))
     return 0
 
 
-def apply_policy(codex_home: Path, *, dry_run: bool = False, timestamp: str | None = None) -> dict[str, Any]:
+def apply_policy(
+    codex_home: Path,
+    *,
+    dry_run: bool = False,
+    timestamp: str | None = None,
+    date_active_rows: bool = False,
+    project_root: Path | None = None,
+) -> dict[str, Any]:
     codex_home = codex_home.resolve()
     timestamp = timestamp or datetime.now(timezone.utc).strftime("%Y%m%d-%H%M%S")
     backup_dir = codex_home / "backups" / f"automation-sidebar-policy-{timestamp}"
@@ -88,6 +113,12 @@ def apply_policy(codex_home: Path, *, dry_run: bool = False, timestamp: str | No
         "session_files_already_archived": 0,
         "missing_session_files": 0,
         "automation_runs_archived": 0,
+        "session_index_rows_dated": 0,
+        "project_root": str(project_root.resolve()) if project_root else None,
+        "project_thread_hints_updated": 0,
+        "project_saved_roots_updated": 0,
+        "state_thread_cwds_updated": 0,
+        "automation_run_source_cwds_updated": 0,
         "toml_files_updated": [],
         "databases_updated": [],
         "backups_created": [],
@@ -123,12 +154,38 @@ def apply_policy(codex_home: Path, *, dry_run: bool = False, timestamp: str | No
         index_result["backups_created"] + policy_result["backups_created"] + automation_run_result["backups_created"]
     )
 
+    if date_active_rows:
+        date_result = date_session_index_rows(codex_home, backup_dir=backup_dir, dry_run=dry_run)
+        summary["session_index_rows_dated"] = date_result["dated"]
+        summary["backups_created"] += date_result["backups_created"]
+
+    if project_root:
+        project_result = route_automation_threads_to_project(
+            codex_home,
+            project_root=project_root,
+            backup_dir=backup_dir,
+            dry_run=dry_run,
+        )
+        summary["project_thread_hints_updated"] = project_result["thread_hints_updated"]
+        summary["project_saved_roots_updated"] = project_result["saved_roots_updated"]
+        summary["state_thread_cwds_updated"] = project_result["state_thread_cwds_updated"]
+        summary["automation_run_source_cwds_updated"] = project_result["automation_run_source_cwds_updated"]
+        summary["databases_updated"] = sorted(
+            set(summary["databases_updated"] + project_result["databases_updated"])
+        )
+        summary["backups_created"] += project_result["backups_created"]
+
     has_changes = (
         summary["backups_created"]
         or summary["session_index_rows_removed"]
         or summary["session_files_moved"]
         or summary["state_threads_archived"]
         or summary["automation_runs_archived"]
+        or summary["session_index_rows_dated"]
+        or summary["project_thread_hints_updated"]
+        or summary["project_saved_roots_updated"]
+        or summary["state_thread_cwds_updated"]
+        or summary["automation_run_source_cwds_updated"]
         or summary["toml_files_updated"]
         or summary["databases_updated"]
     )
@@ -152,7 +209,7 @@ def consolidate_session_index(codex_home: Path, *, backup_dir: Path, dry_run: bo
     archive_ids: set[str] = set()
 
     for automation_id, title in DEFAULT_AUTOMATIONS.items():
-        matching = [record for record in records if record.thread_name == title and record.id]
+        matching = [record for record in records if _automation_title_base(record.thread_name) == title and record.id]
         if not matching:
             continue
 
@@ -168,7 +225,7 @@ def consolidate_session_index(codex_home: Path, *, backup_dir: Path, dry_run: bo
     new_lines = [
         record.line
         for record in records
-        if not (record.thread_name in DEFAULT_AUTOMATIONS.values() and record.id in archive_ids)
+        if not (_automation_title_base(record.thread_name) in DEFAULT_AUTOMATIONS.values() and record.id in archive_ids)
     ]
 
     backups_created: list[str] = []
@@ -227,6 +284,92 @@ def archive_session_files(
     return {"moved": moved, "already_archived": already_archived, "missing": missing, "backups_created": []}
 
 
+def date_session_index_rows(codex_home: Path, *, backup_dir: Path, dry_run: bool) -> dict[str, Any]:
+    index_path = codex_home / "session_index.jsonl"
+    if not index_path.exists():
+        raise FileNotFoundError(f"Missing session index: {index_path}")
+
+    lines = index_path.read_text(encoding="utf-8-sig").splitlines()
+    updated_lines: list[str] = []
+    dated = 0
+
+    for line in lines:
+        try:
+            data = json.loads(line)
+        except json.JSONDecodeError:
+            updated_lines.append(line)
+            continue
+
+        base_title = _automation_title_base(data.get("thread_name"))
+        updated_at = _parse_timestamp(data.get("updated_at"))
+        if base_title and updated_at != datetime.min.replace(tzinfo=timezone.utc):
+            desired_title = f"{updated_at.date().isoformat()} - {base_title}"
+            if data.get("thread_name") != desired_title:
+                data["thread_name"] = desired_title
+                line = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
+                dated += 1
+
+        updated_lines.append(line)
+
+    backups_created: list[str] = []
+    if dated and not dry_run:
+        backups_created.append(str(_backup_file(index_path, backup_dir)))
+        index_path.write_text("\n".join(updated_lines) + "\n", encoding="utf-8")
+
+    return {"dated": dated, "backups_created": backups_created}
+
+
+def route_automation_threads_to_project(
+    codex_home: Path,
+    *,
+    project_root: Path,
+    backup_dir: Path,
+    dry_run: bool,
+) -> dict[str, Any]:
+    project_root_text = str(project_root.resolve())
+    project_root_for_threads = _sqlite_cwd_for_project(project_root_text)
+    thread_ids = _collect_automation_thread_ids(codex_home)
+    backups_created: list[str] = []
+    databases_updated: list[str] = []
+
+    state_result = _route_global_state_threads(
+        codex_home,
+        thread_ids=thread_ids,
+        project_root=project_root_text,
+        backup_dir=backup_dir,
+        dry_run=dry_run,
+    )
+    backups_created.extend(state_result["backups_created"])
+
+    thread_result = _route_state_thread_cwds(
+        codex_home,
+        thread_ids=thread_ids,
+        project_root=project_root_for_threads,
+        backup_dir=backup_dir,
+        dry_run=dry_run,
+    )
+    backups_created.extend(thread_result["backups_created"])
+    databases_updated.extend(thread_result["databases_updated"])
+
+    run_result = _route_automation_run_source_cwds(
+        codex_home,
+        project_root=project_root_text,
+        backup_dir=backup_dir,
+        dry_run=dry_run,
+    )
+    backups_created.extend(run_result["backups_created"])
+    databases_updated.extend(run_result["databases_updated"])
+
+    return {
+        "thread_hints_updated": state_result["thread_hints_updated"],
+        "saved_roots_updated": state_result["saved_roots_updated"],
+        "state_thread_cwds_updated": thread_result["updated"],
+        "automation_run_source_cwds_updated": run_result["updated"],
+        "databases_updated": sorted(set(databases_updated)),
+        "backups_created": backups_created,
+    }
+
+
 def archive_state_threads(
     codex_home: Path,
     archive_ids: set[str],
@@ -260,6 +403,179 @@ def archive_state_threads(
             )
             connection.commit()
         return {"archived": len(ids_to_archive), "backups_created": backups_created}
+    finally:
+        connection.close()
+
+
+def _collect_automation_thread_ids(codex_home: Path) -> set[str]:
+    thread_ids: set[str] = set()
+    index_path = codex_home / "session_index.jsonl"
+    if index_path.exists():
+        for line in index_path.read_text(encoding="utf-8-sig").splitlines():
+            try:
+                data = json.loads(line)
+            except json.JSONDecodeError:
+                continue
+            if _automation_title_base(data.get("thread_name")) and data.get("id"):
+                thread_ids.add(data["id"])
+
+    db_path = codex_home / "sqlite" / "codex-dev.db"
+    if db_path.exists():
+        connection = sqlite3.connect(db_path)
+        try:
+            if _sqlite_table_exists(connection, "automation_runs"):
+                placeholders = ",".join("?" for _ in DEFAULT_AUTOMATIONS)
+                rows = connection.execute(
+                    f"select thread_id from automation_runs where automation_id in ({placeholders})",
+                    sorted(DEFAULT_AUTOMATIONS),
+                ).fetchall()
+                thread_ids.update(row[0] for row in rows if row[0])
+        finally:
+            connection.close()
+
+    state_db_path = codex_home / "state_5.sqlite"
+    if state_db_path.exists():
+        connection = sqlite3.connect(state_db_path)
+        try:
+            if _sqlite_table_exists(connection, "threads"):
+                rows = connection.execute(
+                    """
+                    select id from threads
+                    where title in (?, ?)
+                       or title like 'Automation: Daily Obsidian conversation sync%'
+                       or title like 'Automation: Overnight portfolio goal%'
+                    """,
+                    tuple(DEFAULT_AUTOMATIONS.values()),
+                ).fetchall()
+                thread_ids.update(row[0] for row in rows if row[0])
+        finally:
+            connection.close()
+
+    return thread_ids
+
+
+def _route_global_state_threads(
+    codex_home: Path,
+    *,
+    thread_ids: set[str],
+    project_root: str,
+    backup_dir: Path,
+    dry_run: bool,
+) -> dict[str, Any]:
+    state_path = codex_home / ".codex-global-state.json"
+    if not state_path.exists():
+        return {"thread_hints_updated": 0, "saved_roots_updated": 0, "backups_created": []}
+
+    state = json.loads(state_path.read_text(encoding="utf-8"))
+    saved_roots_updated = 0
+    for key in ("project-order", "electron-saved-workspace-roots"):
+        roots = state.get(key)
+        if isinstance(roots, list) and project_root not in roots:
+            roots.insert(0, project_root)
+            saved_roots_updated += 1
+
+    hints = state.setdefault("thread-workspace-root-hints", {})
+    thread_hints_updated = 0
+    for thread_id in sorted(thread_ids):
+        if hints.get(thread_id) != project_root:
+            hints[thread_id] = project_root
+            thread_hints_updated += 1
+
+    backups_created: list[str] = []
+    if (thread_hints_updated or saved_roots_updated) and not dry_run:
+        backups_created.append(str(_backup_file(state_path, backup_dir)))
+        state_path.write_text(json.dumps(state, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+
+    return {
+        "thread_hints_updated": thread_hints_updated,
+        "saved_roots_updated": saved_roots_updated,
+        "backups_created": backups_created,
+    }
+
+
+def _route_state_thread_cwds(
+    codex_home: Path,
+    *,
+    thread_ids: set[str],
+    project_root: str,
+    backup_dir: Path,
+    dry_run: bool,
+) -> dict[str, Any]:
+    db_path = codex_home / "state_5.sqlite"
+    if not thread_ids or not db_path.exists():
+        return {"updated": 0, "databases_updated": [], "backups_created": []}
+
+    connection = sqlite3.connect(db_path)
+    try:
+        if not _sqlite_table_exists(connection, "threads"):
+            return {"updated": 0, "databases_updated": [], "backups_created": []}
+
+        placeholders = ",".join("?" for _ in thread_ids)
+        ids = sorted(thread_ids)
+        updated = connection.execute(
+            f"select count(*) from threads where id in ({placeholders}) and cwd <> ?",
+            [*ids, project_root],
+        ).fetchone()[0]
+
+        backups_created: list[str] = []
+        if updated and not dry_run:
+            backups_created.append(str(_backup_sqlite_database(db_path, backup_dir)))
+            connection.execute(
+                f"update threads set cwd = ? where id in ({placeholders})",
+                [project_root, *ids],
+            )
+            connection.commit()
+
+        return {
+            "updated": updated,
+            "databases_updated": [str(db_path)] if updated else [],
+            "backups_created": backups_created,
+        }
+    finally:
+        connection.close()
+
+
+def _route_automation_run_source_cwds(
+    codex_home: Path,
+    *,
+    project_root: str,
+    backup_dir: Path,
+    dry_run: bool,
+) -> dict[str, Any]:
+    db_path = codex_home / "sqlite" / "codex-dev.db"
+    if not db_path.exists():
+        return {"updated": 0, "databases_updated": [], "backups_created": []}
+
+    connection = sqlite3.connect(db_path)
+    try:
+        if not _sqlite_table_exists(connection, "automation_runs"):
+            return {"updated": 0, "databases_updated": [], "backups_created": []}
+
+        placeholders = ",".join("?" for _ in DEFAULT_AUTOMATIONS)
+        automation_ids = sorted(DEFAULT_AUTOMATIONS)
+        updated = connection.execute(
+            f"""
+            select count(*) from automation_runs
+            where automation_id in ({placeholders})
+              and (source_cwd is null or source_cwd <> ?)
+            """,
+            [*automation_ids, project_root],
+        ).fetchone()[0]
+
+        backups_created: list[str] = []
+        if updated and not dry_run:
+            backups_created.append(str(_backup_sqlite_database(db_path, backup_dir)))
+            connection.execute(
+                f"update automation_runs set source_cwd = ? where automation_id in ({placeholders})",
+                [project_root, *automation_ids],
+            )
+            connection.commit()
+
+        return {
+            "updated": updated,
+            "databases_updated": [str(db_path)] if updated else [],
+            "backups_created": backups_created,
+        }
     finally:
         connection.close()
 
@@ -436,6 +752,26 @@ def _parse_timestamp(value: str | None) -> datetime:
     return parsed
 
 
+def _automation_title_base(thread_name: str | None) -> str | None:
+    if not isinstance(thread_name, str):
+        return None
+
+    value = thread_name.strip()
+    for pattern in (DATE_PREFIX_RE, DATE_SUFFIX_RE):
+        match = pattern.match(value)
+        if match:
+            value = match.group(1).strip()
+            break
+
+    return value if value in DEFAULT_AUTOMATIONS.values() else None
+
+
+def _sqlite_cwd_for_project(project_root: str) -> str:
+    if project_root.startswith("\\\\?\\"):
+        return project_root
+    return f"\\\\?\\{project_root}"
+
+
 def _read_configured_target_thread_id(toml_path: Path) -> str | None:
     if not toml_path.exists():
         return None
@@ -514,6 +850,28 @@ def _backup_file(path: Path, backup_dir: Path) -> Path:
                 break
             suffix += 1
     shutil.copy2(path, destination)
+    return destination
+
+
+def _backup_sqlite_database(path: Path, backup_dir: Path) -> Path:
+    backup_dir.mkdir(parents=True, exist_ok=True)
+    destination = backup_dir / f"{path.parent.name}__{path.name}"
+    if destination.exists():
+        suffix = 1
+        while True:
+            candidate = backup_dir / f"{path.name}.{suffix}.bak"
+            if not candidate.exists():
+                destination = candidate
+                break
+            suffix += 1
+
+    source = sqlite3.connect(path)
+    backup = sqlite3.connect(destination)
+    try:
+        source.backup(backup)
+    finally:
+        backup.close()
+        source.close()
     return destination
 
 
