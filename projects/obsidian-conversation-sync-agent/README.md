@@ -11,11 +11,11 @@ It fits this learning portfolio because it connects AI-assisted workflows, docum
 - Reads local conversation exports from a folder
 - Supports `.json`, `.md`, and `.txt` source files
 - Handles common ChatGPT export-style JSON with `mapping` message data
-- Writes one Markdown note per conversation into a `Conversations/` folder
+- Writes one canonical Markdown note per conversation title into a `Conversations/` folder
 - Creates an `AI Conversation Index.md` hub note for review and navigation
 - Adds YAML frontmatter, tags, source information, and a human-review reminder
 - Adds Obsidian wikilinks for project, learning log, topic, and related-note connections
-- Keeps a small sync index so unchanged conversations are skipped on later runs
+- Keeps a small sync index so unchanged conversations are skipped and repeated titles update the same note on later runs
 - Includes a dry-run mode so I can preview what would happen before writing files
 
 ## What It Does Not Do Yet
@@ -74,7 +74,7 @@ By default, notes are written to:
 AI Conversation Notes/
   AI Conversation Index.md
   Conversations/
-    2026-05-02-example-title-abc12345.md
+    example-title.md
 ```
 
 inside the Obsidian vault.
@@ -193,6 +193,8 @@ Each synced note includes:
 
 The summary is intentionally left for human review. That keeps the documentation honest and gives me a learning exercise after each sync.
 
+Repeated export titles are consolidated by note title. For example, later syncs named `Daily Obsidian conversation sync` update `Conversations/daily-obsidian-conversation-sync.md` instead of creating a long list of duplicate-looking notes.
+
 The generated index note includes:
 
 - A review queue of synced conversation notes
@@ -214,5 +216,6 @@ python -m pytest
 - Add a command that imports directly from a chosen export file path
 - Add optional conversation filters by date or tag
 - Add an optional AI summarization step with clear review labels
+- Add a collision warning for different conversations that share the same title
 - Add an Obsidian template setting
 - Add a learning log entry about what was confusing while building this

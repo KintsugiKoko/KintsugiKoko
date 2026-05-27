@@ -63,7 +63,8 @@ def sync_conversations(config: SyncConfig, *, dry_run: bool = False, force: bool
 
         for conversation in conversations:
             checksum = _conversation_checksum(conversation)
-            existing = state["sources"].get(conversation.source_id)
+            title_key = _conversation_key(conversation.title)
+            existing = state["conversations"].get(title_key)
             note_path = _note_path(target_dir, conversation, existing)
 
             if existing and existing.get("checksum") == checksum and not force:
@@ -83,7 +84,7 @@ def sync_conversations(config: SyncConfig, *, dry_run: bool = False, force: bool
             )
             note_path.write_text(note_text, encoding="utf-8")
 
-            state["sources"][conversation.source_id] = {
+            state["conversations"][title_key] = {
                 "checksum": checksum,
                 "note_path": str(note_path.relative_to(target_dir)),
                 "source_path": str(conversation.source_path),
@@ -110,36 +111,51 @@ def sync_conversations(config: SyncConfig, *, dry_run: bool = False, force: bool
 
 def _load_state(state_path: Path) -> dict[str, dict[str, dict[str, str]]]:
     if not state_path.exists():
-        return {"sources": {}}
+        return {"conversations": {}}
     try:
         with state_path.open("r", encoding="utf-8") as file:
             data = json.load(file)
     except json.JSONDecodeError:
-        return {"sources": {}}
-    if not isinstance(data, dict) or not isinstance(data.get("sources"), dict):
-        return {"sources": {}}
-    return data
+        return {"conversations": {}}
+    if not isinstance(data, dict):
+        return {"conversations": {}}
+
+    if isinstance(data.get("conversations"), dict):
+        return data
+
+    if isinstance(data.get("sources"), dict):
+        migrated = {"conversations": {}}
+        for source in data["sources"].values():
+            if not isinstance(source, dict):
+                continue
+            title_key = _conversation_key(source.get("title", ""))
+            migrated["conversations"][title_key] = {
+                "checksum": source.get("checksum", ""),
+                "note_path": source.get("note_path", ""),
+                "source_path": source.get("source_path", ""),
+                "title": source.get("title", "Untitled Conversation"),
+                "synced_at": source.get("synced_at", ""),
+            }
+        return migrated
+
+    return {"conversations": {}}
 
 
 def _note_path(target_dir: Path, conversation: Conversation, existing: dict[str, str] | None) -> Path:
     if existing and existing.get("note_path"):
         return target_dir / existing["note_path"]
 
-    date_part = _date_part(conversation.created_at)
     slug = _slugify(conversation.title or "untitled conversation")
-    short_id = hashlib.sha1(conversation.source_id.encode("utf-8")).hexdigest()[:8]
-    return target_dir / CONVERSATIONS_FOLDER / f"{date_part}-{slug}-{short_id}.md"
-
-
-def _date_part(value: str | None) -> str:
-    if value and len(value) >= 10:
-        return value[:10]
-    return datetime.now(timezone.utc).date().isoformat()
+    return target_dir / CONVERSATIONS_FOLDER / f"{slug}.md"
 
 
 def _slugify(value: str) -> str:
     slug = re.sub(r"[^a-z0-9]+", "-", value.lower()).strip("-")
     return slug[:70] or "untitled-conversation"
+
+
+def _conversation_key(title: str) -> str:
+    return _slugify(title or "untitled conversation")
 
 
 def _conversation_checksum(conversation: Conversation) -> str:
@@ -155,7 +171,7 @@ def _conversation_checksum(conversation: Conversation) -> str:
 
 def _index_entries(state: dict[str, dict[str, dict[str, str]]]) -> list[dict[str, str]]:
     entries = []
-    for source in state.get("sources", {}).values():
+    for source in state.get("conversations", {}).values():
         if not isinstance(source, dict):
             continue
         entries.append(
@@ -166,4 +182,12 @@ def _index_entries(state: dict[str, dict[str, dict[str, str]]]) -> list[dict[str
                 "title": source.get("title", "Untitled Conversation"),
             }
         )
-    return entries
+    unique_entries: list[dict[str, str]] = []
+    seen_paths: set[str] = set()
+    for entry in sorted(entries, key=lambda item: item.get("synced_at", ""), reverse=True):
+        note_path = entry.get("note_path", "")
+        if note_path in seen_paths:
+            continue
+        seen_paths.add(note_path)
+        unique_entries.append(entry)
+    return unique_entries

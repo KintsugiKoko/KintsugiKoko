@@ -4,7 +4,7 @@ from obsidian_sync_agent.parser import parse_file
 
 
 def test_parse_chatgpt_export_sample():
-    sample = Path("sample-data/chatgpt-export-sample.json")
+    sample = Path(__file__).resolve().parents[1] / "sample-data" / "chatgpt-export-sample.json"
 
     conversations = parse_file(sample)
 
