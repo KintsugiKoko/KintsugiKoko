@@ -26,6 +26,7 @@ DEFAULT_AUTOMATIONS = {
 
 CONFIRMATION_PHRASE = "APPLY_LOCAL_CODEX_AUTOMATION_POLICY"
 POLICY_MARKER = "Automation result delivery policy:"
+WORKSPACE_ROUTING_MARKER = "Automation workspace routing note:"
 DATE_PREFIX_RE = re.compile(r"^\d{4}-\d{2}-\d{2} - (.+)$")
 DATE_SUFFIX_RE = re.compile(r"^(.+) - \d{4}-\d{2}-\d{2}$")
 POLICY_TEXT = (
@@ -75,6 +76,12 @@ def main() -> int:
         default=None,
         help="Optional local project root to use for matching automation thread sidebar routing metadata.",
     )
+    parser.add_argument(
+        "--future-project-root",
+        type=Path,
+        default=None,
+        help="Optional local project root to write into matching automation configs for future run routing.",
+    )
     args = parser.parse_args()
 
     if args.apply and args.confirm != CONFIRMATION_PHRASE:
@@ -85,6 +92,7 @@ def main() -> int:
         dry_run=not args.apply,
         date_active_rows=args.date_active_rows,
         project_root=args.project_root,
+        future_project_root=args.future_project_root,
     )
     print(json.dumps(summary, indent=2, sort_keys=True))
     return 0
@@ -97,6 +105,7 @@ def apply_policy(
     timestamp: str | None = None,
     date_active_rows: bool = False,
     project_root: Path | None = None,
+    future_project_root: Path | None = None,
 ) -> dict[str, Any]:
     codex_home = codex_home.resolve()
     timestamp = timestamp or datetime.now(timezone.utc).strftime("%Y%m%d-%H%M%S")
@@ -115,10 +124,13 @@ def apply_policy(
         "automation_runs_archived": 0,
         "session_index_rows_dated": 0,
         "project_root": str(project_root.resolve()) if project_root else None,
+        "future_project_root": str(future_project_root.resolve()) if future_project_root else None,
         "project_thread_hints_updated": 0,
         "project_saved_roots_updated": 0,
         "state_thread_cwds_updated": 0,
         "automation_run_source_cwds_updated": 0,
+        "future_toml_files_updated": [],
+        "future_database_rows_updated": 0,
         "toml_files_updated": [],
         "databases_updated": [],
         "backups_created": [],
@@ -175,6 +187,20 @@ def apply_policy(
         )
         summary["backups_created"] += project_result["backups_created"]
 
+    if future_project_root:
+        future_result = route_future_automations_to_project(
+            codex_home,
+            project_root=future_project_root,
+            backup_dir=backup_dir,
+            dry_run=dry_run,
+        )
+        summary["future_toml_files_updated"] = future_result["toml_files_updated"]
+        summary["future_database_rows_updated"] = future_result["database_rows_updated"]
+        summary["databases_updated"] = sorted(
+            set(summary["databases_updated"] + future_result["databases_updated"])
+        )
+        summary["backups_created"] += future_result["backups_created"]
+
     has_changes = (
         summary["backups_created"]
         or summary["session_index_rows_removed"]
@@ -186,6 +212,8 @@ def apply_policy(
         or summary["project_saved_roots_updated"]
         or summary["state_thread_cwds_updated"]
         or summary["automation_run_source_cwds_updated"]
+        or summary["future_toml_files_updated"]
+        or summary["future_database_rows_updated"]
         or summary["toml_files_updated"]
         or summary["databases_updated"]
     )
@@ -367,6 +395,45 @@ def route_automation_threads_to_project(
         "automation_run_source_cwds_updated": run_result["updated"],
         "databases_updated": sorted(set(databases_updated)),
         "backups_created": backups_created,
+    }
+
+
+def route_future_automations_to_project(
+    codex_home: Path,
+    *,
+    project_root: Path,
+    backup_dir: Path,
+    dry_run: bool,
+) -> dict[str, Any]:
+    project_root_text = str(project_root.resolve())
+    backups_created: list[str] = []
+    toml_files_updated: list[str] = []
+
+    for automation_id in DEFAULT_AUTOMATIONS:
+        toml_path = codex_home / "automations" / automation_id / "automation.toml"
+        if not toml_path.exists():
+            continue
+
+        original = toml_path.read_text(encoding="utf-8")
+        updated = _update_future_automation_toml(original, project_root=project_root_text)
+        if updated != original:
+            toml_files_updated.append(str(toml_path))
+            if not dry_run:
+                backups_created.append(str(_backup_file(toml_path, backup_dir)))
+                toml_path.write_text(updated, encoding="utf-8")
+
+    db_result = _route_future_automation_database(
+        codex_home,
+        project_root=project_root_text,
+        backup_dir=backup_dir,
+        dry_run=dry_run,
+    )
+
+    return {
+        "toml_files_updated": toml_files_updated,
+        "database_rows_updated": db_result["updated"],
+        "databases_updated": db_result["databases_updated"],
+        "backups_created": backups_created + db_result["backups_created"],
     }
 
 
@@ -715,6 +782,73 @@ def update_automation_database(codex_home: Path, *, backup_dir: Path, dry_run: b
         connection.close()
 
 
+def _update_future_automation_toml(text: str, *, project_root: str) -> str:
+    data = tomllib.loads(text)
+    original_cwds = data.get("cwds")
+    execution_workspace = _execution_workspace_from_cwds(original_cwds, project_root)
+    prompt = data.get("prompt", "")
+    updated_prompt = _with_workspace_routing_note(prompt if isinstance(prompt, str) else "", execution_workspace)
+    updated = text
+
+    if prompt != updated_prompt:
+        updated = _replace_toml_string(updated, "prompt", updated_prompt)
+
+    if original_cwds != [project_root]:
+        updated = _replace_toml_array_of_strings(updated, "cwds", [project_root])
+
+    if updated != text:
+        updated = _replace_toml_integer(updated, "updated_at", int(time.time() * 1000))
+    return updated
+
+
+def _route_future_automation_database(
+    codex_home: Path,
+    *,
+    project_root: str,
+    backup_dir: Path,
+    dry_run: bool,
+) -> dict[str, Any]:
+    db_path = codex_home / "sqlite" / "codex-dev.db"
+    if not db_path.exists():
+        return {"updated": 0, "databases_updated": [], "backups_created": []}
+
+    connection = sqlite3.connect(db_path)
+    try:
+        if not _sqlite_table_exists(connection, "automations"):
+            return {"updated": 0, "databases_updated": [], "backups_created": []}
+
+        updates: list[tuple[str, str, str]] = []
+        for automation_id, cwds, prompt in connection.execute(
+            "select id, cwds, prompt from automations where id in (?, ?)",
+            tuple(sorted(DEFAULT_AUTOMATIONS)),
+        ):
+            existing_cwds = _parse_json_string_list(cwds)
+            execution_workspace = _execution_workspace_from_cwds(existing_cwds, project_root)
+            updated_cwds = json.dumps([project_root])
+            updated_prompt = _with_workspace_routing_note(prompt or "", execution_workspace)
+            if cwds != updated_cwds or prompt != updated_prompt:
+                updates.append((automation_id, updated_cwds, updated_prompt))
+
+        backups_created: list[str] = []
+        if updates and not dry_run:
+            backups_created.append(str(_backup_sqlite_database(db_path, backup_dir)))
+            now_ms = int(time.time() * 1000)
+            for automation_id, updated_cwds, updated_prompt in updates:
+                connection.execute(
+                    "update automations set cwds = ?, prompt = ?, updated_at = ? where id = ?",
+                    (updated_cwds, updated_prompt, now_ms, automation_id),
+                )
+            connection.commit()
+
+        return {
+            "updated": len(updates),
+            "databases_updated": [str(db_path)] if updates else [],
+            "backups_created": backups_created,
+        }
+    finally:
+        connection.close()
+
+
 def _sqlite_table_exists(connection: sqlite3.Connection, table_name: str) -> bool:
     return (
         connection.execute(
@@ -764,6 +898,38 @@ def _automation_title_base(thread_name: str | None) -> str | None:
             break
 
     return value if value in DEFAULT_AUTOMATIONS.values() else None
+
+
+def _execution_workspace_from_cwds(cwds: Any, project_root: str) -> str | None:
+    if not isinstance(cwds, list):
+        return None
+    for cwd in cwds:
+        if isinstance(cwd, str) and cwd and cwd != project_root:
+            return cwd
+    return None
+
+
+def _parse_json_string_list(value: str | None) -> list[str]:
+    if not value:
+        return []
+    try:
+        parsed = json.loads(value)
+    except json.JSONDecodeError:
+        return []
+    if not isinstance(parsed, list):
+        return []
+    return [item for item in parsed if isinstance(item, str)]
+
+
+def _with_workspace_routing_note(prompt: str, execution_workspace: str | None) -> str:
+    if WORKSPACE_ROUTING_MARKER in prompt or not execution_workspace:
+        return prompt
+    note = (
+        f"{WORKSPACE_ROUTING_MARKER}\n"
+        "- This automation is listed under the Cron Jobs project for sidebar hygiene.\n"
+        f"- When repository files are needed, use `{execution_workspace}` as the working directory with absolute paths."
+    )
+    return f"{prompt}\n\n{note}".strip()
 
 
 def _sqlite_cwd_for_project(project_root: str) -> str:
@@ -820,6 +986,15 @@ def _replace_toml_integer(text: str, key: str, value: int) -> str:
     replacement = f"{key} = {value}"
     if pattern.search(text):
         return pattern.sub(replacement, text, count=1)
+    return text.rstrip() + f"\n{replacement}\n"
+
+
+def _replace_toml_array_of_strings(text: str, key: str, values: list[str]) -> str:
+    encoded = ", ".join(json.dumps(value) for value in values)
+    pattern = re.compile(rf"^{re.escape(key)}\s*=.*$", re.MULTILINE)
+    replacement = f"{key} = [{encoded}]"
+    if pattern.search(text):
+        return pattern.sub(lambda _: replacement, text, count=1)
     return text.rstrip() + f"\n{replacement}\n"
 
 

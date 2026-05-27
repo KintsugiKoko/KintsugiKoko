@@ -260,6 +260,42 @@ def test_routes_automation_threads_to_project_without_changing_execution_cwd(tmp
     assert automation_cwds is None or project_root_text not in automation_cwds
 
 
+def test_routes_future_automation_configs_to_project_with_execution_note(tmp_path):
+    codex_home = _make_codex_home(tmp_path)
+    project_root = tmp_path / "Cron Jobs"
+    project_root.mkdir()
+    _write_session_index(codex_home, [])
+
+    summary = policy.apply_policy(codex_home, timestamp="test", future_project_root=project_root)
+
+    project_root_text = str(project_root.resolve())
+    escaped_project_root = project_root_text.replace("\\", "\\\\")
+    daily_toml = (codex_home / "automations" / "daily-obsidian-conversation-sync" / "automation.toml").read_text(
+        encoding="utf-8"
+    )
+    assert f'cwds = ["{escaped_project_root}"]' in daily_toml
+    assert "Automation workspace routing note:" in daily_toml
+    assert 'cwds = ["C:\\\\Users\\\\mcavo\\\\OneDrive\\\\Documents\\\\New project"]' not in daily_toml
+    assert len(summary["future_toml_files_updated"]) == 2
+    assert summary["future_database_rows_updated"] == 2
+
+    connection = sqlite3.connect(codex_home / "sqlite" / "codex-dev.db")
+    try:
+        rows = {
+            row[0]: (row[1], row[2])
+            for row in connection.execute(
+                "select id, cwds, prompt from automations where id in (?, ?)",
+                ("daily-obsidian-conversation-sync", "overnight-portfolio-goal"),
+            )
+        }
+    finally:
+        connection.close()
+
+    assert json.loads(rows["daily-obsidian-conversation-sync"][0]) == [project_root_text]
+    assert "Automation workspace routing note:" in rows["daily-obsidian-conversation-sync"][1]
+    assert "C:\\Users\\mcavo\\OneDrive\\Documents\\New project" in rows["daily-obsidian-conversation-sync"][1]
+
+
 def test_second_run_is_idempotent(tmp_path):
     codex_home = _make_codex_home(tmp_path)
     _write_session_index(
@@ -378,6 +414,7 @@ def _write_automation_toml(codex_home: Path, automation_id: str, name: str) -> N
                 f'prompt = "Run {name}."',
                 'status = "ACTIVE"',
                 'rrule = "FREQ=DAILY"',
+                'cwds = ["C:\\\\Users\\\\mcavo\\\\OneDrive\\\\Documents\\\\New project"]',
                 "updated_at = 1",
                 "",
             ]
@@ -397,8 +434,15 @@ def _write_automation_db(codex_home: Path) -> None:
         )
         for automation_id, name in policy.DEFAULT_AUTOMATIONS.items():
             connection.execute(
-                "insert into automations (id, name, prompt, status, updated_at) values (?, ?, ?, ?, ?)",
-                (automation_id, name, f"Run {name}.", "ACTIVE", 1),
+                "insert into automations (id, name, prompt, status, cwds, updated_at) values (?, ?, ?, ?, ?, ?)",
+                (
+                    automation_id,
+                    name,
+                    f"Run {name}.",
+                    "ACTIVE",
+                    json.dumps(["C:\\Users\\mcavo\\OneDrive\\Documents\\New project"]),
+                    1,
+                ),
             )
         connection.commit()
     finally:

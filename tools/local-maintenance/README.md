@@ -39,6 +39,14 @@ python .\tools\local-maintenance\codex_automation_sidebar_policy.py --date-activ
 
 `--project-root` updates matching sidebar/project routing metadata for existing automation chats. It does not change the automation execution workspace, because the actual job may still need to run from the configured project repo.
 
+Use `--future-project-root` only when future automation runs should be created under a local project such as `Cron Jobs`:
+
+```powershell
+python .\tools\local-maintenance\codex_automation_sidebar_policy.py --future-project-root "C:\Users\mcavo\OneDrive\Documents\Cron Jobs"
+```
+
+When `--future-project-root` changes automation `cwds`, the helper adds a local-only workspace routing note to the automation prompt so repo work still uses the original project path through absolute paths.
+
 Before any write, the helper creates backups under:
 
 ```text
