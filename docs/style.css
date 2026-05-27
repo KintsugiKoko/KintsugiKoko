@@ -630,6 +630,71 @@ h3 {
   padding: 1.25rem;
 }
 
+.guide-callout {
+  margin: 0 auto;
+  max-width: 880px;
+}
+
+.guide-table-wrap {
+  margin: 1.5rem auto 2rem;
+  max-width: var(--content-max);
+  overflow-x: auto;
+  width: 100%;
+}
+
+.guide-table {
+  background-color: var(--panel);
+  border: 1px solid var(--line);
+  border-collapse: collapse;
+  box-shadow: var(--shadow);
+  color: var(--muted);
+  min-width: 680px;
+  width: 100%;
+}
+
+.guide-table caption {
+  color: var(--ink);
+  font-weight: 800;
+  padding: 0 0 0.85rem;
+  text-align: left;
+}
+
+.guide-table th,
+.guide-table td {
+  border: 1px solid var(--line);
+  padding: 0.8rem 0.9rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.guide-table th {
+  background-color: rgba(214, 162, 78, 0.12);
+  color: var(--ink);
+}
+
+.guide-list {
+  color: var(--muted);
+  margin: 0.8rem 0 0;
+  padding-left: 1.25rem;
+}
+
+.guide-list li + li {
+  margin-top: 0.35rem;
+}
+
+.guide-template summary {
+  cursor: pointer;
+}
+
+.guide-summary-title {
+  color: var(--ink);
+  display: block;
+  font-size: 1.18rem;
+  font-weight: 800;
+  line-height: 1.25;
+  margin-top: 0.65rem;
+}
+
 .contact-section {
   padding-bottom: 5rem;
 }

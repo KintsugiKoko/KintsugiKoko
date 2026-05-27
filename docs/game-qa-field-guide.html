@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A practical guide to applying ISTQB Foundation testing concepts to game QA, including test design, defect reporting, risk-based testing, and game-specific quality areas.">
+  <meta name="color-scheme" content="dark">
+  <meta name="darkreader-lock">
+  <title>Game QA Field Guide | Keith McAvoy Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="index.html#top">Keith McAvoy</a>
+      <div class="nav-links">
+        <a href="index.html#projects">Projects</a>
+        <a href="index.html#work-style">How I Work</a>
+        <a href="index.html#learning">Learning</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hud-lines" aria-hidden="true"></div>
+      <div class="hero-content">
+        <p class="eyebrow">Professional QA Resource</p>
+        <h1>Game QA Field Guide</h1>
+        <p class="role-line">Applying ISTQB Foundations to Practical Game Testing</p>
+        <p class="hero-summary">
+          Game QA is more than finding bugs. It is the practice of protecting
+          the player experience, reducing production risk, and giving
+          development teams the information they need to make confident
+          decisions.
+        </p>
+        <p class="hero-summary">
+          As an ISTQB Foundation certified QA professional with experience in
+          game testing, I created this guide to help peers, junior testers,
+          developers, and portfolio visitors understand how structured testing
+          principles apply to games.
+        </p>
+        <p class="hero-summary">
+          This guide connects recognized software testing concepts with
+          practical game QA scenarios: mechanics, progression, UI, audio,
+          graphics, localization, multiplayer, accessibility, regression, and
+          risk-based testing.
+        </p>
+        <div class="hero-actions" aria-label="Guide shortcuts">
+          <a class="button" href="#guide">Explore the Guide</a>
+          <a class="button secondary" href="#templates">View QA Templates</a>
+          <a class="button secondary" href="index.html#projects">Back to Portfolio</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="project-card guide-callout">
+        <span class="status">Standards Note</span>
+        <h2>Independent educational portfolio resource</h2>
+        <p>
+          This guide references ISTQB concepts and is inspired by my ISTQB
+          Foundation knowledge and professional game QA experience. It is not
+          official ISTQB training material and does not reproduce official
+          syllabus content. ISTQB&reg; and related certification names belong
+          to the International Software Testing Qualifications Board. This
+          guide is an independent educational portfolio resource.
+        </p>
+      </div>
+    </section>
+
+    <section id="guide" class="section panel-section">
+      <div class="section-heading">
+        <p class="eyebrow">What Game QA Actually Does</p>
+        <h2>Structured investigation, not just playing the game</h2>
+      </div>
+      <p>
+        Game QA studies quality, behavior, risk, player experience, and release
+        confidence. A good tester asks practical questions and turns the answers
+        into clear information the team can use.
+      </p>
+      <div class="guide-table-wrap" role="region" aria-label="Game QA questions and testing meanings" tabindex="0">
+        <table class="guide-table">
+          <thead>
+            <tr>
+              <th scope="col">Question</th>
+              <th scope="col">Meaning</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Does the feature work as designed?</td>
+              <td>Functional testing</td>
+            </tr>
+            <tr>
+              <td>Can players break progression?</td>
+              <td>Exploratory and risk-based testing</td>
+            </tr>
+            <tr>
+              <td>Does the game communicate clearly?</td>
+              <td>UI, UX, accessibility, and localization testing</td>
+            </tr>
+            <tr>
+              <td>Does the build remain stable over time?</td>
+              <td>Regression, smoke, soak, performance, and compatibility testing</td>
+            </tr>
+            <tr>
+              <td>Are risks visible to the team?</td>
+              <td>Test reporting and stakeholder communication</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <p class="eyebrow">My QA Philosophy</p>
+        <h2>Protect the player experience and reduce production risk</h2>
+      </div>
+      <p>
+        My goal as QA is not to catch developers making mistakes. My goal is to
+        protect the player experience, reduce production risk, and give the
+        team clear information so they can make confident decisions. Good QA is
+        collaborative, curious, structured, and honest. In games, that means
+        testing not only whether a feature works, but whether it survives real
+        player behavior.
+      </p>
+      <div class="track-grid">
+        <div>
+          <h3>Player empathy</h3>
+          <p>Test from the perspective of people who are confused, curious, impatient, creative, or brand new.</p>
+        </div>
+        <div>
+          <h3>Reproducibility</h3>
+          <p>A clear repro path helps the team isolate the trigger and spend less time guessing.</p>
+        </div>
+        <div>
+          <h3>Risk awareness</h3>
+          <p>Prioritize defects and coverage by player impact, release timing, complexity, and failure history.</p>
+        </div>
+        <div>
+          <h3>Clear communication</h3>
+          <p>Write bugs and reports so developers, producers, designers, and leads can act quickly.</p>
+        </div>
+        <div>
+          <h3>Context matters</h3>
+          <p>The same defect can change priority based on build stage, platform, audience, and release risk.</p>
+        </div>
+        <div>
+          <h3>Quality is shared</h3>
+          <p>QA helps reveal risk, but the whole team owns the final player experience.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section panel-section">
+      <div class="section-heading">
+        <p class="eyebrow">ISTQB Foundations Applied To Games</p>
+        <h2>Testing concepts translated into game QA examples</h2>
+      </div>
+      <div class="guide-table-wrap" role="region" aria-label="ISTQB concepts applied to games" tabindex="0">
+        <table class="guide-table">
+          <thead>
+            <tr>
+              <th scope="col">Concept</th>
+              <th scope="col">Application</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Static testing</td>
+              <td>Reviewing design docs, user stories, quest specs, UI copy, controller mappings, achievement requirements, and test plans before the build is playable.</td>
+            </tr>
+            <tr>
+              <td>Dynamic testing</td>
+              <td>Running the game and checking actual behavior: combat, movement, progression, save/load, matchmaking, UI flow, audio triggers, and platform behavior.</td>
+            </tr>
+            <tr>
+              <td>Black-box testing</td>
+              <td>Testing from the player perspective without needing to inspect the code.</td>
+            </tr>
+            <tr>
+              <td>Experience-based testing</td>
+              <td>Using exploratory testing, error guessing, and past project knowledge to find likely failures.</td>
+            </tr>
+            <tr>
+              <td>Regression testing</td>
+              <td>Checking that a fix or new feature did not break existing systems.</td>
+            </tr>
+            <tr>
+              <td>Confirmation testing</td>
+              <td>Verifying that a reported bug fix actually resolves the issue.</td>
+            </tr>
+            <tr>
+              <td>Risk-based testing</td>
+              <td>Prioritizing areas with high player impact, high technical complexity, or high probability of failure.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Game-Specific Testing Areas</p>
+        <h2>Core domains a game tester should think about</h2>
+      </div>
+      <div class="project-grid">
+        <article class="project-card">
+          <span class="status">Mechanics</span>
+          <h3>What to test</h3>
+          <p>Movement, combat, interaction, inventory, physics, abilities, and cooldowns.</p>
+          <p>Example risks: exploits, softlocks, broken gameplay loops, inconsistent player feedback.</p>
+        </article>
+        <article class="project-card">
+          <span class="status">Progression</span>
+          <h3>What to test</h3>
+          <p>Quests, unlocks, rewards, objectives, gates, milestones, and achievements.</p>
+          <p>Example risks: blocked progression, duplicated rewards, missing objectives, broken save states.</p>
+        </article>
+        <article class="project-card">
+          <span class="status">UI / UX</span>
+          <h3>What to test</h3>
+          <p>Menus, HUD, prompts, settings, readability, and information flow.</p>
+          <p>Example risks: unclear actions, unreadable labels, broken navigation, lost player context.</p>
+        </article>
+        <article class="project-card">
+          <span class="status">Graphics</span>
+          <h3>What to test</h3>
+          <p>Materials, models, VFX, animation, lighting, camera, and visual clarity.</p>
+          <p>Example risks: missing assets, clipping, broken shaders, visual noise, misleading feedback.</p>
+        </article>
+        <article class="project-card">
+          <span class="status">Audio</span>
+          <h3>What to test</h3>
+          <p>Music, SFX, VO, triggers, mixing, subtitle sync, and spatial audio.</p>
+          <p>Example risks: missing cues, wrong triggers, repeated audio, accessibility or timing issues.</p>
+        </article>
+        <article class="project-card">
+          <span class="status">Localization</span>
+          <h3>What to test</h3>
+          <p>Text, VO, fonts, layout, truncation, cultural context, and input strings.</p>
+          <p>Example risks: cut-off text, wrong language strings, broken UI layout, confusing terminology.</p>
+        </article>
+        <article class="project-card">
+          <span class="status">Controllers / Input</span>
+          <h3>What to test</h3>
+          <p>Keyboard, mouse, gamepad, remapping, prompts, focus, and device switching.</p>
+          <p>Example risks: stuck input states, wrong button prompts, inaccessible actions, menu traps.</p>
+        </article>
+        <article class="project-card">
+          <span class="status">Multiplayer / Online</span>
+          <h3>What to test</h3>
+          <p>Matchmaking, lobbies, party flow, latency, reconnect, disconnect, and persistence.</p>
+          <p>Example risks: desync, lost rewards, wrong team state, failed reconnect, unfair outcomes.</p>
+        </article>
+        <article class="project-card">
+          <span class="status">Performance / Stability</span>
+          <h3>What to test</h3>
+          <p>Frame rate, memory, loading, crash risk, long sessions, and stress cases.</p>
+          <p>Example risks: crashes, hitches, memory growth, degraded controls, unstable late-session behavior.</p>
+        </article>
+        <article class="project-card">
+          <span class="status">Compliance / Platform</span>
+          <h3>What to test</h3>
+          <p>Platform rules, entitlement, suspend/resume, achievements, and store flows.</p>
+          <p>Example risks: certification failures, broken account states, purchase issues, platform UX violations.</p>
+        </article>
+        <article class="project-card">
+          <span class="status">Accessibility</span>
+          <h3>What to test</h3>
+          <p>Readability, remapping, subtitle quality, color reliance, timing, and difficulty options.</p>
+          <p>Example risks: inaccessible flows, unreadable UI, missing alternatives, avoidable player exclusion.</p>
+        </article>
+        <article class="project-card">
+          <span class="status">Save / Load</span>
+          <h3>What to test</h3>
+          <p>Checkpoints, autosaves, manual saves, cloud saves, and state persistence.</p>
+          <p>Example risks: lost progress, duplicated rewards, revived enemies, broken quest flags, corrupted saves.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section panel-section">
+      <div class="section-heading">
+        <p class="eyebrow">Practical Test Design Examples</p>
+        <h2>Small examples that show structured thinking</h2>
+      </div>
+      <div class="guide-table-wrap" role="region" aria-label="Boundary value testing example" tabindex="0">
+        <table class="guide-table">
+          <caption>Example A: Boundary value testing for a health system</caption>
+          <thead>
+            <tr>
+              <th scope="col">Condition</th>
+              <th scope="col">Expected check</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Health = 1, take 1 damage</td>
+              <td>Player dies or enters intended death state.</td>
+            </tr>
+            <tr>
+              <td>Health = max, receive healing</td>
+              <td>Health does not exceed cap unless overheal is designed.</td>
+            </tr>
+            <tr>
+              <td>Health = 0, save/load</td>
+              <td>Player state remains consistent and does not revive incorrectly.</td>
+            </tr>
+            <tr>
+              <td>Health changes during cutscene</td>
+              <td>Game follows intended rules for immunity or vulnerability.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="guide-table-wrap" role="region" aria-label="State transition testing example" tabindex="0">
+        <table class="guide-table">
+          <caption>Example B: State transition testing for matchmaking</caption>
+          <thead>
+            <tr>
+              <th scope="col">Transition</th>
+              <th scope="col">Expected check</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Searching + match found</td>
+              <td>Player joins lobby.</td>
+            </tr>
+            <tr>
+              <td>Joining lobby + connection fails</td>
+              <td>Player returns to search or sees an appropriate error.</td>
+            </tr>
+            <tr>
+              <td>In match + player disconnects</td>
+              <td>Reconnect, forfeit, or removal follows design.</td>
+            </tr>
+            <tr>
+              <td>Post-match + rewards calculated</td>
+              <td>Results screen and inventory update correctly.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="project-card guide-callout">
+        <span class="status">Example C: Exploratory testing charter</span>
+        <p>
+          Explore save/load behavior during quest progression. Focus on saving
+          before, during, and after quest-critical events. Look for duplicated
+          rewards, missing objectives, broken NPC states, softlocks, and
+          inconsistent map markers.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Defect Reporting Guide</p>
+        <h2>Strong bug reports reduce guesswork</h2>
+      </div>
+      <p>
+        A strong bug report does not just say what broke. It helps the team
+        understand impact, reproduce the issue, isolate the likely trigger, and
+        decide how urgently it must be fixed.
+      </p>
+      <div class="track-grid">
+        <div>
+          <h3>Bug report template</h3>
+          <ul class="guide-list">
+            <li>Title</li>
+            <li>Build / version</li>
+            <li>Platform</li>
+            <li>Area</li>
+            <li>Severity</li>
+            <li>Priority</li>
+            <li>Repro rate</li>
+            <li>Steps to reproduce</li>
+            <li>Expected result</li>
+            <li>Actual result</li>
+            <li>Evidence</li>
+            <li>Notes</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Example bug</h3>
+          <p><strong>Title:</strong> Player can become softlocked after skipping the boss intro cutscene</p>
+          <p><strong>Build/version:</strong> v0.8.1421, PC Steam QA branch</p>
+          <p><strong>Platform:</strong> Windows 11, controller</p>
+          <p><strong>Area:</strong> Boss encounter / cutscene skip / progression</p>
+          <p><strong>Severity:</strong> High</p>
+          <p><strong>Priority:</strong> P1 or P2 depending on release risk</p>
+          <p><strong>Repro rate:</strong> 4/5</p>
+          <ol class="guide-list">
+            <li>Load checkpoint before boss.</li>
+            <li>Trigger intro cutscene.</li>
+            <li>Skip cutscene during fade.</li>
+            <li>Move toward arena gate.</li>
+          </ol>
+          <p><strong>Expected:</strong> Boss encounter starts and arena gate opens/closes according to design.</p>
+          <p><strong>Actual:</strong> Player remains locked outside arena; objective does not update.</p>
+          <p><strong>Evidence:</strong> Video, screenshot, logs, save file.</p>
+          <p><strong>Notes:</strong> Reproduces only when skipping during fade, not after dialogue begins.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section panel-section">
+      <div class="section-heading">
+        <p class="eyebrow">Risk-Based Game QA</p>
+        <h2>When time is limited, test by risk</h2>
+      </div>
+      <p>
+        When time is limited, QA should not test randomly. QA should prioritize
+        features that are new, changed, complex, player-critical,
+        platform-critical, monetization-related, progression-blocking, or
+        historically defect-prone.
+      </p>
+      <div class="guide-table-wrap" role="region" aria-label="Game QA risk matrix" tabindex="0">
+        <table class="guide-table">
+          <thead>
+            <tr>
+              <th scope="col">Risk</th>
+              <th scope="col">Impact</th>
+              <th scope="col">Probability</th>
+              <th scope="col">Priority</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Main quest softlock</td>
+              <td>Very high</td>
+              <td>Medium</td>
+              <td>Critical</td>
+            </tr>
+            <tr>
+              <td>Crash during save</td>
+              <td>Very high</td>
+              <td>Low/medium</td>
+              <td>Critical</td>
+            </tr>
+            <tr>
+              <td>Cosmetic clipping</td>
+              <td>Low</td>
+              <td>High</td>
+              <td>Low/medium</td>
+            </tr>
+            <tr>
+              <td>Incorrect subtitle timing</td>
+              <td>Medium</td>
+              <td>Medium</td>
+              <td>Medium</td>
+            </tr>
+            <tr>
+              <td>Multiplayer desync</td>
+              <td>High</td>
+              <td>Medium</td>
+              <td>High</td>
+            </tr>
+            <tr>
+              <td>Store purchase failure</td>
+              <td>Very high</td>
+              <td>Low</td>
+              <td>Critical</td>
+            </tr>
+            <tr>
+              <td>Settings reset after relaunch</td>
+              <td>Medium</td>
+              <td>Medium</td>
+              <td>Medium</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="templates" class="section">
+      <div class="section-heading">
+        <p class="eyebrow">QA Templates</p>
+        <h2>Reusable starters for practical game QA work</h2>
+      </div>
+      <div class="project-grid">
+        <details class="project-card guide-template" open>
+          <summary><span class="status">Template</span><span class="guide-summary-title">Bug Report Template</span></summary>
+          <p>Use this to capture title, build, platform, area, severity, priority, repro rate, steps, expected result, actual result, evidence, and notes.</p>
+        </details>
+        <details class="project-card guide-template">
+          <summary><span class="status">Checklist</span><span class="guide-summary-title">Smoke Test Checklist</span></summary>
+          <ul class="guide-list">
+            <li>Build launches successfully</li>
+            <li>Main menu loads</li>
+            <li>New game / continue works</li>
+            <li>Core gameplay loop works</li>
+            <li>Settings open and save</li>
+            <li>Save/load works</li>
+            <li>No immediate crash on major flows</li>
+            <li>Critical UI is visible and readable</li>
+          </ul>
+        </details>
+        <details class="project-card guide-template">
+          <summary><span class="status">Checklist</span><span class="guide-summary-title">Regression Checklist</span></summary>
+          <ul class="guide-list">
+            <li>Previously fixed issues remain fixed</li>
+            <li>New feature does not break connected systems</li>
+            <li>Save/load still works</li>
+            <li>UI and input still function</li>
+            <li>Platform-specific checks pass</li>
+            <li>No new critical or blocker issues found</li>
+          </ul>
+        </details>
+        <details class="project-card guide-template">
+          <summary><span class="status">Charter</span><span class="guide-summary-title">Exploratory Test Charter</span></summary>
+          <p><strong>Mission:</strong> Explore [feature/system] for progression, usability, stability, and edge-case failures.</p>
+          <p><strong>Focus areas:</strong> unusual player behavior, interruptions, repeated actions, boundary cases, state changes, save/load, and input changes.</p>
+        </details>
+        <details class="project-card guide-template">
+          <summary><span class="status">Plan</span><span class="guide-summary-title">Feature Test Plan Template</span></summary>
+          <p>Define scope, requirements, risks, test data, platforms, entry criteria, exit criteria, coverage areas, and reporting expectations.</p>
+        </details>
+        <details class="project-card guide-template">
+          <summary><span class="status">Risk</span><span class="guide-summary-title">Risk Matrix Template</span></summary>
+          <p>Track feature risk by impact, probability, player visibility, release timing, history, owner, and recommended test priority.</p>
+        </details>
+        <details class="project-card guide-template">
+          <summary><span class="status">Glossary</span><span class="guide-summary-title">Game QA Glossary</span></summary>
+          <p>Define terms such as smoke test, regression, softlock, blocker, repro rate, pass, fail, risk, confirmation test, and exploratory charter.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="section panel-section">
+      <div class="section-heading">
+        <p class="eyebrow">Lessons From Experience</p>
+        <h2>Structure plus curiosity finds better problems</h2>
+      </div>
+      <p>
+        Across QA work, one lesson stays consistent: the best testers combine
+        structure with curiosity. Checklists help create coverage, but curiosity
+        helps reveal the problems nobody wrote down. In games, players will
+        always try things the team did not expect. Good QA anticipates that
+        reality and helps the team prepare for it.
+      </p>
+      <div class="track-grid">
+        <div>
+          <h3>Test the design, then test the player behavior.</h3>
+          <p>Expected use matters, but unexpected use is where many game bugs live.</p>
+        </div>
+        <div>
+          <h3>A reproducible bug saves everyone time.</h3>
+          <p>Clear setup, steps, evidence, and impact help the team move faster.</p>
+        </div>
+        <div>
+          <h3>The most dangerous bugs are often state, progression, and save-related.</h3>
+          <p>State errors can hide until a player loses progress, gets blocked, or breaks the world.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Resources / Next Steps</p>
+        <h2>How to keep building practical QA skill</h2>
+      </div>
+      <ul class="work-list">
+        <li>Learn software testing fundamentals.</li>
+        <li>Practice writing clear bug reports.</li>
+        <li>Build a portfolio with test cases and bug examples.</li>
+        <li>Study risk-based testing.</li>
+        <li>Explore game-specific testing areas like localization, performance, accessibility, multiplayer, and platform compliance.</li>
+      </ul>
+      <div class="hero-actions">
+        <a class="button" href="index.html#projects">Back to Portfolio</a>
+        <a class="button secondary" href="#top">Back to top</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <p class="eyebrow">Game QA Field Guide</p>
+      <h2>Testing principles, game QA examples, and practical templates.</h2>
+      <p>
+        An independent educational portfolio resource connecting ISTQB-inspired
+        testing fundamentals to game QA practice.
+      </p>
+      <div class="footer-links" aria-label="Footer links">
+        <a href="#top">Back to top</a>
+        <a href="index.html">Homepage</a>
+        <a href="https://github.com/KintsugiKoko/KintsugiKoko">GitHub Source</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
