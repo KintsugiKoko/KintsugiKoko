@@ -6,6 +6,8 @@ import sqlite3
 import sys
 from pathlib import Path
 
+import pytest
+
 
 MODULE_PATH = Path(__file__).with_name("codex_automation_sidebar_policy.py")
 SPEC = importlib.util.spec_from_file_location("codex_automation_sidebar_policy", MODULE_PATH)
@@ -116,6 +118,41 @@ def test_updates_automation_policy_and_database_prompt(tmp_path):
     assert summary["databases_updated"] == [str(codex_home / "sqlite" / "codex-dev.db")]
 
 
+def test_archives_duplicate_automation_runs_but_keeps_canonical(tmp_path):
+    codex_home = _make_codex_home(tmp_path)
+    _write_session_index(
+        codex_home,
+        [
+            {
+                "id": "daily-old",
+                "thread_name": "Daily Obsidian conversation sync",
+                "updated_at": "2026-05-25T16:00:00Z",
+            },
+            {
+                "id": "daily-new",
+                "thread_name": "Daily Obsidian conversation sync",
+                "updated_at": "2026-05-26T16:00:00Z",
+            },
+            {
+                "id": "overnight-new",
+                "thread_name": "Overnight portfolio goal",
+                "updated_at": "2026-05-26T06:00:00Z",
+            },
+        ],
+    )
+    _write_automation_run(codex_home, "daily-obsidian-conversation-sync", "daily-old", "PENDING_REVIEW")
+    _write_automation_run(codex_home, "daily-obsidian-conversation-sync", "daily-new", "PENDING_REVIEW")
+    _write_automation_run(codex_home, "overnight-portfolio-goal", "overnight-new", "PENDING_REVIEW")
+
+    summary = policy.apply_policy(codex_home, timestamp="test")
+
+    rows = _read_automation_runs(codex_home)
+    assert rows[("daily-obsidian-conversation-sync", "daily-old")] == "ARCHIVED"
+    assert rows[("daily-obsidian-conversation-sync", "daily-new")] == "PENDING_REVIEW"
+    assert rows[("overnight-portfolio-goal", "overnight-new")] == "PENDING_REVIEW"
+    assert summary["automation_runs_archived"] == 1
+
+
 def test_second_run_is_idempotent(tmp_path):
     codex_home = _make_codex_home(tmp_path)
     _write_session_index(
@@ -151,6 +188,61 @@ def test_second_run_is_idempotent(tmp_path):
         }
     ]
     assert len(list((codex_home / "archived_sessions").glob("*daily-old*.jsonl"))) == 1
+
+
+def test_cli_defaults_to_dry_run(tmp_path, monkeypatch, capsys):
+    codex_home = _make_codex_home(tmp_path)
+    _write_session_index(
+        codex_home,
+        [
+            {
+                "id": "daily-old",
+                "thread_name": "Daily Obsidian conversation sync",
+                "updated_at": "2026-05-25T16:00:00Z",
+            },
+            {
+                "id": "daily-new",
+                "thread_name": "Daily Obsidian conversation sync",
+                "updated_at": "2026-05-26T16:00:00Z",
+            },
+        ],
+    )
+    _write_session_file(codex_home, "daily-old")
+    _write_session_file(codex_home, "daily-new")
+    monkeypatch.setattr(sys, "argv", ["policy", "--codex-home", str(codex_home)])
+
+    assert policy.main() == 0
+
+    output = json.loads(capsys.readouterr().out)
+    assert output["dry_run"] is True
+    assert output["session_index_rows_removed"] == 1
+    assert [row["id"] for row in _read_session_index(codex_home)] == ["daily-old", "daily-new"]
+    assert not (codex_home / "archived_sessions" / "rollout-daily-old.jsonl").exists()
+
+
+def test_cli_requires_confirmation_before_apply(tmp_path, monkeypatch):
+    codex_home = _make_codex_home(tmp_path)
+    _write_session_index(
+        codex_home,
+        [
+            {
+                "id": "daily-old",
+                "thread_name": "Daily Obsidian conversation sync",
+                "updated_at": "2026-05-25T16:00:00Z",
+            },
+            {
+                "id": "daily-new",
+                "thread_name": "Daily Obsidian conversation sync",
+                "updated_at": "2026-05-26T16:00:00Z",
+            },
+        ],
+    )
+    monkeypatch.setattr(sys, "argv", ["policy", "--codex-home", str(codex_home), "--apply"])
+
+    with pytest.raises(SystemExit):
+        policy.main()
+
+    assert [row["id"] for row in _read_session_index(codex_home)] == ["daily-old", "daily-new"]
 
 
 def _make_codex_home(tmp_path: Path) -> Path:
@@ -193,12 +285,40 @@ def _write_automation_db(codex_home: Path) -> None:
         connection.execute(
             "create table automations (id TEXT, name TEXT, prompt TEXT, status TEXT, next_run_at INTEGER, last_run_at INTEGER, cwds TEXT, rrule TEXT, model TEXT, reasoning_effort TEXT, created_at INTEGER, updated_at INTEGER)"
         )
+        connection.execute(
+            "create table automation_runs (thread_id TEXT, automation_id TEXT, status TEXT, read_at INTEGER, thread_title TEXT, source_cwd TEXT, inbox_title TEXT, inbox_summary TEXT, created_at INTEGER, updated_at INTEGER, archived_user_message TEXT, archived_assistant_message TEXT, archived_reason TEXT)"
+        )
         for automation_id, name in policy.DEFAULT_AUTOMATIONS.items():
             connection.execute(
                 "insert into automations (id, name, prompt, status, updated_at) values (?, ?, ?, ?, ?)",
                 (automation_id, name, f"Run {name}.", "ACTIVE", 1),
             )
         connection.commit()
+    finally:
+        connection.close()
+
+
+def _write_automation_run(codex_home: Path, automation_id: str, thread_id: str, status: str) -> None:
+    connection = sqlite3.connect(codex_home / "sqlite" / "codex-dev.db")
+    try:
+        connection.execute(
+            "insert into automation_runs (thread_id, automation_id, status, thread_title, created_at, updated_at) values (?, ?, ?, ?, ?, ?)",
+            (thread_id, automation_id, status, policy.DEFAULT_AUTOMATIONS[automation_id], 1, 1),
+        )
+        connection.commit()
+    finally:
+        connection.close()
+
+
+def _read_automation_runs(codex_home: Path) -> dict[tuple[str, str], str]:
+    connection = sqlite3.connect(codex_home / "sqlite" / "codex-dev.db")
+    try:
+        return {
+            (automation_id, thread_id): status
+            for automation_id, thread_id, status in connection.execute(
+                "select automation_id, thread_id, status from automation_runs"
+            )
+        }
     finally:
         connection.close()
 

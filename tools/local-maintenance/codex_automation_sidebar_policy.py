@@ -1,5 +1,11 @@
 from __future__ import annotations
 
+"""Local Codex workspace hygiene helper.
+
+This script repairs local sidebar/session clutter from recurring automations.
+It is not portfolio evidence, a project feature, or part of the public workflow.
+"""
+
 import argparse
 import json
 import re
@@ -18,6 +24,7 @@ DEFAULT_AUTOMATIONS = {
     "overnight-portfolio-goal": "Overnight portfolio goal",
 }
 
+CONFIRMATION_PHRASE = "APPLY_LOCAL_CODEX_AUTOMATION_POLICY"
 POLICY_MARKER = "Automation result delivery policy:"
 POLICY_TEXT = (
     "Automation result delivery policy:\n"
@@ -38,7 +45,10 @@ class IndexRecord:
 
 def main() -> int:
     parser = argparse.ArgumentParser(
-        description="Consolidate recurring Codex automation sidebar rows and pin automations to canonical threads."
+        description=(
+            "Local-only helper for consolidating recurring Codex automation sidebar rows. "
+            "Dry-run is the default."
+        )
     )
     parser.add_argument(
         "--codex-home",
@@ -46,14 +56,18 @@ def main() -> int:
         default=Path.home() / ".codex",
         help="Path to the local Codex state directory. Defaults to ~/.codex.",
     )
+    parser.add_argument("--apply", action="store_true", help="Write changes to local Codex state.")
     parser.add_argument(
-        "--dry-run",
-        action="store_true",
-        help="Report planned changes without writing files.",
+        "--confirm",
+        default="",
+        help=f"Required with --apply. Must equal {CONFIRMATION_PHRASE}.",
     )
     args = parser.parse_args()
 
-    summary = apply_policy(args.codex_home, dry_run=args.dry_run)
+    if args.apply and args.confirm != CONFIRMATION_PHRASE:
+        parser.error(f"--apply requires --confirm {CONFIRMATION_PHRASE}")
+
+    summary = apply_policy(args.codex_home, dry_run=not args.apply)
     print(json.dumps(summary, indent=2, sort_keys=True))
     return 0
 
@@ -73,6 +87,7 @@ def apply_policy(codex_home: Path, *, dry_run: bool = False, timestamp: str | No
         "session_files_moved": 0,
         "session_files_already_archived": 0,
         "missing_session_files": 0,
+        "automation_runs_archived": 0,
         "toml_files_updated": [],
         "databases_updated": [],
         "backups_created": [],
@@ -93,13 +108,27 @@ def apply_policy(codex_home: Path, *, dry_run: bool = False, timestamp: str | No
     )
     summary["toml_files_updated"] = policy_result["toml_files_updated"]
     summary["databases_updated"] = policy_result["databases_updated"]
-    summary["backups_created"] = index_result["backups_created"] + policy_result["backups_created"]
+
+    automation_run_result = archive_duplicate_automation_runs(
+        codex_home,
+        canonical_threads=index_result["canonical_threads"],
+        backup_dir=backup_dir,
+        dry_run=dry_run,
+    )
+    summary["automation_runs_archived"] = automation_run_result["archived"]
+    summary["databases_updated"] = sorted(
+        set(policy_result["databases_updated"] + automation_run_result["databases_updated"])
+    )
+    summary["backups_created"] = (
+        index_result["backups_created"] + policy_result["backups_created"] + automation_run_result["backups_created"]
+    )
 
     has_changes = (
         summary["backups_created"]
         or summary["session_index_rows_removed"]
         or summary["session_files_moved"]
         or summary["state_threads_archived"]
+        or summary["automation_runs_archived"]
         or summary["toml_files_updated"]
         or summary["databases_updated"]
     )
@@ -269,6 +298,71 @@ def update_automation_policy(
     }
 
 
+def archive_duplicate_automation_runs(
+    codex_home: Path,
+    *,
+    canonical_threads: dict[str, str],
+    backup_dir: Path,
+    dry_run: bool,
+) -> dict[str, Any]:
+    db_path = codex_home / "sqlite" / "codex-dev.db"
+    if not db_path.exists():
+        return {"archived": 0, "databases_updated": [], "backups_created": []}
+
+    canonical_by_automation_id = {
+        automation_id: canonical_threads.get(title)
+        for automation_id, title in DEFAULT_AUTOMATIONS.items()
+        if canonical_threads.get(title)
+    }
+    if not canonical_by_automation_id:
+        return {"archived": 0, "databases_updated": [], "backups_created": []}
+
+    connection = sqlite3.connect(db_path)
+    try:
+        if not _sqlite_table_exists(connection, "automation_runs"):
+            return {"archived": 0, "databases_updated": [], "backups_created": []}
+
+        rows_to_archive: list[tuple[str, str]] = []
+        for automation_id, canonical_thread_id in canonical_by_automation_id.items():
+            rows_to_archive.extend(
+                connection.execute(
+                    """
+                    select automation_id, thread_id
+                    from automation_runs
+                    where automation_id = ?
+                      and thread_id <> ?
+                      and status <> 'ARCHIVED'
+                    """,
+                    (automation_id, canonical_thread_id),
+                ).fetchall()
+            )
+
+        if not rows_to_archive:
+            return {"archived": 0, "databases_updated": [], "backups_created": []}
+
+        backups_created = []
+        if not dry_run:
+            backups_created.append(str(_backup_file(db_path, backup_dir)))
+            now_ms = int(time.time() * 1000)
+            for automation_id, thread_id in rows_to_archive:
+                connection.execute(
+                    """
+                    update automation_runs
+                    set status = 'ARCHIVED',
+                        archived_reason = 'auto-sidebar-policy',
+                        updated_at = ?
+                    where automation_id = ?
+                      and thread_id = ?
+                    """,
+                    (now_ms, automation_id, thread_id),
+                )
+            connection.commit()
+
+        return {"archived": len(rows_to_archive), "databases_updated": [str(db_path)], "backups_created": backups_created}
+    finally:
+        connection.close()
+
+
 def update_automation_database(codex_home: Path, *, backup_dir: Path, dry_run: bool) -> dict[str, Any]:
     db_path = codex_home / "sqlite" / "codex-dev.db"
     if not db_path.exists():
@@ -303,6 +397,16 @@ def update_automation_database(codex_home: Path, *, backup_dir: Path, dry_run: b
         return {"databases_updated": [str(db_path)], "backups_created": backups_created}
     finally:
         connection.close()
+
+
+def _sqlite_table_exists(connection: sqlite3.Connection, table_name: str) -> bool:
+    return (
+        connection.execute(
+            "select 1 from sqlite_master where type = 'table' and name = ?",
+            (table_name,),
+        ).fetchone()
+        is not None
+    )
 
 
 def _parse_index_line(line: str) -> IndexRecord:
