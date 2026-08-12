@@ -8,9 +8,12 @@ My strongest lanes are systems QA, data quality, backend and API validation, liv
 
 - QA Engineer II on **Ashes of Creation**, focused on Unreal-based MMO systems, economy, crafting, progression, equipment, mounts, vehicles, MTX/shop content, tools, and player-facing risk
 - Nearly three years supporting **Diablo Immortal** data quality through SQL-supported investigation, telemetry and pipeline validation, discrepancy analysis, backend/API testing, and stakeholder reporting
-- Team Burst strike-team experience across Warcraft III: Reforged, Hearthstone, Diablo IV, Diablo Immortal, Call of Duty, World of Warcraft, and confidential incubation work
+- Team Burst strike-team experience across Warcraft III: Reforged, Hearthstone, Diablo II: Resurrected, Diablo IV, Diablo Immortal, Overwatch 2, Call of Duty, Warcraft Rumble, World of Warcraft, and confidential incubation work
 - Authored thousands of test cases across hundreds of test suites covering smoke, regression, systems, data, tools, live-service, shop/MTX, and release-readiness scenarios
 - Prepared and maintained test coverage for automation execution while keeping manual exploratory testing, edge cases, and player impact visible
+- Managed external QA tasking and execution through scoped instructions, coverage expectations, evidence review, follow-up, and clear delivery handoffs
+- Planned and executed PTR test sessions with players to gather actionable data, validate changes, and surface release risk
+- Parsed Grafana dashboards and telemetry to investigate bugs, identify recurring trends and exploit patterns, and expose weaknesses in game systems and backend components
 - Experienced with Jira, Confluence, Perforce, Jenkins, Grafana, Unreal Engine, SQL, GCP, BigQuery, Dataflow, telemetry review, and structured defect reporting
 - Strong cross-functional communication with engineering, design, production, analytics/data, QA leadership, community/support, and external test partners
 
@@ -21,6 +24,7 @@ My strongest lanes are systems QA, data quality, backend and API validation, liv
 As QA Engineer II, I supported an Unreal-based MMO with broad systems ownership and high interaction risk.
 
 - Validated economy, crafting, progression, rewards, equipment, weapons, mounts, caravans/vehicles, artisan stations, market/shop and MTX content, UI, tools, and supporting data
+- As part of the Economy team, contributed to the design and validation of an equipment rework across two milestones, helping translate system goals, item behavior, and progression changes into testable requirements and release coverage
 - Built and maintained test plans, test suites, playtest instructions, acceptance criteria, regression coverage, and release-risk summaries
 - Investigated backend, API, configuration, data, and player-facing failures with clear repro steps and developer-ready evidence
 - Worked directly with engineering, design, production, QA leadership, and support partners to triage issues and protect developer time
@@ -39,7 +43,7 @@ Nearly three years of live-service data-quality work supporting validation, inve
 Warcraft III: Reforged was my first professional game assignment. Team Burst then provided flexible cross-project QA support across released products and confidential incubation work.
 
 - Entered changing feature areas quickly, established coverage, reproduced issues, and reported risk under milestone and release pressure
-- Tested Warcraft III: Reforged, Hearthstone, Diablo IV, Diablo Immortal, Call of Duty, and World of Warcraft across gameplay, systems, content, compatibility, tools, data, and build validation needs
+- Tested Warcraft III: Reforged, Hearthstone, Diablo II: Resurrected, Diablo IV, Diablo Immortal, Overwatch 2, Call of Duty, Warcraft Rumble, and World of Warcraft across gameplay, systems, content, compatibility, tools, data, and build validation needs
 - Prepared and executed smoke, regression, fix-verification, and focused test suites while adapting to different team workflows
 - Coordinated clear handoffs so engineering, production, and embedded QA teams could act on findings quickly
 - Supported additional incubation projects that remain unnamed because the work was confidential
@@ -48,9 +52,12 @@ Warcraft III: Reforged was my first professional game assignment. Team Burst the
 
 - Warcraft III: Reforged (first professional game assignment)
 - Hearthstone
+- Diablo II: Resurrected
 - Diablo IV
 - Diablo Immortal
+- Overwatch 2
 - Call of Duty: Modern Warfare II
+- Warcraft Rumble
 - World of Warcraft: Shadowlands and Dragonflight
 - Ashes of Creation
 
@@ -73,6 +80,8 @@ Optional support layer: **[QA Portfolio Auditor](docs/qa-portfolio-auditor.html)
 | Systems QA | Economy, crafting, progression, equipment, mounts, vehicles, tools, UI, shops, MTX, and interacting MMO systems |
 | Data / Backend QA | SQL-supported investigation, APIs, ETL-style flows, telemetry, dashboards, discrepancy analysis, and data-to-client validation |
 | Test Ownership | Thousands of test cases, hundreds of suites, risk-based coverage, smoke/regression strategy, acceptance criteria, and fix verification |
+| External / PTR QA | External tasking and execution, player test planning, evidence intake, data gathering, escalation, and follow-through |
+| Observability | Grafana and telemetry analysis for bug trends, exploit patterns, recurring failures, and component-level weaknesses |
 | Delivery Toolchain | Jira, Confluence, Perforce, Jenkins, Grafana, Unreal Engine, GCP, BigQuery, Dataflow, Git, GitHub, and pytest |
 | Agent-Supervised Workflows | Scoped agent tasks, source-stability checks, build evidence, human smoke testing, audit trails, and owner-gated release decisions |
 
