@@ -379,16 +379,16 @@ h3 {
   width: 100%;
 }
 
-#art-qa,
+#qa-systems,
 #projects,
-#learning {
+#technical-work {
   isolation: isolate;
   overflow: hidden;
 }
 
-#art-qa::before,
+#qa-systems::before,
 #projects::before,
-#learning::before {
+#technical-work::before {
   background:
     linear-gradient(90deg, rgba(9, 8, 6, 0.98) 0%, rgba(9, 8, 6, 0.88) 42%, rgba(9, 8, 6, 0.62) 100%),
     linear-gradient(180deg, rgba(9, 8, 6, 0.7), rgba(9, 8, 6, 0.94)),
@@ -404,8 +404,8 @@ h3 {
   z-index: 0;
 }
 
-#art-qa::before,
-#learning::before {
+#qa-systems::before,
+#technical-work::before {
   background-position: center, center, 78% center;
   opacity: 0.22;
 }
@@ -515,6 +515,34 @@ h3 {
   list-style: none;
   margin: 2rem 0 0;
   padding: 0;
+}
+
+.tool-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  list-style: none;
+  margin: 1.5rem 0 0;
+  padding: 0;
+}
+
+.tool-list li {
+  background-color: #100e0b;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-weight: 700;
+  padding: 0.42rem 0.68rem;
+}
+
+.coverage-heading {
+  margin: 2.25rem auto 0;
+  max-width: 960px;
+}
+
+.coverage-note {
+  margin: 0.4rem auto 0;
+  max-width: 960px;
 }
 
 .game-list {
@@ -852,6 +880,10 @@ h3 {
 }
 
 @media (max-width: 520px) {
+  .section {
+    scroll-margin-top: 12rem;
+  }
+
   .hero {
     padding: 2rem 1rem 2.5rem;
   }

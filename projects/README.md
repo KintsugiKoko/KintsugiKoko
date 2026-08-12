@@ -13,6 +13,7 @@ These are not full game projects yet. They are small practice projects that help
 | [Art Telemetry QA](art-telemetry-qa/README.md) | MVP prototype | Mock Unreal-style Art QA telemetry parsing, validation rules, risk scoring, Jira-ready report drafts, and [report showcase](../docs/art-qa-telemetry-report-showcase.md) |
 | [Community Pulse](community-pulse-report-tool/README.md) | First version | Mock player/playtest feedback grouping, risk notes, readiness summary, and Markdown report drafts |
 | [External QA Handoff Manager](external-qa-handoff-manager/README.md) | First version | Offsite QA handoff planning, scenario coverage, evidence requirements, intake checklist, and Markdown export |
+| [Project Fibsh](fibsh/README.md) | Private WIP summary | Agent-supervised Unreal workflow, isolated build/package evidence, persistence validation, and release-risk tracking |
 | [Obsidian Conversation Sync Agent](obsidian-conversation-sync-agent/README.md) | First version | Local Python CLI that turns exported AI conversations into connected Obsidian-friendly Markdown notes |
 | [QA Bug Report Portfolio](qa-bug-report-portfolio/README.md) | Planned | Practicing clear bug reports, screenshots, steps to reproduce, and reflection |
 | [Unreal Project Showcase](unreal-project-showcase/README.md) | Work in progress | Documenting an Unreal project through development notes, QA notes, reflection, and [test level scenarios](../docs/unreal-test-levels-and-scenarios.md) |

@@ -1,163 +1,100 @@
-# Hi, I'm Keith McAvoy
+# Keith McAvoy
 
-Also building here as **KintsugiKoko**.
+Senior QA / Quality Assurance Engineer with 7+ years of game-industry experience across Blizzard Entertainment, Activision, and Intrepid Studios.
 
-I am a Senior QA / Technical QA / Art QA professional with 7+ years of game QA experience, now building a public learning portfolio around Python, GitHub, AI-assisted QA workflows, documentation, and project-based problem solving.
+My strongest lanes are systems QA, data quality, backend and API validation, live-service testing, test planning, and cross-discipline risk communication. This portfolio shows how I turn those strengths into practical tools, documented workflows, and human-reviewed agent-assisted development.
 
-This GitHub is meant to give recruiters and collaborators a practical view of how I think, learn, document, test, and improve. It is not a polished senior engineering portfolio. It is a real record of professional QA experience meeting active technical growth.
+## Senior QA / QAE Snapshot
 
-## Recruiter Snapshot
+- QA Engineer II on **Ashes of Creation**, focused on Unreal-based MMO systems, economy, crafting, progression, equipment, mounts, vehicles, MTX/shop content, tools, and player-facing risk
+- Nearly three years supporting **Diablo Immortal** data quality through SQL-supported investigation, telemetry and pipeline validation, discrepancy analysis, backend/API testing, and stakeholder reporting
+- Team Burst strike-team experience across Warcraft III: Reforged, Hearthstone, Diablo IV, Diablo Immortal, Call of Duty, World of Warcraft, and confidential incubation work
+- Authored thousands of test cases across hundreds of test suites covering smoke, regression, systems, data, tools, live-service, shop/MTX, and release-readiness scenarios
+- Prepared and maintained test coverage for automation execution while keeping manual exploratory testing, edge cases, and player impact visible
+- Experienced with Jira, Confluence, Perforce, Jenkins, Grafana, Unreal Engine, SQL, GCP, BigQuery, Dataflow, telemetry review, and structured defect reporting
+- Strong cross-functional communication with engineering, design, production, analytics/data, QA leadership, community/support, and external test partners
 
-- Senior QA / Technical QA / Art QA background with 7+ years of professional game QA experience across Blizzard Entertainment, Activision, and Intrepid Studios
-- Experienced in gameplay systems validation, Art QA validation, exploratory testing, smoke and regression testing, build verification, release readiness, and player-impact risk communication
-- Direct Art QA specialist experience with telemetry capture/parsing, graphical/content issue investigation, asset-heavy systems validation, test plan ownership, Jira triage, and cross-discipline reporting
-- Performance-aware QA habits: build/config/platform context, repeatable stress scenarios, telemetry signals, fix verification, and residual-risk reporting
-- Unreal Engine experience through 3 years on Ashes of Creation, including validation of equipment-facing systems, content implementation issues, and developer/test environment behavior
-- Strong at writing clear bug reports with repro steps, expected vs. actual behavior, severity, priority, regression context, and player-facing impact
-- Comfortable owning test plans, acceptance criteria, setup/debug instructions, Jira triage, offsite/PTR tester coordination, and leadership-ready risk summaries
-- Comfortable working cross-functionally with QA, Art, Tech Art, Performance, design, engineering, production, support, and leadership partners
-- Currently extending QA practice into Python, Git/GitHub, structured Markdown documentation, test automation basics, log triage, and AI-assisted QA tooling
+## Professional Experience Focus
 
-## Professional Background
+### Intrepid Studios - Ashes of Creation
 
-### Intrepid Studios
+As QA Engineer II, I supported an Unreal-based MMO with broad systems ownership and high interaction risk.
 
-QA Engineer II / Game Designer experience connected to **Ashes of Creation**, with work focused on player-facing quality, MMO systems risk, regression coverage, build validation, bug reporting, design-informed QA feedback, and Unreal-based content validation.
+- Validated economy, crafting, progression, rewards, equipment, weapons, mounts, caravans/vehicles, artisan stations, market/shop and MTX content, UI, tools, and supporting data
+- Built and maintained test plans, test suites, playtest instructions, acceptance criteria, regression coverage, and release-risk summaries
+- Investigated backend, API, configuration, data, and player-facing failures with clear repro steps and developer-ready evidence
+- Worked directly with engineering, design, production, QA leadership, and support partners to triage issues and protect developer time
 
-Areas of contribution included:
+### Blizzard Entertainment - Diablo Immortal Data QA
 
-- Investigating gameplay, world, content, UI/UX, stability, progression, and edge-case issues
-- Validating economy and equipment-adjacent content including weapons, mounts, MTX cosmetics, artisan stations, caravans/vehicles, materials, VFX-adjacent checks, and Unreal-based asset implementation issues
-- Communicating repro steps, expected results, actual results, severity, and player impact
-- Partnering with design, engineering, Art/Tech Art, production, QA leadership, and support stakeholders
-- Creating setup instructions, playtest guides, acceptance criteria, bug templates, fix-verification notes, and risk summaries
-- Providing feedback on usability friction, exploit paths, content readability, tuning concerns, and systems clarity
+Nearly three years of live-service data-quality work supporting validation, investigation, and reporting.
 
-### Blizzard Entertainment / Activision
+- Validated data across backend pipelines, APIs, ETL-style workflows, telemetry, dashboards, and game-facing outputs
+- Used SQL and cloud data tooling to isolate discrepancies, compare expected and actual results, and communicate actionable findings
+- Supported live-service updates through smoke, regression, fix verification, data-quality checks, and stakeholder reporting
+- Worked with Grafana, Jenkins, Perforce, GCP, BigQuery, Dataflow, and internal tooling as part of repeatable QA workflows
 
-Game QA / Quality Assurance experience across multiple Blizzard and Activision franchises, including Art QA and telemetry-driven validation work across high-visibility release cycles.
+### Blizzard / Activision - Team Burst Strike Team
 
-Areas of contribution included:
+Warcraft III: Reforged was my first professional game assignment. Team Burst then provided flexible cross-project QA support across released products and confidential incubation work.
 
-- Feature-area coverage across gameplay, UI, content, compatibility, regression, live-service updates, and player-impact validation
-- Telemetry capture and parsing for Art QA test suites, including Warcraft III: Reforged work
-- Art QA checks and graphical/content validation across World of Warcraft: Shadowlands / Dragonflight, Diablo IV, Diablo Immortal, Overwatch 2, and Modern Warfare II work
-- Early Tech Art environment and character validation on Blizzard Project Odyssey before the project was cancelled/unreleased
-- Milestone and release testing through smoke passes, regression passes, fix validation, blocker escalation, and issue trend communication
-- Clear, actionable defect reporting for engineering and design partners
-- Collaboration with QA, design, engineering, production, analytics/telemetry, and support partners
+- Entered changing feature areas quickly, established coverage, reproduced issues, and reported risk under milestone and release pressure
+- Tested Warcraft III: Reforged, Hearthstone, Diablo IV, Diablo Immortal, Call of Duty, and World of Warcraft across gameplay, systems, content, compatibility, tools, data, and build validation needs
+- Prepared and executed smoke, regression, fix-verification, and focused test suites while adapting to different team workflows
+- Coordinated clear handoffs so engineering, production, and embedded QA teams could act on findings quickly
+- Supported additional incubation projects that remain unnamed because the work was confidential
 
-## Art QA / Performance QA Validation
+## Selected Professional Test Coverage
 
-One of my stronger lanes is practical Art QA validation: capturing data, parsing results, validating content at scale, isolating regressions, and turning visual or asset-heavy issues into clean reports for Tech Art, Performance, Engineering, Design, and QA partners.
-
-The practical strength is QA ownership around graphical/content issues: telemetry-assisted investigation, Unreal-based content validation, equipment and environment passes, multi-build regression awareness, Jira triage, and test planning. I am not presenting this as shader-authoring or graphics-engineering work.
-
-My operating model is straightforward: capture build, branch, platform/config, location, repro path, screenshots/video, telemetry source, and player impact; parse expected vs. actual behavior; stress repeatable asset-heavy or VFX-heavy scenarios; then close the loop with fix verification, Jira notes, and residual-risk reporting.
-
-## Selected Game Work
-
-Selected professional game work includes:
-
-- Warcraft III: Reforged
-- StarCraft: Cartooned
-- Hearthstone expansions
-- Diablo II Switch port
-- Diablo II: Resurrected
-- Overwatch 2
-- World of Warcraft: Shadowlands
-- World of Warcraft: Dragonflight
+- Warcraft III: Reforged (first professional game assignment)
+- Hearthstone
 - Diablo IV
 - Diablo Immortal
-- Modern Warfare II
-- Blizzard Project Odyssey (unreleased/cancelled)
-- Warcraft Rumble
-- World of Warcraft: The War Within
-- Diablo IV: Vessel of Hatred
+- Call of Duty: Modern Warfare II
+- World of Warcraft: Shadowlands and Dragonflight
 - Ashes of Creation
 
-## What This GitHub Shows
-
-This repository focuses on the bridge between my QA background and the technical skills I am actively building.
-
-- Small, realistic practice projects
-- Beginner-friendly Python examples
-- Structured QA documentation
-- Markdown project writeups
-- Learning logs and reflection
-- GitHub workflow practice
-- AI-assisted workflows with human review and honest documentation
-
-The projects here are public learning artifacts. They are meant to show direction, consistency, problem solving, and communication rather than claim that every project is production-level software.
-
-## What I'm Learning Now
-
-- Python fundamentals for QA-focused tools
-- Git and GitHub workflows
-- Markdown documentation and project writeups
-- Pytest basics and simple test coverage
-- Log parsing, bug report formatting, and structured QA summaries
-- Local AI conversation sync into Obsidian-style learning notes
-- AI-assisted workflows for planning, drafting, debugging, test ideas, and reflection
-- How to explain technical work clearly for both technical and non-technical readers
+Additional incubation assignments are intentionally omitted. Public credit databases do not always capture short-term strike-team or cross-project QA support, so this section reflects my professional testing scope rather than claiming a separate on-screen credit for every assignment.
 
 ## Best First Review Path
 
-For a quick review of my QA portfolio, start here:
+1. **[External QA Handoff Manager](docs/external-qa-handoff-manager.html)** - Test planning, scenario coverage, evidence standards, intake review, external-team coordination, and Markdown handoff exports.
+2. **[Community Pulse](projects/community-pulse-report-tool/README.md)** - Local CSV data validation, deterministic analysis, exact quote preservation, reporting boundaries, and human-reviewed follow-up.
+3. **[QA Bug Report Tool](projects/qa-bug-report-tool/README.md)** - Repro quality, severity and priority framing, validation, structured Markdown and JSON output, and pytest coverage.
+4. **[Game QA Field Guide](docs/game-qa-field-guide.html)** - Practical risk-based testing, test design, defect quality, and reusable game-QA templates.
+5. **[Project Fibsh](projects/fibsh/README.md)** - Private Unreal development summarized through agent-supervised workflow controls, packaged-build validation, automation evidence, persistence checks, and explicit release-risk tracking.
 
-1. **QA Bug Report Tool** — Shows structured bug writing, repro quality, severity/priority thinking, Markdown export, JSON output, and pytest-backed validation.
+Optional support layer: **[QA Portfolio Auditor](docs/qa-portfolio-auditor.html)** checks static portfolio metadata for documentation coverage, evidence completeness, recruiter clarity, and overclaim risk. It supplements manual review; it does not crawl the live site or certify production readiness.
 
-2. **Nyx Test Planner** — Live-demos QA planning judgment by turning early gameplay ideas into human-reviewed test scenarios, risk notes, status tracking, and Markdown test-plan exports.
+## Systems, Pipelines, And Tooling
 
-3. **Art Telemetry QA** — Shows Art QA / Technical QA evidence work by parsing mock Unreal-style art validation data into risk summaries, owner-routing notes, regression notes, and Jira-ready reports without claiming live Unreal automation.
+| Area | Evidence |
+| --- | --- |
+| Systems QA | Economy, crafting, progression, equipment, mounts, vehicles, tools, UI, shops, MTX, and interacting MMO systems |
+| Data / Backend QA | SQL-supported investigation, APIs, ETL-style flows, telemetry, dashboards, discrepancy analysis, and data-to-client validation |
+| Test Ownership | Thousands of test cases, hundreds of suites, risk-based coverage, smoke/regression strategy, acceptance criteria, and fix verification |
+| Delivery Toolchain | Jira, Confluence, Perforce, Jenkins, Grafana, Unreal Engine, GCP, BigQuery, Dataflow, Git, GitHub, and pytest |
+| Agent-Supervised Workflows | Scoped agent tasks, source-stability checks, build evidence, human smoke testing, audit trails, and owner-gated release decisions |
 
-4. **Community Pulse** — Turns mock player/playtest feedback into structured theme summaries, risk notes, and human-reviewed QA follow-up reports.
-
-5. **External QA Handoff Manager** — Demonstrates QA leadership and offsite QA coordination by turning feature goals into outsource-ready test packets, scenario coverage, bug-quality standards, evidence requirements, intake review checklists, and Markdown handoff exports.
-
-Optional support layer: **[QA Portfolio Auditor](docs/qa-portfolio-auditor.html)** checks portfolio tools for demo readiness, documentation coverage, recruiter-safe wording, evidence completeness, and overclaim risk before publishing. It uses static/mock portfolio metadata and human-reviewed checks; it does not crawl the live site, perform browser automation, validate deployment health, connect to Jira or Unreal, or replace manual review.
-
-These projects stay portfolio-safe: mock data, human-reviewed QA reports, planning scenarios, and no claim of live Unreal automation, private studio data, Jira integration, or production pipeline ownership.
-
-## Featured Projects
+## Featured Portfolio Projects
 
 | Project | Status | Focus |
 | --- | --- | --- |
-| [QA Bug Report Tool](projects/qa-bug-report-tool/README.md) | First version | Python CLI, pytest, structured Markdown bug reports, QA note practice |
-| [Nyx Test Planner](docs/nyx-test-planner.html) | Live planning prototype | Browser-based QA planning board for Nyx scenarios, risk, status, and Markdown test plan drafts |
-| [Art Telemetry QA](projects/art-telemetry-qa/README.md) | MVP prototype | Mock Unreal-style Art QA telemetry parsing, asset-risk scoring, owner routing, Jira-ready report drafts, [report showcase](docs/art-qa-telemetry-report-showcase.md) |
-| [Community Pulse](projects/community-pulse-report-tool/README.md) | First version | Mock player/playtest feedback grouping, risk notes, readiness summary, and Markdown report drafts |
-| [External QA Handoff Manager](docs/external-qa-handoff-manager.html) | First version | Offsite QA handoff planning, scenario coverage, evidence requirements, intake checklist, and Markdown export |
-| [Obsidian Conversation Sync Agent](projects/obsidian-conversation-sync-agent/README.md) | First version | Local Python CLI, exported AI conversations, connected Obsidian Markdown notes, documentation workflow |
-| [QA Bug Report Portfolio](projects/qa-bug-report-portfolio/README.md) | In progress | Sample bug reports, repro clarity, severity framing, QA documentation |
-| [Unreal Project Showcase](projects/unreal-project-showcase/README.md) | Work in progress | Unreal project notes, development logs, QA/playtest observations, [test level scenarios](docs/unreal-test-levels-and-scenarios.md) |
-| [Learning Portfolio Homepage](docs/index.html) | In progress | Plain HTML/CSS, GitHub Pages, portfolio structure |
-| [Project Roadmap](projects/README.md) | In progress | Beginner project planning, project reflection, learning path |
+| [External QA Handoff Manager](docs/external-qa-handoff-manager.html) | Working browser prototype | Handoff packets, scenario matrices, evidence standards, intake review, and QA-lead summaries |
+| [Community Pulse](projects/community-pulse-report-tool/README.md) | Working local prototype | CSV parsing, data validation, reporting support, deterministic tests, and human review |
+| [QA Bug Report Tool](projects/qa-bug-report-tool/README.md) | Working CLI prototype | Structured defects, field validation, Markdown/JSON export, and pytest |
+| [QA Portfolio Auditor](docs/qa-portfolio-auditor.html) | Supporting prototype | Portfolio evidence checks, documentation coverage, and overclaim control |
+| [Project Fibsh](projects/fibsh/README.md) | Private WIP game project | Agent-supervised Unreal workflow, build/package evidence, persistence validation, and risk tracking |
+| [Nyx Test Planner](docs/nyx-test-planner.html) | Live planning prototype | Human-reviewed gameplay scenarios, risk notes, status tracking, and Markdown export |
 
-More projects will be added as they move from planned ideas into real practice.
+## Public / Private Boundary
 
-## Learning Logs
+The portfolio publishes selected QA tools, sample data, process notes, and recruiter-safe summaries. Private game repositories, Unreal content, Blender source files, packaged builds, credentials, commercial planning, and unreleased design material are not published here.
 
-| Log | Focus |
-| --- | --- |
-| [Week 01 - Starting the Rebuild](https://github.com/KintsugiKoko/learning-journey/blob/main/logs/2026-05-week-01.md) | First public reflection on GitHub, documentation, AI support, games, rebuilding, and the first Python QA CLI project |
-
-The learning logs track what I practiced, what confused me, what I learned, and what I want to understand next.
-
-## Repository Map
-
-| Area | Purpose |
-| --- | --- |
-| [learning-journey](https://github.com/KintsugiKoko/learning-journey) | Weekly logs, reflections, and learning notes |
-| [projects](projects/README.md) | Beginner project roadmap, QA practice projects, writeups, and templates |
-| [docs](docs/index.html) | Simple GitHub Pages portfolio homepage |
-| [AGENTS.md](AGENTS.md) | Guidance for future Codex work in this repository |
-
-## AI-Assisted Learning Note
-
-This is an AI-assisted learning journey. I use AI tools to help plan, explain, draft, debug, organize, and reflect on my work. I still aim to understand the changes I make, document what I learn, and avoid claiming skills or experience I have not earned yet.
+Portfolio tools use fictional, mock, or manually prepared data unless stated otherwise. Agent assistance supports planning, implementation, review, and documentation; I remain responsible for scope, verification, and final decisions.
 
 ## Links
 
-- GitHub: [KintsugiKoko](https://github.com/KintsugiKoko)
-- LinkedIn: [Keith McAvoy](https://www.linkedin.com/in/keith-mcavoy-053710207)
+- [Portfolio Homepage](https://kintsugikoko.github.io/KintsugiKoko/)
+- [GitHub](https://github.com/KintsugiKoko)
+- [LinkedIn](https://www.linkedin.com/in/keith-mcavoy-053710207)
