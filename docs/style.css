@@ -542,6 +542,15 @@ h3 {
   object-fit: contain;
 }
 
+.evidence-figure--wide {
+  grid-column: 1 / -1;
+}
+
+.evidence-figure--natural img {
+  aspect-ratio: auto;
+  object-fit: contain;
+}
+
 .evidence-figure > a:hover img,
 .evidence-figure > a:focus-visible img {
   transform: scale(1.015);

@@ -65,11 +65,15 @@ This approved, human-reviewed concept board establishes the city-cat silhouette,
 
 The orthographic plan supports design decisions about the dock approach, shoreline loop, central fishing focus, readable landmarks, and supporting activity spaces.
 
+### Environment Direction Studies
+
+The [world-scale environment concept](../../docs/assets/fibsh/lake-glorp-world-concept.png) explores crystal-lit water, route rhythm, forest enclosure, settlement silhouettes, and warm navigation lights. The [player-view boat keyframe](../../docs/assets/fibsh/lake-glorp-boat-keyframe-concept.png) explores camera height, the city-cat silhouette, shoreline landmarks, and arrival mood. Both are concept explorations, not current level-footprint or implemented traversal claims.
+
 ### Blender Environment And Character Work
 
-[![Lake Glorp Blender environment work in progress](../../docs/assets/fibsh/lake-glorp-blender-environment-wip.png)](https://kintsugikoko.github.io/KintsugiKoko/game-design.html#visual-evidence)
+[![Lake Glorp Blender composition master work in progress](../../docs/assets/fibsh/lake-glorp-blender-composition-master-wip.png)](https://kintsugikoko.github.io/KintsugiKoko/game-design.html#visual-evidence)
 
-The Lake Glorp structural pass tests terrain tiers, shoreline shape, approach paths, lighting anchors, and camera coverage. A separate [Parry rig stress render](../../docs/assets/fibsh/parry-blender-rig-stress-wip.png) records fishing-arm deformation and pose-range review. Parry is a WIP validation character, not the final player identity.
+The Lake Glorp composition master is an editable Blender WIP showing the sculpted lake silhouette, terrain tiers, shoreline routes, forest massing, and coverage paths. A separate [gameplay-view structural pass](../../docs/assets/fibsh/lake-glorp-blender-environment-wip.png) tests the approach at a closer camera distance, while the [Parry rig stress render](../../docs/assets/fibsh/parry-blender-rig-stress-wip.png) records fishing-arm deformation and pose-range review. Parry is a WIP validation character, not the final player identity.
 
 ### Packaged Unreal Validation
 

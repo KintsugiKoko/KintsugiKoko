@@ -8,7 +8,7 @@ Each entry is labeled by its actual maturity. Small portfolio prototypes remain 
 
 | Project | Status | Focus |
 | --- | --- | --- |
-| [Game Design Portfolio](game-design-portfolio/README.md) | Current design showcase | Public-safe Ashes contributions plus Project Fibsh character concepts, Lake Glorp planning, Blender work, and packaged WIP evidence |
+| [Game Design Portfolio](game-design-portfolio/README.md) | Current design showcase | Public-safe Ashes contributions plus Project Fibsh character and environment concepts, the Lake Glorp Blender composition master, and packaged WIP evidence |
 | [QA Bug Report Tool](qa-bug-report-tool/README.md) | First version | Python CLI, pytest, structured Markdown bug reports, and QA note practice |
 | [Nyx Test Planner](nyx-test-planner/README.md) | Earlier planning prototype | Browser-based QA planning board for Nyx scenarios, risk, status, and Markdown test plan drafts |
 | [Art Telemetry QA](art-telemetry-qa/README.md) | MVP prototype | Mock Unreal-style Art QA telemetry parsing, validation rules, risk scoring, Jira-ready report drafts, and [report showcase](../docs/art-qa-telemetry-report-showcase.md) |

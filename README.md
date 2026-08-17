@@ -60,7 +60,7 @@ My primary professional lane is Senior QA / QAE, but part of that work has inclu
 | Ashes quests and world events | Designed content with the Narrative Design team | Professional team contribution, confidential details omitted |
 | Ashes equipment recipes and rework | Designed recipes and supported an equipment rework across two milestones with the Economy team | Professional team contribution, confidential details omitted |
 | Project Fibsh visual direction | Human-reviewed city-cat and gameplay concept boards | Approved concept direction, clearly separated from in-engine captures |
-| Lake Glorp level work | Spatial concept, Blender environment passes, and camera/coverage review | Selected flat evidence published, source files remain private |
+| Lake Glorp level work | Spatial and visual concepts, editable Blender composition master, environment passes, and camera/coverage review | Selected flat evidence published, source files remain private |
 | Project Fibsh gameplay iteration | Packaged WIP fishing-flow capture, persistence checks, and follow-up UX work | Functional prototype evidence, not release presentation |
 | Project Fibsh validation loop | Isolated builds, automated checks, packaged validation, human smoke testing, and owner decisions | Evidence types kept separate, no release-readiness claim |
 
@@ -87,7 +87,7 @@ Additional incubation assignments are intentionally omitted. Public credit datab
 2. **[Community Pulse](projects/community-pulse-report-tool/README.md)** - Local CSV data validation, deterministic analysis, exact quote preservation, reporting boundaries, and human-reviewed follow-up.
 3. **[QA Bug Report Tool](projects/qa-bug-report-tool/README.md)** - Repro quality, severity and priority framing, validation, structured Markdown and JSON output, and pytest coverage.
 4. **[Game QA Field Guide](docs/game-qa-field-guide.html)** - Practical risk-based testing, test design, defect quality, and reusable game-QA templates.
-5. **[Project Fibsh](projects/fibsh/README.md)** - Current private Unreal development shown through selected character and level concepts, Blender work, packaged WIP captures, persistence checks, and explicit release-risk tracking.
+5. **[Project Fibsh](projects/fibsh/README.md)** - Current private Unreal development shown through selected character and environment concepts, the Lake Glorp Blender composition master, packaged WIP captures, persistence checks, and explicit release-risk tracking.
 
 For game-design roles, use the **[Game Design Portfolio](https://kintsugikoko.github.io/KintsugiKoko/game-design.html)** as the first review path. It keeps design evidence separate from the primary QA tool path.
 
@@ -113,7 +113,7 @@ Optional support layer: **[QA Portfolio Auditor](docs/qa-portfolio-auditor.html)
 | [Community Pulse](projects/community-pulse-report-tool/README.md) | Working local prototype | CSV parsing, data validation, reporting support, deterministic tests, and human review |
 | [QA Bug Report Tool](projects/qa-bug-report-tool/README.md) | Working CLI prototype | Structured defects, field validation, Markdown/JSON export, and pytest |
 | [QA Portfolio Auditor](docs/qa-portfolio-auditor.html) | Supporting prototype | Portfolio evidence checks, documentation coverage, and overclaim control |
-| [Project Fibsh](projects/fibsh/README.md) | Private WIP game project | Character and level concepts, Blender development, packaged WIP captures, persistence validation, and risk tracking |
+| [Project Fibsh](projects/fibsh/README.md) | Private WIP game project | Character and environment concepts, Blender composition and rig development, packaged WIP captures, persistence validation, and risk tracking |
 | [Game Design Portfolio](https://kintsugikoko.github.io/KintsugiKoko/game-design.html) | Current design showcase | Ashes content and systems contributions plus Project Fibsh visual development, systems, and validation evidence |
 
 ## Public / Private Boundary
