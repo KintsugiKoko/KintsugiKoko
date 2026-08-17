@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark">
+  <meta name="darkreader-lock">
+  <meta name="description" content="Keith McAvoy's public-safe game design portfolio covering systems, progression, player-facing iteration, and WIP Unreal prototype evidence.">
+  <title>Keith McAvoy | Game Design Portfolio</title>
+  <link rel="preload" href="assets/kintsugi-koko-2026.png" as="image">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Game design portfolio navigation">
+      <a class="brand" href="index.html">Keith McAvoy</a>
+      <div class="nav-links">
+        <a href="index.html">QA Portfolio</a>
+        <a href="#professional-design">Professional Work</a>
+        <a href="#nyx-systems">Nyx Systems</a>
+        <a href="#levels-spaces">Levels And Spaces</a>
+        <a href="#process">Process</a>
+        <a href="#evidence">Evidence</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero design-page-hero">
+      <div class="hud-lines" aria-hidden="true"></div>
+      <div class="hero-content">
+        <p class="eyebrow">Game Design Portfolio</p>
+        <h1>Systems, progression, and player-facing iteration</h1>
+        <p class="role-line">Professional contribution plus original WIP design work</p>
+        <p class="brand-line">Design intent made testable, readable, and easier to iterate.</p>
+        <p class="hero-summary">
+          This page collects public-safe game design moments from my professional
+          content and systems work and the original Nyx prototype. It separates team contribution,
+          personal implementation, planned concepts, and evidence still in progress.
+        </p>
+        <ul class="hero-proof design-proof" aria-label="Game design portfolio highlights">
+          <li><strong>Content + systems</strong><span>Ashes quests, world events, recipes, and equipment work</span></li>
+          <li><strong>Five-step loop</strong><span>Catch, offer, reward, unlock, save</span></li>
+          <li><strong>Clear boundaries</strong><span>WIP, private, and unverified work labeled</span></li>
+        </ul>
+        <div class="hero-actions">
+          <a class="button" href="#professional-design">Review Design Work</a>
+          <a class="button secondary" href="https://github.com/KintsugiKoko/KintsugiKoko/blob/master/projects/game-design-portfolio/README.md">GitHub Design Notes</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section quick-path-section" aria-label="Game design review path">
+      <div class="quick-path">
+        <a href="#professional-design">
+          <span>Professional Contribution</span>
+          <strong>Ashes content and systems</strong>
+          <small>Quest, world-event, recipe, and two-milestone equipment-rework contributions.</small>
+        </a>
+        <a href="#nyx-systems">
+          <span>Original Prototype</span>
+          <strong>Nyx systems and progression</strong>
+          <small>Fishing, Starwell offerings, persistent progress, and future-run foundations.</small>
+        </a>
+        <a href="#levels-spaces">
+          <span>Current Boundary</span>
+          <strong>Levels and spaces evidence</strong>
+          <small>Prototype interaction-path planning, with finished level work clearly not claimed.</small>
+        </a>
+      </div>
+    </section>
+
+    <section class="section" id="design-lens">
+      <div class="section-heading">
+        <p class="eyebrow">Design Lens</p>
+        <h2>Make the player goal clear, then make the system observable</h2>
+      </div>
+      <div class="track-grid">
+        <div>
+          <h3>Player Understanding</h3>
+          <p>What is the player trying to do, what changed, and what feedback makes the result understandable?</p>
+        </div>
+        <div>
+          <h3>System Relationships</h3>
+          <p>Which system owns the decision, reward, progression, presentation, and persistent state?</p>
+        </div>
+        <div>
+          <h3>Iteration Evidence</h3>
+          <p>What did a playtest, PIE check, or implementation review reveal, and what should change next?</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section panel-section" id="professional-design">
+      <div class="section-heading">
+        <p class="eyebrow">Professional Design Contribution</p>
+        <h2>Ashes of Creation content and systems design</h2>
+      </div>
+      <p class="design-boundary-note">
+        Public-safe team contribution across two milestones. Proprietary requirements,
+        tuning, implementation details, and team-authored assets remain private.
+      </p>
+      <div class="track-grid">
+        <div>
+          <span class="status">Narrative Design team</span>
+          <h3>Quests And World Events</h3>
+          <p>I contributed directly to quest and world-event design while working with Narrative Design, with team-authored details kept private.</p>
+        </div>
+        <div>
+          <span class="status">Economy team</span>
+          <h3>Equipment Recipes</h3>
+          <p>I designed equipment recipes and considered how ingredients, progression, rewards, supporting data, and player expectations connected.</p>
+        </div>
+        <div>
+          <span class="status">Two milestones</span>
+          <h3>Equipment Rework</h3>
+          <p>I helped translate system goals and item behavior into testable requirements, then used playtest findings and cross-discipline review to support iteration.</p>
+        </div>
+      </div>
+      <p class="supporting-note">
+        These are team contributions, not claims of sole ownership. I was preparing to transition formally into design when the unexpected studio closure interrupted that path.
+      </p>
+    </section>
+
+    <section class="section" id="nyx-systems">
+      <div class="section-heading">
+        <p class="eyebrow">Original WIP Design</p>
+        <h2>Nyx connects a readable fishing action to persistent cosmic progression</h2>
+      </div>
+      <p>
+        Nyx is a WIP Unreal C++ cozy cosmic fishing prototype. The design work
+        below is a mix of prototyped systems, documented architecture, and clearly
+        labeled future foundations. It is not presented as a finished game.
+      </p>
+      <ol class="design-loop" aria-label="Nyx core gameplay loop">
+        <li><span>01</span><strong>Catch</strong><small>Complete the fishing interaction</small></li>
+        <li><span>02</span><strong>Offer</strong><small>Bring the catch to the Starwell</small></li>
+        <li><span>03</span><strong>Reward</strong><small>Convert value into useful progress</small></li>
+        <li><span>04</span><strong>Unlock</strong><small>Cross a stable progression threshold</small></li>
+        <li><span>05</span><strong>Persist</strong><small>Save durable progress safely</small></li>
+      </ol>
+      <div class="project-grid design-system-grid">
+        <article class="project-card">
+          <span class="status">WIP C++ prototype</span>
+          <h3>Fishing State Flow</h3>
+          <p>Cast, wait, bite, reel, and catch states create a small interaction with clear ownership and failure boundaries.</p>
+          <a class="text-link" href="https://github.com/KintsugiKoko/KintsugiKoko/blob/master/projects/unreal-project-showcase/README.md#fishing-component-system-note">System note</a>
+        </article>
+        <article class="project-card">
+          <span class="status">WIP progression actor</span>
+          <h3>Starwell Offerings</h3>
+          <p>Offerings connect moment-to-moment catches to longer-running progress and stable threshold records.</p>
+          <a class="text-link" href="https://github.com/KintsugiKoko/KintsugiKoko/blob/master/projects/unreal-project-showcase/README.md#starwell-threshold-system-note">System note</a>
+        </article>
+        <article class="project-card">
+          <span class="status">Reliability pass documented</span>
+          <h3>Persistent Progress</h3>
+          <p>Durable discovery, resources, upgrades, and Starwell progress persist while fragile runtime cast state resets safely.</p>
+          <a class="text-link" href="https://github.com/KintsugiKoko/KintsugiKoko/blob/master/projects/unreal-project-showcase/README.md#saveload-reliability-fix">Reliability note</a>
+        </article>
+        <article class="project-card">
+          <span class="status">Concept and planning foundation</span>
+          <h3>Nyx Merchant / Ferryman</h3>
+          <p>Nyx is planned as a character beat that can pause the run for services, upgrades, guidance, and future progression choices.</p>
+          <a class="text-link" href="nyx-test-planner.html">Open test planner</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section panel-section" id="levels-spaces">
+      <div class="section-heading">
+        <p class="eyebrow">Levels And Spaces</p>
+        <h2>Prototype interaction flow before a polished level claim</h2>
+      </div>
+      <p>
+        Current public evidence covers test-area planning, interaction placement,
+        placeholder readability, and PIE scenarios. It does not yet prove a finished
+        authored level, final mission flow, or a playable vertical slice.
+      </p>
+      <ol class="design-loop design-loop-compact" aria-label="Nyx prototype interaction path">
+        <li><span>01</span><strong>Fishing Area</strong><small>Learn and repeat the core action</small></li>
+        <li><span>02</span><strong>Catch Feedback</strong><small>Understand success and value</small></li>
+        <li><span>03</span><strong>Starwell</strong><small>Convert the catch into progress</small></li>
+        <li><span>04</span><strong>Nyx Beat</strong><small>Introduce services and future choices</small></li>
+        <li><span>05</span><strong>Return</strong><small>Re-enter the loop with a clear goal</small></li>
+      </ol>
+      <div class="track-grid">
+        <div>
+          <h3>What Exists Publicly</h3>
+          <p>Placeholder-asset checklist, interaction placement questions, test-area planning, and manual PIE smoke-test scenarios.</p>
+        </div>
+        <div>
+          <h3>What Is Not Claimed</h3>
+          <p>Finished whitebox, final environment art, authored quests, complete encounter pacing, or production-ready level design.</p>
+        </div>
+        <div>
+          <h3>Next Evidence</h3>
+          <p>An annotated whitebox showing player route, interaction beats, design questions, and one before-and-after iteration.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="process">
+      <div class="section-heading">
+        <p class="eyebrow">Design Process</p>
+        <h2>From player goal to reviewable iteration</h2>
+      </div>
+      <ul class="work-list">
+        <li>State the player-facing goal and the behavior that should communicate success.</li>
+        <li>Map system ownership so one feature does not silently become responsible for every reward, UI, save, and presentation rule.</li>
+        <li>Build or document the smallest version that can answer a design question.</li>
+        <li>Use PIE checks, playtests, and scenario notes to separate observed behavior from assumptions.</li>
+        <li>Revise the design, implementation boundary, feedback, or documentation based on evidence.</li>
+      </ul>
+    </section>
+
+    <section class="section panel-section" id="evidence">
+      <div class="section-heading">
+        <p class="eyebrow">Evidence</p>
+        <h2>Design notes, test tools, and iteration artifacts</h2>
+      </div>
+      <div class="project-grid">
+        <article class="project-card">
+          <span class="status">System documentation</span>
+          <h3>Nyx Unreal Showcase</h3>
+          <p>Fishing, Starwell, save/load, PIE checks, placeholder planning, and explicit WIP boundaries.</p>
+          <a class="text-link" href="https://github.com/KintsugiKoko/KintsugiKoko/blob/master/projects/unreal-project-showcase/README.md">View showcase</a>
+        </article>
+        <article class="project-card">
+          <span class="status">Live planning prototype</span>
+          <h3>Nyx Test Planner</h3>
+          <p>Human-reviewed scenarios, risk notes, status tracking, and Markdown planning output.</p>
+          <a class="text-link" href="nyx-test-planner.html">Open planner</a>
+          <a class="text-link" href="nyx-test-planner-case-study.html">Read case study</a>
+        </article>
+        <article class="project-card">
+          <span class="status">Public-safe source notes</span>
+          <h3>Game Design README</h3>
+          <p>Detailed system responsibilities, contribution boundaries, current evidence, and next portfolio artifacts.</p>
+          <a class="text-link" href="https://github.com/KintsugiKoko/KintsugiKoko/blob/master/projects/game-design-portfolio/README.md">View on GitHub</a>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <p class="eyebrow">KintsugiKoko</p>
+      <h2>Design work with the boundaries left visible.</h2>
+      <p>Professional contribution, original WIP systems, iteration evidence, and the next proof still being built.</p>
+      <div class="footer-links">
+        <a href="#top">Back to top</a>
+        <a href="index.html">QA Portfolio</a>
+        <a href="https://github.com/KintsugiKoko">GitHub</a>
+        <a href="https://www.linkedin.com/in/keith-mcavoy-053710207">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

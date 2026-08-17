@@ -380,6 +380,7 @@ h3 {
 }
 
 #qa-systems,
+#game-design,
 #projects,
 #technical-work {
   isolation: isolate;
@@ -387,6 +388,7 @@ h3 {
 }
 
 #qa-systems::before,
+#game-design::before,
 #projects::before,
 #technical-work::before {
   background:
@@ -405,9 +407,85 @@ h3 {
 }
 
 #qa-systems::before,
+#game-design::before,
 #technical-work::before {
   background-position: center, center, 78% center;
   opacity: 0.22;
+}
+
+.design-home-section {
+  border-bottom: 1px solid rgba(214, 162, 78, 0.38);
+  border-top: 1px solid rgba(214, 162, 78, 0.38);
+}
+
+.design-page-hero {
+  min-height: 58vh;
+}
+
+.design-page-hero h1 {
+  font-size: 4rem;
+  max-width: 880px;
+}
+
+.design-proof {
+  max-width: 900px;
+}
+
+.design-boundary-note {
+  border-left: 3px solid var(--gold);
+  padding-left: 1rem;
+}
+
+.design-loop {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  list-style: none;
+  margin: 2rem auto;
+  max-width: var(--content-max);
+  padding: 0;
+}
+
+.design-loop li {
+  background-color: var(--panel);
+  background-image: linear-gradient(180deg, #17130e, #100e0b);
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--gold);
+  min-width: 0;
+  padding: 1rem;
+}
+
+.design-loop li:nth-child(2n) {
+  border-top-color: var(--teal);
+}
+
+.design-loop span,
+.design-loop strong,
+.design-loop small {
+  display: block;
+}
+
+.design-loop span {
+  color: var(--amber);
+  font-size: 0.76rem;
+  font-weight: 800;
+  margin-bottom: 0.35rem;
+}
+
+.design-loop strong {
+  color: var(--ink);
+  font-size: 1rem;
+  line-height: 1.2;
+  margin-bottom: 0.4rem;
+}
+
+.design-loop small {
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+.design-system-grid .project-card {
+  min-height: 260px;
 }
 
 #selected-work > * {
@@ -837,6 +915,10 @@ h3 {
     font-size: 3rem;
   }
 
+  .design-page-hero h1 {
+    font-size: 2.85rem;
+  }
+
   h2 {
     font-size: 2.1rem;
   }
@@ -872,6 +954,7 @@ h3 {
   }
 
   .quick-path,
+  .design-loop,
   .game-list,
   .project-grid,
   .track-grid {
@@ -895,6 +978,10 @@ h3 {
 
   h1 {
     font-size: 2.45rem;
+  }
+
+  .design-page-hero h1 {
+    font-size: 2.35rem;
   }
 
   .brand-line {

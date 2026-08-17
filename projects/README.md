@@ -8,6 +8,7 @@ These are not full game projects yet. They are small practice projects that help
 
 | Project | Status | Focus |
 | --- | --- | --- |
+| [Game Design Portfolio](game-design-portfolio/README.md) | WIP case-study collection | Public-safe Ashes content and systems contributions, Nyx systems, interaction-path planning, and iteration evidence |
 | [QA Bug Report Tool](qa-bug-report-tool/README.md) | First version | Python CLI, pytest, structured Markdown bug reports, and QA note practice |
 | [Nyx Test Planner](nyx-test-planner/README.md) | Live planning prototype | Browser-based QA planning board for Nyx scenarios, risk, status, and Markdown test plan drafts |
 | [Art Telemetry QA](art-telemetry-qa/README.md) | MVP prototype | Mock Unreal-style Art QA telemetry parsing, validation rules, risk scoring, Jira-ready report drafts, and [report showcase](../docs/art-qa-telemetry-report-showcase.md) |

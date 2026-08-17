@@ -48,6 +48,23 @@ Warcraft III: Reforged was my first professional game assignment. Team Burst the
 - Coordinated clear handoffs so engineering, production, and embedded QA teams could act on findings quickly
 - Supported additional incubation projects that remain unnamed because the work was confidential
 
+## Game Design Portfolio
+
+My primary professional lane is Senior QA / QAE, but part of that work has included direct content and systems-design contributions alongside translating design intent into testable behavior. I now keep that evidence in a separate design portfolio so team contributions, original prototype work, planned concepts, and unfinished evidence are not blurred together.
+
+- **[Live Game Design Portfolio](https://kintsugikoko.github.io/KintsugiKoko/game-design.html)** - Recruiter-readable overview of professional contribution, Nyx systems, levels and spaces evidence, and iteration process
+- **[Game Design Portfolio README](projects/game-design-portfolio/README.md)** - Detailed public-safe design notes and evidence boundaries
+
+| Design area | Evidence | Status |
+| --- | --- | --- |
+| Ashes quests and world events | Designed content with the Narrative Design team | Professional team contribution, confidential details omitted |
+| Ashes equipment recipes and rework | Designed recipes and supported an equipment rework across two milestones with the Economy team | Professional team contribution, confidential details omitted |
+| Nyx core loop | Catch -> offer -> reward -> unlock -> save | WIP original gameplay systems prototype |
+| Nyx Starwell progression | Offering value, stable thresholds, persistent unlock records | WIP system and save/load design documentation |
+| Levels and spaces | Prototype interaction path, placement questions, placeholder and PIE checks | Evidence in progress, no finished authored level claimed |
+
+For content-design review, start with the [live design page](https://kintsugikoko.github.io/KintsugiKoko/game-design.html). It shows what I contributed, what I built or documented in Nyx, what remains planned, and what evidence still needs to be added.
+
 ## Selected Professional Test Coverage
 
 - Warcraft III: Reforged (first professional game assignment)
@@ -70,6 +87,8 @@ Additional incubation assignments are intentionally omitted. Public credit datab
 3. **[QA Bug Report Tool](projects/qa-bug-report-tool/README.md)** - Repro quality, severity and priority framing, validation, structured Markdown and JSON output, and pytest coverage.
 4. **[Game QA Field Guide](docs/game-qa-field-guide.html)** - Practical risk-based testing, test design, defect quality, and reusable game-QA templates.
 5. **[Project Fibsh](projects/fibsh/README.md)** - Private Unreal development summarized through agent-supervised workflow controls, packaged-build validation, automation evidence, persistence checks, and explicit release-risk tracking.
+
+For game-design roles, use the **[Game Design Portfolio](https://kintsugikoko.github.io/KintsugiKoko/game-design.html)** as the first review path. It keeps design evidence separate from the primary QA tool path.
 
 Optional support layer: **[QA Portfolio Auditor](docs/qa-portfolio-auditor.html)** checks static portfolio metadata for documentation coverage, evidence completeness, recruiter clarity, and overclaim risk. It supplements manual review; it does not crawl the live site or certify production readiness.
 
@@ -95,6 +114,7 @@ Optional support layer: **[QA Portfolio Auditor](docs/qa-portfolio-auditor.html)
 | [QA Portfolio Auditor](docs/qa-portfolio-auditor.html) | Supporting prototype | Portfolio evidence checks, documentation coverage, and overclaim control |
 | [Project Fibsh](projects/fibsh/README.md) | Private WIP game project | Agent-supervised Unreal workflow, build/package evidence, persistence validation, and risk tracking |
 | [Nyx Test Planner](docs/nyx-test-planner.html) | Live planning prototype | Human-reviewed gameplay scenarios, risk notes, status tracking, and Markdown export |
+| [Game Design Portfolio](https://kintsugikoko.github.io/KintsugiKoko/game-design.html) | WIP design case studies | Ashes equipment-rework contribution, Nyx gameplay systems, interaction-path planning, and iteration evidence |
 
 ## Public / Private Boundary
 
