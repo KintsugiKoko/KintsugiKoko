@@ -1,23 +1,23 @@
 # Game Design Portfolio
 
-This section collects public-safe examples of how I think about gameplay systems, progression, player understanding, iteration, and design validation.
+This section collects public-safe examples of how I think about gameplay systems, player understanding, iteration, and design validation.
 
-My professional background is primarily Senior QA / QAE. The design work shown here is narrower and clearly labeled: professional content and systems-design contributions from Ashes of Creation, plus original work-in-progress systems and documentation from Nyx. I do not claim sole ownership of team work, finished level-design experience, or completed commercial game-design systems that are not supported by public evidence.
+My primary professional lane is Senior QA / QAE. The design work shown here is narrower and clearly labeled: professional content and systems-design contributions from Ashes of Creation, plus current private work on Project Fibsh. The Fibsh showcase includes selected concept boards, Blender results, packaged Unreal captures, and validation summaries while source files and unreleased production material remain private.
 
 - [Open the live Game Design Portfolio](https://kintsugikoko.github.io/KintsugiKoko/game-design.html)
-- [Review the Nyx Unreal showcase](../unreal-project-showcase/README.md)
-- [Open the Nyx Test Planner](https://kintsugikoko.github.io/KintsugiKoko/nyx-test-planner.html)
-- [Read the Nyx Test Planner case study](../../docs/nyx-test-planner-case-study.md)
+- [Review the public Project Fibsh summary](../fibsh/README.md)
 
 ## Design Focus
 
 - Interconnected gameplay systems
 - Equipment, economy, and progression relationships
 - Player-facing clarity and feedback
-- Core-loop structure
-- Persistent progression and safe state restoration
+- Character and visual-direction review
+- Level composition and spatial readability
+- Product scope and acceptance criteria
+- Persistence and safe state behavior
 - Playtest planning and iteration
-- Translating design intent into testable behavior
+- Translating design intent into observable behavior
 
 ## Professional Design Contribution
 
@@ -39,96 +39,121 @@ My contribution included:
 
 This is not presented as sole design ownership. Proprietary requirements, internal documentation, tuning values, unreleased implementation details, and team-authored assets remain private.
 
-## Original WIP Design Work
+## Current WIP Design Work
 
-### Nyx Core Loop
+### Project Fibsh
 
-Nyx is a work-in-progress cozy cosmic fishing prototype. The current design loop is:
+**Status:** Current private WIP Unreal game project with selected public-safe visual and validation evidence.
+
+Project Fibsh is a WIP project about a city cat's strange fishing vacation at Lake Glorp. Its public design evidence shows how that premise moves through visual direction, spatial planning, Blender development, Unreal implementation, packaged smoke testing, and owner-reviewed iteration.
+
+Detailed mechanics, Unreal source and content, Blender source files, packaged builds, commercial planning, and the complete validation record remain private.
+
+## Published Project Fibsh Evidence
+
+The public page already contains evidence across four distinct stages. Each artifact is labeled so a visual target is not confused with an implemented result.
+
+### Character And Gameplay Direction
+
+[![Approved Project Fibsh city-cat gameplay concept](../../docs/assets/fibsh/fibsh-character-gameplay-concept.png)](https://kintsugikoko.github.io/KintsugiKoko/game-design.html#visual-evidence)
+
+This approved, human-reviewed concept board establishes the city-cat silhouette, Lake Glorp mood, fishing posture, and cast-ready readability. It is concept direction, not an in-engine screenshot.
+
+### Lake Glorp Level Concept
+
+[![Lake Glorp orthographic level concept](../../docs/assets/fibsh/lake-glorp-level-concept.png)](https://kintsugikoko.github.io/KintsugiKoko/game-design.html#visual-evidence)
+
+The orthographic plan supports design decisions about the dock approach, shoreline loop, central fishing focus, readable landmarks, and supporting activity spaces.
+
+### Blender Environment And Character Work
+
+[![Lake Glorp Blender environment work in progress](../../docs/assets/fibsh/lake-glorp-blender-environment-wip.png)](https://kintsugikoko.github.io/KintsugiKoko/game-design.html#visual-evidence)
+
+The Lake Glorp structural pass tests terrain tiers, shoreline shape, approach paths, lighting anchors, and camera coverage. A separate [Parry rig stress render](../../docs/assets/fibsh/parry-blender-rig-stress-wip.png) records fishing-arm deformation and pose-range review. Parry is a WIP validation character, not the final player identity.
+
+### Packaged Unreal Validation
+
+[![Project Fibsh packaged smoke-test contact sheet](../../docs/assets/fibsh/fibsh-packaged-smoke-test-wip.jpg)](https://kintsugikoko.github.io/KintsugiKoko/game-design.html#visual-evidence)
+
+The packaged contact sheet records a real WIP flow through menu, movement, cast, wait, bite, reel, result, journal, and pause states. It is functional proof, not release-quality presentation.
+
+## Design And Validation Loop
 
 ```text
-Catch a soul-form fish -> offer it to the Starwell -> earn rewards -> unlock progress -> save persistent progress
+Define the goal -> bound the scope -> implement one change -> validate the result -> decide the next action
 ```
 
-The loop is designed to connect a short, readable fishing interaction to a longer progression goal. Each system has a focused responsibility so the player can understand what happened and the prototype can be tested in smaller pieces.
-
-| System | Design purpose | Current public status |
+| Design area | Purpose | Current public status |
 | --- | --- | --- |
-| Fishing state flow | Give the player a readable cast, wait, bite, reel, and catch sequence | WIP C++ prototype and system documentation |
-| Starwell offerings | Turn caught fish into visible longer-term progress | WIP actor and threshold documentation |
-| Stable threshold IDs | Protect progression when display text, ordering, or rewards change | Save/load reliability design documented |
-| Nyx merchant / ferryman | Add personality, services, and a bridge into future-run progression | Concept and planning foundation, not finished gameplay |
-| Upgrades and deck foundations | Create future choices that can change later runs | Scaffolding and future-facing documentation |
+| Product and ship-state intent | Establish the current goal, accepted scope, known evidence, ranked risks, and next action | Workflow documented, product details private |
+| Gameplay transaction | Keep one WIP player-facing change bounded enough to iterate and verify | Follow-up UX and persistence fixes documented at a high level |
+| Persistence behavior | Preserve understandable durable state across quit and relaunch | Validation evidence summarized, implementation private |
+| System boundaries | Prevent one feature from silently owning unrelated rules or release decisions | Public workflow principle |
+| Release evidence | Separate build success, automated checks, deterministic validation, and human usability review | Evidence types documented separately, no release-readiness claim |
 
-### Starwell As A Progression Anchor
+## Product Scope And Acceptance Criteria
 
-The Starwell sits between moment-to-moment fishing and persistent progress:
+Canonical product and ship-state documents establish what the current change is trying to achieve, which behavior is accepted, what remains unknown, and which risks block the next decision.
 
-```text
-Caught fish -> offering value -> Starwell progress -> threshold check -> stable unlock record
-```
+That structure supports design iteration because it keeps the player-facing goal connected to observable behavior without treating a successful build or automated check as proof of a complete experience.
 
-The design goal is not just to grant a reward. It is to make every catch contribute to a larger, understandable purpose while keeping one-time rewards separate from save/load restoration.
+Questions used during review include:
 
-Questions used during iteration include:
+- What should the player understand after this interaction?
+- Which system owns the state change, feedback, and persistence rule?
+- What evidence would show that the change works as intended?
+- Which defects block the next milestone, and which are known WIP limits?
+- What still requires human play or usability review?
 
-- Does the player understand why an offering matters?
-- Is reward feedback distinct from restored presentation after loading?
-- Can thresholds change without making old saves fragile?
-- Does the Starwell feel like a world-facing progression object rather than a menu with extra steps?
+## Public / Private Boundary
 
-### Fishing System Boundaries
+### What Is Public
 
-The fishing component owns the interaction state flow and catch outcome. It should not own the full economy, Starwell progression, final presentation, or unrelated world rules.
+- Scope-control and acceptance-criteria habits
+- Agent-supervised writer and recovery controls
+- Isolated build and validation stages
+- Separation of automated, deterministic, and human evidence
+- High-level gameplay, UX, and persistence iteration milestones
+- Selected flattened concept boards, Blender renders, and packaged Unreal captures
+- Ranked defects, residual risk, and owner-gated decisions
 
-That boundary supports design iteration because fishing timing can change without turning one component into the owner of every reward, unlock, UI, VFX, and save decision.
+### What Remains Private
 
-## Levels And Spaces
-
-### Prototype Test Area And Interaction Path
-
-**Status:** Planning and Play In Editor validation evidence. Not a finished authored level.
-
-The current public design work uses a simple interaction path for prototype validation:
-
-```text
-Fishing area -> catch feedback -> Starwell offering point -> Nyx merchant / service beat -> return to the loop
-```
-
-The purpose is to test readability, pacing, interaction distance, placement, and return-to-loop clarity before claiming a polished level or encounter.
-
-Current public evidence includes placeholder-asset planning, interaction placement questions, test-area checks, and PIE smoke-test scenarios. It does not yet include a finished whitebox walkthrough, final environment art, authored mission flow, or a completed playable vertical slice.
+- Detailed mechanics and unreleased design records
+- Unreal source, content, and project internals
+- Blender files and final source assets
+- Packaged builds and complete validation evidence
+- Commercial plans, schedules, credentials, and platform details
 
 ## Design And Iteration Process
 
-1. State the player-facing goal.
+1. State the player-facing or product goal.
 2. Map the systems and content responsibilities.
-3. Identify the decision, feedback, and failure states the player needs to understand.
-4. Build or document the smallest testable version.
-5. Run focused PIE, playtest, or scenario checks.
-6. Separate observed behavior from assumptions.
-7. Revise the design, documentation, or implementation boundary.
+3. Define acceptance criteria, failure states, and known risks.
+4. Implement or document the smallest controlled change.
+5. Run the appropriate build, deterministic, automated, and human checks separately.
+6. Distinguish observed evidence from assumptions.
+7. Rank defects and approve the next action through owner review.
 
 ## Evidence And Artifacts
 
-- [Fishing Component System Note](../unreal-project-showcase/README.md#fishing-component-system-note)
-- [Starwell Threshold System Note](../unreal-project-showcase/README.md#starwell-threshold-system-note)
-- [Save/Load Reliability Fix](../unreal-project-showcase/README.md#saveload-reliability-fix)
-- [PIE Smoke Test Checklist](../unreal-project-showcase/README.md#pie-smoke-test-checklist)
-- [Beginner Blender Placeholder Asset Checklist](../unreal-project-showcase/README.md#beginner-blender-placeholder-asset-checklist)
-- [Nyx Test Planner](../../docs/nyx-test-planner.html)
-- [Nyx Test Planner Case Study](../../docs/nyx-test-planner-case-study.md)
+- [Project Fibsh Public Summary](../fibsh/README.md)
+- [Agent-Supervised Workflow](../fibsh/README.md#agent-supervised-workflow)
+- [Recent Workflow Milestones](../fibsh/README.md#recent-workflow-milestones)
+- [Published Visual Development Evidence](https://kintsugikoko.github.io/KintsugiKoko/game-design.html#visual-evidence)
+- [Senior QA / QAE Signal](../fibsh/README.md#senior-qa--qae-signal)
 
 ## What This Section Does Not Claim
 
 - Sole ownership of Ashes of Creation quests, world events, recipes, or the equipment rework
 - Publication of confidential studio documentation or proprietary tuning
-- Finished Nyx gameplay, final art, or production readiness
-- Finished public mission, encounter, or level-design artifacts beyond the contributions documented here
-- Public access to private Fibsh or Nyx source repositories and assets
+- Public access to Project Fibsh source, assets, builds, mechanics, or commercial records
+- Finished Project Fibsh gameplay, final art, production readiness, store readiness, or release quality
+- That automation replaces human play, usability review, or owner approval
 
-## Next Portfolio Evidence
+## Evidence Maintenance
 
-- Add an annotated Nyx whitebox showing player route, interaction beats, and iteration notes
-- Add before-and-after examples from one verified design change
-- Add screenshots or short video only after public-safe assets and presentation are reviewed
-- Add a compact design brief for one self-contained Nyx interaction
+- Keep concept, Blender, Unreal, and validation artifacts labeled by their actual maturity.
+- Add only owner-reviewed flat exports, never private source files or packaged builds.
+- Keep the public summary aligned with current verified milestones.
+- Preserve the distinction between functional validation and release presentation.

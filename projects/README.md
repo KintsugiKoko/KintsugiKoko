@@ -1,16 +1,16 @@
 # Project Roadmap
 
-This roadmap is for beginner-friendly projects that build skill gradually. The focus is on learning code, GitHub, documentation, and AI-assisted workflows while staying connected to my love of games and the rebuild after Intrepid closed.
+This roadmap includes focused QA and tooling projects alongside selected public-safe documentation from larger private WIP work. The projects build practical skills in code, GitHub, documentation, validation, and human-reviewed AI-assisted workflows while staying connected to my professional game QA background.
 
-These are not full game projects yet. They are small practice projects that help me build the habits I will need later: organizing files, writing clearly, making simple pages, using GitHub, and reflecting on what I learned.
+Each entry is labeled by its actual maturity. Small portfolio prototypes remain distinct from Project Fibsh, the current private Unreal game project.
 
 ## Current Project Folders
 
 | Project | Status | Focus |
 | --- | --- | --- |
-| [Game Design Portfolio](game-design-portfolio/README.md) | WIP case-study collection | Public-safe Ashes content and systems contributions, Nyx systems, interaction-path planning, and iteration evidence |
+| [Game Design Portfolio](game-design-portfolio/README.md) | Current design showcase | Public-safe Ashes contributions plus Project Fibsh character concepts, Lake Glorp planning, Blender work, and packaged WIP evidence |
 | [QA Bug Report Tool](qa-bug-report-tool/README.md) | First version | Python CLI, pytest, structured Markdown bug reports, and QA note practice |
-| [Nyx Test Planner](nyx-test-planner/README.md) | Live planning prototype | Browser-based QA planning board for Nyx scenarios, risk, status, and Markdown test plan drafts |
+| [Nyx Test Planner](nyx-test-planner/README.md) | Earlier planning prototype | Browser-based QA planning board for Nyx scenarios, risk, status, and Markdown test plan drafts |
 | [Art Telemetry QA](art-telemetry-qa/README.md) | MVP prototype | Mock Unreal-style Art QA telemetry parsing, validation rules, risk scoring, Jira-ready report drafts, and [report showcase](../docs/art-qa-telemetry-report-showcase.md) |
 | [Community Pulse](community-pulse-report-tool/README.md) | First version | Mock player/playtest feedback grouping, risk notes, readiness summary, and Markdown report drafts |
 | [External QA Handoff Manager](external-qa-handoff-manager/README.md) | First version | Offsite QA handoff planning, scenario coverage, evidence requirements, intake checklist, and Markdown export |
@@ -21,7 +21,7 @@ These are not full game projects yet. They are small practice projects that help
 
 ## Good Starting Point
 
-Start with the [QA Bug Report Tool](qa-bug-report-tool/README.md), [Art Telemetry QA](art-telemetry-qa/README.md), and [Nyx Test Planner](nyx-test-planner/README.md). Then review [Community Pulse](community-pulse-report-tool/README.md) and [External QA Handoff Manager](external-qa-handoff-manager/README.md) for additional reporting and coordination examples.
+Start with the [QA Bug Report Tool](qa-bug-report-tool/README.md), [External QA Handoff Manager](external-qa-handoff-manager/README.md), and [Project Fibsh design showcase](game-design-portfolio/README.md). Then review [Community Pulse](community-pulse-report-tool/README.md) and [Art Telemetry QA](art-telemetry-qa/README.md) for additional reporting and validation examples. The Nyx Test Planner remains available as an earlier planning prototype, while Project Fibsh is the current game project.
 
 Optional support layer: [QA Portfolio Auditor](../docs/qa-portfolio-auditor.html) checks those artifacts for demo readiness, documentation coverage, recruiter-safe wording, evidence completeness, and overclaim risk before publishing. It uses static/mock portfolio metadata and human-reviewed checks; it does not crawl the live site, perform browser automation, validate deployment health, connect to Jira or Unreal, or replace manual review.
 

@@ -422,6 +422,14 @@ h3 {
   min-height: 58vh;
 }
 
+.hero.fibsh-design-hero {
+  background-image:
+    linear-gradient(90deg, rgba(3, 3, 2, 0.98) 0%, rgba(3, 3, 2, 0.92) 42%, rgba(3, 3, 2, 0.48) 72%, rgba(3, 3, 2, 0.3) 100%),
+    linear-gradient(180deg, rgba(3, 3, 2, 0.68), rgba(3, 3, 2, 0.32) 48%, rgba(3, 3, 2, 0.9)),
+    url("assets/fibsh/fibsh-character-gameplay-concept.png");
+  background-position: center, center, 66% center;
+}
+
 .design-page-hero h1 {
   font-size: 4rem;
   max-width: 880px;
@@ -429,6 +437,13 @@ h3 {
 
 .design-proof {
   max-width: 900px;
+}
+
+.hero-source-note {
+  color: var(--soft);
+  font-size: 0.82rem;
+  margin: 0.9rem 0 0;
+  max-width: 700px;
 }
 
 .design-boundary-note {
@@ -486,6 +501,107 @@ h3 {
 
 .design-system-grid .project-card {
   min-height: 260px;
+}
+
+.evidence-gallery {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 2rem auto 0;
+  max-width: var(--content-max);
+  width: 100%;
+}
+
+.evidence-figure {
+  background-color: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  box-shadow: var(--shadow);
+  margin: 0;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.evidence-figure > a {
+  background-color: #050403;
+  display: block;
+  overflow: hidden;
+}
+
+.evidence-figure img {
+  aspect-ratio: 16 / 9;
+  display: block;
+  height: auto;
+  object-fit: cover;
+  transition: transform 180ms ease;
+  width: 100%;
+}
+
+.evidence-figure--contain img {
+  background-color: #050403;
+  object-fit: contain;
+}
+
+.evidence-figure > a:hover img,
+.evidence-figure > a:focus-visible img {
+  transform: scale(1.015);
+}
+
+.evidence-figure figcaption {
+  border-top: 1px solid var(--line);
+  padding: 1.1rem 1.2rem 1.25rem;
+}
+
+.evidence-figure figcaption p {
+  color: var(--muted);
+  margin-bottom: 0;
+}
+
+.evidence-figure figcaption h3 {
+  margin-top: 0.35rem;
+}
+
+.gallery-boundary-note {
+  border-left: 3px solid var(--gold);
+  margin: 1.5rem auto 0;
+  max-width: var(--content-max) !important;
+  padding-left: 1rem;
+}
+
+.design-home-preview {
+  align-items: stretch;
+  background-color: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.65fr);
+  margin: 1rem auto 0;
+  max-width: var(--content-max);
+  overflow: hidden;
+  width: 100%;
+}
+
+.design-home-preview > a {
+  background-color: #050403;
+  display: block;
+  min-height: 100%;
+}
+
+.design-home-preview img {
+  display: block;
+  height: 100%;
+  min-height: 260px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.design-home-preview figcaption {
+  align-self: center;
+  padding: 1.35rem;
+}
+
+.design-home-preview figcaption p {
+  color: var(--muted);
 }
 
 #selected-work > * {
@@ -897,6 +1013,10 @@ h3 {
     width: 100%;
   }
 
+  .nav-links a {
+    flex: 0 0 auto;
+  }
+
   .hero {
     background-image:
       linear-gradient(180deg, rgba(3, 3, 2, 0.97) 0%, rgba(3, 3, 2, 0.88) 58%, rgba(3, 3, 2, 0.97) 100%),
@@ -957,8 +1077,14 @@ h3 {
   .design-loop,
   .game-list,
   .project-grid,
-  .track-grid {
+  .track-grid,
+  .evidence-gallery,
+  .design-home-preview {
     grid-template-columns: 1fr;
+  }
+
+  .design-home-preview img {
+    min-height: 0;
   }
 }
 
@@ -1007,6 +1133,10 @@ h3 {
     grid-template-columns: 1fr;
     margin-top: 1rem;
     order: 2;
+  }
+
+  .hero-source-note {
+    order: 3;
   }
 
   .hero-proof li {

@@ -1,10 +1,24 @@
 # Project Fibsh
 
-Status: Private WIP Unreal game project.
+Status: Private WIP Unreal game project with selected public-safe visual and validation evidence.
 
-Project Fibsh is a private WIP Unreal game project. The source repository, Unreal content, Blender files, packaged builds, commercial planning, gameplay details, and complete validation evidence remain private.
+Project Fibsh is a WIP project about a city cat's strange fishing vacation at Lake Glorp. The source repository, Unreal content, Blender source files, packaged builds, commercial planning, detailed mechanics, and complete validation record remain private.
 
-This public summary focuses on the QA and workflow systems used to supervise development. It is not a public build, source release, production-readiness statement, or store-readiness claim.
+This public summary combines the QA and workflow systems used to supervise development with selected character concepts, level-planning work, Blender results, and packaged WIP captures. It is not a public build, source release, production-readiness statement, or store-readiness claim.
+
+## Published Visual Development
+
+[![Approved Project Fibsh city-cat gameplay concept](../../docs/assets/fibsh/fibsh-character-gameplay-concept.png)](https://kintsugikoko.github.io/KintsugiKoko/game-design.html#visual-evidence)
+
+The public [Game Design Portfolio](https://kintsugikoko.github.io/KintsugiKoko/game-design.html#visual-evidence) includes:
+
+- approved, human-reviewed city-cat gameplay and inventory concepts
+- an orthographic Lake Glorp level plan
+- a Blender environment pass for terrain, shoreline, approach, and camera review
+- a Blender rig stress render for the WIP Parry validation character
+- a real packaged Unreal smoke-test contact sheet covering the current fishing flow
+
+Concept boards are labeled as concepts. Blender outputs and Unreal captures are labeled separately so visual direction is not presented as implemented gameplay.
 
 ## Agent-Supervised Workflow
 
@@ -26,7 +40,9 @@ Recent committed work includes:
 - Packaged-build automation checks kept separate from human-input smoke testing
 - Quit/relaunch persistence validation and explicit defect ranking
 
-Functional evidence is not presented as release quality. Character identity, visual presentation, audio, settings, broader progression, representative performance, and final release readiness still require additional work or validation.
+A current private validation record includes 25 successful automation checks with no recorded failures, plus a packaged human-input smoke that reached a natural bite, completed a catch and store flow, updated the journal, and preserved the saved catch after quit and relaunch. Those results establish functional WIP behavior, not release presentation.
+
+Functional evidence is not presented as release quality. Character identity, visual presentation, audio, settings, broader progression, representative performance, and final release readiness remain active WIP areas.
 
 ## Senior QA / QAE Signal
 
@@ -39,4 +55,4 @@ Functional evidence is not presented as release quality. Character identity, vis
 
 ## Public Boundary
 
-No private repository URL, Unreal source, binary content, Blender source, packaged build, credential, commercial detail, internal schedule, or unreleased production record is published here.
+Selected flat images and public-safe summaries are published. No private repository URL, Unreal source, binary content, Blender source, packaged build, credential, commercial detail, internal schedule, or unreleased production record is published here.
