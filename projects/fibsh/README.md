@@ -15,12 +15,12 @@ The public [Game Design Portfolio](https://kintsugikoko.github.io/KintsugiKoko/g
 - approved, human-reviewed city-cat gameplay and inventory concepts
 - an orthographic Lake Glorp level plan
 - environment-scale and player-view Lake Glorp concept explorations, labeled separately from current implementation
-- an editable Blender composition master showing the sculpted lake, terrain tiers, shoreline routes, and forest massing
+- the actual canon Master landscape WIP in Unreal, showing the mountain silhouette, river route, terrain scale, and forest coverage
 - a Blender environment pass for terrain, shoreline, approach, and camera review
 - a Blender rig stress render for the WIP Parry validation character
 - a real packaged Unreal smoke-test contact sheet covering the current fishing flow
 
-Concept boards are labeled as concepts. Blender outputs and Unreal captures are labeled separately so visual direction is not presented as implemented gameplay.
+Concept boards are labeled as concepts. The canon Master, Blender outputs, and packaged Unreal captures are labeled separately so visual direction is not presented as implemented gameplay or final environment art.
 
 ## Agent-Supervised Workflow
 

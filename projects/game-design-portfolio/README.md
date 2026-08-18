@@ -69,11 +69,11 @@ The orthographic plan supports design decisions about the dock approach, shoreli
 
 The [world-scale environment concept](../../docs/assets/fibsh/lake-glorp-world-concept.png) explores crystal-lit water, route rhythm, forest enclosure, settlement silhouettes, and warm navigation lights. The [player-view boat keyframe](../../docs/assets/fibsh/lake-glorp-boat-keyframe-concept.png) explores camera height, the city-cat silhouette, shoreline landmarks, and arrival mood. Both are concept explorations, not current level-footprint or implemented traversal claims.
 
-### Blender Environment And Character Work
+### Canon Master And Blender Development
 
-[![Lake Glorp Blender composition master work in progress](../../docs/assets/fibsh/lake-glorp-blender-composition-master-wip.png)](https://kintsugikoko.github.io/KintsugiKoko/game-design.html#visual-evidence)
+[![Canon Project Fibsh Master landscape work in progress](../../docs/assets/fibsh/lake-glorp-canon-master-landscape-wip.png)](https://kintsugikoko.github.io/KintsugiKoko/game-design.html#visual-evidence)
 
-The Lake Glorp composition master is an editable Blender WIP showing the sculpted lake silhouette, terrain tiers, shoreline routes, forest massing, and coverage paths. A separate [gameplay-view structural pass](../../docs/assets/fibsh/lake-glorp-blender-environment-wip.png) tests the approach at a closer camera distance, while the [Parry rig stress render](../../docs/assets/fibsh/parry-blender-rig-stress-wip.png) records fishing-arm deformation and pose-range review. Parry is a WIP validation character, not the final player identity.
+The actual canon Master is shown in Unreal Editor as a WIP landscape with the mountain silhouette, river route, terrain scale, and forest coverage established. Placeholder actors and unfinished lighting remain visible, so the capture is not presented as final environment art. A separate [Blender gameplay-view structural pass](../../docs/assets/fibsh/lake-glorp-blender-environment-wip.png) tests terrain, shoreline, and camera coverage, while the [Parry rig stress render](../../docs/assets/fibsh/parry-blender-rig-stress-wip.png) records fishing-arm deformation and pose-range review. Parry is a WIP validation character, not the final player identity.
 
 ### Packaged Unreal Validation
 
