@@ -2,13 +2,13 @@
 
 ## Status
 
-MVP portfolio prototype.
+Working Python QA prototype using fictional Unreal-style validation data.
 
-Art Telemetry QA is a portfolio-safe Python QA tooling prototype that turns mock Unreal-style art telemetry and asset validation data into human-reviewed Art QA findings, risk scores, and Jira-ready reports.
+Art Telemetry QA turns mock Unreal-style art telemetry and asset-validation data into structured findings, risk scores, owner-routing notes, and Jira-ready report drafts.
 
-It demonstrates Art QA / Technical QA validation thinking: capture, parse, isolate, report, and validate-fix workflows. It uses mock data only and does not use private studio data, proprietary schemas, Unreal project files, internal telemetry, Jira, or studio tools.
+It demonstrates a technical QA workflow: capture, parse, isolate, report, and validate the fix. The current interface is a local Python CLI over fictional CSV and JSON fixtures, with Markdown and CSV output for reviewer inspection.
 
-This is not an Unreal plugin and does not automate Unreal. Any Unreal-facing work remains a future planning note that would need public, non-proprietary sample data and separate validation.
+Unreal export adapters and Jira integration are separate future milestones rather than part of the current CLI.
 
 ## Portfolio Showcase
 
@@ -43,7 +43,7 @@ The CLI expects:
 - `samples/sample_soak_results.json`
 - `samples/sample_asset_validation.json`
 
-All sample data is fictional and portfolio-safe.
+All sample data is fictional and created for this project.
 
 ## Validation Rules
 
@@ -134,15 +134,14 @@ python -m pytest
 - Soak test interpretation
 - Risk scoring
 - Jira-ready reporting habits
-- Honest boundaries around mock data and human review
+- Clear separation between parsed signals, triage suggestions, and reviewer decisions
 
-## What This Does Not Claim
+## Current Scope And Boundaries
 
-- It is not a real Unreal plugin.
-- It does not use private or proprietary studio data.
-- It does not replace Unreal Insights, Tech Art, Performance, Engineering, or human QA judgment.
-- It does not automatically file Jira tickets.
-- It does not prove production readiness.
+- Local Python CLI using fictional CSV and JSON fixtures
+- Rule-based findings, risk scoring, routing suggestions, and report drafts
+- Reviewer-owned triage and fix-verification decisions
+- Unreal export, live telemetry, Jira submission, and production threshold profiles remain future integrations
 
 ## Future Improvements
 

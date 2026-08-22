@@ -1,8 +1,10 @@
 # Keith McAvoy
 
-Senior QA / Quality Assurance Engineer with 7+ years of game-industry experience across Blizzard Entertainment, Activision, and Intrepid Studios.
+Senior QA / Quality Assurance Engineer with 8 years of game-industry experience across Blizzard Entertainment, Activision, and Intrepid Studios.
 
-My strongest lanes are systems QA, data quality, backend and API validation, live-service testing, test planning, and cross-discipline risk communication. This portfolio shows how I turn those strengths into practical tools, documented workflows, and human-reviewed agent-assisted development.
+I specialize in systems QA, data quality, backend and API validation, live-service testing, test ownership, and cross-discipline risk communication. This portfolio connects that professional background to practical QA tools and active development of Project Fibsh.
+
+I am currently open to Senior QA / QAE opportunities while directing and validating Project Fibsh, an original Unreal Engine game in active development.
 
 ## Senior QA / QAE Snapshot
 
@@ -50,19 +52,19 @@ Warcraft III: Reforged was my first professional game assignment. Team Burst the
 
 ## Game Design Portfolio
 
-My primary professional lane is Senior QA / QAE, but part of that work has included direct content and systems-design contributions alongside translating design intent into testable behavior. I keep that work in a separate design portfolio so professional team contributions, approved concepts, Blender development, playable WIP captures, and validation results are not blurred together.
+My primary professional lane is Senior QA / QAE, with direct content and systems-design contributions alongside translating design intent into testable behavior. The separate design portfolio shows professional team contributions and follows Project Fibsh from concept and systems planning through PH art, Blender development, Unreal implementation, packaged builds, and validation.
 
-- **[Live Game Design Portfolio](https://kintsugikoko.github.io/KintsugiKoko/game-design.html)** - Recruiter-readable overview of professional contribution, current Project Fibsh systems work, and public-safe iteration evidence
-- **[Game Design Portfolio README](projects/game-design-portfolio/README.md)** - Detailed public-safe design notes and evidence boundaries
+- **[Live Game Design Portfolio](https://kintsugikoko.github.io/KintsugiKoko/game-design.html)** - Professional overview of team contributions, current Project Fibsh systems work, and selected development evidence
+- **[Game Design Portfolio README](projects/game-design-portfolio/README.md)** - Detailed design notes, artifact labels, and workflow evidence
 
 | Design area | Evidence | Status |
 | --- | --- | --- |
 | Ashes quests and world events | Designed content with the Narrative Design team | Professional team contribution, confidential details omitted |
 | Ashes equipment recipes and rework | Designed recipes and supported an equipment rework across two milestones with the Economy team | Professional team contribution, confidential details omitted |
-| Project Fibsh visual direction | Human-reviewed city-cat and gameplay concept boards | Approved concept direction, clearly separated from in-engine captures |
-| Lake Glorp level work | Spatial and visual concepts, the canon Master landscape WIP in Unreal, Blender environment studies, and camera/coverage review | Selected flat evidence published, source files remain private |
-| Project Fibsh gameplay iteration | Packaged WIP fishing-flow capture, persistence checks, and follow-up UX work | Functional prototype evidence, not release presentation |
-| Project Fibsh validation loop | Isolated builds, automated checks, packaged validation, human smoke testing, and owner decisions | Evidence types kept separate, no release-readiness claim |
+| Project Fibsh visual direction | City-cat, gameplay, and interface concept boards | Approved direction guiding current implementation |
+| Lake Glorp level work | Spatial concepts, the canon Master landscape in Unreal, Blender PH environment studies, and camera/coverage review | Active environment development |
+| Project Fibsh gameplay iteration | Packaged fishing-flow captures, persistence checks, and follow-up UX work | Functional prototype validation |
+| Project Fibsh validation loop | Isolated builds, automated checks, packaged validation, human smoke testing, and owner decisions | Controlled evidence and release-risk workflow |
 
 For content-design review, start with the [live design page](https://kintsugikoko.github.io/KintsugiKoko/game-design.html). It shows what I contributed professionally and follows Project Fibsh from visual direction and level planning through Blender work, playable WIP captures, and validation.
 
@@ -79,19 +81,19 @@ For content-design review, start with the [live design page](https://kintsugikok
 - World of Warcraft: Shadowlands and Dragonflight
 - Ashes of Creation
 
-Additional incubation assignments are intentionally omitted. Public credit databases do not always capture short-term strike-team or cross-project QA support, so this section reflects my professional testing scope rather than claiming a separate on-screen credit for every assignment.
+Additional confidential incubation assignments remain unnamed. These entries reflect my professional testing scope, including strike-team work that may not appear in public credit databases.
 
 ## Best First Review Path
 
-1. **[External QA Handoff Manager](docs/external-qa-handoff-manager.html)** - Test planning, scenario coverage, evidence standards, intake review, external-team coordination, and Markdown handoff exports.
-2. **[Community Pulse](projects/community-pulse-report-tool/README.md)** - Local CSV data validation, deterministic analysis, exact quote preservation, reporting boundaries, and human-reviewed follow-up.
-3. **[QA Bug Report Tool](projects/qa-bug-report-tool/README.md)** - Repro quality, severity and priority framing, validation, structured Markdown and JSON output, and pytest coverage.
-4. **[Game QA Field Guide](docs/game-qa-field-guide.html)** - Practical risk-based testing, test design, defect quality, and reusable game-QA templates.
-5. **[Project Fibsh](projects/fibsh/README.md)** - Current private Unreal development shown through selected character and environment concepts, the canon Master landscape WIP, Blender studies, packaged WIP captures, persistence checks, and explicit release-risk tracking.
+1. **[Project Fibsh](projects/fibsh/README.md)** - Active Unreal game development spanning product scope, systems design, PH art workflows, Blender and Unreal iteration, packaged builds, persistence validation, and release-risk control.
+2. **[External QA Handoff Manager](docs/external-qa-handoff-manager.html)** - Test planning, scenario coverage, evidence standards, intake review, external-team coordination, and Markdown handoff exports.
+3. **[Community Pulse](projects/community-pulse-report-tool/README.md)** - Local CSV data validation, deterministic analysis, exact quote preservation, reporting boundaries, and cross-functional follow-up.
+4. **[QA Bug Report Tool](projects/qa-bug-report-tool/README.md)** - Repro quality, severity and priority framing, validation, structured Markdown and JSON output, and pytest coverage.
+5. **[Game QA Field Guide](docs/game-qa-field-guide.html)** - Practical risk-based testing, test design, defect quality, and reusable game-QA templates.
 
 For game-design roles, use the **[Game Design Portfolio](https://kintsugikoko.github.io/KintsugiKoko/game-design.html)** as the first review path. It keeps design evidence separate from the primary QA tool path.
 
-Optional support layer: **[QA Portfolio Auditor](docs/qa-portfolio-auditor.html)** checks static portfolio metadata for documentation coverage, evidence completeness, recruiter clarity, and overclaim risk. It supplements manual review; it does not crawl the live site or certify production readiness.
+Optional support layer: **[QA Portfolio Auditor](docs/qa-portfolio-auditor.html)** checks static project metadata for documentation coverage, artifact completeness, review clarity, and claim accuracy before publishing.
 
 ## Systems, Pipelines, And Tooling
 
@@ -103,24 +105,24 @@ Optional support layer: **[QA Portfolio Auditor](docs/qa-portfolio-auditor.html)
 | External / PTR QA | External tasking and execution, player test planning, evidence intake, data gathering, escalation, and follow-through |
 | Observability | Grafana and telemetry analysis for bug trends, exploit patterns, recurring failures, and component-level weaknesses |
 | Delivery Toolchain | Jira, Confluence, Perforce, Jenkins, Grafana, Unreal Engine, GCP, BigQuery, Dataflow, Git, GitHub, and pytest |
-| Agent-Supervised Workflows | Scoped agent tasks, source-stability checks, build evidence, human smoke testing, audit trails, and owner-gated release decisions |
+| Controlled Development Workflows | Scoped implementation, source-stability checks, isolated builds, automated evidence, human smoke testing, audit trails, and owner-gated release decisions |
 
 ## Featured Portfolio Projects
 
 | Project | Status | Focus |
 | --- | --- | --- |
+| [Project Fibsh](projects/fibsh/README.md) | Active Unreal game development | Product scope, systems design, PH art, Blender and Unreal iteration, packaged builds, persistence validation, and risk tracking |
 | [External QA Handoff Manager](docs/external-qa-handoff-manager.html) | Working browser prototype | Handoff packets, scenario matrices, evidence standards, intake review, and QA-lead summaries |
-| [Community Pulse](projects/community-pulse-report-tool/README.md) | Working local prototype | CSV parsing, data validation, reporting support, deterministic tests, and human review |
+| [Community Pulse](projects/community-pulse-report-tool/README.md) | Working local prototype | CSV parsing, data validation, reporting support, deterministic tests, and review-ready output |
 | [QA Bug Report Tool](projects/qa-bug-report-tool/README.md) | Working CLI prototype | Structured defects, field validation, Markdown/JSON export, and pytest |
-| [QA Portfolio Auditor](docs/qa-portfolio-auditor.html) | Supporting prototype | Portfolio evidence checks, documentation coverage, and overclaim control |
-| [Project Fibsh](projects/fibsh/README.md) | Private WIP game project | Character and environment concepts, Blender composition and rig development, packaged WIP captures, persistence validation, and risk tracking |
+| [QA Portfolio Auditor](docs/qa-portfolio-auditor.html) | Supporting prototype | Portfolio evidence checks, documentation coverage, and claim-quality review |
 | [Game Design Portfolio](https://kintsugikoko.github.io/KintsugiKoko/game-design.html) | Current design showcase | Ashes content and systems contributions plus Project Fibsh visual development, systems, and validation evidence |
 
 ## Public / Private Boundary
 
-The portfolio publishes selected QA tools, sample data, process notes, and recruiter-safe summaries. Private game repositories, Unreal content, Blender source files, packaged builds, credentials, commercial planning, and unreleased design material are not published here.
+The portfolio publishes selected QA tools, sample data, process documentation, PH art, and development evidence. Project source, editable production assets, credentials, commercial planning, and confidential studio material remain private.
 
-Portfolio tools use fictional, mock, or manually prepared data unless stated otherwise. Agent assistance supports planning, implementation, review, and documentation; I remain responsible for scope, verification, and final decisions.
+Portfolio tools use fictional, mock, or manually prepared data unless stated otherwise. I own project scope, review, verification, and final decisions across every published workflow.
 
 ## Links
 

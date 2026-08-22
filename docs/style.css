@@ -243,6 +243,14 @@ h3 {
   max-width: 820px;
 }
 
+.availability-line {
+  color: var(--soft);
+  font-size: 0.96rem;
+  font-weight: 800;
+  margin: 0.85rem 0 0;
+  max-width: 820px;
+}
+
 .hero-proof {
   display: grid;
   gap: 0.65rem;

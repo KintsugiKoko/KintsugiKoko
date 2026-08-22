@@ -3,7 +3,7 @@ const HANDOFF = {
   build: "Portfolio sample build / mock handoff packet",
   owner: "QA lead review",
   goal: "Validate that an offsite QA tester can understand the feature goal, run the right scenario checks, capture useful evidence, and send back Jira-ready bug reports for human review.",
-  note: "Mock data only. This tool does not connect to Jira, vendor portals, private studio workflows, internal test plans, or live production data."
+  note: "Fictional sample data for the local browser prototype. Live Jira, vendor, and studio-system adapters remain separate integration work."
 };
 
 const SCENARIOS = [
@@ -124,7 +124,7 @@ function buildMarkdown() {
     `- Build/context: ${HANDOFF.build}`,
     `- Owner: ${HANDOFF.owner}`,
     `- Goal: ${HANDOFF.goal}`,
-    `- Safety note: ${HANDOFF.note}`,
+    `- Scope note: ${HANDOFF.note}`,
     "",
     "## Scenario Matrix",
     ""
@@ -148,9 +148,9 @@ function buildMarkdown() {
   INTAKE_CHECKLIST.forEach((item) => lines.push(`- [ ] ${item}`));
   lines.push(
     "",
-    "## Portfolio-Safe Boundary",
+    "## Current Operating Scope",
     "",
-    "This is a human-reviewed external QA planning artifact using mock data. It does not connect to Jira, vendor portals, private studio workflows, internal test plans, or live production data."
+    "This reviewed external QA planning artifact uses fictional local sample data. Live Jira, vendor, and studio-system adapters remain separate integration work."
   );
 
   return lines.join("\n");

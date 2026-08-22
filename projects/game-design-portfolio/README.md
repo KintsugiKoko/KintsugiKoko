@@ -1,8 +1,8 @@
 # Game Design Portfolio
 
-This section collects public-safe examples of how I think about gameplay systems, player understanding, iteration, and design validation.
+This section shows how I approach gameplay systems, player understanding, iteration, and design validation.
 
-My primary professional lane is Senior QA / QAE. The design work shown here is narrower and clearly labeled: professional content and systems-design contributions from Ashes of Creation, plus current private work on Project Fibsh. The Fibsh showcase includes selected concept boards, Blender results, packaged Unreal captures, and validation summaries while source files and unreleased production material remain private.
+My primary professional lane is Senior QA / QAE. The design work shown here covers professional content and systems contributions from Ashes of Creation plus active development of Project Fibsh. The Fibsh showcase follows selected concepts through PH asset work, Blender validation, Unreal implementation, packaged builds, and test evidence.
 
 - [Open the live Game Design Portfolio](https://kintsugikoko.github.io/KintsugiKoko/game-design.html)
 - [Review the public Project Fibsh summary](../fibsh/README.md)
@@ -23,9 +23,9 @@ My primary professional lane is Senior QA / QAE. The design work shown here is n
 
 ### Ashes of Creation Content And Systems Design
 
-**Status:** Professional team contributions. Public summary only.
+**Status:** Professional team contribution.
 
-At Intrepid Studios, I contributed directly to content and systems design while working across Narrative Design and the Ashes of Creation Economy team. I was preparing to transition formally into design when the unexpected studio closure interrupted that path.
+At Intrepid Studios, I contributed directly to content and systems design while working across Narrative Design and the Ashes of Creation Economy team. I was preparing to transition formally into design when Intrepid closed.
 
 My contribution included:
 
@@ -37,15 +37,15 @@ My contribution included:
 - using test coverage, playtest findings, and cross-discipline discussion to support design decisions
 - communicating with design, engineering, production, art, and QA partners
 
-This is not presented as sole design ownership. Proprietary requirements, internal documentation, tuning values, unreleased implementation details, and team-authored assets remain private.
+These contributions were delivered within cross-discipline teams. Proprietary requirements, internal documentation, tuning values, implementation details, and team-authored assets remain private.
 
-## Current WIP Design Work
+## Active Game Development
 
 ### Project Fibsh
 
-**Status:** Current private WIP Unreal game project with selected public-safe visual and validation evidence.
+**Status:** Active private Unreal Engine game development with selected public documentation and evidence.
 
-Project Fibsh is a WIP project about a city cat's strange fishing vacation at Lake Glorp. Its public design evidence shows how that premise moves through visual direction, spatial planning, Blender development, Unreal implementation, packaged smoke testing, and owner-reviewed iteration.
+Project Fibsh is an original game about a city cat's strange fishing vacation at Lake Glorp. Its development evidence shows how that premise moves through visual direction, spatial planning, PH art, Blender development, Unreal implementation, packaged smoke testing, and owner-reviewed iteration.
 
 Detailed mechanics, Unreal source and content, Blender source files, packaged builds, commercial planning, and the complete validation record remain private.
 
@@ -57,7 +57,7 @@ The public page already contains evidence across four distinct stages. Each arti
 
 [![Approved Project Fibsh city-cat gameplay concept](../../docs/assets/fibsh/fibsh-character-gameplay-concept.png)](https://kintsugikoko.github.io/KintsugiKoko/game-design.html#visual-evidence)
 
-This approved, human-reviewed concept board establishes the city-cat silhouette, Lake Glorp mood, fishing posture, and cast-ready readability. It is concept direction, not an in-engine screenshot.
+This approved concept board establishes the city-cat silhouette, Lake Glorp mood, fishing posture, and cast-ready readability.
 
 ### Lake Glorp Level Concept
 
@@ -67,19 +67,19 @@ The orthographic plan supports design decisions about the dock approach, shoreli
 
 ### Environment Direction Studies
 
-The [world-scale environment concept](../../docs/assets/fibsh/lake-glorp-world-concept.png) explores crystal-lit water, route rhythm, forest enclosure, settlement silhouettes, and warm navigation lights. The [player-view boat keyframe](../../docs/assets/fibsh/lake-glorp-boat-keyframe-concept.png) explores camera height, the city-cat silhouette, shoreline landmarks, and arrival mood. Both are concept explorations, not current level-footprint or implemented traversal claims.
+The [world-scale environment concept](../../docs/assets/fibsh/lake-glorp-world-concept.png) explores crystal-lit water, route rhythm, forest enclosure, settlement silhouettes, and warm navigation lights. The [player-view boat keyframe](../../docs/assets/fibsh/lake-glorp-boat-keyframe-concept.png) explores camera height, the city-cat silhouette, shoreline landmarks, arrival mood, and a possible traversal beat.
 
 ### Canon Master And Blender Development
 
 [![Canon Project Fibsh Master landscape work in progress](../../docs/assets/fibsh/lake-glorp-canon-master-landscape-wip.png)](https://kintsugikoko.github.io/KintsugiKoko/game-design.html#visual-evidence)
 
-The actual canon Master is shown in Unreal Editor as a WIP landscape with the mountain silhouette, river route, terrain scale, and forest coverage established. Placeholder actors and unfinished lighting remain visible, so the capture is not presented as final environment art. A separate [Blender gameplay-view structural pass](../../docs/assets/fibsh/lake-glorp-blender-environment-wip.png) tests terrain, shoreline, and camera coverage, while the [Parry rig stress render](../../docs/assets/fibsh/parry-blender-rig-stress-wip.png) records fishing-arm deformation and pose-range review. Parry is a WIP validation character, not the final player identity.
+The canon Master is shown in Unreal Editor with the mountain silhouette, river route, terrain scale, and forest coverage established. PH actors and lighting identify the next environment pass. A separate [Blender gameplay-view structural pass](../../docs/assets/fibsh/lake-glorp-blender-environment-wip.png) tests terrain, shoreline, and camera coverage, while the [Parry PH rig stress render](../../docs/assets/fibsh/parry-blender-rig-stress-wip.png) records fishing-arm deformation, equipment clearance, and pose-range review.
 
 ### Packaged Unreal Validation
 
 [![Project Fibsh packaged smoke-test contact sheet](../../docs/assets/fibsh/fibsh-packaged-smoke-test-wip.jpg)](https://kintsugikoko.github.io/KintsugiKoko/game-design.html#visual-evidence)
 
-The packaged contact sheet records a real WIP flow through menu, movement, cast, wait, bite, reel, result, journal, and pause states. It is functional proof, not release-quality presentation.
+The packaged contact sheet records the functional flow through menu, movement, cast, wait, bite, reel, result, journal, pause, and persistence review.
 
 ## Design And Validation Loop
 
@@ -90,10 +90,10 @@ Define the goal -> bound the scope -> implement one change -> validate the resul
 | Design area | Purpose | Current public status |
 | --- | --- | --- |
 | Product and ship-state intent | Establish the current goal, accepted scope, known evidence, ranked risks, and next action | Workflow documented, product details private |
-| Gameplay transaction | Keep one WIP player-facing change bounded enough to iterate and verify | Follow-up UX and persistence fixes documented at a high level |
+| Gameplay transaction | Keep one player-facing change bounded enough to iterate and verify | Follow-up UX and persistence fixes documented at a high level |
 | Persistence behavior | Preserve understandable durable state across quit and relaunch | Validation evidence summarized, implementation private |
 | System boundaries | Prevent one feature from silently owning unrelated rules or release decisions | Public workflow principle |
-| Release evidence | Separate build success, automated checks, deterministic validation, and human usability review | Evidence types documented separately, no release-readiness claim |
+| Release evidence | Separate build success, automated checks, deterministic validation, and human usability review | Evidence layers documented with owner-gated decisions |
 
 ## Product Scope And Acceptance Criteria
 
@@ -106,19 +106,19 @@ Questions used during review include:
 - What should the player understand after this interaction?
 - Which system owns the state change, feedback, and persistence rule?
 - What evidence would show that the change works as intended?
-- Which defects block the next milestone, and which are known WIP limits?
+- Which defects block the next milestone, and which are accepted PH or current-scope limits?
 - What still requires human play or usability review?
 
 ## Public / Private Boundary
 
-### What Is Public
+### Published Evidence
 
 - Scope-control and acceptance-criteria habits
-- Agent-supervised writer and recovery controls
+- Controlled writer and recovery processes
 - Isolated build and validation stages
 - Separation of automated, deterministic, and human evidence
 - High-level gameplay, UX, and persistence iteration milestones
-- Selected flattened concept boards, Blender renders, and packaged Unreal captures
+- Selected flattened concept boards, PH Blender renders, and packaged Unreal captures
 - Ranked defects, residual risk, and owner-gated decisions
 
 ### What Remains Private
@@ -142,18 +142,19 @@ Questions used during review include:
 ## Evidence And Artifacts
 
 - [Project Fibsh Public Summary](../fibsh/README.md)
-- [Agent-Supervised Workflow](../fibsh/README.md#agent-supervised-workflow)
+- [Controlled Development Workflow](../fibsh/README.md#controlled-development-workflow)
 - [Recent Workflow Milestones](../fibsh/README.md#recent-workflow-milestones)
 - [Published Visual Development Evidence](https://kintsugikoko.github.io/KintsugiKoko/game-design.html#visual-evidence)
 - [Senior QA / QAE Signal](../fibsh/README.md#senior-qa--qae-signal)
 
-## What This Section Does Not Claim
+## Ownership And Maturity Labels
 
-- Sole ownership of Ashes of Creation quests, world events, recipes, or the equipment rework
-- Publication of confidential studio documentation or proprietary tuning
-- Public access to Project Fibsh source, assets, builds, mechanics, or commercial records
-- Finished Project Fibsh gameplay, final art, production readiness, store readiness, or release quality
-- That automation replaces human play, usability review, or owner approval
+- Ashes of Creation entries describe my contributions within cross-discipline teams while respecting team authorship and confidential implementation details.
+- Concept marks approved visual or spatial direction.
+- PH marks placeholder assets used to test composition, scale, rigging, readability, and gameplay flow.
+- Unreal captures show current in-engine implementation.
+- Packaged captures document observed functional behavior from a reviewed build.
+- Automated checks, deterministic validation, and human play remain separate evidence layers.
 
 ## Evidence Maintenance
 
