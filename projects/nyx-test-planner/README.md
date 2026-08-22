@@ -36,7 +36,6 @@ This tool is meant to show test-planning judgment, not completed Nyx gameplay. A
 ## Related Portfolio Docs
 
 - [Unreal Test Levels And Scenarios](../../docs/unreal-test-levels-and-scenarios.md)
-- [Tool Audit Report](../../docs/tool-audit-report.md)
 
 ## Current Scope
 

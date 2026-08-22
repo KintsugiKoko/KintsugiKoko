@@ -13,7 +13,6 @@ This is not an Unreal plugin and does not automate Unreal. Any Unreal-facing wor
 ## Portfolio Showcase
 
 - [Art QA Telemetry Report Showcase](../../docs/art-qa-telemetry-report-showcase.md)
-- [Tool Audit Report](../../docs/tool-audit-report.md)
 
 ## Why This Exists
 
