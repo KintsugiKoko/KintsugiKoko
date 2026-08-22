@@ -4,25 +4,25 @@
 
 Supporting meta-QA prototype.
 
-QA Portfolio Auditor checks project metadata for demo readiness, documentation coverage, recruiter clarity, evidence completeness, and claim quality before publishing.
+QA Portfolio Auditor checks project metadata for demo readiness, documentation coverage, review clarity, evidence completeness, and claim accuracy before publishing.
 
 The current model combines static portfolio metadata, local artifact checks, and a reviewer decision. It supports the release gate without replacing visual review, link verification, or owner sign-off.
 
 ## Portfolio Role
 
-This is a supporting artifact rather than a primary proof project. The recruiter path starts with Project Fibsh, External QA Handoff Manager, Community Pulse, QA Bug Report Tool, and the Game QA Field Guide.
+This is a supporting artifact rather than a primary proof project. The primary project path starts with Project Fibsh, External QA Handoff Manager, Community Pulse, QA Bug Report Tool, and the Game QA Field Guide.
 
-QA Portfolio Auditor adds the meta-QA layer: release-readiness thinking, evidence completeness, recruiter wording review, claim-quality control, tool documentation, and explicit owner sign-off.
+QA Portfolio Auditor adds the meta-QA layer: release-readiness thinking, evidence completeness, documentation review, claim-accuracy control, tool verification, and explicit owner sign-off.
 
 ## What It Answers
 
-Are my QA portfolio tools clearly documented, supported by reviewable evidence, scoped accurately, and easy for recruiters to inspect?
+Are my QA portfolio tools clearly documented, supported by reviewable evidence, scoped accurately, and easy to inspect?
 
 ## What It Demonstrates
 
 - QA discipline applied to my own portfolio artifacts
 - Release-readiness thinking before publishing
-- Recruiter-readable project positioning
+- Clear project scope and review paths
 - Evidence completeness checks
 - Data and source-boundary review
 - Claim-quality checks around Unreal, Jira, private data, automation, and production-readiness language

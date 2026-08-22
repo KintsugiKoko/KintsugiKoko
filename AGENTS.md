@@ -1,30 +1,30 @@
 # Codex Instructions
 
-This repository is my GitHub profile, professional QA portfolio, and active game-development showcase. Future Codex work should preserve the central thread:
+This repository is my GitHub profile and learning portfolio. Future Codex work should preserve the central thread:
 
-> "Eight years in game QA, practical systems and data work, and active development on Project Fibsh."
+> "Intrepid closed. My love for games didn't &mdash; now I'm learning code, GitHub, and AI workflows in public."
 
-I love games. The Intrepid closure created a career reset, and I responded by applying my QA experience to practical tools, stronger documentation, controlled development workflows, and an original game project.
+I love games. Intrepid closing forced a hard reset, but my love for games did not go away. I am using that reset as motivation to learn software development, GitHub, documentation, and AI-assisted workflows in public.
 
 ## Purpose
 
-This repository exists to present Keith McAvoy as an experienced Senior QA / QAE professional with strong systems, data, backend/API, live-service, test-planning, external-execution, and tooling experience.
+This repository exists to help Keith McAvoy grow from experienced Game QA / Technical QA into stronger QA tooling, automation, GitHub, documentation, and agent-supervised engineering habits.
 
-Keith is actively building Project Fibsh while open to employment. The portfolio should show professional QA judgment, practical implementation workflows, and reviewable development evidence without turning the public story into a training log or a tooling disclosure page.
+Keith is a QA professional learning code in public. The goal is not to pretend he is already a senior software engineer. The goal is to build honest, useful proof of growth through small QA-focused tools, tests, docs, and portfolio artifacts.
 
 ## Core Identity
 
 Keith's lane:
 
 - Game QA / Technical QA professional
-- 8 years of game QA experience
+- 7 years of game QA experience
 - Blizzard Entertainment and Intrepid Studios background
 - Strong QA judgment, bug communication, player-impact thinking, and systems validation
-- Actively building Project Fibsh, Python QA tools, pytest coverage, GitHub workflows, CLI systems, validation reports, and controlled development pipelines
+- Actively building Python, pytest, GitHub, GitHub Actions, CLI tools, log triage, documentation, and AI-assisted QA workflows
 
 ## Project Theme
 
-Treat this project like a professional working portfolio. Each task should strengthen a reviewable capability:
+Treat this project like a training chamber. Each task should build one practical skill rep:
 
 - Reading code
 - Reviewing diffs
@@ -148,21 +148,20 @@ Keep work honest. Do not overstate coding, automation, engineering, or productio
 
 ## Tone
 
-- Keep the tone confident, professional, resilient, game-connected, and recruiter-readable.
+- Keep the tone honest, professional, resilient, game-connected, and beginner-friendly.
 - Make the story personal without making it dramatic or bitter.
 - Present the work as growth, practice, documentation, and reflection.
 - Keep the love-of-games angle visible where it fits naturally.
-- Use clear, practical language that remains easy to maintain.
+- Use clear, practical language that a beginner can maintain.
 
 ## Content Rules
 
 - Do not exaggerate my coding experience.
 - Do not invent jobs, credentials, clients, awards, certifications, completed projects, or technical skills.
-- Describe Project Fibsh accurately as active original game development, while keeping professional studio credits and personal project ownership distinct.
+- Do not claim I am a game developer unless I explicitly provide that wording later.
 - Mark incomplete work clearly as planned, in progress, placeholder, or template.
-- Do not foreground AI or agent use in recruiter-facing copy. Lead with Keith's scope, decisions, workflows, verification, and results.
-- Disclose assisted tooling when it is materially relevant, requested, or required, but do not use repetitive AI disclaimers as the portfolio identity.
-- Keep the thread that connects games, the Intrepid reset, professional QA work, and active Project Fibsh development.
+- Keep AI assistance visible when it is relevant to the work.
+- Do not remove the thread that connects games, the Intrepid reset, and learning in public.
 
 ## Intrepid Wording
 
@@ -214,7 +213,7 @@ Each QA tool should include the project pieces that make it easy to review and l
 
 - Treat "Cecil" as the continuity role for this repository: professional manager, PR support, documentation coach, and momentum keeper.
 - Help turn real work into clear evidence for recruiters without making the work sound bigger than it is.
-- Keep the portfolio focused on Senior QA / QAE credibility, systems and data work, active game development, and reviewable results.
+- Keep the portfolio focused on career rebuilding, QA credibility, technical learning, and honest progress.
 - Translate technical changes into plain-language value: what changed, why it matters, what skill it shows, and what should happen next.
 - Watch for gaps where useful work exists but has not been captured in a README, devlog, learning log, project note, or commit message.
 - Protect the user's voice. Keep the tone encouraging and resilient without making the story sound polished beyond recognition.
@@ -254,9 +253,9 @@ When a code, tooling, or project documentation change is made:
 - Lead with evidence, not hype.
 - Connect projects to practical QA strengths: repro clarity, risk thinking, validation, regression awareness, documentation, communication, and tool-building.
 - Explain technical work in recruiter-readable terms while preserving enough detail for technical reviewers.
-- Do not let disclaimers undercut real QA experience. State current scope and maturity directly, then lead with the work.
+- Do not let disclaimers undercut real QA experience. Be honest about learning status, but do not apologize for it.
 - Mark unfinished systems as WIP and distinguish implemented work from planned ideas.
-- When assisted tools are relevant, frame them as one part of a controlled workflow owned, reviewed, tested, and approved by Keith.
+- When AI assistance was involved, frame it as assisted workflow practice with human review, not as a replacement for understanding.
 
 ## Agent Supervisor Habit
 
@@ -274,13 +273,13 @@ Keith owns the outcome. Codex writes or edits, but Keith verifies. Every Codex t
 
 When updating portfolio content, check that:
 
-- The README still feels personal, game-connected, professional, and recruiter-readable.
+- The README still feels personal, game-connected, and beginner-friendly.
 - The live homepage and README still tell the same project story.
 - Claims are honest and do not overstate my current experience.
 - Links and project names are accurate.
 - Incomplete work is labeled clearly.
 - The personal story is clear without sounding bitter.
-- The repo remains straightforward to understand and maintain.
+- The repo remains simple enough for a beginner to understand and maintain.
 
 ## Handoff Habit
 

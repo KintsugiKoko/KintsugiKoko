@@ -1,6 +1,6 @@
 # Core Positioning Statement
 
-Senior QA / Technical QA / Art QA professional with 8 years across Blizzard Entertainment, Activision, and Intrepid Studios. I have direct Art QA specialist and technical capture experience using telemetry/data workflows, art test suite capture/parsing, graphical/content validation, Unreal asset-heavy validation, Jira triage, test planning, and cross-discipline reporting. My lane is QA ownership: clear repro quality, validation depth, telemetry-informed investigation, fix verification, and risk communication for Art, Tech Art, Performance, Engineering, Design, Production, and QA partners.
+Senior QA / Technical QA / Art QA professional with 7+ years across Blizzard Entertainment, Activision, and Intrepid Studios. I have direct Art QA specialist and technical capture experience using telemetry/data workflows, art test suite capture/parsing, graphical/content validation, Unreal asset-heavy validation, Jira triage, test planning, and cross-discipline reporting. My lane is QA ownership: clear repro quality, validation depth, telemetry-informed investigation, fix verification, and risk communication for Art, Tech Art, Performance, Engineering, Design, Production, and QA partners.
 
 # Resume-Safe Bullets
 
@@ -14,7 +14,7 @@ Senior QA / Technical QA / Art QA professional with 8 years across Blizzard Ente
 
 # LinkedIn-Safe Version
 
-I am a Senior QA / Technical QA / Art QA professional with 8 years across Blizzard Entertainment, Activision, and Intrepid Studios. My strongest lane is direct QA ownership around asset-heavy game work: Art QA specialist validation, technical capture, telemetry/data workflows, graphical/content issue investigation, Unreal content validation, Jira triage, test planning, and clear reporting.
+I am a Senior QA / Technical QA / Art QA professional with 7+ years across Blizzard Entertainment, Activision, and Intrepid Studios. My strongest lane is direct QA ownership around asset-heavy game work: Art QA specialist validation, technical capture, telemetry/data workflows, graphical/content issue investigation, Unreal content validation, Jira triage, test planning, and clear reporting.
 
 At Blizzard and Activision, I supported Art QA and technical capture work across Warcraft III: Reforged, World of Warcraft: Shadowlands / Dragonflight, Diablo Immortal, Diablo IV, Overwatch 2, Modern Warfare II, and Blizzard Project Odyssey before the project was cancelled. At Intrepid Studios, I spent 3 years on Ashes of Creation validating Unreal Engine content across economy and equipment-facing systems, weapons, mounts, cosmetics, materials, VFX-adjacent checks, artisan stations, caravans/vehicles, and asset-heavy implementation issues.
 

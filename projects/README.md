@@ -2,7 +2,7 @@
 
 This repository documents how I apply eight years of game QA experience to practical tools, controlled workflows, and active game development. I am currently open to Senior QA / QAE opportunities while building Project Fibsh and maintaining a focused set of reviewable QA systems.
 
-The strongest projects connect test ownership, data quality, risk communication, external execution, and release decisions to artifacts a recruiter or technical reviewer can inspect directly.
+The strongest projects connect test ownership, data quality, risk communication, external execution, and release decisions to artifacts that can be inspected directly.
 
 ## Best First Review Path
 
@@ -19,7 +19,7 @@ The strongest projects connect test ownership, data quality, risk communication,
 | Project | Status | Focus |
 | --- | --- | --- |
 | [Art Telemetry QA](art-telemetry-qa/README.md) | Working Python QA prototype | Mock Unreal-style telemetry parsing, validation rules, risk scoring, owner routing, and Jira-ready report structure |
-| [QA Portfolio Auditor](qa-portfolio-auditor/README.md) | Supporting meta-QA prototype | Artifact readiness, documentation coverage, recruiter clarity, evidence completeness, and claim-quality checks |
+| [QA Portfolio Auditor](qa-portfolio-auditor/README.md) | Supporting meta-QA prototype | Artifact readiness, documentation coverage, review clarity, evidence completeness, and claim-accuracy checks |
 
 ## Earlier Project Records
 

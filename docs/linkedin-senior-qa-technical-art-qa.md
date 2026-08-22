@@ -4,7 +4,7 @@ Use this section first. It is designed to add the strongest Art QA / Technical Q
 
 ## Paste First
 
-Senior QA / Technical QA / Art QA professional with 8 years across Blizzard Entertainment, Activision, and Intrepid Studios. My strongest lane is evidence-driven QA for asset-heavy game work: telemetry capture, technical validation, graphical/content issue investigation, Unreal-based content validation, Jira triage, and clear cross-discipline reporting.
+Senior QA / Technical QA / Art QA professional with 7+ years across Blizzard Entertainment, Activision, and Intrepid Studios. My strongest lane is evidence-driven QA for asset-heavy game work: telemetry capture, technical validation, graphical/content issue investigation, Unreal-based content validation, Jira triage, and clear cross-discipline reporting.
 
 At Blizzard and Activision, I worked in direct Art QA and technical capture workflows across AAA/live-service projects, including Warcraft III: Reforged art test suite capture/parsing, World of Warcraft: Shadowlands / Dragonflight Art QA checks, Diablo Immortal live-service data validation, Diablo IV environment/equipment validation, Overwatch 2 validation support, Modern Warfare II Art QA passes, and early Tech Art environment/character validation on Blizzard Project Odyssey before the project was cancelled.
 
@@ -43,7 +43,7 @@ Do not change the LinkedIn headline.
 
 Use this as additive copy to fold into the existing About section, not as a mandatory full replacement. Keep any current wording that is already working, then add the Art QA / Technical QA evidence where it strengthens the profile.
 
-Senior QA / Technical QA / Art QA professional with 8 years across Blizzard Entertainment, Activision, and Intrepid Studios. My strongest lane is evidence-driven QA for asset-heavy game work: telemetry capture, technical validation, graphical/content issue investigation, Unreal-based content validation, Jira triage, and clear cross-discipline reporting.
+Senior QA / Technical QA / Art QA professional with 7+ years across Blizzard Entertainment, Activision, and Intrepid Studios. My strongest lane is evidence-driven QA for asset-heavy game work: telemetry capture, technical validation, graphical/content issue investigation, Unreal-based content validation, Jira triage, and clear cross-discipline reporting.
 
 At Blizzard and Activision, I worked in Art QA and technical capture workflows across AAA/live-service projects, including Warcraft III: Reforged art test suite capture/parsing, World of Warcraft: Shadowlands / Dragonflight Art QA checks, Diablo Immortal live-service data validation, Diablo IV environment/equipment validation, Overwatch 2 validation support, Modern Warfare II Art QA passes, and early Tech Art environment/character validation on Blizzard Project Odyssey before the project was cancelled.
 

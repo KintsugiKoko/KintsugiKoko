@@ -54,7 +54,7 @@ Warcraft III: Reforged was my first professional game assignment. Team Burst the
 
 My primary professional lane is Senior QA / QAE, with direct content and systems-design contributions alongside translating design intent into testable behavior. The separate design portfolio shows professional team contributions and follows Project Fibsh from concept and systems planning through PH art, Blender development, Unreal implementation, packaged builds, and validation.
 
-- **[Live Game Design Portfolio](https://kintsugikoko.github.io/KintsugiKoko/game-design.html)** - Recruiter-readable overview of professional contribution, current Project Fibsh systems work, and selected development evidence
+- **[Live Game Design Portfolio](https://kintsugikoko.github.io/KintsugiKoko/game-design.html)** - Professional overview of team contributions, current Project Fibsh systems work, and selected development evidence
 - **[Game Design Portfolio README](projects/game-design-portfolio/README.md)** - Detailed design notes, artifact labels, and workflow evidence
 
 | Design area | Evidence | Status |
@@ -93,7 +93,7 @@ Additional confidential incubation assignments remain unnamed. These entries ref
 
 For game-design roles, use the **[Game Design Portfolio](https://kintsugikoko.github.io/KintsugiKoko/game-design.html)** as the first review path. It keeps design evidence separate from the primary QA tool path.
 
-Optional support layer: **[QA Portfolio Auditor](docs/qa-portfolio-auditor.html)** checks static portfolio metadata for documentation coverage, evidence completeness, recruiter clarity, and claim quality before publishing.
+Optional support layer: **[QA Portfolio Auditor](docs/qa-portfolio-auditor.html)** checks static project metadata for documentation coverage, artifact completeness, review clarity, and claim accuracy before publishing.
 
 ## Systems, Pipelines, And Tooling
 
