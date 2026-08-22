@@ -2,11 +2,11 @@
 
 ## Status
 
-First working browser prototype for portfolio review.
+Working browser prototype for external QA planning and intake review.
 
-External QA Handoff Manager demonstrates how a QA lead can turn a feature goal into an outsource-ready test packet with scenario coverage, bug-quality standards, evidence requirements, intake review, and Markdown handoff export.
+External QA Handoff Manager turns a feature goal into an outsource-ready test packet with scenario coverage, bug-quality standards, evidence requirements, intake review, and Markdown handoff export.
 
-It uses mock data only. It does not connect to Jira, vendor portals, private studio workflows, internal test plans, outsourcing systems, or live production data.
+The current browser build uses fictional scenarios and local sample data. Live Jira, vendor, and studio-system adapters remain outside this prototype's current scope.
 
 ## Live Demo
 
@@ -19,35 +19,28 @@ It uses mock data only. It does not connect to Jira, vendor portals, private stu
 - Bug-quality standards for useful incoming reports
 - Evidence requirements for screenshot, clip, build, and pass/fail notes
 - QA lead intake review before accepting a handoff as complete
-- Human-reviewed Markdown export for portfolio-safe documentation
+- Review-ready Markdown export for handoff documentation
 
 ## Current Sample Flow
 
 The sample handoff focuses on a fictional Nyx Starwell offering pass:
 
-1. Review the feature goal and portfolio-safe boundary.
+1. Review the feature goal and operating scope.
 2. Scan the scenario matrix for high-risk and needs-setup items.
 3. Review bug standards and evidence requirements.
 4. Generate the Markdown handoff draft.
-5. Treat the output as a human-reviewed planning artifact, not a live Jira or vendor-system export.
+5. Export the reviewed handoff as Markdown for team circulation or further refinement.
 
-## Portfolio-Safe Boundary
+## Current Operating Scope
 
-This project is meant to show QA coordination judgment. It does not claim:
-
-- Real studio data
-- Live vendor integration
-- Jira automation
-- Private outsourcing workflows
-- Production pipeline ownership
-- Automated Unreal or engine validation
+The prototype demonstrates QA coordination judgment through fictional data, local browser state, manual intake decisions, and Markdown export. Production integrations, authentication, live build validation, and vendor-specific workflows would require separate project configuration and owner review.
 
 ## Known Limitations
 
 - The sample data is hard-coded in the browser.
 - The export is Markdown only.
 - There is no account system, persistence, import, or Jira connection.
-- It does not validate a real build or run automated checks.
+- Build validation and automated checks are separate from this planning prototype.
 - A real handoff would need project-specific owner review, platform/build notes, and evidence storage.
 
 ## Future Improvements

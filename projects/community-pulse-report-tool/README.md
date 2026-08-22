@@ -4,17 +4,15 @@
 
 Demo-ready local reporting prototype.
 
-Community Pulse is a local CSV-based reporting support prototype for organizing fictional or manually prepared community feedback into QA-aware, human-reviewed Markdown summaries.
+Community Pulse is a local CSV-based reporting prototype that turns fictional, manually prepared, or permissioned feedback records into QA-aware Markdown summaries for review and routing.
 
-This project assumes feedback has already been collected or manually prepared by a human reviewer. It does not scrape platforms, monitor communities, discover conversations, ingest live data, or perform automated moderation. It does not connect to EA systems, Discord, Reddit, forums, social media APIs, private APIs, internal tools, proprietary data, scraped data, or live community sources.
+The workflow begins after an authorized reviewer has collected or prepared the input. Analysis is local and deterministic, sentiment comes from the CSV label, and decisions remain with the community, QA, design, and production partners reviewing the report.
 
 ## Goal
 
 Turn fictional or manually prepared community feedback CSV data into a structured Markdown feedback review report.
 
-The project models a real workflow problem: when a game has high engagement, manually prepared feedback notes can pile up across posts, accounts, forums, streams, or community discussions. This prototype practices organizing those local records into a reviewable shape with local CSV files, simple filters, transparent counts, exact representative quotes, and human follow-up notes.
-
-It is not a social listening platform, not a scraper, not an automated moderation tool, not an automated decision-maker, and not a replacement for community judgment.
+The project models a real workflow problem: when a game has high engagement, manually prepared feedback notes can pile up across posts, accounts, forums, streams, or community discussions. The tool organizes those local records with simple filters, transparent counts, exact representative quotes, and clear follow-up notes.
 
 ## What Problem This Models
 
@@ -26,7 +24,7 @@ A community manager, QA partner, or producer may need to answer questions like:
 - Which exact quotes should a human reviewer inspect?
 - What follow-up should QA, design, production, or community review next?
 
-This tool keeps that workflow portfolio-safe by using local CSV fields instead of live platform connections.
+The current implementation uses local CSV input so each record, filter, quote, and count stays auditable.
 
 ## What It Does
 
@@ -123,9 +121,7 @@ The source, account, post, keyword, and topic filters can be repeated.
 
 ## Output Limits And Lightweight Runtime
 
-The tool is designed to stay local, deterministic, and inexpensive to run. It parses the CSV once, normalizes rows once, then reuses that data for filtering, counts, quote selection, and Markdown formatting.
-
-It does not use LLM calls, embeddings, vector databases, external search, scraping, or live integrations.
+The tool is designed to stay local, deterministic, and inexpensive to run. It parses the CSV once, normalizes rows once, then reuses that data for filtering, counts, quote selection, and Markdown formatting. The current runtime is CSV input, deterministic Python analysis, and Markdown output.
 
 Default report caps keep larger local CSVs readable:
 
@@ -153,7 +149,7 @@ When output is capped, the report says so with notes like:
 ```markdown
 # Weekly Community Feedback Review Report
 
-> Portfolio-safe prototype report generated from fictional sample data.
+> Local prototype report generated from fictional sample data.
 
 ## Executive Summary
 
@@ -161,7 +157,7 @@ When output is capped, the report says so with notes like:
 - Strongest positive area: **Fishing timing** (3 items)
 - Strongest mixed area: **Fishing timing** (2 items)
 - Strongest negative area: **Onboarding clarity** (3 items)
-- This report is a draft aid for human review, not an automated community decision.
+- This report is prepared for human review, context checks, and follow-up routing.
 ```
 
 ## Use Your Own Local CSV
@@ -172,28 +168,21 @@ Use the template:
 
 [sample-data/feedback-template.csv](sample-data/feedback-template.csv)
 
-Important boundaries:
+Input rules:
 
 - Run the tool locally against a CSV file you are allowed to use.
 - Do not paste private, proprietary, confidential, or NDA-covered feedback into a public repo.
-- The tool does not fetch from live platforms.
-- The tool does not scrape social media.
-- The tool does not use private API access.
 - You are responsible for permission, privacy, context, and human review when using your own data.
 
-## What The Tool Does Not Do
+## Current Scope
 
-- Does not connect to live community platforms.
-- Does not scrape Discord, Reddit, forums, social media, or websites.
-- Does not monitor live communities.
-- Does not ingest live conversations.
-- Does not discover posts.
-- Does not connect to private APIs, internal systems, or company tools.
-- Does not infer sentiment with AI or machine learning.
-- Does not moderate communities.
-- Does not make automated player decisions or decide product direction.
-- Does not generate screenshots, visual evidence, art, avatars, or media.
-- Does not replace community manager, QA, design, production, or leadership judgment.
+- Local CSV input from fictional, manually prepared, or permissioned records
+- Deterministic filtering, counts, topic splits, and quote selection
+- Exact quote preservation from the provided `text` field
+- Markdown reports and saved handoff samples
+- User-provided attribution and media references remain unchanged
+
+Live collection, platform connectors, moderation, and product decisions remain outside the current tool scope.
 
 ## External QA Handoff Sample
 
@@ -201,9 +190,7 @@ Community Pulse includes a saved External QA handoff sample export:
 
 [reports/external-qa-handoff-sample.md](reports/external-qa-handoff-sample.md)
 
-Adding a saved External QA handoff sample export strengthens the portfolio story because it shows the tool does more than summarize feedback, it turns community signals into a clean, reviewable artifact that QA partners can act on. For QA Lead and Technical QA roles, this demonstrates cross-functional thinking, traceability, prioritization, evidence handling, and handoff discipline. It also makes the workflow easier to demo because reviewers can see exactly how raw feedback becomes structured QA-ready context without needing live data, private systems, or extra explanation.
-
-The sample uses fictional data only. It does not connect to Jira, private tools, live platforms, or external systems.
+The saved handoff shows how local feedback records become structured QA-ready context. It demonstrates cross-functional thinking, traceability, prioritization, evidence handling, and handoff discipline through a fictional review scenario.
 
 ## Project Structure
 
@@ -272,12 +259,12 @@ Run tests from this project directory:
 python -m pytest
 ```
 
-## Safety And Limitations
+## Data Handling And Limitations
 
-- Built-in sample data is fictional and created for portfolio practice.
+- Built-in sample data is fictional and created for this demonstration.
 - Optional account, post, keyword, topic, and conversation fields are local demo metadata only.
-- Sentiment is read from the CSV label. The tool does not infer sentiment with AI or machine learning.
-- Counts are simple summaries, not product decisions.
+- Sentiment is read from the supplied CSV label.
+- Counts summarize the provided records and support, rather than determine, product decisions.
 - Representative quotes are copied exactly from the CSV `text` field.
 - A human reviewer should always decide what feedback is important, what needs escalation, and what context is missing.
 
@@ -292,6 +279,4 @@ python -m pytest
 
 ## Why This Belongs In The Portfolio
 
-This project connects QA thinking with community management workflow awareness. It practices structured data parsing, input validation, filtering, sentiment summarization, conflicting opinion review, exact quote preservation, documentation, and visible limitations.
-
-That makes it useful as a beginner Python project and as a small example of how tooling can support communication without pretending to automate the human parts of community work.
+This project connects QA systems thinking with community-management workflow awareness. It demonstrates structured data parsing, input validation, filtering, sentiment summaries, conflicting-opinion review, exact quote preservation, documentation, and clear routing boundaries.

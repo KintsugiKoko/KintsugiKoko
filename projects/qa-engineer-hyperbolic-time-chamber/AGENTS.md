@@ -11,7 +11,7 @@ Keith is a QA professional learning code in public. The work should create hones
 Keith's lane in this project:
 
 - Game QA / Technical QA professional
-- 7 years of game QA experience
+- 8 years of game QA experience
 - Strong QA judgment, bug communication, player-impact thinking, and systems validation
 - Learning Python, pytest, Git / GitHub, GitHub Actions, Markdown docs/documentation, CLI tools, log triage, bug report tooling, community sentiment reporting, README/project documentation, learning logs, and agent-supervised workflows
 

@@ -6,6 +6,7 @@
   <meta name="color-scheme" content="dark">
   <meta name="darkreader-lock">
   <title>QA Portfolio Auditor</title>
+  <link rel="icon" href="assets/kintsugi-koko-2026.png" type="image/png">
   <link rel="stylesheet" href="qa-portfolio-auditor.css">
 </head>
 <body>
@@ -22,18 +23,17 @@
 
   <main>
     <section class="hero">
-      <p class="eyebrow">Portfolio-Safe Meta-QA Prototype</p>
+      <p class="eyebrow">Supporting Meta-QA Prototype</p>
       <h1>QA Portfolio Auditor</h1>
       <p class="lead">
-        Checks portfolio tools for local/static demo references, documentation
-        coverage, recruiter-safe wording, artifact evidence, and overclaim risk
+        Checks portfolio tools for local demo references, documentation
+        coverage, recruiter clarity, artifact evidence, and claim quality
         before publishing.
       </p>
       <p class="boundary-note">
-        This is a self-audit aid using sample metadata and local artifact
-        status fields. It does not perform full browser automation, crawl the
-        live site, replace manual review, connect to Unreal, connect to Jira,
-        or use private studio data.
+        The current build uses sample metadata and local artifact status fields.
+        Browser rendering, live-link checks, integrations, and final publication
+        approval remain explicit gates in the release workflow.
       </p>
     </section>
 
@@ -52,16 +52,16 @@
       </div>
       <ul class="check-list">
         <li>One-liner, status label, demo/sample output, and README/docs path.</li>
-        <li>Portfolio-safe disclaimer language and known limitations.</li>
+        <li>Scope, data-source, and known-limitation language.</li>
         <li>Artifact/link evidence status using Present, Missing, and Needs Review labels.</li>
-        <li>Forbidden claims in audited local/static metadata text around Unreal automation, Jira integration, private data, production readiness, and replacing human review.</li>
+        <li>Claim-quality rules around Unreal automation, Jira integration, private data, production readiness, and reviewer ownership.</li>
       </ul>
     </section>
 
     <section id="tools" class="section">
       <div class="section-heading">
         <p class="eyebrow">Tool Cards</p>
-        <h2>Portfolio tools reviewed for safe publishing</h2>
+        <h2>Portfolio tools reviewed for publication readiness</h2>
       </div>
       <div id="tool-grid" class="tool-grid" aria-live="polite"></div>
     </section>
@@ -69,7 +69,7 @@
     <section id="export" class="section export-panel">
       <div class="section-heading">
         <p class="eyebrow">Markdown Export</p>
-        <h2>Human-reviewed audit report draft</h2>
+        <h2>Reviewer-owned audit report draft</h2>
       </div>
       <div class="actions">
         <button id="export-report" type="button">Generate Markdown Report</button>
@@ -80,7 +80,7 @@
   </main>
 
   <footer class="footer">
-    <p>QA Portfolio Auditor is a portfolio-safe prototype. Keith still owns the final review before publishing.</p>
+    <p>QA Portfolio Auditor supports the release gate. Keith owns the final review before publishing.</p>
   </footer>
 
   <script src="qa-portfolio-auditor.js"></script>

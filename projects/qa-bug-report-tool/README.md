@@ -2,7 +2,7 @@
 
 ## Status
 
-First version, in progress as a beginner-friendly QA portfolio tool.
+Working Python CLI prototype with tested Markdown and JSON output.
 
 Done:
 
@@ -21,21 +21,17 @@ Next:
 
 ## Goal
 
-Turn rough QA notes into structured Markdown bug reports.
+Turn rough QA notes into structured, review-ready bug reports without inventing missing evidence.
 
-This project connects my interest in games with practical software habits. Games depend on clear feedback, reliable systems, and careful observation. This tool is a small way to practice writing QA notes clearly while I keep learning Python, GitHub, documentation, and AI-assisted workflows in public.
-
-This is a practice coding project, separate from my professional shipped-title QA work. It is meant to show how I am connecting real QA habits with Python, testing, documentation, and AI-assisted workflow practice.
+The tool translates professional bug-reporting habits into a repeatable CLI workflow: preserve the observation, normalize common fields, surface missing information, and produce output another tester, developer, or lead can review quickly.
 
 ## Why This Matters for QA
 
-This project shows a small but practical QA workflow: take messy notes, preserve important details, structure the report, validate common fields, and create output that another person could review or act on.
+Useful defect reports protect developer time. This project demonstrates repro clarity, field validation, severity and priority normalization, evidence handling, triage summaries, and deterministic exports backed by pytest coverage.
 
-## AI Assistance
+## Development Workflow
 
-AI assistance was used as a learning and workflow support tool for this project. It helped with planning the file structure, drafting beginner-friendly documentation, checking edge cases, and writing pytest coverage.
-
-I am still learning Python, testing, and command-line tool design. The goal is not to hide the use of AI or overstate my experience. The goal is to use AI responsibly while I practice reading code, asking better questions, testing behavior, and documenting what the project does.
+I defined the report contract, QA rules, sample cases, expected output, and acceptance checks, then reviewed implementation changes through pytest and generated-report inspection. That controlled workflow keeps the tool focused on observable behavior and maintainable output.
 
 ## What It Does
 
@@ -298,9 +294,9 @@ The tests cover parsing, Markdown formatting, JSON output, CLI output, stdin inp
 
 ## Sample Bugs
 
-The `sample-data/` folder contains five rough practice notes. The `reports/` folder contains matching structured Markdown reports.
+The `sample-data/` folder contains five rough sample notes. The `reports/` folder contains matching structured Markdown reports.
 
-These samples are fictional practice data. They are here to make the project easier to test, explain, and improve.
+These samples are fictional test data. They make the parsing, validation, and report output easy to inspect and verify.
 
 ## What I Practiced
 
