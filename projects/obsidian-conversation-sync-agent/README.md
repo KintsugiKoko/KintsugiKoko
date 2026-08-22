@@ -104,8 +104,8 @@ Example local setup:
 
 ```json
 {
-  "source": "C:/Users/mcavo/OneDrive/Documents/AI Conversation Exports",
-  "vault": "C:/Users/mcavo/OneDrive/Documents/rkan",
+  "source": "C:/Users/YourName/Documents/AI Conversation Exports",
+  "vault": "C:/Users/YourName/Documents/Obsidian Vault",
   "folder": "AI Conversation Notes",
   "tags": ["ai-conversation", "learning-notes", "needs-review"]
 }
@@ -129,13 +129,13 @@ The runner:
 To feed the daily sync, export or save conversation files into:
 
 ```text
-C:\Users\mcavo\OneDrive\Documents\AI Conversation Exports
+C:\Users\YourName\Documents\AI Conversation Exports
 ```
 
 The daily job writes reviewed-note drafts into:
 
 ```text
-C:\Users\mcavo\OneDrive\Documents\rkan\AI Conversation Notes
+C:\Users\YourName\Documents\Obsidian Vault\AI Conversation Notes
 ```
 
 The first run may only create the index if the export folder is empty. That is expected.
