@@ -75,6 +75,7 @@ def test_package_uses_explicit_file_allowlist(tmp_path):
         names = zipped.namelist()
         assert "qa-workflow-lab/reports/sample/index.html" in names
         assert "qa-workflow-lab/tests/evaluation-cases.json" in names
+        assert "qa-workflow-lab/tests/browser_check.cjs" in names
         assert not any(".env" in n or "__pycache__" in n or "career-materials" in n for n in names)
 
 

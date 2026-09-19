@@ -52,6 +52,8 @@ python -m pytest runs/candidate/test_regression_candidate.py
 
 `evidence-gaps` intentionally returns exit code 2: schema drift blocks the telemetry workflow. Exit code 0 means the workflows completed their contracts, not that the candidate passed. The original candidate correctly retains a hold recommendation. The corrected scenario is separately authored fixture data, not a claim that an external game defect was fixed.
 
+For a focused dependency challenge, run `python -m qa_workflow_lab demo --variant parallel-missing-ack --output runs/parallel-review`. The [Coordination Variant Pack](docs/coordination-variants.md) adds seven runnable cases covering parallel handoffs, isolated blockers, duplicate assignments and invalid graphs. Build a switchable browser view with `python -m qa_workflow_lab showcase --variants --output runs/coordination-variants.html`, then select AI8.
+
 ## Outputs
 
 - `README.md`: review route and workflow disposition table

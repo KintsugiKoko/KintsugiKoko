@@ -15,7 +15,7 @@
 </style>
 </head>
 <body>
-<header class="masthead"><div class="masthead-inner"><div><p class="eyebrow">Keith McAvoy / QA Engineering</p><h1>QA Workflow Lab</h1><p>Change risk, controlled tests, and decisions backed by traceable evidence.</p></div><nav aria-label="Project links"><a href="https://github.com/KintsugiKoko/KintsugiKoko/tree/codex/qa-workflow-lab/projects/qa-workflow-lab">Source &amp; tests</a><a href="https://kintsugikoko.github.io/KintsugiKoko/">Portfolio</a></nav></div></header>
+<header class="masthead"><div class="masthead-inner"><div><p class="eyebrow">Keith McAvoy / QA Engineering</p><h1>QA Workflow Lab</h1><p>Change risk, controlled tests, and decisions backed by traceable evidence.</p></div><nav aria-label="Project links"><a href="https://github.com/KintsugiKoko/KintsugiKoko/tree/master/projects/qa-workflow-lab">Source &amp; tests</a><a href="https://kintsugikoko.github.io/KintsugiKoko/">Portfolio</a></nav></div></header>
 <main class="workspace">
 <div class="toolbar"><label class="case-picker">Evidence case<select id="case"></select></label><div class="save-actions"><button class="action" id="export">Export summary</button><button class="action secondary" id="json-export">Download run JSON</button></div></div>
 <div id="notice" role="status" aria-live="polite"></div>
@@ -38,7 +38,18 @@
 const cases=JSON.parse(document.getElementById("run-data").textContent);
 const $=id=>document.getElementById(id);
 let selectedCase=0, selectedWorkflow="AI6", selectedView="findings";
-const names={candidate:"Candidate with seeded failures","evidence-gaps":"Missing evidence and schema drift","corrected-model":"Corrected reference-model scenario"};
+const names={
+  candidate:"Candidate with seeded failures",
+  "evidence-gaps":"Missing evidence and schema drift",
+  "corrected-model":"Corrected reference-model scenario",
+  "parallel-valid":"Valid parallel handoff",
+  "parallel-missing-ack":"Missing acknowledgement",
+  "independent-blocker":"Isolated capacity blocker",
+  "duplicate-work-key":"Duplicate task assignment",
+  "blank-owner":"Blank receiving owner",
+  "dependency-cycle":"Dependency cycle",
+  "missing-prerequisite":"Missing prerequisite"
+};
 function element(tag,text,className){const node=document.createElement(tag);if(text!==undefined)node.textContent=text;if(className)node.className=className;return node;}
 function active(){return cases[selectedCase].run;}
 function workflow(){return active().workflows.find(w=>w.workflow===selectedWorkflow)||active().workflows[0];}

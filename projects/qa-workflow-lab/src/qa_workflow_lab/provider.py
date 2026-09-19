@@ -54,17 +54,39 @@ class OpenAIPolicy:
                 if len(raw) > 1_000_000:
                     raise InputError("Model response exceeds the response budget.")
                 data = json.loads(raw)
-        except (urllib.error.URLError, TimeoutError, json.JSONDecodeError, OSError) as exc:
+        except (urllib.error.URLError, TimeoutError, json.JSONDecodeError, UnicodeError, OSError):
             # Server bodies and exception reprs may contain submitted text or headers.
             raise InputError("Model request failed; no automatic retry. Review connectivity and account access.") from None
         self.usage["requests"] += 1
-        usage = data.get("usage") or {}
+        if not isinstance(data, dict):
+            raise InputError("Model response must be a structured object.")
+        usage = data.get("usage", {})
+        if not isinstance(usage, dict) or any(type(usage.get(key, 0)) is not int or usage.get(key, 0) < 0
+                                            for key in ("input_tokens", "output_tokens")):
+            raise InputError("Model response contains invalid token accounting.")
         for key in ("input_tokens", "output_tokens"):
             self.usage[key] += usage.get(key, 0)
         if data.get("status") != "completed":
             raise InputError("Model response did not complete; preserve the blocked run.")
-        texts = [part["text"] for item in data.get("output", []) if item.get("type") == "message"
-                 for part in item.get("content", []) if part.get("type") == "output_text"]
+        output = data.get("output")
+        if not isinstance(output, list):
+            raise InputError("Model response output must be a list.")
+        texts = []
+        for item in output:
+            if not isinstance(item, dict):
+                raise InputError("Model response contains an invalid output item.")
+            if item.get("type") != "message":
+                continue
+            content = item.get("content")
+            if not isinstance(content, list):
+                raise InputError("Model message content must be a list.")
+            for part in content:
+                if not isinstance(part, dict):
+                    raise InputError("Model response contains invalid message content.")
+                if part.get("type") == "output_text":
+                    if not isinstance(part.get("text"), str):
+                        raise InputError("Model action text must be a string.")
+                    texts.append(part["text"])
         if len(texts) != 1:
             raise InputError("Model returned no single structured action.")
         try:

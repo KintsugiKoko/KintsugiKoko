@@ -18,6 +18,8 @@ def query_exposure(bundle, metric):
             d = row["data"]
             if any(key not in d for key in ("config", "metric", "event_id", "eligible", "violation", "second")):
                 raise InputError("Exposure event is missing a required field.")
+            if any(not isinstance(d[key], str) or not d[key].strip() for key in ("config", "metric", "event_id")):
+                raise InputError("Exposure event identity fields must be nonempty text.")
             if type(d["eligible"]) is not bool or type(d["violation"]) is not bool or type(d["second"]) is not int:
                 raise InputError("Exposure flags must be booleans and event seconds integers.")
             values = (row["build"], row["platform"], d["config"], d["metric"], d["event_id"], int(d["eligible"]), int(d["violation"]), d["second"])

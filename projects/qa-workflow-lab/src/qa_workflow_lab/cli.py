@@ -9,6 +9,7 @@ from .agents import TITLES, run_agent, run_all, review_record
 from .fixtures import CASES, sample_bundle, sample_data
 from .models import Bundle, InputError
 from .reports import render_showcase, write_run
+from .variants import VARIANTS, variant_bundle
 
 
 def project_root():
@@ -21,7 +22,7 @@ def package_project(root, output):
         raise InputError("Package already exists. Choose a new path.")
     files = [root / "README.md", root / "pyproject.toml"]
     for directory in ("src", "tests", "sample-data", "docs", "web"):
-        files += [p for p in (root / directory).rglob("*") if p.is_file() and "__pycache__" not in p.parts and p.suffix in (".py", ".md", ".json", ".html")]
+        files += [p for p in (root / directory).rglob("*") if p.is_file() and "__pycache__" not in p.parts and p.suffix in (".py", ".md", ".json", ".html", ".cjs")]
     output.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory() as temporary:
         run = run_all(sample_bundle())
@@ -52,12 +53,15 @@ def main(argv=None):
     run.add_argument("--allow-network", action="store_true", help="Explicitly permit model requests using the selected fictional evidence.")
     run.add_argument("--model", help="API model ID. Otherwise use OPENAI_MODEL.")
     demo = commands.add_parser("demo", help="Run a bundled fictional case without a network connection.")
-    demo.add_argument("--case", choices=CASES, default="candidate")
+    scenario = demo.add_mutually_exclusive_group()
+    scenario.add_argument("--case", choices=CASES, default="candidate")
+    scenario.add_argument("--variant", choices=list(VARIANTS), help="Run a focused coordination variant from the valid reference scenario.")
     demo.add_argument("--output", type=Path, required=True)
     fixtures = commands.add_parser("fixtures", help="Write reproducible fictional sample inputs.")
     fixtures.add_argument("--output", type=Path, required=True)
-    showcase = commands.add_parser("showcase", help="Build a standalone review page from all three offline cases.")
+    showcase = commands.add_parser("showcase", help="Build a standalone review page from bundled offline cases.")
     showcase.add_argument("--output", type=Path, required=True)
+    showcase.add_argument("--variants", action="store_true", help="Show the seven focused coordination variants instead of the three main cases.")
     package = commands.add_parser("package", help="Export source, tests, documentation and a sample run as a ZIP.")
     package.add_argument("--output", type=Path, required=True)
     evaluation = commands.add_parser("evaluate", help="Run labeled contract cases kept separate from demo inputs.")
@@ -89,7 +93,8 @@ def main(argv=None):
             return 0
         if args.command == "showcase":
             args.output.parent.mkdir(parents=True, exist_ok=True)
-            args.output.write_text(render_showcase([run_all(sample_bundle(case)) for case in CASES], root / "web" / "review.html"), encoding="utf-8")
+            bundles = [variant_bundle(name) for name in VARIANTS] if args.variants else [sample_bundle(case) for case in CASES]
+            args.output.write_text(render_showcase([run_all(bundle) for bundle in bundles], root / "web" / "review.html"), encoding="utf-8")
             print(f"Review page: {args.output}")
             return 0
         if args.command == "package":
@@ -107,7 +112,10 @@ def main(argv=None):
         if args.command == "run" and args.mode == "model":
             from .provider import OpenAIPolicy
             policy = OpenAIPolicy(enabled=args.allow_network, model=args.model)
-        bundle = sample_bundle(args.case) if args.command == "demo" else Bundle.load(args.input)
+        if args.command == "demo":
+            bundle = variant_bundle(args.variant) if args.variant else sample_bundle(args.case)
+        else:
+            bundle = Bundle.load(args.input)
         if args.command == "run" and args.workflow != "all":
             result = run_agent(bundle, args.workflow, policy)
             run_data = {"schema_version": "1.0", "metadata": bundle.metadata, "input_sha256": bundle.fingerprint,

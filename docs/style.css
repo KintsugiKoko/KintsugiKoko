@@ -319,6 +319,7 @@ h3 {
 
 .button.secondary {
   background-color: rgba(18, 16, 13, 0.88);
+  background-image: none;
   border-color: rgba(216, 195, 160, 0.48);
   color: var(--ink);
 }
@@ -839,9 +840,9 @@ h3 {
 }
 
 .supporting-note {
-  border-left: 3px solid rgba(90, 192, 176, 0.5);
+  border-left: 3px solid var(--gold);
   color: var(--muted);
-  margin-top: -0.35rem;
+  margin-top: 1.5rem;
   padding-left: 0.9rem;
 }
 

@@ -339,6 +339,7 @@ def coordinate(bundle):
         raise InputError("Task register is missing.")
     by_id = {r["id"]: r for r in tasks}
     visiting, visited = set(), set()
+    dependency_order = []
 
     def visit(task_id):
         if task_id in visiting:
@@ -348,36 +349,63 @@ def coordinate(bundle):
         if task_id not in by_id:
             raise InputError("Task dependency is missing from the register.")
         visiting.add(task_id)
-        required(by_id[task_id]["data"], "owner", "dependencies", "state", "priority", "next_action", "checkpoint", "evidence", "capacity")
-        for dependency in by_id[task_id]["data"]["dependencies"]:
+        data = by_id[task_id]["data"]
+        required(data, "owner", "dependencies", "state", "priority", "next_action", "checkpoint", "evidence", "capacity")
+        dependencies = data["dependencies"]
+        if not isinstance(dependencies, list) or any(not isinstance(dep, str) or not dep.strip() for dep in dependencies):
+            raise InputError("Task dependencies must be a list of nonempty task IDs.")
+        if len(set(dependencies)) != len(dependencies):
+            raise InputError("Task dependencies must not repeat the same task ID.")
+        if type(data["capacity"]) is not int or data["capacity"] < 0:
+            raise InputError("Task capacity must be a nonnegative integer count of available task slots.")
+        work_key = data.get("work_key")
+        if work_key is not None and (not isinstance(work_key, str) or not work_key.strip()):
+            raise InputError("Task work_key must be nonempty text when supplied.")
+        for dependency in dependencies:
             visit(dependency)
         visiting.remove(task_id)
         visited.add(task_id)
+        dependency_order.append(task_id)
 
     for task in tasks:
         visit(task["id"])
-    register, seen_work = [], set()
+    register = []
+    work_counts = Counter(r["data"]["work_key"].strip() for r in tasks if r["data"].get("work_key"))
     for record in tasks:
         data = record["data"]
         blockers = [dep for dep in data["dependencies"] if by_id[dep]["data"]["state"] != "accepted"]
-        if not data["owner"]:
+        if not isinstance(data["owner"], str) or not data["owner"].strip():
             blockers.append("receiving owner")
         if record["build"] != bundle.metadata["build"]:
             blockers.append("candidate build")
         if data["capacity"] <= 0:
             blockers.append("owner capacity")
         work = data.get("work_key")
-        if work and work in seen_work:
+        if work and work_counts[work.strip()] > 1:
             blockers.append("duplicate work key")
-        seen_work.add(work)
         for evidence_id in data["evidence"]:
-            bundle.get(evidence_id)
-        if data["state"] == "accepted" and (not data["evidence"] or not data.get("receiving_acknowledgement")):
+            if bundle.get(evidence_id)["build"] != bundle.metadata["build"]:
+                blockers.append("current-build task evidence")
+        acknowledgement = data.get("receiving_acknowledgement")
+        acknowledged = acknowledgement is True or (isinstance(acknowledgement, str) and bool(acknowledgement.strip()))
+        if data["state"] == "accepted" and (not data["evidence"] or not acknowledged):
             blockers.append("receiving acknowledgement and evidence")
         register.append({"source": record["id"], **data, "blockers": blockers})
+
+    # An accepted label cannot bypass a blocked prerequisite, including indirect ones.
+    registered = {row["source"]: row for row in register}
+    for task_id in dependency_order:
+        row = registered[task_id]
+        for dependency in row["dependencies"]:
+            if registered[dependency]["blockers"] and dependency not in row["blockers"]:
+                row["blockers"].append(dependency)
+    for record in tasks:
+        data = record["data"]
+        blockers = registered[record["id"]]["blockers"]
+        owner = data["owner"].strip() if isinstance(data["owner"], str) else ""
         result.findings.append(finding(record, "task", f"{record['id']}: " + ("blocked" if blockers else "available for review"),
             "Dependencies: " + (", ".join(blockers) or "satisfied"), "A named owner, compatible evidence and accepted dependencies.",
-            data["next_action"], kind="gap" if blockers else "observation", risk=data["priority"], owner=data["owner"] or "QA Lead"))
+            data["next_action"], kind="gap" if blockers else "observation", risk=data["priority"], owner=owner or "QA Lead"))
     result.details = {"task_register": register, "delegation_depth": 0, "priority_owner": "QA Lead"}
     return result
 
