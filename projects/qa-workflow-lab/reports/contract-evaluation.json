@@ -1,0 +1,195 @@
+{
+  "mode": "offline_policy",
+  "case_count": 12,
+  "passed": 12,
+  "failed": 0,
+  "scope": "Labeled local contract cases. Human effort and live model quality are not measured by this suite.",
+  "cases": [
+    {
+      "case": "complete-evidence",
+      "workflow": "AI6",
+      "passed": true,
+      "expected": {
+        "status": "review_required",
+        "submission": "SUB-1",
+        "disposition": "actionable"
+      },
+      "observed": {
+        "status": "review_required",
+        "product_verdict": "review_required",
+        "submission": "SUB-1",
+        "disposition": "actionable"
+      },
+      "stop_reason": "checks_complete_pending_review"
+    },
+    {
+      "case": "stale-assignment-build",
+      "workflow": "AI6",
+      "passed": true,
+      "expected": {
+        "status": "review_required",
+        "submission": "SUB-1",
+        "disposition": "incomplete"
+      },
+      "observed": {
+        "status": "review_required",
+        "product_verdict": "review_required",
+        "submission": "SUB-1",
+        "disposition": "incomplete"
+      },
+      "stop_reason": "checks_complete_pending_review"
+    },
+    {
+      "case": "missing-required-trace",
+      "workflow": "AI6",
+      "passed": true,
+      "expected": {
+        "status": "review_required",
+        "submission": "SUB-1",
+        "disposition": "incomplete"
+      },
+      "observed": {
+        "status": "review_required",
+        "product_verdict": "review_required",
+        "submission": "SUB-1",
+        "disposition": "incomplete"
+      },
+      "stop_reason": "checks_complete_pending_review"
+    },
+    {
+      "case": "unreadable-state",
+      "workflow": "AI6",
+      "passed": true,
+      "expected": {
+        "status": "review_required",
+        "submission": "SUB-1",
+        "disposition": "incomplete"
+      },
+      "observed": {
+        "status": "review_required",
+        "product_verdict": "review_required",
+        "submission": "SUB-1",
+        "disposition": "incomplete"
+      },
+      "stop_reason": "checks_complete_pending_review"
+    },
+    {
+      "case": "cross-run-artifact",
+      "workflow": "AI6",
+      "passed": true,
+      "expected": {
+        "status": "review_required",
+        "submission": "SUB-1",
+        "disposition": "incomplete"
+      },
+      "observed": {
+        "status": "review_required",
+        "product_verdict": "review_required",
+        "submission": "SUB-1",
+        "disposition": "incomplete"
+      },
+      "stop_reason": "checks_complete_pending_review"
+    },
+    {
+      "case": "unapproved-oracle",
+      "workflow": "AI2",
+      "passed": true,
+      "expected": {
+        "status": "blocked",
+        "product_verdict": "unverified"
+      },
+      "observed": {
+        "status": "blocked",
+        "product_verdict": "unverified"
+      },
+      "stop_reason": "tool_or_contract_error"
+    },
+    {
+      "case": "measurement-schema-drift",
+      "workflow": "AI5",
+      "passed": true,
+      "expected": {
+        "status": "blocked",
+        "product_verdict": "unverified"
+      },
+      "observed": {
+        "status": "blocked",
+        "product_verdict": "unverified"
+      },
+      "stop_reason": "checks_complete_pending_review"
+    },
+    {
+      "case": "missing-stream-completeness",
+      "workflow": "AI5",
+      "passed": true,
+      "expected": {
+        "status": "blocked",
+        "product_verdict": "unverified"
+      },
+      "observed": {
+        "status": "blocked",
+        "product_verdict": "unverified"
+      },
+      "stop_reason": "checks_complete_pending_review"
+    },
+    {
+      "case": "stale-critical-coverage",
+      "workflow": "AI7",
+      "passed": true,
+      "expected": {
+        "status": "review_required",
+        "product_verdict": "hold_for_evidence"
+      },
+      "observed": {
+        "status": "review_required",
+        "product_verdict": "hold_for_evidence"
+      },
+      "stop_reason": "checks_complete_pending_review"
+    },
+    {
+      "case": "unresolved-original-failure",
+      "workflow": "AI7",
+      "passed": true,
+      "expected": {
+        "status": "review_required",
+        "product_verdict": "hold_for_evidence"
+      },
+      "observed": {
+        "status": "review_required",
+        "product_verdict": "hold_for_evidence"
+      },
+      "stop_reason": "checks_complete_pending_review"
+    },
+    {
+      "case": "wrong-trace-clock",
+      "workflow": "AI3",
+      "passed": true,
+      "expected": {
+        "status": "blocked",
+        "product_verdict": "unverified"
+      },
+      "observed": {
+        "status": "blocked",
+        "product_verdict": "unverified"
+      },
+      "stop_reason": "checks_complete_pending_review"
+    },
+    {
+      "case": "evidence-instruction-text",
+      "workflow": "AI6",
+      "passed": true,
+      "expected": {
+        "status": "review_required",
+        "submission": "SUB-1",
+        "disposition": "actionable"
+      },
+      "observed": {
+        "status": "review_required",
+        "product_verdict": "review_required",
+        "submission": "SUB-1",
+        "disposition": "actionable"
+      },
+      "stop_reason": "checks_complete_pending_review"
+    }
+  ]
+}

@@ -86,12 +86,12 @@ Additional incubation assignments are intentionally omitted. Public credit datab
 1. **[External QA Handoff Manager](docs/external-qa-handoff-manager.html)** - Test planning, scenario coverage, evidence standards, intake review, external-team coordination, and Markdown handoff exports.
 2. **[Community Pulse](projects/community-pulse-report-tool/README.md)** - Local CSV data validation, deterministic analysis, exact quote preservation, reporting boundaries, and human-reviewed follow-up.
 3. **[QA Bug Report Tool](projects/qa-bug-report-tool/README.md)** - Repro quality, severity and priority framing, validation, structured Markdown and JSON output, and pytest coverage.
-4. **[Game QA Field Guide](docs/game-qa-field-guide.html)** - Practical risk-based testing, test design, defect quality, and reusable game-QA templates.
+4. **[QA Workflow Lab](docs/qa-workflow-lab.html)** - Eight bounded workflows with executable regression checks, telemetry queries, source-linked findings, and dependency review. Explore the [coordination variants](projects/qa-workflow-lab/docs/coordination-variants.md) for controlled failure and recovery cases.
 5. **[Project Fibsh](projects/fibsh/README.md)** - Current private Unreal development shown through selected character and environment concepts, the canon Master landscape WIP, Blender studies, packaged WIP captures, persistence checks, and explicit release-risk tracking.
 
 For game-design roles, use the **[Game Design Portfolio](https://kintsugikoko.github.io/KintsugiKoko/game-design.html)** as the first review path. It keeps design evidence separate from the primary QA tool path.
 
-Optional support layer: **[QA Portfolio Auditor](docs/qa-portfolio-auditor.html)** checks static portfolio metadata for documentation coverage, evidence completeness, recruiter clarity, and overclaim risk. It supplements manual review; it does not crawl the live site or certify production readiness.
+Reference: **[Game QA Field Guide](docs/game-qa-field-guide.html)** connects risk-based testing, defect quality, and reusable game-QA templates.
 
 ## Systems, Pipelines, And Tooling
 
@@ -107,12 +107,14 @@ Optional support layer: **[QA Portfolio Auditor](docs/qa-portfolio-auditor.html)
 
 ## Featured Portfolio Projects
 
+**[QA Workflow Lab](projects/qa-workflow-lab/README.md)** connects eight bounded QA workflows across change risk, regression checks, investigation, telemetry, remote test evidence, and release review. Inspect the [saved-run showcase](docs/qa-workflow-lab.html), executable reference-model tests, and source-linked review packets.
+
 | Project | Status | Focus |
 | --- | --- | --- |
 | [External QA Handoff Manager](docs/external-qa-handoff-manager.html) | Working browser prototype | Handoff packets, scenario matrices, evidence standards, intake review, and QA-lead summaries |
 | [Community Pulse](projects/community-pulse-report-tool/README.md) | Working local prototype | CSV parsing, data validation, reporting support, deterministic tests, and human review |
 | [QA Bug Report Tool](projects/qa-bug-report-tool/README.md) | Working CLI prototype | Structured defects, field validation, Markdown/JSON export, and pytest |
-| [QA Portfolio Auditor](docs/qa-portfolio-auditor.html) | Supporting prototype | Portfolio evidence checks, documentation coverage, and overclaim control |
+| [QA Workflow Lab](docs/qa-workflow-lab.html) | Working local prototype | Bounded QA workflows, executable checks, telemetry queries, dependency variants, and review packets |
 | [Project Fibsh](projects/fibsh/README.md) | Private WIP game project | Character and environment concepts, Blender composition and rig development, packaged WIP captures, persistence validation, and risk tracking |
 | [Game Design Portfolio](https://kintsugikoko.github.io/KintsugiKoko/game-design.html) | Current design showcase | Ashes content and systems contributions plus Project Fibsh visual development, systems, and validation evidence |
 
