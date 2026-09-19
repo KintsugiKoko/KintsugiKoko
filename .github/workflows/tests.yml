@@ -15,6 +15,7 @@ jobs:
           - projects/art-telemetry-qa
           - projects/obsidian-conversation-sync-agent
           - projects/community-pulse-report-tool
+          - projects/qa-workflow-lab
 
     steps:
       - name: Check out repository

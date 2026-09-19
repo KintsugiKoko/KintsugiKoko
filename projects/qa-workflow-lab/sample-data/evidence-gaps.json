@@ -1,0 +1,1364 @@
+{
+  "metadata": {
+    "feature": "Relay Arena: upgrade and encounter transitions",
+    "build": "demo-102",
+    "baseline": "demo-101",
+    "platforms": [
+      "PC",
+      "Console"
+    ],
+    "rule_version": "rules-1",
+    "owner": "Feature QA",
+    "fictional": true,
+    "case": "evidence-gaps",
+    "client_build": "demo-client-102",
+    "server_build": "demo-server-102",
+    "config": "arena-config-3",
+    "mode": "multi-squad",
+    "source_revision": "fixture-1"
+  },
+  "records": [
+    {
+      "id": "RULE-01",
+      "kind": "requirement",
+      "build": "demo-102",
+      "platform": "PC",
+      "data": {
+        "version": "rules-1",
+        "approved": true,
+        "oracle": "One score mutation for duplicate result delivery.",
+        "check": "single_result",
+        "risk": "Critical",
+        "owner": "Gameplay Engineering"
+      }
+    },
+    {
+      "id": "ART-1-PC",
+      "kind": "artifact",
+      "build": "demo-102",
+      "platform": "PC",
+      "data": {
+        "type": "assertions",
+        "run": "run-1-PC",
+        "readable": true,
+        "content": "Fictional fixture observation: single_result; reviewed rule rules-1. This record is sample data, not a real game test log."
+      }
+    },
+    {
+      "id": "COV-1-PC",
+      "kind": "coverage",
+      "build": "demo-102",
+      "platform": "PC",
+      "data": {
+        "requirement": "RULE-01",
+        "rule_version": "rules-1",
+        "result": "passed",
+        "evidence": [
+          "ART-1-PC"
+        ],
+        "original_failure": "",
+        "failure_disposition": ""
+      }
+    },
+    {
+      "id": "ART-1-Console",
+      "kind": "artifact",
+      "build": "demo-102",
+      "platform": "Console",
+      "data": {
+        "type": "assertions",
+        "run": "run-1-Console",
+        "readable": true,
+        "content": "Fictional fixture observation: single_result; reviewed rule rules-1. This record is sample data, not a real game test log."
+      }
+    },
+    {
+      "id": "COV-1-Console",
+      "kind": "coverage",
+      "build": "demo-102",
+      "platform": "Console",
+      "data": {
+        "requirement": "RULE-01",
+        "rule_version": "rules-1",
+        "result": "passed",
+        "evidence": [
+          "ART-1-Console"
+        ],
+        "original_failure": "",
+        "failure_disposition": ""
+      }
+    },
+    {
+      "id": "RULE-02",
+      "kind": "requirement",
+      "build": "demo-102",
+      "platform": "PC",
+      "data": {
+        "version": "rules-1",
+        "approved": true,
+        "oracle": "An obsolete completion cannot replace the current loadout.",
+        "check": "stale_equip",
+        "risk": "High",
+        "owner": "Gameplay Engineering"
+      }
+    },
+    {
+      "id": "ART-2-PC",
+      "kind": "artifact",
+      "build": "demo-102",
+      "platform": "PC",
+      "data": {
+        "type": "assertions",
+        "run": "run-2-PC",
+        "readable": true,
+        "content": "Fictional fixture observation: stale_equip; reviewed rule rules-1. This record is sample data, not a real game test log."
+      }
+    },
+    {
+      "id": "COV-2-PC",
+      "kind": "coverage",
+      "build": "demo-102",
+      "platform": "PC",
+      "data": {
+        "requirement": "RULE-02",
+        "rule_version": "rules-1",
+        "result": "passed",
+        "evidence": [
+          "ART-2-PC"
+        ],
+        "original_failure": "",
+        "failure_disposition": ""
+      }
+    },
+    {
+      "id": "ART-2-Console",
+      "kind": "artifact",
+      "build": "demo-102",
+      "platform": "Console",
+      "data": {
+        "type": "assertions",
+        "run": "run-2-Console",
+        "readable": true,
+        "content": "Fictional fixture observation: stale_equip; reviewed rule rules-1. This record is sample data, not a real game test log."
+      }
+    },
+    {
+      "id": "COV-2-Console",
+      "kind": "coverage",
+      "build": "demo-102",
+      "platform": "Console",
+      "data": {
+        "requirement": "RULE-02",
+        "rule_version": "rules-1",
+        "result": "passed",
+        "evidence": [
+          "ART-2-Console"
+        ],
+        "original_failure": "",
+        "failure_disposition": ""
+      }
+    },
+    {
+      "id": "RULE-03",
+      "kind": "requirement",
+      "build": "demo-102",
+      "platform": "PC",
+      "data": {
+        "version": "rules-1",
+        "approved": true,
+        "oracle": "One accepted upgrade changes power once.",
+        "check": "single_upgrade",
+        "risk": "Critical",
+        "owner": "Gameplay Engineering"
+      }
+    },
+    {
+      "id": "ART-3-PC",
+      "kind": "artifact",
+      "build": "demo-102",
+      "platform": "PC",
+      "data": {
+        "type": "assertions",
+        "run": "run-3-PC",
+        "readable": true,
+        "content": "Fictional fixture observation: single_upgrade; reviewed rule rules-1. This record is sample data, not a real game test log."
+      }
+    },
+    {
+      "id": "COV-3-PC",
+      "kind": "coverage",
+      "build": "demo-102",
+      "platform": "PC",
+      "data": {
+        "requirement": "RULE-03",
+        "rule_version": "rules-1",
+        "result": "failed",
+        "evidence": [
+          "ART-3-PC"
+        ],
+        "original_failure": "failure-upgrade-1",
+        "failure_disposition": ""
+      }
+    },
+    {
+      "id": "ART-3-Console",
+      "kind": "artifact",
+      "build": "demo-102",
+      "platform": "Console",
+      "data": {
+        "type": "assertions",
+        "run": "run-3-Console",
+        "readable": true,
+        "content": "Fictional fixture observation: single_upgrade; reviewed rule rules-1. This record is sample data, not a real game test log."
+      }
+    },
+    {
+      "id": "COV-3-Console",
+      "kind": "coverage",
+      "build": "demo-102",
+      "platform": "Console",
+      "data": {
+        "requirement": "RULE-03",
+        "rule_version": "rules-1",
+        "result": "failed",
+        "evidence": [
+          "ART-3-Console"
+        ],
+        "original_failure": "failure-upgrade-1",
+        "failure_disposition": ""
+      }
+    },
+    {
+      "id": "RULE-04",
+      "kind": "requirement",
+      "build": "demo-102",
+      "platform": "PC",
+      "data": {
+        "version": "rules-1",
+        "approved": true,
+        "oracle": "A target in another encounter is ineligible.",
+        "check": "encounter_target",
+        "risk": "Critical",
+        "owner": "Gameplay Engineering"
+      }
+    },
+    {
+      "id": "ART-4-PC",
+      "kind": "artifact",
+      "build": "demo-102",
+      "platform": "PC",
+      "data": {
+        "type": "assertions",
+        "run": "run-4-PC",
+        "readable": true,
+        "content": "Fictional fixture observation: encounter_target; reviewed rule rules-1. This record is sample data, not a real game test log."
+      }
+    },
+    {
+      "id": "COV-4-PC",
+      "kind": "coverage",
+      "build": "demo-102",
+      "platform": "PC",
+      "data": {
+        "requirement": "RULE-04",
+        "rule_version": "rules-1",
+        "result": "passed",
+        "evidence": [
+          "ART-4-PC"
+        ],
+        "original_failure": "",
+        "failure_disposition": ""
+      }
+    },
+    {
+      "id": "ART-4-Console",
+      "kind": "artifact",
+      "build": "demo-102",
+      "platform": "Console",
+      "data": {
+        "type": "assertions",
+        "run": "run-4-Console",
+        "readable": true,
+        "content": "Fictional fixture observation: encounter_target; reviewed rule rules-1. This record is sample data, not a real game test log."
+      }
+    },
+    {
+      "id": "COV-4-Console",
+      "kind": "coverage",
+      "build": "demo-102",
+      "platform": "Console",
+      "data": {
+        "requirement": "RULE-04",
+        "rule_version": "rules-1",
+        "result": "passed",
+        "evidence": [
+          "ART-4-Console"
+        ],
+        "original_failure": "",
+        "failure_disposition": ""
+      }
+    },
+    {
+      "id": "RULE-05",
+      "kind": "requirement",
+      "build": "demo-102",
+      "platform": "PC",
+      "data": {
+        "version": "rules-1",
+        "approved": true,
+        "oracle": "Recovery rejects an obsolete snapshot.",
+        "check": "current_recovery",
+        "risk": "High",
+        "owner": "Gameplay Engineering"
+      }
+    },
+    {
+      "id": "ART-5-PC",
+      "kind": "artifact",
+      "build": "demo-102",
+      "platform": "PC",
+      "data": {
+        "type": "assertions",
+        "run": "run-5-PC",
+        "readable": true,
+        "content": "Fictional fixture observation: current_recovery; reviewed rule rules-1. This record is sample data, not a real game test log."
+      }
+    },
+    {
+      "id": "COV-5-PC",
+      "kind": "coverage",
+      "build": "demo-102",
+      "platform": "PC",
+      "data": {
+        "requirement": "RULE-05",
+        "rule_version": "rules-1",
+        "result": "passed",
+        "evidence": [
+          "ART-5-PC"
+        ],
+        "original_failure": "",
+        "failure_disposition": ""
+      }
+    },
+    {
+      "id": "ART-5-Console",
+      "kind": "artifact",
+      "build": "demo-102",
+      "platform": "Console",
+      "data": {
+        "type": "assertions",
+        "run": "run-5-Console",
+        "readable": true,
+        "content": "Fictional fixture observation: current_recovery; reviewed rule rules-1. This record is sample data, not a real game test log."
+      }
+    },
+    {
+      "id": "COV-5-Console",
+      "kind": "coverage",
+      "build": "demo-101",
+      "platform": "Console",
+      "data": {
+        "requirement": "RULE-05",
+        "rule_version": "rules-1",
+        "result": "passed",
+        "evidence": [
+          "ART-5-Console"
+        ],
+        "original_failure": "",
+        "failure_disposition": ""
+      }
+    },
+    {
+      "id": "RULE-06",
+      "kind": "requirement",
+      "build": "demo-102",
+      "platform": "PC",
+      "data": {
+        "version": "rules-1",
+        "approved": true,
+        "oracle": "Only current-encounter entities remain after cleanup.",
+        "check": "cleanup",
+        "risk": "High",
+        "owner": "Gameplay Engineering"
+      }
+    },
+    {
+      "id": "ART-6-PC",
+      "kind": "artifact",
+      "build": "demo-102",
+      "platform": "PC",
+      "data": {
+        "type": "assertions",
+        "run": "run-6-PC",
+        "readable": true,
+        "content": "Fictional fixture observation: cleanup; reviewed rule rules-1. This record is sample data, not a real game test log."
+      }
+    },
+    {
+      "id": "COV-6-PC",
+      "kind": "coverage",
+      "build": "demo-102",
+      "platform": "PC",
+      "data": {
+        "requirement": "RULE-06",
+        "rule_version": "rules-1",
+        "result": "passed",
+        "evidence": [
+          "ART-6-PC"
+        ],
+        "original_failure": "",
+        "failure_disposition": ""
+      }
+    },
+    {
+      "id": "ART-6-Console",
+      "kind": "artifact",
+      "build": "demo-102",
+      "platform": "Console",
+      "data": {
+        "type": "assertions",
+        "run": "run-6-Console",
+        "readable": true,
+        "content": "Fictional fixture observation: cleanup; reviewed rule rules-1. This record is sample data, not a real game test log."
+      }
+    },
+    {
+      "id": "CHANGE-1",
+      "kind": "change",
+      "build": "demo-102",
+      "platform": "PC",
+      "data": {
+        "revision": "demo-diff-12",
+        "surface": "upgrade transaction and recovery handoff",
+        "diff": "Fixture diff: retry path now restores an upgrade request after the selection acknowledgement.",
+        "requirements": [
+          "RULE-03",
+          "RULE-05"
+        ],
+        "player_risk": "A repeated upgrade can change combat power or restore an obsolete loadout."
+      }
+    },
+    {
+      "id": "TRACE-1",
+      "kind": "trace",
+      "build": "demo-102",
+      "platform": "PC",
+      "data": {
+        "session": "session-17",
+        "clock": "server_tick",
+        "expected_power": 15,
+        "observed_power": 20,
+        "ui_power": 20,
+        "events": [
+          {
+            "tick": 10,
+            "transaction": "upgrade-7",
+            "action": "request"
+          },
+          {
+            "tick": 11,
+            "transaction": "upgrade-7",
+            "action": "mutation"
+          },
+          {
+            "tick": 12,
+            "transaction": "upgrade-7",
+            "action": "retry"
+          },
+          {
+            "tick": 13,
+            "transaction": "upgrade-7",
+            "action": "mutation"
+          }
+        ]
+      }
+    },
+    {
+      "id": "BUG-1",
+      "kind": "defect",
+      "build": "demo-102",
+      "platform": "PC",
+      "data": {
+        "title": "Repeated upgrade request changes authoritative power twice",
+        "steps": [
+          "Start with power 10.",
+          "Apply upgrade request upgrade-7.",
+          "Retry the same request after acknowledgement."
+        ],
+        "expected": "Power remains 15 after duplicate delivery.",
+        "actual": "Power reaches 20 in the failing fixture.",
+        "attempts": 3,
+        "failures": 3,
+        "impact": "invalid_outcome",
+        "signature": "upgrade-repeat",
+        "owner": "Gameplay Engineering",
+        "evidence": [
+          "TRACE-1"
+        ],
+        "state": "open"
+      }
+    },
+    {
+      "id": "BUG-2",
+      "kind": "defect",
+      "build": "demo-102",
+      "platform": "PC",
+      "data": {
+        "title": "Upgrade icon briefly duplicates after recovery",
+        "steps": [
+          "Recover after an accepted upgrade."
+        ],
+        "expected": "One current icon.",
+        "actual": "Two icons are described in a fictional report; authoritative state is unknown.",
+        "attempts": 3,
+        "failures": 1,
+        "impact": "tactical_readability",
+        "signature": "upgrade-repeat",
+        "owner": "UI Engineering",
+        "evidence": [
+          "ART-3-PC"
+        ],
+        "state": "open"
+      }
+    },
+    {
+      "id": "METRIC-demo-101",
+      "kind": "metric",
+      "build": "demo-101",
+      "platform": "PC",
+      "data": {
+        "metric": "duplicate_upgrade",
+        "numerator": 1,
+        "denominator": 20,
+        "schema": "events-v1",
+        "sample_rate": 1,
+        "window_seconds": 60,
+        "config": "arena-config-3",
+        "complete": true,
+        "sessions": [
+          "session-demo-101-0"
+        ],
+        "query": "approved_local_exposure_query"
+      }
+    },
+    {
+      "id": "EV-demo-101-0",
+      "kind": "metric_event",
+      "build": "demo-101",
+      "platform": "PC",
+      "data": {
+        "metric": "duplicate_upgrade",
+        "event_id": "commit-0",
+        "eligible": true,
+        "violation": true,
+        "config": "arena-config-3",
+        "session": "session-demo-101-0",
+        "second": 0
+      }
+    },
+    {
+      "id": "EV-demo-101-1",
+      "kind": "metric_event",
+      "build": "demo-101",
+      "platform": "PC",
+      "data": {
+        "metric": "duplicate_upgrade",
+        "event_id": "commit-1",
+        "eligible": true,
+        "violation": false,
+        "config": "arena-config-3",
+        "session": "session-demo-101-1",
+        "second": 2
+      }
+    },
+    {
+      "id": "EV-demo-101-2",
+      "kind": "metric_event",
+      "build": "demo-101",
+      "platform": "PC",
+      "data": {
+        "metric": "duplicate_upgrade",
+        "event_id": "commit-2",
+        "eligible": true,
+        "violation": false,
+        "config": "arena-config-3",
+        "session": "session-demo-101-2",
+        "second": 4
+      }
+    },
+    {
+      "id": "EV-demo-101-3",
+      "kind": "metric_event",
+      "build": "demo-101",
+      "platform": "PC",
+      "data": {
+        "metric": "duplicate_upgrade",
+        "event_id": "commit-3",
+        "eligible": true,
+        "violation": false,
+        "config": "arena-config-3",
+        "session": "session-demo-101-3",
+        "second": 6
+      }
+    },
+    {
+      "id": "EV-demo-101-4",
+      "kind": "metric_event",
+      "build": "demo-101",
+      "platform": "PC",
+      "data": {
+        "metric": "duplicate_upgrade",
+        "event_id": "commit-4",
+        "eligible": true,
+        "violation": false,
+        "config": "arena-config-3",
+        "session": "session-demo-101-4",
+        "second": 8
+      }
+    },
+    {
+      "id": "EV-demo-101-5",
+      "kind": "metric_event",
+      "build": "demo-101",
+      "platform": "PC",
+      "data": {
+        "metric": "duplicate_upgrade",
+        "event_id": "commit-5",
+        "eligible": true,
+        "violation": false,
+        "config": "arena-config-3",
+        "session": "session-demo-101-5",
+        "second": 10
+      }
+    },
+    {
+      "id": "EV-demo-101-6",
+      "kind": "metric_event",
+      "build": "demo-101",
+      "platform": "PC",
+      "data": {
+        "metric": "duplicate_upgrade",
+        "event_id": "commit-6",
+        "eligible": true,
+        "violation": false,
+        "config": "arena-config-3",
+        "session": "session-demo-101-6",
+        "second": 12
+      }
+    },
+    {
+      "id": "EV-demo-101-7",
+      "kind": "metric_event",
+      "build": "demo-101",
+      "platform": "PC",
+      "data": {
+        "metric": "duplicate_upgrade",
+        "event_id": "commit-7",
+        "eligible": true,
+        "violation": false,
+        "config": "arena-config-3",
+        "session": "session-demo-101-7",
+        "second": 14
+      }
+    },
+    {
+      "id": "EV-demo-101-8",
+      "kind": "metric_event",
+      "build": "demo-101",
+      "platform": "PC",
+      "data": {
+        "metric": "duplicate_upgrade",
+        "event_id": "commit-8",
+        "eligible": true,
+        "violation": false,
+        "config": "arena-config-3",
+        "session": "session-demo-101-8",
+        "second": 16
+      }
+    },
+    {
+      "id": "EV-demo-101-9",
+      "kind": "metric_event",
+      "build": "demo-101",
+      "platform": "PC",
+      "data": {
+        "metric": "duplicate_upgrade",
+        "event_id": "commit-9",
+        "eligible": true,
+        "violation": false,
+        "config": "arena-config-3",
+        "session": "session-demo-101-9",
+        "second": 18
+      }
+    },
+    {
+      "id": "EV-demo-101-10",
+      "kind": "metric_event",
+      "build": "demo-101",
+      "platform": "PC",
+      "data": {
+        "metric": "duplicate_upgrade",
+        "event_id": "commit-10",
+        "eligible": true,
+        "violation": false,
+        "config": "arena-config-3",
+        "session": "session-demo-101-10",
+        "second": 20
+      }
+    },
+    {
+      "id": "EV-demo-101-11",
+      "kind": "metric_event",
+      "build": "demo-101",
+      "platform": "PC",
+      "data": {
+        "metric": "duplicate_upgrade",
+        "event_id": "commit-11",
+        "eligible": true,
+        "violation": false,
+        "config": "arena-config-3",
+        "session": "session-demo-101-11",
+        "second": 22
+      }
+    },
+    {
+      "id": "EV-demo-101-12",
+      "kind": "metric_event",
+      "build": "demo-101",
+      "platform": "PC",
+      "data": {
+        "metric": "duplicate_upgrade",
+        "event_id": "commit-12",
+        "eligible": true,
+        "violation": false,
+        "config": "arena-config-3",
+        "session": "session-demo-101-12",
+        "second": 24
+      }
+    },
+    {
+      "id": "EV-demo-101-13",
+      "kind": "metric_event",
+      "build": "demo-101",
+      "platform": "PC",
+      "data": {
+        "metric": "duplicate_upgrade",
+        "event_id": "commit-13",
+        "eligible": true,
+        "violation": false,
+        "config": "arena-config-3",
+        "session": "session-demo-101-13",
+        "second": 26
+      }
+    },
+    {
+      "id": "EV-demo-101-14",
+      "kind": "metric_event",
+      "build": "demo-101",
+      "platform": "PC",
+      "data": {
+        "metric": "duplicate_upgrade",
+        "event_id": "commit-14",
+        "eligible": true,
+        "violation": false,
+        "config": "arena-config-3",
+        "session": "session-demo-101-14",
+        "second": 28
+      }
+    },
+    {
+      "id": "EV-demo-101-15",
+      "kind": "metric_event",
+      "build": "demo-101",
+      "platform": "PC",
+      "data": {
+        "metric": "duplicate_upgrade",
+        "event_id": "commit-15",
+        "eligible": true,
+        "violation": false,
+        "config": "arena-config-3",
+        "session": "session-demo-101-15",
+        "second": 30
+      }
+    },
+    {
+      "id": "EV-demo-101-16",
+      "kind": "metric_event",
+      "build": "demo-101",
+      "platform": "PC",
+      "data": {
+        "metric": "duplicate_upgrade",
+        "event_id": "commit-16",
+        "eligible": true,
+        "violation": false,
+        "config": "arena-config-3",
+        "session": "session-demo-101-16",
+        "second": 32
+      }
+    },
+    {
+      "id": "EV-demo-101-17",
+      "kind": "metric_event",
+      "build": "demo-101",
+      "platform": "PC",
+      "data": {
+        "metric": "duplicate_upgrade",
+        "event_id": "commit-17",
+        "eligible": true,
+        "violation": false,
+        "config": "arena-config-3",
+        "session": "session-demo-101-17",
+        "second": 34
+      }
+    },
+    {
+      "id": "EV-demo-101-18",
+      "kind": "metric_event",
+      "build": "demo-101",
+      "platform": "PC",
+      "data": {
+        "metric": "duplicate_upgrade",
+        "event_id": "commit-18",
+        "eligible": true,
+        "violation": false,
+        "config": "arena-config-3",
+        "session": "session-demo-101-18",
+        "second": 36
+      }
+    },
+    {
+      "id": "EV-demo-101-19",
+      "kind": "metric_event",
+      "build": "demo-101",
+      "platform": "PC",
+      "data": {
+        "metric": "duplicate_upgrade",
+        "event_id": "commit-19",
+        "eligible": true,
+        "violation": false,
+        "config": "arena-config-3",
+        "session": "session-demo-101-19",
+        "second": 38
+      }
+    },
+    {
+      "id": "METRIC-demo-102",
+      "kind": "metric",
+      "build": "demo-102",
+      "platform": "PC",
+      "data": {
+        "metric": "duplicate_upgrade",
+        "numerator": 4,
+        "denominator": 20,
+        "schema": "events-v2",
+        "sample_rate": 1,
+        "window_seconds": 60,
+        "config": "arena-config-3",
+        "complete": true,
+        "sessions": [
+          "session-demo-102-0"
+        ],
+        "query": "approved_local_exposure_query"
+      }
+    },
+    {
+      "id": "EV-demo-102-0",
+      "kind": "metric_event",
+      "build": "demo-102",
+      "platform": "PC",
+      "data": {
+        "metric": "duplicate_upgrade",
+        "event_id": "commit-0",
+        "eligible": true,
+        "violation": true,
+        "config": "arena-config-3",
+        "session": "session-demo-102-0",
+        "second": 0
+      }
+    },
+    {
+      "id": "EV-demo-102-1",
+      "kind": "metric_event",
+      "build": "demo-102",
+      "platform": "PC",
+      "data": {
+        "metric": "duplicate_upgrade",
+        "event_id": "commit-1",
+        "eligible": true,
+        "violation": true,
+        "config": "arena-config-3",
+        "session": "session-demo-102-1",
+        "second": 2
+      }
+    },
+    {
+      "id": "EV-demo-102-2",
+      "kind": "metric_event",
+      "build": "demo-102",
+      "platform": "PC",
+      "data": {
+        "metric": "duplicate_upgrade",
+        "event_id": "commit-2",
+        "eligible": true,
+        "violation": true,
+        "config": "arena-config-3",
+        "session": "session-demo-102-2",
+        "second": 4
+      }
+    },
+    {
+      "id": "EV-demo-102-3",
+      "kind": "metric_event",
+      "build": "demo-102",
+      "platform": "PC",
+      "data": {
+        "metric": "duplicate_upgrade",
+        "event_id": "commit-3",
+        "eligible": true,
+        "violation": true,
+        "config": "arena-config-3",
+        "session": "session-demo-102-3",
+        "second": 6
+      }
+    },
+    {
+      "id": "EV-demo-102-4",
+      "kind": "metric_event",
+      "build": "demo-102",
+      "platform": "PC",
+      "data": {
+        "metric": "duplicate_upgrade",
+        "event_id": "commit-4",
+        "eligible": true,
+        "violation": false,
+        "config": "arena-config-3",
+        "session": "session-demo-102-4",
+        "second": 8
+      }
+    },
+    {
+      "id": "EV-demo-102-5",
+      "kind": "metric_event",
+      "build": "demo-102",
+      "platform": "PC",
+      "data": {
+        "metric": "duplicate_upgrade",
+        "event_id": "commit-5",
+        "eligible": true,
+        "violation": false,
+        "config": "arena-config-3",
+        "session": "session-demo-102-5",
+        "second": 10
+      }
+    },
+    {
+      "id": "EV-demo-102-6",
+      "kind": "metric_event",
+      "build": "demo-102",
+      "platform": "PC",
+      "data": {
+        "metric": "duplicate_upgrade",
+        "event_id": "commit-6",
+        "eligible": true,
+        "violation": false,
+        "config": "arena-config-3",
+        "session": "session-demo-102-6",
+        "second": 12
+      }
+    },
+    {
+      "id": "EV-demo-102-7",
+      "kind": "metric_event",
+      "build": "demo-102",
+      "platform": "PC",
+      "data": {
+        "metric": "duplicate_upgrade",
+        "event_id": "commit-7",
+        "eligible": true,
+        "violation": false,
+        "config": "arena-config-3",
+        "session": "session-demo-102-7",
+        "second": 14
+      }
+    },
+    {
+      "id": "EV-demo-102-8",
+      "kind": "metric_event",
+      "build": "demo-102",
+      "platform": "PC",
+      "data": {
+        "metric": "duplicate_upgrade",
+        "event_id": "commit-8",
+        "eligible": true,
+        "violation": false,
+        "config": "arena-config-3",
+        "session": "session-demo-102-8",
+        "second": 16
+      }
+    },
+    {
+      "id": "EV-demo-102-9",
+      "kind": "metric_event",
+      "build": "demo-102",
+      "platform": "PC",
+      "data": {
+        "metric": "duplicate_upgrade",
+        "event_id": "commit-9",
+        "eligible": true,
+        "violation": false,
+        "config": "arena-config-3",
+        "session": "session-demo-102-9",
+        "second": 18
+      }
+    },
+    {
+      "id": "EV-demo-102-10",
+      "kind": "metric_event",
+      "build": "demo-102",
+      "platform": "PC",
+      "data": {
+        "metric": "duplicate_upgrade",
+        "event_id": "commit-10",
+        "eligible": true,
+        "violation": false,
+        "config": "arena-config-3",
+        "session": "session-demo-102-10",
+        "second": 20
+      }
+    },
+    {
+      "id": "EV-demo-102-11",
+      "kind": "metric_event",
+      "build": "demo-102",
+      "platform": "PC",
+      "data": {
+        "metric": "duplicate_upgrade",
+        "event_id": "commit-11",
+        "eligible": true,
+        "violation": false,
+        "config": "arena-config-3",
+        "session": "session-demo-102-11",
+        "second": 22
+      }
+    },
+    {
+      "id": "EV-demo-102-12",
+      "kind": "metric_event",
+      "build": "demo-102",
+      "platform": "PC",
+      "data": {
+        "metric": "duplicate_upgrade",
+        "event_id": "commit-12",
+        "eligible": true,
+        "violation": false,
+        "config": "arena-config-3",
+        "session": "session-demo-102-12",
+        "second": 24
+      }
+    },
+    {
+      "id": "EV-demo-102-13",
+      "kind": "metric_event",
+      "build": "demo-102",
+      "platform": "PC",
+      "data": {
+        "metric": "duplicate_upgrade",
+        "event_id": "commit-13",
+        "eligible": true,
+        "violation": false,
+        "config": "arena-config-3",
+        "session": "session-demo-102-13",
+        "second": 26
+      }
+    },
+    {
+      "id": "EV-demo-102-14",
+      "kind": "metric_event",
+      "build": "demo-102",
+      "platform": "PC",
+      "data": {
+        "metric": "duplicate_upgrade",
+        "event_id": "commit-14",
+        "eligible": true,
+        "violation": false,
+        "config": "arena-config-3",
+        "session": "session-demo-102-14",
+        "second": 28
+      }
+    },
+    {
+      "id": "EV-demo-102-15",
+      "kind": "metric_event",
+      "build": "demo-102",
+      "platform": "PC",
+      "data": {
+        "metric": "duplicate_upgrade",
+        "event_id": "commit-15",
+        "eligible": true,
+        "violation": false,
+        "config": "arena-config-3",
+        "session": "session-demo-102-15",
+        "second": 30
+      }
+    },
+    {
+      "id": "EV-demo-102-16",
+      "kind": "metric_event",
+      "build": "demo-102",
+      "platform": "PC",
+      "data": {
+        "metric": "duplicate_upgrade",
+        "event_id": "commit-16",
+        "eligible": true,
+        "violation": false,
+        "config": "arena-config-3",
+        "session": "session-demo-102-16",
+        "second": 32
+      }
+    },
+    {
+      "id": "EV-demo-102-17",
+      "kind": "metric_event",
+      "build": "demo-102",
+      "platform": "PC",
+      "data": {
+        "metric": "duplicate_upgrade",
+        "event_id": "commit-17",
+        "eligible": true,
+        "violation": false,
+        "config": "arena-config-3",
+        "session": "session-demo-102-17",
+        "second": 34
+      }
+    },
+    {
+      "id": "EV-demo-102-18",
+      "kind": "metric_event",
+      "build": "demo-102",
+      "platform": "PC",
+      "data": {
+        "metric": "duplicate_upgrade",
+        "event_id": "commit-18",
+        "eligible": true,
+        "violation": false,
+        "config": "arena-config-3",
+        "session": "session-demo-102-18",
+        "second": 36
+      }
+    },
+    {
+      "id": "EV-demo-102-19",
+      "kind": "metric_event",
+      "build": "demo-102",
+      "platform": "PC",
+      "data": {
+        "metric": "duplicate_upgrade",
+        "event_id": "commit-19",
+        "eligible": true,
+        "violation": false,
+        "config": "arena-config-3",
+        "session": "session-demo-102-19",
+        "second": 38
+      }
+    },
+    {
+      "id": "ASSIGN-1",
+      "kind": "assignment",
+      "build": "demo-102",
+      "platform": "PC",
+      "data": {
+        "owner": "External QA Lead",
+        "setup": [
+          "Use demo-102 and rules-1.",
+          "Start an eligible upgrade with power 10."
+        ],
+        "actions": [
+          "Apply one upgrade.",
+          "Retry the same transaction.",
+          "Capture the authoritative parameter and UI at the same server tick."
+        ],
+        "requirements": [
+          "RULE-03"
+        ],
+        "required_evidence": [
+          "state",
+          "trace"
+        ],
+        "escalation": "Stop the affected scenario for an authoritative duplicate mutation; retain the failing record."
+      }
+    },
+    {
+      "id": "SUBART-1-state",
+      "kind": "artifact",
+      "build": "demo-102",
+      "platform": "PC",
+      "data": {
+        "type": "state",
+        "run": "remote-1",
+        "readable": true,
+        "content": "Fictional state excerpt for remote-1; expected power 15, observed 20."
+      }
+    },
+    {
+      "id": "SUBART-1-trace",
+      "kind": "artifact",
+      "build": "demo-102",
+      "platform": "PC",
+      "data": {
+        "type": "trace",
+        "run": "remote-1",
+        "readable": true,
+        "content": "Fictional trace excerpt for remote-1; expected power 15, observed 20."
+      }
+    },
+    {
+      "id": "SUB-1",
+      "kind": "submission",
+      "build": "demo-101",
+      "platform": "PC",
+      "data": {
+        "assignment": "ASSIGN-1",
+        "run": "remote-1",
+        "rule_version": "rules-1",
+        "result": "failed",
+        "expected": "Power 15 after duplicate delivery.",
+        "actual": "Reported power 20.",
+        "expected_value": 15,
+        "actual_value": 20,
+        "evidence": [
+          "SUBART-1-state",
+          "SUBART-1-trace"
+        ]
+      }
+    },
+    {
+      "id": "SUBART-2-state",
+      "kind": "artifact",
+      "build": "demo-102",
+      "platform": "PC",
+      "data": {
+        "type": "state",
+        "run": "remote-2",
+        "readable": true,
+        "content": "Fictional state excerpt for remote-2; expected power 15, observed 20."
+      }
+    },
+    {
+      "id": "SUBART-2-trace",
+      "kind": "artifact",
+      "build": "demo-102",
+      "platform": "PC",
+      "data": {
+        "type": "trace",
+        "run": "remote-2",
+        "readable": true,
+        "content": "Fictional trace excerpt for remote-2; expected power 15, observed 20."
+      }
+    },
+    {
+      "id": "SUB-2",
+      "kind": "submission",
+      "build": "demo-102",
+      "platform": "PC",
+      "data": {
+        "assignment": "ASSIGN-1",
+        "run": "remote-2",
+        "rule_version": "rules-1",
+        "result": "passed",
+        "expected": "Power 15 after duplicate delivery.",
+        "actual": "Reported power 20.",
+        "expected_value": 15,
+        "actual_value": 20,
+        "evidence": [
+          "SUBART-2-state"
+        ]
+      }
+    },
+    {
+      "id": "TASK-1",
+      "kind": "task",
+      "build": "demo-102",
+      "platform": "PC",
+      "data": {
+        "owner": "Feature QA",
+        "dependencies": [],
+        "state": "accepted",
+        "priority": "High",
+        "next_action": "Confirm the assignment evidence contract.",
+        "checkpoint": "candidate review",
+        "evidence": [
+          "SUB-1"
+        ],
+        "capacity": 1,
+        "work_key": "upgrade-task-1",
+        "receiving_acknowledgement": true
+      }
+    },
+    {
+      "id": "TASK-2",
+      "kind": "task",
+      "build": "demo-102",
+      "platform": "PC",
+      "data": {
+        "owner": "Gameplay Engineering",
+        "dependencies": [
+          "TASK-1"
+        ],
+        "state": "running",
+        "priority": "High",
+        "next_action": "Review the duplicate guard and controlled comparison.",
+        "checkpoint": "candidate review",
+        "evidence": [
+          "TRACE-1"
+        ],
+        "capacity": 1,
+        "work_key": "upgrade-task-2",
+        "receiving_acknowledgement": false
+      }
+    },
+    {
+      "id": "TASK-3",
+      "kind": "task",
+      "build": "demo-102",
+      "platform": "PC",
+      "data": {
+        "owner": "QA Engineering",
+        "dependencies": [
+          "TASK-2"
+        ],
+        "state": "queued",
+        "priority": "High",
+        "next_action": "Review generated regression assertions and retest scope.",
+        "checkpoint": "candidate review",
+        "evidence": [
+          "RULE-03"
+        ],
+        "capacity": 1,
+        "work_key": "upgrade-task-3",
+        "receiving_acknowledgement": false
+      }
+    },
+    {
+      "id": "TASK-4",
+      "kind": "task",
+      "build": "demo-102",
+      "platform": "PC",
+      "data": {
+        "owner": "QA Lead",
+        "dependencies": [
+          "TASK-3"
+        ],
+        "state": "queued",
+        "priority": "High",
+        "next_action": "Review candidate coverage and unresolved player risk.",
+        "checkpoint": "candidate review",
+        "evidence": [
+          "COV-3-PC"
+        ],
+        "capacity": 1,
+        "work_key": "upgrade-task-4",
+        "receiving_acknowledgement": false
+      }
+    }
+  ]
+}

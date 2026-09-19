@@ -107,6 +107,8 @@ Optional support layer: **[QA Portfolio Auditor](docs/qa-portfolio-auditor.html)
 
 ## Featured Portfolio Projects
 
+**[QA Workflow Lab](projects/qa-workflow-lab/README.md)** connects eight bounded QA workflows across change risk, regression checks, investigation, telemetry, remote test evidence, and release review. Inspect the [saved-run showcase](docs/qa-workflow-lab.html), executable reference-model tests, and source-linked review packets.
+
 | Project | Status | Focus |
 | --- | --- | --- |
 | [External QA Handoff Manager](docs/external-qa-handoff-manager.html) | Working browser prototype | Handoff packets, scenario matrices, evidence standards, intake review, and QA-lead summaries |

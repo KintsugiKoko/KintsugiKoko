@@ -1,0 +1,128 @@
+"""Local entry points. Only explicitly selected model mode can use the network."""
+
+import argparse
+import json
+from pathlib import Path
+import tempfile
+import zipfile
+from .agents import TITLES, run_agent, run_all, review_record
+from .fixtures import CASES, sample_bundle, sample_data
+from .models import Bundle, InputError
+from .reports import render_showcase, write_run
+
+
+def project_root():
+    return Path(__file__).resolve().parents[2]
+
+
+def package_project(root, output):
+    output = Path(output)
+    if output.exists():
+        raise InputError("Package already exists. Choose a new path.")
+    files = [root / "README.md", root / "pyproject.toml"]
+    for directory in ("src", "tests", "sample-data", "docs", "web"):
+        files += [p for p in (root / directory).rglob("*") if p.is_file() and "__pycache__" not in p.parts and p.suffix in (".py", ".md", ".json", ".html")]
+    output.parent.mkdir(parents=True, exist_ok=True)
+    with tempfile.TemporaryDirectory() as temporary:
+        run = run_all(sample_bundle())
+        generated = Path(temporary) / "review"
+        write_run(run, generated, template=root / "web" / "review.html")
+        with zipfile.ZipFile(output, "x", compression=zipfile.ZIP_DEFLATED) as archive:
+            for path in sorted(files):
+                name = "qa-workflow-lab/" + path.relative_to(root).as_posix()
+                if path == root / "README.md":
+                    readme = path.read_text(encoding="utf-8").replace("../../docs/qa-workflow-lab.html", "Showcase.html")
+                    archive.writestr(name, readme)
+                else:
+                    archive.write(path, name)
+            archive.writestr("qa-workflow-lab/Showcase.html", render_showcase(
+                [run_all(sample_bundle(case)) for case in CASES], root / "web" / "review.html"))
+            for path in sorted(generated.iterdir()):
+                archive.write(path, "qa-workflow-lab/reports/sample/" + path.name)
+
+
+def main(argv=None):
+    parser = argparse.ArgumentParser(description="Run bounded QA workflows over local fictional evidence.")
+    commands = parser.add_subparsers(dest="command", required=True)
+    run = commands.add_parser("run", help="Evaluate an evidence bundle and preserve a review packet.")
+    run.add_argument("--input", type=Path, required=True)
+    run.add_argument("--output", type=Path, required=True)
+    run.add_argument("--workflow", choices=["all", *TITLES], default="all")
+    run.add_argument("--mode", choices=["offline", "model"], default="offline")
+    run.add_argument("--allow-network", action="store_true", help="Explicitly permit model requests using the selected fictional evidence.")
+    run.add_argument("--model", help="API model ID. Otherwise use OPENAI_MODEL.")
+    demo = commands.add_parser("demo", help="Run a bundled fictional case without a network connection.")
+    demo.add_argument("--case", choices=CASES, default="candidate")
+    demo.add_argument("--output", type=Path, required=True)
+    fixtures = commands.add_parser("fixtures", help="Write reproducible fictional sample inputs.")
+    fixtures.add_argument("--output", type=Path, required=True)
+    showcase = commands.add_parser("showcase", help="Build a standalone review page from all three offline cases.")
+    showcase.add_argument("--output", type=Path, required=True)
+    package = commands.add_parser("package", help="Export source, tests, documentation and a sample run as a ZIP.")
+    package.add_argument("--output", type=Path, required=True)
+    evaluation = commands.add_parser("evaluate", help="Run labeled contract cases kept separate from demo inputs.")
+    evaluation.add_argument("--cases", type=Path, default=project_root() / "tests" / "evaluation-cases.json")
+    evaluation.add_argument("--output", type=Path, required=True)
+    review = commands.add_parser("review", help="Append a human artifact decision bound to the immutable run hash.")
+    review.add_argument("--run", type=Path, required=True)
+    review.add_argument("--workflow", choices=list(TITLES), required=True)
+    review.add_argument("--reviewer", required=True)
+    review.add_argument("--decision", choices=["accepted", "rejected"], required=True)
+    review.add_argument("--note", required=True)
+    args = parser.parse_args(argv)
+    root = project_root()
+    try:
+        if args.command == "evaluate":
+            from .evaluation import evaluate
+            evaluated = evaluate(args.cases)
+            args.output.parent.mkdir(parents=True, exist_ok=True)
+            with args.output.open("x", encoding="utf-8") as stream:
+                stream.write(json.dumps(evaluated, indent=2) + "\n")
+            print(f"Contract evaluation: {evaluated['passed']}/{evaluated['case_count']} passed.")
+            return 1 if evaluated["failed"] else 0
+        if args.command == "fixtures":
+            args.output.mkdir(parents=True, exist_ok=True)
+            for case in CASES:
+                path = args.output / (case + ".json")
+                path.write_text(json.dumps(sample_data(case), indent=2) + "\n", encoding="utf-8")
+            print(f"Wrote {len(CASES)} fictional fixtures to {args.output}")
+            return 0
+        if args.command == "showcase":
+            args.output.parent.mkdir(parents=True, exist_ok=True)
+            args.output.write_text(render_showcase([run_all(sample_bundle(case)) for case in CASES], root / "web" / "review.html"), encoding="utf-8")
+            print(f"Review page: {args.output}")
+            return 0
+        if args.command == "package":
+            package_project(root, args.output)
+            print(f"Showcase package: {args.output}")
+            return 0
+        if args.command == "review":
+            run_data = json.loads(args.run.read_text(encoding="utf-8"))
+            record = review_record(run_data, args.workflow, args.reviewer, args.decision, args.note)
+            with args.run.with_name("reviews.jsonl").open("a", encoding="utf-8") as stream:
+                stream.write(json.dumps(record) + "\n")
+            print("Recorded artifact review. The original evidence and product verdict are unchanged.")
+            return 0
+        policy = None
+        if args.command == "run" and args.mode == "model":
+            from .provider import OpenAIPolicy
+            policy = OpenAIPolicy(enabled=args.allow_network, model=args.model)
+        bundle = sample_bundle(args.case) if args.command == "demo" else Bundle.load(args.input)
+        if args.command == "run" and args.workflow != "all":
+            result = run_agent(bundle, args.workflow, policy)
+            run_data = {"schema_version": "1.0", "metadata": bundle.metadata, "input_sha256": bundle.fingerprint,
+                        "records": bundle.records, "workflows": [result.to_dict()]}
+        else:
+            run_data = run_all(bundle, policy)
+        if policy:
+            run_data["model_usage"] = policy.usage
+        write_run(run_data, args.output, template=root / "web" / "review.html")
+        blocked = sum(r["status"] == "blocked" for r in run_data["workflows"])
+        print(f"Wrote {len(run_data['workflows'])} workflow artifacts to {args.output}; blocked workflows: {blocked}.")
+        return 2 if blocked else 0
+    except (InputError, OSError, ValueError, KeyError) as exc:
+        parser.exit(2, f"Error: {exc}\n")
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
