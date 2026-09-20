@@ -1,0 +1,18 @@
+{
+  "source": "synthetic_contract_fixture_not_model_predictions",
+  "answers": {
+    "R01":{"type":"choice","choice":"AI3","confidence":0.9,"probabilities":{"AI3":0.92,"AI4":0.02,"AI5":0.02,"AI6":0.02,"human_review":0.02}},
+    "R02":{"type":"choice","choice":"AI5","confidence":0.9,"probabilities":{"AI3":0.02,"AI4":0.02,"AI5":0.92,"AI6":0.02,"human_review":0.02}},
+    "R03":{"type":"choice","choice":"AI4","confidence":0.9,"probabilities":{"AI3":0.02,"AI4":0.92,"AI5":0.02,"AI6":0.02,"human_review":0.02}},
+    "R04":{"type":"choice","choice":"AI6","confidence":0.9,"probabilities":{"AI3":0.02,"AI4":0.02,"AI5":0.02,"AI6":0.92,"human_review":0.02}},
+    "R07":{"type":"choice","choice":"human_review","confidence":0.9,"probabilities":{"AI3":0.02,"AI4":0.02,"AI5":0.02,"AI6":0.02,"human_review":0.92}},
+    "R08":{"type":"choice","choice":"human_review","confidence":0.9,"probabilities":{"AI3":0.02,"AI4":0.02,"AI5":0.02,"AI6":0.02,"human_review":0.92}},
+    "R09":{"type":"choice","choice":"AI5","confidence":0.9,"probabilities":{"AI3":0.02,"AI4":0.02,"AI5":0.92,"AI6":0.02,"human_review":0.02}},
+    "R10":{"type":"choice","choice":"AI3","confidence":0.9,"probabilities":{"AI3":0.92,"AI4":0.02,"AI5":0.02,"AI6":0.02,"human_review":0.02}},
+    "R11":{"type":"choice","choice":"human_review","confidence":0.9,"probabilities":{"AI3":0.02,"AI4":0.02,"AI5":0.02,"AI6":0.02,"human_review":0.92}},
+    "R12":{"type":"choice","choice":"AI4","confidence":0.99,"probabilities":{"AI3":0.0025,"AI4":0.99,"AI5":0.0025,"AI6":0.0025,"human_review":0.0025}},
+    "R13":{"type":"choice","choice":"AI3","confidence":0.6,"probabilities":{"AI3":0.6,"AI4":0.1,"AI5":0.1,"AI6":0.1,"human_review":0.1}},
+    "R14":{"type":"choice","choice":"AI4","confidence":0.9},
+    "R15":{"type":"choice","choice":"AI5","confidence":0.95,"probabilities":{"AI3":0.02,"AI4":0.46,"AI5":0.46,"AI6":0.03,"human_review":0.03}}
+  }
+}

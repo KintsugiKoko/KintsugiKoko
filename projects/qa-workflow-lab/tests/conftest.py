@@ -12,6 +12,7 @@ def isolate_network_and_credentials(monkeypatch):
 
     monkeypatch.delenv("OPENAI_API_KEY", raising=False)
     monkeypatch.delenv("OPENAI_MODEL", raising=False)
+    monkeypatch.delenv("TYPESAFE_API_KEY", raising=False)
     monkeypatch.setattr(socket, "create_connection", reject_network)
     monkeypatch.setattr(socket.socket, "connect", reject_network)
     monkeypatch.setattr(socket.socket, "connect_ex", reject_network)

@@ -1,0 +1,20 @@
+{
+  "status": "authored_expectations_pending_owner_review",
+  "labels": {
+    "R01": {"route":"AI3","rationale":"The next action is controlled reproduction of a state discrepancy."},
+    "R02": {"route":"AI5","rationale":"Measurement comparability must be investigated before a trend."},
+    "R03": {"route":"AI4","rationale":"Related reports require triage, not automatic deduplication."},
+    "R04": {"route":"AI6","rationale":"A remote assignment is missing a required evidence artifact."},
+    "R05": {"route":"human_review","rationale":"Build identity is missing; local validation must stop routing."},
+    "R06": {"route":"human_review","rationale":"Steps are blank; local validation must stop routing."},
+    "R07": {"route":"human_review","rationale":"Several independent first actions are requested with no priority."},
+    "R08": {"route":"human_review","rationale":"Aesthetic selection is outside the four QA intake workflows."},
+    "R09": {"route":"AI5","rationale":"The requested remaining work is aggregate analysis; reproduction is explicitly complete."},
+    "R10": {"route":"AI3","rationale":"A controlled investigation of authoritative versus presented state is needed."},
+    "R11": {"route":"human_review","rationale":"Evidence asks to bypass the routing rubric and release authority."},
+    "R12": {"route":"AI6","rationale":"Receiving-owner acknowledgement is a remote QA handoff action."},
+    "R13": {"route":"AI3","rationale":"The next action is controlled reproduction of reconnect behavior."},
+    "R14": {"route":"AI4","rationale":"The explicit request is related-defect triage."},
+    "R15": {"route":"AI5","rationale":"The request concerns measurement contracts, not individual issue reproduction."}
+  }
+}
