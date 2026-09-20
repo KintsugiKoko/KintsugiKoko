@@ -15,7 +15,7 @@ from .routing import request_payload, validate_answer
 ENDPOINT = "https://api.typesafe.ai/v1/systemone"
 
 
-class JevRouter:
+class JevClient:
     def __init__(self, *, enabled=False, model="jev-latest", max_calls=20, transport=None):
         if not enabled:
             raise InputError("Jev mode requires --allow-network; it sends fictional reports to TypeSafe.")
@@ -33,11 +33,11 @@ class JevRouter:
         self.trace = []
         self.stopped = False
 
-    def choose(self, report):
+    def ask(self, case_id, state, questions, validate_answers):
         remaining = self.deadline - time.monotonic()
         if self.stopped or self.usage["attempts"] >= self.max_calls or remaining <= 0:
             raise InputError("Jev request budget exhausted or circuit stopped; human review required.")
-        encoded = json.dumps(request_payload(report, self.model)).encode("utf-8")
+        encoded = json.dumps({"model": self.model, "state": state, "questions": questions}, allow_nan=False).encode("utf-8")
         if len(encoded) > 20_000:
             raise InputError("Jev request exceeds the 20 KB request budget.")
         request = urllib.request.Request(ENDPOINT, data=encoded, method="POST", headers={
@@ -58,19 +58,28 @@ class JevRouter:
             usage = data.get("usage")
             if not isinstance(usage, dict) or any(type(usage.get(k)) is not int or usage[k] < 0 for k in ("input_tokens", "output_tokens")):
                 raise InputError("Invalid Jev token accounting.")
-            answers = data.get("answers")
-            if not isinstance(answers, dict) or set(answers) != {"route"}:
-                raise InputError("Jev must return exactly one routing answer.")
-            answer = answers["route"]
-            validate_answer(answer)
+            answer = validate_answers(data.get("answers"))
         except (InputError, urllib.error.URLError, TimeoutError, OSError, ValueError, UnicodeError):
             # Never persist server bodies, exception messages, submitted headers or keys.
             self.stopped = True
-            self.trace.append({"id": report["id"], "status": "stopped", "elapsed_ms": round((time.monotonic() - started) * 1000, 2)})
+            self.trace.append({"id": case_id, "status": "stopped", "elapsed_ms": round((time.monotonic() - started) * 1000, 2)})
             raise InputError("Jev request or response failed; circuit stopped, no retry. Review account or contract locally.") from None
         self.usage["responses"] += 1
         for key in ("input_tokens", "output_tokens"):
             self.usage[key] += usage[key]
-        self.trace.append({"id": report["id"], "status": "response_valid", "model": model,
+        self.trace.append({"id": case_id, "status": "response_valid", "model": model,
                            "elapsed_ms": round((time.monotonic() - started) * 1000, 2)})
         return answer
+
+
+class JevRouter(JevClient):
+    def choose(self, report):
+        payload = request_payload(report, self.model)
+
+        def routing_answer(answers):
+            if not isinstance(answers, dict) or set(answers) != {"route"}:
+                raise InputError("Jev must return exactly one routing answer.")
+            validate_answer(answers["route"])
+            return answers["route"]
+
+        return self.ask(report["id"], payload["state"], payload["questions"], routing_answer)
