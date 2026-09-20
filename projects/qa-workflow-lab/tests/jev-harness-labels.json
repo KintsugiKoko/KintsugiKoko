@@ -1,0 +1,65 @@
+{
+  "status": "authored_expectations_pending_owner_review",
+  "labels": {
+    "H01": {
+      "action": "single_upgrade",
+      "rationale": "Duplicate transaction should mutate power once."
+    },
+    "H02": {
+      "action": "stale_equip",
+      "rationale": "Obsolete equipment completion needs the loadout guard."
+    },
+    "H03": {
+      "action": "current_recovery",
+      "rationale": "Recovery, not equipment completion, is the reported surface."
+    },
+    "H04": {
+      "action": "human_review",
+      "rationale": "No specific invariant identified."
+    },
+    "H05": {
+      "action": "review_ready",
+      "rationale": "Both required references and core report fields are present."
+    },
+    "H06": {
+      "action": "request_evidence",
+      "rationale": "The event trace is missing."
+    },
+    "H07": {
+      "action": "human_review",
+      "rationale": "A missing build prevents identity validation."
+    },
+    "H08": {
+      "action": "human_review",
+      "rationale": "Release approval is outside intake authority."
+    },
+    "H09": {
+      "action": "coverage_review",
+      "rationale": "Current pass metadata permits review, never automatic release."
+    },
+    "H10": {
+      "action": "coverage_review",
+      "rationale": "Stale recovery evidence is a coverage gap."
+    },
+    "H11": {
+      "action": "blocker_review",
+      "rationale": "Conflicting current evidence requires blocker review."
+    },
+    "H12": {
+      "action": "blocker_review",
+      "rationale": "Failed recovery evidence remains a hold even if classification fails."
+    },
+    "H13": {
+      "action": "coverage_review",
+      "rationale": "An unrelated pass cannot replace required recovery evidence."
+    },
+    "H14": {
+      "action": "human_review",
+      "rationale": "Competing explanations require human investigation."
+    },
+    "H15": {
+      "action": "human_review",
+      "rationale": "Untrusted command requests must not gain execution authority."
+    }
+  }
+}

@@ -28,6 +28,9 @@ def package_project(root, output):
         run = run_all(sample_bundle())
         generated = Path(temporary) / "review"
         write_run(run, generated, template=root / "web" / "review.html")
+        from .harness_evaluation import evaluate as evaluate_harnesses, write_results
+        harness_report = Path(temporary) / "harnesses"
+        write_results(evaluate_harnesses(root, mode="replay"), harness_report)
         with zipfile.ZipFile(output, "x", compression=zipfile.ZIP_DEFLATED) as archive:
             for path in sorted(files):
                 name = "qa-workflow-lab/" + path.relative_to(root).as_posix()
@@ -40,6 +43,8 @@ def package_project(root, output):
                 [run_all(sample_bundle(case)) for case in CASES], root / "web" / "review.html"))
             for path in sorted(generated.iterdir()):
                 archive.write(path, "qa-workflow-lab/reports/sample/" + path.name)
+            for path in sorted(harness_report.iterdir()):
+                archive.write(path, "qa-workflow-lab/reports/jev-harnesses/" + path.name)
 
 
 def main(argv=None):
@@ -75,6 +80,15 @@ def main(argv=None):
     routing.add_argument("--dry-run", action="store_true", help="Preview Jev request bodies without reading credentials or making requests.")
     routing.add_argument("--model", default="jev-latest")
     routing.add_argument("--max-calls", type=int, default=20, help="Maximum request attempts, 1 to 20. No retry; stop on first provider failure.")
+    harness = commands.add_parser("harness-evaluate", help="Run bounded investigation, intake and release-evidence harnesses.")
+    harness.add_argument("--harness", choices=["all", "investigation", "intake", "release"], default="all")
+    harness.add_argument("--case", help="Select one bundled fictional case, such as H01.")
+    harness.add_argument("--mode", choices=["baseline", "replay", "jev"], default="baseline")
+    harness.add_argument("--output", type=Path, required=True)
+    harness.add_argument("--allow-network", action="store_true", help="Explicitly allow paid TypeSafe requests for selected fictional cases.")
+    harness.add_argument("--dry-run", action="store_true", help="Preview Jev requests without credentials or network access.")
+    harness.add_argument("--model", default="jev-latest")
+    harness.add_argument("--max-calls", type=int, default=3, help="Jev request-attempt cap, 1 to 20. Default 3; no automatic retry.")
     review = commands.add_parser("review", help="Append a human artifact decision bound to the immutable run hash.")
     review.add_argument("--run", type=Path, required=True)
     review.add_argument("--workflow", choices=list(TITLES), required=True)
@@ -84,6 +98,27 @@ def main(argv=None):
     args = parser.parse_args(argv)
     root = project_root()
     try:
+        if args.command == "harness-evaluate":
+            from .harness_evaluation import evaluate, exit_code, preview, write_results
+            if args.output.exists():
+                raise InputError("Harness output already exists. Choose a new directory.")
+            if args.mode != "jev" and (args.allow_network or args.dry_run):
+                raise InputError("Network and dry-run flags apply only to Jev mode.")
+            classifier = None
+            if args.mode == "jev":
+                request_preview = preview(root, harness=args.harness, case_id=args.case,
+                                          model=args.model, max_calls=args.max_calls)
+                if args.dry_run:
+                    write_results(request_preview, args.output)
+                    print("Jev harness preview saved. No credentials read or network calls made.")
+                    return 0
+                from .jev_contracts import JevHarnessClassifier
+                classifier = JevHarnessClassifier(enabled=args.allow_network, model=args.model, max_calls=args.max_calls)
+            result = evaluate(root, mode=args.mode, harness=args.harness, case_id=args.case, classifier=classifier)
+            write_results(result, args.output)
+            metrics = result["metrics"]
+            print(f"{args.mode}: {metrics['cases']} cases, {metrics['wrong_non_review_actions']} wrong actions, {metrics['deferrals']} deferrals, {metrics['failed_control_pairs']} failed control pairs, {metrics['contract_errors']} contract errors. Human review pending.")
+            return exit_code(result)
         if args.command == "route-evaluate":
             from .routing_evaluation import dry_run, evaluate_routing, write_evaluation
             from .routing import unit_number

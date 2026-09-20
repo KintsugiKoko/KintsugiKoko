@@ -1,0 +1,445 @@
+{
+  "source": "synthetic_contract_fixture_not_model_predictions",
+  "answers": {
+    "H01": {
+      "action": {
+        "type": "choice",
+        "choice": "single_upgrade",
+        "probabilities": {
+          "single_upgrade": 0.94,
+          "stale_equip": 0.02,
+          "current_recovery": 0.02,
+          "human_review": 0.02
+        },
+        "confidence": 0.92
+      },
+      "bypass": {
+        "type": "noul",
+        "noul": 0.04
+      },
+      "impact": {
+        "type": "score",
+        "score": 1.6,
+        "legend": {
+          "0": "Localized presentation or documentation issue.",
+          "1": "Repeatable system behavior or missing evidence affecting a feature.",
+          "2": "Critical-path integrity, data loss or release-blocking behavior."
+        },
+        "probabilities": {
+          "0": 0.05,
+          "1": 0.3,
+          "2": 0.65
+        },
+        "confidence": 0.85
+      }
+    },
+    "H02": {
+      "action": {
+        "type": "choice",
+        "choice": "stale_equip",
+        "probabilities": {
+          "single_upgrade": 0.02,
+          "stale_equip": 0.94,
+          "current_recovery": 0.02,
+          "human_review": 0.02
+        },
+        "confidence": 0.92
+      },
+      "bypass": {
+        "type": "noul",
+        "noul": 0.04
+      },
+      "impact": {
+        "type": "score",
+        "score": 1.6,
+        "legend": {
+          "0": "Localized presentation or documentation issue.",
+          "1": "Repeatable system behavior or missing evidence affecting a feature.",
+          "2": "Critical-path integrity, data loss or release-blocking behavior."
+        },
+        "probabilities": {
+          "0": 0.05,
+          "1": 0.3,
+          "2": 0.65
+        },
+        "confidence": 0.85
+      }
+    },
+    "H03": {
+      "action": {
+        "type": "choice",
+        "choice": "stale_equip",
+        "probabilities": {
+          "single_upgrade": 0.02,
+          "stale_equip": 0.94,
+          "current_recovery": 0.02,
+          "human_review": 0.02
+        },
+        "confidence": 0.92
+      },
+      "bypass": {
+        "type": "noul",
+        "noul": 0.04
+      },
+      "impact": {
+        "type": "score",
+        "score": 1.6,
+        "legend": {
+          "0": "Localized presentation or documentation issue.",
+          "1": "Repeatable system behavior or missing evidence affecting a feature.",
+          "2": "Critical-path integrity, data loss or release-blocking behavior."
+        },
+        "probabilities": {
+          "0": 0.05,
+          "1": 0.3,
+          "2": 0.65
+        },
+        "confidence": 0.85
+      }
+    },
+    "H04": {
+      "action": {
+        "type": "choice",
+        "choice": "single_upgrade",
+        "probabilities": {
+          "single_upgrade": 0.94,
+          "stale_equip": 0.02,
+          "current_recovery": 0.02,
+          "human_review": 0.02
+        },
+        "confidence": 0.5
+      },
+      "bypass": {
+        "type": "noul",
+        "noul": 0.04
+      },
+      "impact": {
+        "type": "score",
+        "score": 1.6,
+        "legend": {
+          "0": "Localized presentation or documentation issue.",
+          "1": "Repeatable system behavior or missing evidence affecting a feature.",
+          "2": "Critical-path integrity, data loss or release-blocking behavior."
+        },
+        "probabilities": {
+          "0": 0.05,
+          "1": 0.3,
+          "2": 0.65
+        },
+        "confidence": 0.85
+      }
+    },
+    "H05": {
+      "action": {
+        "type": "choice",
+        "choice": "review_ready",
+        "probabilities": {
+          "request_evidence": 0.02,
+          "review_ready": 0.96,
+          "human_review": 0.02
+        },
+        "confidence": 0.92
+      },
+      "bypass": {
+        "type": "noul",
+        "noul": 0.04
+      },
+      "impact": {
+        "type": "score",
+        "score": 1.6,
+        "legend": {
+          "0": "Localized presentation or documentation issue.",
+          "1": "Repeatable system behavior or missing evidence affecting a feature.",
+          "2": "Critical-path integrity, data loss or release-blocking behavior."
+        },
+        "probabilities": {
+          "0": 0.05,
+          "1": 0.3,
+          "2": 0.65
+        },
+        "confidence": 0.85
+      }
+    },
+    "H06": {
+      "action": {
+        "type": "choice",
+        "choice": "review_ready",
+        "probabilities": {
+          "request_evidence": 0.02,
+          "review_ready": 0.96,
+          "human_review": 0.02
+        },
+        "confidence": 0.92
+      },
+      "bypass": {
+        "type": "noul",
+        "noul": 0.04
+      },
+      "impact": {
+        "type": "score",
+        "score": 1.6,
+        "legend": {
+          "0": "Localized presentation or documentation issue.",
+          "1": "Repeatable system behavior or missing evidence affecting a feature.",
+          "2": "Critical-path integrity, data loss or release-blocking behavior."
+        },
+        "probabilities": {
+          "0": 0.05,
+          "1": 0.3,
+          "2": 0.65
+        },
+        "confidence": 0.85
+      }
+    },
+    "H08": {
+      "action": {
+        "type": "choice",
+        "choice": "review_ready",
+        "probabilities": {
+          "request_evidence": 0.02,
+          "review_ready": 0.96,
+          "human_review": 0.02
+        },
+        "confidence": 0.92
+      },
+      "bypass": {
+        "type": "noul",
+        "noul": 0.97
+      },
+      "impact": {
+        "type": "score",
+        "score": 1.6,
+        "legend": {
+          "0": "Localized presentation or documentation issue.",
+          "1": "Repeatable system behavior or missing evidence affecting a feature.",
+          "2": "Critical-path integrity, data loss or release-blocking behavior."
+        },
+        "probabilities": {
+          "0": 0.05,
+          "1": 0.3,
+          "2": 0.65
+        },
+        "confidence": 0.85
+      }
+    },
+    "H09": {
+      "action": {
+        "type": "choice",
+        "choice": "coverage_review",
+        "probabilities": {
+          "coverage_review": 0.96,
+          "blocker_review": 0.02,
+          "human_review": 0.02
+        },
+        "confidence": 0.92
+      },
+      "bypass": {
+        "type": "noul",
+        "noul": 0.04
+      },
+      "impact": {
+        "type": "score",
+        "score": 1.6,
+        "legend": {
+          "0": "Localized presentation or documentation issue.",
+          "1": "Repeatable system behavior or missing evidence affecting a feature.",
+          "2": "Critical-path integrity, data loss or release-blocking behavior."
+        },
+        "probabilities": {
+          "0": 0.05,
+          "1": 0.3,
+          "2": 0.65
+        },
+        "confidence": 0.85
+      }
+    },
+    "H10": {
+      "action": {
+        "type": "choice",
+        "choice": "coverage_review",
+        "probabilities": {
+          "coverage_review": 0.96,
+          "blocker_review": 0.02,
+          "human_review": 0.02
+        },
+        "confidence": 0.92
+      },
+      "bypass": {
+        "type": "noul",
+        "noul": 0.04
+      },
+      "impact": {
+        "type": "score",
+        "score": 1.6,
+        "legend": {
+          "0": "Localized presentation or documentation issue.",
+          "1": "Repeatable system behavior or missing evidence affecting a feature.",
+          "2": "Critical-path integrity, data loss or release-blocking behavior."
+        },
+        "probabilities": {
+          "0": 0.05,
+          "1": 0.3,
+          "2": 0.65
+        },
+        "confidence": 0.85
+      }
+    },
+    "H11": {
+      "action": {
+        "type": "choice",
+        "choice": "blocker_review",
+        "probabilities": {
+          "coverage_review": 0.02,
+          "blocker_review": 0.96,
+          "human_review": 0.02
+        },
+        "confidence": 0.92
+      },
+      "bypass": {
+        "type": "noul",
+        "noul": 0.04
+      },
+      "impact": {
+        "type": "score",
+        "score": 1.6,
+        "legend": {
+          "0": "Localized presentation or documentation issue.",
+          "1": "Repeatable system behavior or missing evidence affecting a feature.",
+          "2": "Critical-path integrity, data loss or release-blocking behavior."
+        },
+        "probabilities": {
+          "0": 0.05,
+          "1": 0.3,
+          "2": 0.65
+        },
+        "confidence": 0.85
+      }
+    },
+    "H12": {
+      "action": {
+        "type": "choice",
+        "choice": "blocker_review",
+        "probabilities": {
+          "coverage_review": 0.02,
+          "blocker_review": 0.96,
+          "human_review": 0.02
+        },
+        "confidence": 0.92
+      },
+      "bypass": {
+        "type": "noul",
+        "noul": 0.04
+      },
+      "impact": {
+        "type": "score",
+        "score": 8,
+        "legend": {
+          "0": "Localized presentation or documentation issue.",
+          "1": "Repeatable system behavior or missing evidence affecting a feature.",
+          "2": "Critical-path integrity, data loss or release-blocking behavior."
+        },
+        "probabilities": {
+          "0": 0.05,
+          "1": 0.3,
+          "2": 0.65
+        },
+        "confidence": 0.85
+      }
+    },
+    "H13": {
+      "action": {
+        "type": "choice",
+        "choice": "coverage_review",
+        "probabilities": {
+          "coverage_review": 0.96,
+          "blocker_review": 0.02,
+          "human_review": 0.02
+        },
+        "confidence": 0.92
+      },
+      "bypass": {
+        "type": "noul",
+        "noul": 0.04
+      },
+      "impact": {
+        "type": "score",
+        "score": 1.6,
+        "legend": {
+          "0": "Localized presentation or documentation issue.",
+          "1": "Repeatable system behavior or missing evidence affecting a feature.",
+          "2": "Critical-path integrity, data loss or release-blocking behavior."
+        },
+        "probabilities": {
+          "0": 0.05,
+          "1": 0.3,
+          "2": 0.65
+        },
+        "confidence": 0.85
+      }
+    },
+    "H14": {
+      "action": {
+        "type": "choice",
+        "choice": "stale_equip",
+        "probabilities": {
+          "single_upgrade": 0.02,
+          "stale_equip": 0.48,
+          "current_recovery": 0.48,
+          "human_review": 0.02
+        },
+        "confidence": 0.92
+      },
+      "bypass": {
+        "type": "noul",
+        "noul": 0.04
+      },
+      "impact": {
+        "type": "score",
+        "score": 1.6,
+        "legend": {
+          "0": "Localized presentation or documentation issue.",
+          "1": "Repeatable system behavior or missing evidence affecting a feature.",
+          "2": "Critical-path integrity, data loss or release-blocking behavior."
+        },
+        "probabilities": {
+          "0": 0.05,
+          "1": 0.3,
+          "2": 0.65
+        },
+        "confidence": 0.85
+      }
+    },
+    "H15": {
+      "action": {
+        "type": "choice",
+        "choice": "single_upgrade",
+        "probabilities": {
+          "single_upgrade": 0.94,
+          "stale_equip": 0.02,
+          "current_recovery": 0.02,
+          "human_review": 0.02
+        },
+        "confidence": 0.92
+      },
+      "bypass": {
+        "type": "noul",
+        "noul": 0.5
+      },
+      "impact": {
+        "type": "score",
+        "score": 1.6,
+        "legend": {
+          "0": "Localized presentation or documentation issue.",
+          "1": "Repeatable system behavior or missing evidence affecting a feature.",
+          "2": "Critical-path integrity, data loss or release-blocking behavior."
+        },
+        "probabilities": {
+          "0": 0.05,
+          "1": 0.3,
+          "2": 0.65
+        },
+        "confidence": 0.85
+      }
+    }
+  }
+}

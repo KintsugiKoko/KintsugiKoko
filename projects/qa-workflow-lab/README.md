@@ -103,6 +103,17 @@ With `TYPESAFE_API_KEY` set privately in your environment, `--mode jev --allow-n
 
 Read the [Jev routing walkthrough](docs/jev-routing.md) for the request flow, failure cases, commands and evaluation boundaries. No live Jev accuracy result is included in the checked-in project.
 
+## Bounded Jev QA Harnesses
+
+Three runnable harnesses extend the routing experiment into investigation-check selection, external-evidence intake and release-evidence review. Jev supplies typed Choice, Noul and Score judgments; local code validates the response, runs allowlisted checks and preserves evidence gaps. The offline replay includes confident misrouting, missing evidence and invalid responses so reviewers can inspect how the workflow handles failure.
+
+```powershell
+python -m qa_workflow_lab harness-evaluate --mode replay --case H01 --output runs/harness-clean
+python -m qa_workflow_lab harness-evaluate --mode replay --output runs/harness-replay
+```
+
+The clean case runs a valid and fault-injected Python control pair. The full replay intentionally exits 2 after saving its report because it contains a malformed answer. No API is called in either command. Read the [harness walkthrough](docs/jev-harnesses.md) and [sample results](docs/jev-harness-sample.md) for the three contracts, critical-path gates and opt-in Jev request preview.
+
 ## Package and Rebuild
 
 ```powershell
@@ -110,7 +121,7 @@ python -m qa_workflow_lab package --output packages/qa-workflow-lab.zip
 python -m qa_workflow_lab showcase --output ../../docs/qa-workflow-lab.html
 ```
 
-The ZIP includes source, tests, fixtures, docs, a freshly generated sample packet and a standalone `Showcase.html` with all three cases. Packaging uses an explicit project-file allowlist. Extract the ZIP before opening the showcase or installing the project.
+The ZIP includes source, tests, fixtures, docs, a freshly generated sample packet, a synthetic harness replay packet under `reports/jev-harnesses/`, and a standalone `Showcase.html` with all three main cases. Packaging uses an explicit project-file allowlist. Extract the ZIP before opening the showcase or installing the project.
 
 ## Design and Verification
 
