@@ -85,6 +85,24 @@ The selected fictional bundle and retrieved tool results are sent to the configu
 
 The adapter follows [OpenAI structured outputs](https://developers.openai.com/api/docs/guides/structured-outputs). The model proposes a structured action; local code validates it and invokes the allowlisted operation. A model cannot change the computed verdict or execute arbitrary code.
 
+## Optional Jev Intake Routing Experiment
+
+Compare a transparent keyword baseline with an optional Jev routing suggestion before any workflow executes. Fifteen fictional reports cover clear ownership, missing fields, conflicting requests, paraphrases, negation, and adversarial instructions. Local checks handle missing build/platform/repro context. The model can suggest AI3, AI4, AI5, AI6, or human review; it cannot dispatch tools or change a product verdict.
+
+```powershell
+python -m qa_workflow_lab route-evaluate --output runs/routing-baseline
+python -m qa_workflow_lab route-evaluate --mode replay --output runs/routing-replay
+python -m qa_workflow_lab route-evaluate --mode jev --dry-run --max-calls 2 --output runs/routing-preview
+```
+
+The synthetic replay deliberately includes a malformed response and returns exit code 2 after saving the report. It tests the fallback, not Jev accuracy. The dry run saves request bodies without reading credentials or contacting a service. Both modes work offline.
+
+With `TYPESAFE_API_KEY` set privately in your environment, `--mode jev --allow-network` enables the TypeSafe adapter. Review the dry run first: the selected fictional reports leave your computer and API usage may incur cost. A 1 to 20 request-attempt cap, 10-second request timeout, 60-second run budget, no redirects, and a stop-on-error circuit bound the experiment. No automatic retry occurs. Existing output directories are rejected before requests.
+
+`routing.md` and `routing.json` show the baseline comparison, wrong specialist suggestions, human-review deferrals, coverage, confusion matrices, input/rubric/label hashes, and live usage when applicable. Labels are authored test expectations kept separate from request inputs, pending Keith's review. A confidence threshold is an experimental gate, not proof that a suggestion is correct.
+
+Read the [Jev routing walkthrough](docs/jev-routing.md) for the request flow, failure cases, commands and evaluation boundaries. No live Jev accuracy result is included in the checked-in project.
+
 ## Package and Rebuild
 
 ```powershell
@@ -112,4 +130,4 @@ This is an independent portfolio prototype using fictional game-system data. The
 
 ## Future Improvements
 
-Evaluate one model-driven AI6 assignment against independently labeled cases, record reviewer correction time, and compare it with the deterministic baseline. Add further integrations only after their evidence contracts and access boundaries are defined.
+Review the routing labels, run a capped live Jev experiment, then test a separate held-out set before deciding whether model routing earns a place in the workflow. Evaluate one model-driven AI6 assignment against independently labeled cases, record reviewer correction time, and compare it with the deterministic baseline. Add further integrations only after their evidence contracts and access boundaries are defined.

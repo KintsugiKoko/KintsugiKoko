@@ -67,6 +67,14 @@ def main(argv=None):
     evaluation = commands.add_parser("evaluate", help="Run labeled contract cases kept separate from demo inputs.")
     evaluation.add_argument("--cases", type=Path, default=project_root() / "tests" / "evaluation-cases.json")
     evaluation.add_argument("--output", type=Path, required=True)
+    routing = commands.add_parser("route-evaluate", help="Compare QA intake suggestions against authored fictional labels; no workflow dispatch.")
+    routing.add_argument("--mode", choices=["baseline", "replay", "jev"], default="baseline")
+    routing.add_argument("--output", type=Path, required=True)
+    routing.add_argument("--threshold", type=float, default=0.8, help="Illustrative confidence floor, not calibrated accuracy.")
+    routing.add_argument("--allow-network", action="store_true", help="Permit sending the fictional routing reports to TypeSafe; API usage may cost money.")
+    routing.add_argument("--dry-run", action="store_true", help="Preview Jev request bodies without reading credentials or making requests.")
+    routing.add_argument("--model", default="jev-latest")
+    routing.add_argument("--max-calls", type=int, default=20, help="Maximum request attempts, 1 to 20. No retry; stop on first provider failure.")
     review = commands.add_parser("review", help="Append a human artifact decision bound to the immutable run hash.")
     review.add_argument("--run", type=Path, required=True)
     review.add_argument("--workflow", choices=list(TITLES), required=True)
@@ -76,6 +84,31 @@ def main(argv=None):
     args = parser.parse_args(argv)
     root = project_root()
     try:
+        if args.command == "route-evaluate":
+            from .routing_evaluation import dry_run, evaluate_routing, write_evaluation
+            from .routing import unit_number
+            if args.output.exists():
+                raise InputError("Routing output already exists. Choose a new directory.")
+            if not unit_number(args.threshold):
+                raise InputError("Confidence threshold must be a finite number from 0 to 1.")
+            if args.mode != "jev" and (args.allow_network or args.dry_run):
+                raise InputError("Network and dry-run flags apply only to Jev mode.")
+            router = None
+            if args.mode == "jev":
+                # Validate the complete local fixture and labels before any paid request.
+                preview = dry_run(root, args.model, args.max_calls)
+                if args.dry_run:
+                    write_evaluation(preview, args.output)
+                    print("Jev dry run: request preview saved; no credentials read or network calls made.")
+                    return 0
+                from .jev import JevRouter
+                router = JevRouter(enabled=args.allow_network, model=args.model, max_calls=args.max_calls)
+            result = evaluate_routing(root, mode=args.mode, threshold=args.threshold, router=router)
+            write_evaluation(result, args.output)
+            counts = result["selected_metrics"]
+            print(f"{args.mode}: {counts['specialist_suggestions']} suggestions, {counts['wrong_specialist']} wrong against authored labels, {counts['human_review']} human-review deferrals. No workflow dispatched.")
+            failed = any(row["selected"]["reason"] == "adapter_or_contract_error" for row in result["rows"])
+            return 2 if failed else 0
         if args.command == "evaluate":
             from .evaluation import evaluate
             evaluated = evaluate(args.cases)
