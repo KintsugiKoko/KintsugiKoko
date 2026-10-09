@@ -4,7 +4,9 @@ Eight bounded QA workflows connect change risk, regression checks, investigation
 
 Built by Keith McAvoy as an independent QA engineering project. The fictional **Relay Arena** scenario follows an upgrade retry across an encounter transition. A reviewer can follow the same issue from its original submission to a controlled test, an exposure query, and a candidate assessment.
 
-**Start with the [browser showcase](../../docs/qa-workflow-lab.html), then inspect the [sample review packet](reports/sample/README.md).** The browser opens locally and displays saved executions with searchable findings, source records, tool traces, and Markdown/JSON exports.
+**Start with the [browser showcase](../../docs/qa-workflow-lab.html), then inspect the [sample review packet](reports/sample/README.md).** The browser opens on a complete workflow walkthrough. Its Pipeline view shows all eight workflows, then explains each agent's inputs, bounded checks, work product and human handoff. Findings, readable result tables, tool traces and Markdown/JSON exports support a closer review.
+
+AI1 through AI7 analyze the shared evidence bundle independently. AI8 gathers their assessments and checks the task register. The complete walkthrough has six passing valid controls, six detected injected faults and 12 of 12 supplied rule/platform coverage records passing. Select the seeded-failure case to inspect the hold recommendation, three coverage gaps and two blocked task handoffs. Counts come from the saved local run.
 
 ## What Runs
 
@@ -125,6 +127,7 @@ The ZIP includes source, tests, fixtures, docs, a freshly generated sample packe
 
 ## Design and Verification
 
+- [Workflow pipelines and recorded results](docs/workflow-pipelines.md)
 - [Architecture and tool contracts](docs/architecture.md)
 - [Workflow register and acceptance criteria](docs/workflow-register.md)
 - [Game-system scenario design](docs/game-system-scenarios.md)

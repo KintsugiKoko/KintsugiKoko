@@ -16,11 +16,19 @@ def project_root():
     return Path(__file__).resolve().parents[2]
 
 
+def saved_reviews(root):
+    path = root / "reports" / "artifact-reviews.jsonl"
+    return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()] if path.exists() else []
+
+
 def package_project(root, output):
     output = Path(output)
     if output.exists():
         raise InputError("Package already exists. Choose a new path.")
     files = [root / "README.md", root / "pyproject.toml"]
+    review_path = root / "reports" / "artifact-reviews.jsonl"
+    if review_path.exists():
+        files.append(review_path)
     for directory in ("src", "tests", "sample-data", "docs", "web"):
         files += [p for p in (root / directory).rglob("*") if p.is_file() and "__pycache__" not in p.parts and p.suffix in (".py", ".md", ".json", ".html", ".cjs")]
     output.parent.mkdir(parents=True, exist_ok=True)
@@ -40,7 +48,7 @@ def package_project(root, output):
                 else:
                     archive.write(path, name)
             archive.writestr("qa-workflow-lab/Showcase.html", render_showcase(
-                [run_all(sample_bundle(case)) for case in CASES], root / "web" / "review.html"))
+                [run_all(sample_bundle(case)) for case in CASES], root / "web" / "review.html", reviews=saved_reviews(root)))
             for path in sorted(generated.iterdir()):
                 archive.write(path, "qa-workflow-lab/reports/sample/" + path.name)
             for path in sorted(harness_report.iterdir()):
@@ -162,7 +170,7 @@ def main(argv=None):
         if args.command == "showcase":
             args.output.parent.mkdir(parents=True, exist_ok=True)
             bundles = [variant_bundle(name) for name in VARIANTS] if args.variants else [sample_bundle(case) for case in CASES]
-            args.output.write_text(render_showcase([run_all(bundle) for bundle in bundles], root / "web" / "review.html"), encoding="utf-8")
+            args.output.write_text(render_showcase([run_all(bundle) for bundle in bundles], root / "web" / "review.html", reviews=saved_reviews(root)), encoding="utf-8")
             print(f"Review page: {args.output}")
             return 0
         if args.command == "package":

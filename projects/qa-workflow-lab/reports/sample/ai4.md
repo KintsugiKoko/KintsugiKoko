@@ -1,8 +1,22 @@
 # AI4: Defect triage agent
 
 Workflow: **review_required**. Product assessment: **review_required**.
-Execution: offline_policy. Review: pending.
+Execution: offline_policy. Review at execution: pending.
 Stopping reason: checks_complete_pending_review.
+
+## Workflow Pipeline
+
+- Inputs: Defect reports, reproduction counts and linked evidence
+- Checks: Validate fields, suggest severity, compare related reports
+- Output: Defect proposals with missing-field requests
+- Handoff: QA reviews ownership and duplicate differences
+
+## Defect intake
+
+| Source | Severity | Disposition | Missing fields | Related reports |
+| --- | --- | --- | --- | --- |
+| BUG-1 | Critical | draft ready | None | BUG-2 |
+| BUG-2 | High | draft ready | None | BUG-1 |
 
 ## Repeated upgrade request changes authoritative power twice
 

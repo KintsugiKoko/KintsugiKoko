@@ -1,8 +1,22 @@
 # AI1: Change risk analyst
 
 Workflow: **review_required**. Product assessment: **review_required**.
-Execution: offline_policy. Review: pending.
+Execution: offline_policy. Review at execution: pending.
 Stopping reason: checks_complete_pending_review.
+
+## Workflow Pipeline
+
+- Inputs: Approved rules, change records, candidate coverage
+- Checks: Map changed surfaces to player risk and current coverage
+- Output: Risk-to-test map
+- Handoff: Feature QA confirms missing test scope
+
+## Change coverage
+
+| Change / rule | Surface | Current records | Platforms |
+| --- | --- | --- | --- |
+| CHANGE-1 / RULE-03 | upgrade transaction and recovery handoff | COV-3-PC, COV-3-Console | PC, Console |
+| CHANGE-1 / RULE-05 | upgrade transaction and recovery handoff | COV-5-PC | PC, Console |
 
 ## Review upgrade transaction and recovery handoff
 

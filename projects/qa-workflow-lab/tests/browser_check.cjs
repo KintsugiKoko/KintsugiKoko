@@ -29,6 +29,14 @@ async function noOverflow(page, label) {
     const saved = await page.locator('#run-data').textContent();
     const data = JSON.parse(saved);
     assert.equal(data.length, 3);
+    assert.equal(await page.locator('#case').inputValue(), '2');
+    assert.equal(await page.getByRole('tab', { name: 'Pipeline', exact: true }).getAttribute('aria-selected'), 'true');
+    assert.equal(await page.locator('.pipeline-register .pipeline-row').count(), 8);
+    assert.match(await page.locator('#run-assessment').textContent(), /ready for QA lead review/);
+    assert.deepEqual(await page.locator('.metric strong').allTextContents(), ['6 / 6', '6 / 6', '12 / 12', '0']);
+    assert.match(await page.locator('#workflow-state').textContent(), /artifact review complete/);
+    assert.equal(await page.locator('#verdict').textContent(), 'Review complete');
+    assert.match(await page.locator('#review-note').textContent(), /accepted by Keith McAvoy/);
     for (const entry of data) {
       const ids = new Set(entry.run.records.map(record => record.id));
       for (const workflow of entry.run.workflows) {
@@ -44,7 +52,7 @@ async function noOverflow(page, label) {
         for (let w = 0; w < 8; w++) {
           await page.locator('#workflows button').nth(w).click();
           assert.match(await page.locator('#workflow-title').textContent(), new RegExp(`AI${w + 1} /`));
-          for (const view of ['Findings', 'Work product', 'Tool trace']) {
+          for (const view of ['Pipeline', 'Findings', 'Work product', 'Tool trace']) {
             await page.getByRole('tab', { name: view, exact: true }).click();
             await noOverflow(page, `${width}, case ${c}, AI${w + 1}, ${view}`);
           }
@@ -67,7 +75,7 @@ async function noOverflow(page, label) {
       await noOverflow(page, `dialog ${width}`);
       await page.keyboard.press('Escape');
       assert.equal(await evidenceButton.evaluate(button => button === document.activeElement), true);
-      checks.push({ width, cases: 3, workflows: 8, views: 3, overflow: false, exportButtons: 'pass', dialog: 'pass' });
+      checks.push({ width, cases: 3, workflows: 8, views: 4, overflow: false, exportButtons: 'pass', dialog: 'pass' });
     }
     await page.fill('#search', 'incomplete');
     assert.equal(await page.locator('.finding').count(), 1);
@@ -78,7 +86,7 @@ async function noOverflow(page, label) {
     assert.equal(await page.locator('.finding').count(), 0);
     await page.selectOption('#risk', 'All risks');
     await page.getByRole('tab', { name: 'Findings', exact: true }).focus();
-    for (const [key, label] of [['ArrowRight', 'Work product'], ['End', 'Tool trace'], ['Home', 'Findings'], ['ArrowLeft', 'Tool trace']]) {
+    for (const [key, label] of [['ArrowRight', 'Work product'], ['End', 'Tool trace'], ['Home', 'Pipeline'], ['ArrowLeft', 'Tool trace']]) {
       await page.keyboard.press(key);
       assert.equal(await page.getByRole('tab', { name: label, exact: true }).getAttribute('aria-selected'), 'true');
     }
@@ -103,7 +111,15 @@ async function noOverflow(page, label) {
     assert.match(await page.locator('#verdict').textContent(), /unverified/);
     await page.selectOption('#case', '2');
     await page.locator('#workflows button').nth(6).click();
-    assert.match(await page.locator('#verdict').textContent(), /ready for human review/);
+    assert.equal(await page.locator('#verdict').textContent(), 'Review complete');
+    await page.locator('#workflows button').nth(7).click();
+    await page.getByRole('tab', { name: 'Pipeline', exact: true }).click();
+    await page.setViewportSize({ width: 1440, height: 1000 });
+    await page.screenshot({ path: path.join(outputPath, 'pipeline-overview.png'), fullPage: true });
+    await page.selectOption('#case', '0');
+    assert.match(await page.locator('#verdict').textContent(), /^hold$/);
+    assert.match(await page.locator('#workflow-state').textContent(), /artifact review pending/);
+    assert.deepEqual(await page.locator('.metric strong').allTextContents(), ['6 / 6', '6 / 6', '9 / 12', '2']);
     assert.deepEqual(network, [], 'Standalone showcase must not request remote resources.');
     if (homepagePath) {
       for (const width of widths) {
@@ -123,7 +139,7 @@ async function noOverflow(page, label) {
       }
     }
     assert.deepEqual(errors, []);
-    const report = { browser: await browser.version(), viewportChecks: checks, layoutStates: widths.length * 3 * 8 * 3,
+    const report = { browser: await browser.version(), viewportChecks: checks, layoutStates: widths.length * 3 * 8 * 4,
       interactions: 'pass', exactExports: 6, evidenceReferences: 'resolved', pageErrors: errors,
       homepage: homepagePath ? 'pass' : 'not requested', scope: 'Desktop browser with resized viewports; not physical-device or screen-reader certification.' };
     fs.writeFileSync(path.join(outputPath, 'browser-results.json'), JSON.stringify(report, null, 2));

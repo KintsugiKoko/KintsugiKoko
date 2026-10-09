@@ -1,8 +1,28 @@
 # AI5: Telemetry analyst
 
 Workflow: **review_required**. Product assessment: **review_required**.
-Execution: offline_policy. Review: pending.
+Execution: offline_policy. Review at execution: pending.
 Stopping reason: checks_complete_pending_review.
+
+## Workflow Pipeline
+
+- Inputs: Exposure events and baseline/candidate metric contracts
+- Checks: Execute SQLite counts and validate comparable denominators
+- Output: Exposure comparison with recorded SQL
+- Handoff: Data QA reviews sessions and metric interpretation
+
+## Executed SQLite counts
+
+| Metric source | Violations | Eligible exposures |
+| --- | --- | --- |
+| METRIC-demo-101 | 1 | 20 |
+| METRIC-demo-102 | 4 | 20 |
+
+## Comparable exposure rates
+
+| Metric / platform | Baseline | Candidate | Change (pp) |
+| --- | --- | --- | --- |
+| duplicate_upgrade / PC | 1/20 | 4/20 | +15.00 |
 
 ## Exposure: duplicate_upgrade
 

@@ -26,6 +26,7 @@ class Finding:
     expected: str
     next_action: str
     evidence: list[str]
+    verification: str = ""
 
 
 @dataclass
@@ -107,5 +108,5 @@ class Bundle:
         return digest({"metadata": self.metadata, "records": self.records})
 
 
-def finding(record, suffix, title, observation, expected, next_action, *, kind="observation", risk="High", owner="QA"):
-    return Finding(f"{record['id']}-{suffix}", title, kind, risk, owner, observation, expected, next_action, [record["id"]])
+def finding(record, suffix, title, observation, expected, next_action, *, kind="observation", risk="High", owner="QA", verification=""):
+    return Finding(f"{record['id']}-{suffix}", title, kind, risk, owner, observation, expected, next_action, [record["id"]], verification)

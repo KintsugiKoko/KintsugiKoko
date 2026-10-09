@@ -78,7 +78,9 @@ def regression(bundle):
         runs.append({"requirement": rule["id"], "valid": valid, "fault": fault, "detected": detected, "fresh_state_per_run": True})
         result.findings.append(finding(rule, "oracle", f"Detection check: {check}",
             f"Valid actual: {valid['actual']!r}; injected-fault actual: {fault['actual']!r}; expected: {valid['expected']!r}.",
-            rule["data"]["oracle"], "Review the generated test candidate and integration boundary.", risk="Info", owner="QA Engineering"))
+            rule["data"]["oracle"], "Run the exported pytest candidate and review the assertion against this rule.",
+            risk="Info" if detected else "Critical", owner="QA Engineering",
+            verification="Valid behavior passes, the injected fault fails, and a fresh-state rerun passes."))
     result.product_verdict = "local_harness_pass" if all(r["detected"] for r in runs) else "local_harness_fail"
     result.details = {"runs": runs, "candidate_test": candidate_source(checks), "scope": "Executable Python reference model; porting requires a team's supported harness."}
     return result
@@ -113,7 +115,8 @@ def investigate(bundle):
         result.findings.append(finding(record, "state", "Authoritative state comparison", observation,
             "One mutation per accepted transaction and the approved effective parameter.",
             "Compare duplicate delivery with a fresh valid transaction; engineering confirms the responsible guard.",
-            risk="Critical" if mismatch else "Info", owner="Gameplay Engineering"))
+            risk="Critical" if mismatch else "Info", owner="Gameplay Engineering",
+            verification="Retry the same transaction: authoritative power remains 15 and only one mutation is recorded."))
         if mismatch:
             result.findings.append(finding(record, "hypothesis", "Duplicate-request guard may be ineffective",
                 "The trace supports a repeated mutation; the responsible implementation has not been inspected.",
@@ -268,13 +271,17 @@ def remote_review(bundle):
         followup = "Please supply: " + ", ".join(requests) + "." if requests else ""
         if "reported pass contradicts supplied assertion values" in gaps:
             followup = "Please reconcile the reported pass with the supplied assertion values. " + followup
-        followup = followup.strip() or "QA review: preserve the stated result and route the evidence."
+        followup = followup.strip() or (f"Route {data['run']}'s failed result and attached evidence to the rule owner for fix verification."
+                                       if data["result"] == "failed" else "Review the complete evidence and record the intake decision.")
         dispositions.append({"source": record["id"], "assignment": assignment["id"], "reported_result": data["result"], "disposition": disposition,
                              "gaps": gaps, "followup_draft": followup, "owner": contract["owner"]})
         f = finding(record, "intake", f"Submission {record['id']}: {disposition}",
             f"Reported {data['result']}. " + ("Missing: " + ", ".join(gaps) if gaps else "Required evidence identities and contents are present."),
             "Complete assigned evidence on the correct build and configuration.", followup,
-            kind="gap" if gaps else "observation", risk="High" if gaps or data["result"] == "failed" else "Info", owner=contract["owner"])
+            kind="gap" if gaps else "observation", risk="High" if gaps or data["result"] == "failed" else "Info", owner=contract["owner"],
+            verification=(f"Resubmit {data['run']} on {assignment['build']} / {record['platform']} with "
+                          + ", ".join(contract["required_evidence"]) + " evidence and a result consistent with the assertion values.")
+                         if gaps else f"QA confirms {data['run']}'s {data['result']} result against the attached evidence and retains the original capture.")
         f.evidence += [assignment["id"], *data["evidence"]]
         result.findings.append(f)
     result.details = {"assignment_packets": list(assignments.values()), "submissions": dispositions,
@@ -317,15 +324,27 @@ def release_review(bundle):
             matrix.append({"requirement": rule["id"], "platform": platform, "risk": rule["data"]["risk"], "state": state,
                            "sources": [r["id"] for r in relevant], "owner": rule["data"]["owner"]})
             if state not in ("passed", "not_applicable"):
+                action = {
+                    "stale": "Rerun this rule on the candidate build; retain the old result as baseline evidence.",
+                    "not_run": "Assign this rule/platform test and capture its result before candidate review.",
+                    "unresolved_original_failure": "Link the original failure to a reviewed disposition and a current retest.",
+                    "conflicting": "Reconcile both results by build, run and configuration; retain both source records.",
+                    "failed": "Route the failure to the rule owner, then capture a current fix-verification run.",
+                }.get(state, "Supply readable, current-build evidence for this rule and platform; rerun the coverage check.")
                 f = finding(rule, platform, f"{rule['id']} on {platform}: {state}",
-                    "Candidate coverage: " + state, rule["data"]["oracle"], "Resolve the gap and retain linked failure/retest evidence.",
-                    kind="gap", risk=rule["data"]["risk"], owner=rule["data"]["owner"])
+                    "Candidate coverage: " + state, rule["data"]["oracle"], action,
+                    kind="gap", risk=rule["data"]["risk"], owner=rule["data"]["owner"],
+                    verification=f"{rule['id']} / {platform}: current candidate evidence passes the oracle, with any original failure disposition retained.")
                 f.evidence += [r["id"] for r in relevant]
                 result.findings.append(f)
     open_defects = [r for r in bundle.select("defect") if r["build"] == bundle.metadata["build"] and r["data"].get("state", "open") != "closed"]
     for defect in open_defects:
+        severity = "Critical" if defect["data"].get("impact") == "invalid_outcome" else "High"
         result.findings.append(finding(defect, "open", "Open candidate defect", defect["data"].get("title", "Untitled"),
-            "Critical and High risks require verified correction or reviewed mitigation.", "Review scope and fix/retest evidence.", risk="High"))
+            "Critical and High risks require verified correction or reviewed mitigation.",
+            "Review the reproduction and player impact; link a fix/retest record or an explicit mitigation decision.",
+            risk=severity, owner=defect["data"].get("owner") or "QA Lead",
+            verification="QA confirms the recorded expected result on the candidate, or the release owner records an accepted mitigation."))
     result.product_verdict = "hold_for_evidence" if result.findings else "ready_for_human_review"
     result.details = {"coverage_matrix": matrix, "options": ["Hold affected scope until gaps are resolved.", "Propose reduced scope only with dependency and fallback validation."],
                       "decision_owner": "QA lead recommends; release owner decides."}
@@ -403,10 +422,19 @@ def coordinate(bundle):
         data = record["data"]
         blockers = registered[record["id"]]["blockers"]
         owner = data["owner"].strip() if isinstance(data["owner"], str) else ""
-        result.findings.append(finding(record, "task", f"{record['id']}: " + ("blocked" if blockers else "available for review"),
-            "Dependencies: " + (", ".join(blockers) or "satisfied"), "A named owner, compatible evidence and accepted dependencies.",
-            data["next_action"], kind="gap" if blockers else "observation", risk=data["priority"], owner=owner or "QA Lead"))
+        state = "blocked" if blockers else "acknowledged" if data["state"] == "accepted" else data["state"]
+        f = finding(record, "task", f"{record['id']}: {state}",
+            f"Recorded state: {data['state']}. Evidence: " + (", ".join(data["evidence"]) or "none")
+            + ". Unresolved prerequisites: " + (", ".join(blockers) or "none") + ".",
+            "A named owner, current-build evidence and accepted prerequisites before the next handoff.",
+            ("Resolve " + ", ".join(blockers) + "; then " + data["next_action"]) if blockers else data["next_action"],
+            kind="gap" if blockers else "observation", risk="Info" if state == "acknowledged" else data["priority"], owner=owner or "QA Lead",
+            verification=f"Checkpoint: {data['checkpoint']}. Receiving owner acknowledges the current-build evidence; prerequisites are accepted.")
+        f.evidence += data["evidence"]
+        result.findings.append(f)
     result.details = {"task_register": register, "delegation_depth": 0, "priority_owner": "QA Lead"}
+    if any(row["blockers"] for row in register):
+        result.product_verdict = "hold_for_dependencies"
     return result
 
 
