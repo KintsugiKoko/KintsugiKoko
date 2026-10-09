@@ -139,6 +139,12 @@ def run_all(bundle, policy=None):
         "review_status": r.review_status, "stop_reason": r.stop_reason} for r in results[:-1]]
     if any(r.status == "blocked" for r in results[:-1]):
         results[-1].product_verdict = "dependencies_need_review"
+    elif results[-1].status != "blocked" and results[1].product_verdict == "local_harness_fail":
+        results[-1].product_verdict = "hold_for_control_failure"
+    elif results[-1].status != "blocked" and results[6].product_verdict == "hold_for_evidence":
+        results[-1].product_verdict = "hold_for_evidence"
+    elif results[-1].status != "blocked" and results[-1].product_verdict == "review_required":
+        results[-1].product_verdict = results[6].product_verdict
     return {"schema_version": "1.0", "tool_version": TOOL_VERSION, "metadata": bundle.metadata,
             "input_sha256": bundle.fingerprint, "records": bundle.records, "workflows": [r.to_dict() for r in results]}
 

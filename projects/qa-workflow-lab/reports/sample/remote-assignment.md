@@ -25,7 +25,7 @@ Record passed, failed, blocked or not run for each assigned case.
 
 ### SUB-1: actionable
 
-QA review: preserve the stated result and route the evidence.
+Route remote-1's failed result and attached evidence to the rule owner for fix verification.
 
 ### SUB-2: incomplete
 

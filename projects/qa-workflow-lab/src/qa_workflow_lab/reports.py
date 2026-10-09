@@ -5,21 +5,34 @@ import hashlib
 import json
 from pathlib import Path
 from .models import InputError, digest
+from .review import PIPELINES, review_summary, work_product_tables
 
 
 def plain(text):
     return str(text).replace("\r", " ").replace("\n", " ").replace("|", "\\|")
 
 
+def table_markdown(table):
+    return [f"## {table['title']}", "", "| " + " | ".join(table["columns"]) + " |",
+            "| " + " | ".join("---" for _ in table["columns"]) + " |",
+            *["| " + " | ".join(plain(cell) for cell in row) + " |" for row in table["rows"]], ""]
+
+
 def workflow_markdown(result):
     lines = [f"# {result['workflow']}: {result['title']}", "",
              f"Workflow: **{result['status']}**. Product assessment: **{result['product_verdict']}**.",
-             f"Execution: {result['details']['execution']['mode']}. Review: {result['review_status']}.",
+             f"Execution: {result['details']['execution']['mode']}. Review at execution: {result['review_status']}.",
              f"Stopping reason: {result['stop_reason']}.", ""]
+    pipeline = PIPELINES[result["workflow"]]
+    lines += ["## Workflow Pipeline", "", *[f"- {key.title()}: {value}" for key, value in pipeline.items()], ""]
+    for table in work_product_tables(result):
+        lines += table_markdown(table)
     for f in result["findings"]:
         lines += [f"## {plain(f['title'])}", "", f"{f['risk']} | {f['kind']} | Owner: {plain(f['owner'])}", "",
                   f"Observed: {plain(f['observation'])}", "", f"Expected: {plain(f['expected'])}", "",
                   f"Next action: {plain(f['next_action'])}", "", "Evidence: " + ", ".join(f["evidence"]), ""]
+        if f.get("verification"):
+            lines += ["Verify: " + plain(f["verification"]), ""]
     for note in result["model_notes"]:
         lines += [f"Proposed {note['kind']}: {plain(note['text'])}", "Evidence: " + ", ".join(note["evidence"]), ""]
     lines += ["## Tool Trace", "", "| Step | Tool | Status |", "| --- | --- | --- |"]
@@ -35,8 +48,22 @@ def summary_markdown(run, *, linked=True):
     meta = run["metadata"]
     lines = ["# QA Workflow Lab: Review Packet", "", f"Feature: {plain(meta['feature'])}",
              f"Candidate: {meta['build']} | Baseline: {meta['baseline']} | Rules: {meta['rule_version']}",
-             "", "Fictional Relay Arena evidence. Harness assertions execute against the included Python reference model.",
-             "", "| Workflow | Artifact state | Product assessment |", "| --- | --- | --- |"]
+             "", "Fictional Relay Arena evidence. Harness assertions execute against the included Python reference model.", ""]
+    summary = review_summary(run)
+    lines += ["## Run Assessment", "", "Recommendation: **" + summary["assessment"].replace("_", " ") + "**.",
+              "", *["- " + reason for reason in summary["reasons"]], "",
+              f"Executed controls: {summary['valid_controls_passed']}/{summary['control_pairs']} valid controls passed; "
+              f"{summary['injected_faults_detected']}/{summary['control_pairs']} injected faults detected.",
+              f"Supplied candidate coverage: {summary['coverage_passed']}/{summary['coverage_total']} passed; "
+              f"{summary['coverage_excluded']} approved exclusions; {summary['coverage_gaps']} gaps.", "",
+              "## Priority Actions", "", "| Risk / workflow | Owner | Next action | Verification | Evidence |",
+              "| --- | --- | --- | --- | --- |"]
+    for action in summary["actions"]:
+        lines.append("| " + " | ".join(plain(v) for v in (action["risk"] + " / " + action["workflow"],
+                     action["owner"], action["action"], action["verify"], ", ".join(action["evidence"]) or "Workflow error trace")) + " |")
+    if not summary["actions"]:
+        lines.append("| Review | QA Lead | Review the completed evidence packet. | Record a human artifact decision. | run.json |")
+    lines += ["", "## Workflow Dispositions", "", "| Workflow | Artifact state | Product assessment |", "| --- | --- | --- |"]
     for r in run["workflows"]:
         name = f"{r['workflow']}: {r['title']}"
         label = f"[{name}]({r['workflow'].lower()}.md)" if linked else name
@@ -79,10 +106,39 @@ def handoff_markdown(run):
     return "\n".join(lines)
 
 
-def render_showcase(runs, template):
-    payload = [{"run": run, "markdown": summary_markdown(run, linked=False) + "\n" + "\n".join(workflow_markdown(r) for r in run["workflows"])} for run in runs]
+def artifact_reviews(run, reviews):
+    decisions = {}
+    fingerprint = digest(run)
+    workflows = {r["workflow"] for r in run["workflows"]}
+    for review in reviews:
+        if review.get("run_sha256") != fingerprint:
+            continue
+        if (review.get("workflow") not in workflows or review.get("decision") not in ("accepted", "rejected")
+                or not review.get("reviewer") or not review.get("note")):
+            raise InputError("A matching artifact review must name a workflow, reviewer, decision and note.")
+        decisions[review["workflow"]] = review
+    return decisions
+
+
+def render_showcase(runs, template, *, reviews=()):
+    payload = [{"run": run, "review": review_summary(run), "pipelines": PIPELINES,
+                "artifact_reviews": artifact_reviews(run, reviews),
+                "tables": {r["workflow"]: work_product_tables(r) for r in run["workflows"]},
+                "markdown": summary_markdown(run, linked=False) + "\n" + review_markdown(run, reviews)
+                            + "\n" + "\n".join(workflow_markdown(r) for r in run["workflows"])} for run in runs]
     encoded = json.dumps(payload, ensure_ascii=True).replace("<", "\\u003c").replace(">", "\\u003e").replace("&", "\\u0026")
     return Path(template).read_text(encoding="utf-8").replace("__RUN_DATA__", encoded)
+
+
+def review_markdown(run, reviews):
+    decisions = artifact_reviews(run, reviews)
+    if not decisions:
+        return ""
+    lines = ["## Recorded Artifact Reviews", "", "These appended decisions apply to the saved run's artifacts. Candidate assessments retain their recorded evidence.",
+             "", f"Reviewed run SHA-256: {digest(run)}", "", "| Workflow | Reviewer | Decision | Note |", "| --- | --- | --- | --- |"]
+    for review in decisions.values():
+        lines.append("| " + " | ".join(plain(review[k]) for k in ("workflow", "reviewer", "decision", "note")) + " |")
+    return "\n".join(lines) + "\n"
 
 
 def write_run(run, output, *, template=None):

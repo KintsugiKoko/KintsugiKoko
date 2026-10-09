@@ -1399,7 +1399,8 @@
           "evidence": [
             "CHANGE-1",
             "RULE-03"
-          ]
+          ],
+          "verification": ""
         },
         {
           "id": "CHANGE-1-RULE-05",
@@ -1413,7 +1414,8 @@
           "evidence": [
             "CHANGE-1",
             "RULE-05"
-          ]
+          ],
+          "verification": ""
         }
       ],
       "details": {
@@ -2023,7 +2025,8 @@
                 "evidence": [
                   "CHANGE-1",
                   "RULE-03"
-                ]
+                ],
+                "verification": ""
               },
               {
                 "id": "CHANGE-1-RULE-05",
@@ -2037,7 +2040,8 @@
                 "evidence": [
                   "CHANGE-1",
                   "RULE-05"
-                ]
+                ],
+                "verification": ""
               }
             ],
             "details": {
@@ -2104,10 +2108,11 @@
           "owner": "QA Engineering",
           "observation": "Valid actual: 1; injected-fault actual: 2; expected: 1.",
           "expected": "One score mutation for duplicate result delivery.",
-          "next_action": "Review the generated test candidate and integration boundary.",
+          "next_action": "Run the exported pytest candidate and review the assertion against this rule.",
           "evidence": [
             "RULE-01"
-          ]
+          ],
+          "verification": "Valid behavior passes, the injected fault fails, and a fresh-state rerun passes."
         },
         {
           "id": "RULE-02-oracle",
@@ -2117,10 +2122,11 @@
           "owner": "QA Engineering",
           "observation": "Valid actual: 'carbine'; injected-fault actual: 'old-tool'; expected: 'carbine'.",
           "expected": "An obsolete completion cannot replace the current loadout.",
-          "next_action": "Review the generated test candidate and integration boundary.",
+          "next_action": "Run the exported pytest candidate and review the assertion against this rule.",
           "evidence": [
             "RULE-02"
-          ]
+          ],
+          "verification": "Valid behavior passes, the injected fault fails, and a fresh-state rerun passes."
         },
         {
           "id": "RULE-03-oracle",
@@ -2130,10 +2136,11 @@
           "owner": "QA Engineering",
           "observation": "Valid actual: 15; injected-fault actual: 20; expected: 15.",
           "expected": "One accepted upgrade changes power once.",
-          "next_action": "Review the generated test candidate and integration boundary.",
+          "next_action": "Run the exported pytest candidate and review the assertion against this rule.",
           "evidence": [
             "RULE-03"
-          ]
+          ],
+          "verification": "Valid behavior passes, the injected fault fails, and a fresh-state rerun passes."
         },
         {
           "id": "RULE-04-oracle",
@@ -2143,10 +2150,11 @@
           "owner": "QA Engineering",
           "observation": "Valid actual: False; injected-fault actual: True; expected: False.",
           "expected": "A target in another encounter is ineligible.",
-          "next_action": "Review the generated test candidate and integration boundary.",
+          "next_action": "Run the exported pytest candidate and review the assertion against this rule.",
           "evidence": [
             "RULE-04"
-          ]
+          ],
+          "verification": "Valid behavior passes, the injected fault fails, and a fresh-state rerun passes."
         },
         {
           "id": "RULE-05-oracle",
@@ -2156,10 +2164,11 @@
           "owner": "QA Engineering",
           "observation": "Valid actual: 'carbine'; injected-fault actual: 'old-tool'; expected: 'carbine'.",
           "expected": "Recovery rejects an obsolete snapshot.",
-          "next_action": "Review the generated test candidate and integration boundary.",
+          "next_action": "Run the exported pytest candidate and review the assertion against this rule.",
           "evidence": [
             "RULE-05"
-          ]
+          ],
+          "verification": "Valid behavior passes, the injected fault fails, and a fresh-state rerun passes."
         },
         {
           "id": "RULE-06-oracle",
@@ -2169,10 +2178,11 @@
           "owner": "QA Engineering",
           "observation": "Valid actual: 1; injected-fault actual: 2; expected: 1.",
           "expected": "Only current-encounter entities remain after cleanup.",
-          "next_action": "Review the generated test candidate and integration boundary.",
+          "next_action": "Run the exported pytest candidate and review the assertion against this rule.",
           "evidence": [
             "RULE-06"
-          ]
+          ],
+          "verification": "Valid behavior passes, the injected fault fails, and a fresh-state rerun passes."
         }
       ],
       "details": {
@@ -2891,10 +2901,11 @@
                 "owner": "QA Engineering",
                 "observation": "Valid actual: 1; injected-fault actual: 2; expected: 1.",
                 "expected": "One score mutation for duplicate result delivery.",
-                "next_action": "Review the generated test candidate and integration boundary.",
+                "next_action": "Run the exported pytest candidate and review the assertion against this rule.",
                 "evidence": [
                   "RULE-01"
-                ]
+                ],
+                "verification": "Valid behavior passes, the injected fault fails, and a fresh-state rerun passes."
               },
               {
                 "id": "RULE-02-oracle",
@@ -2904,10 +2915,11 @@
                 "owner": "QA Engineering",
                 "observation": "Valid actual: 'carbine'; injected-fault actual: 'old-tool'; expected: 'carbine'.",
                 "expected": "An obsolete completion cannot replace the current loadout.",
-                "next_action": "Review the generated test candidate and integration boundary.",
+                "next_action": "Run the exported pytest candidate and review the assertion against this rule.",
                 "evidence": [
                   "RULE-02"
-                ]
+                ],
+                "verification": "Valid behavior passes, the injected fault fails, and a fresh-state rerun passes."
               },
               {
                 "id": "RULE-03-oracle",
@@ -2917,10 +2929,11 @@
                 "owner": "QA Engineering",
                 "observation": "Valid actual: 15; injected-fault actual: 20; expected: 15.",
                 "expected": "One accepted upgrade changes power once.",
-                "next_action": "Review the generated test candidate and integration boundary.",
+                "next_action": "Run the exported pytest candidate and review the assertion against this rule.",
                 "evidence": [
                   "RULE-03"
-                ]
+                ],
+                "verification": "Valid behavior passes, the injected fault fails, and a fresh-state rerun passes."
               },
               {
                 "id": "RULE-04-oracle",
@@ -2930,10 +2943,11 @@
                 "owner": "QA Engineering",
                 "observation": "Valid actual: False; injected-fault actual: True; expected: False.",
                 "expected": "A target in another encounter is ineligible.",
-                "next_action": "Review the generated test candidate and integration boundary.",
+                "next_action": "Run the exported pytest candidate and review the assertion against this rule.",
                 "evidence": [
                   "RULE-04"
-                ]
+                ],
+                "verification": "Valid behavior passes, the injected fault fails, and a fresh-state rerun passes."
               },
               {
                 "id": "RULE-05-oracle",
@@ -2943,10 +2957,11 @@
                 "owner": "QA Engineering",
                 "observation": "Valid actual: 'carbine'; injected-fault actual: 'old-tool'; expected: 'carbine'.",
                 "expected": "Recovery rejects an obsolete snapshot.",
-                "next_action": "Review the generated test candidate and integration boundary.",
+                "next_action": "Run the exported pytest candidate and review the assertion against this rule.",
                 "evidence": [
                   "RULE-05"
-                ]
+                ],
+                "verification": "Valid behavior passes, the injected fault fails, and a fresh-state rerun passes."
               },
               {
                 "id": "RULE-06-oracle",
@@ -2956,10 +2971,11 @@
                 "owner": "QA Engineering",
                 "observation": "Valid actual: 1; injected-fault actual: 2; expected: 1.",
                 "expected": "Only current-encounter entities remain after cleanup.",
-                "next_action": "Review the generated test candidate and integration boundary.",
+                "next_action": "Run the exported pytest candidate and review the assertion against this rule.",
                 "evidence": [
                   "RULE-06"
-                ]
+                ],
+                "verification": "Valid behavior passes, the injected fault fails, and a fresh-state rerun passes."
               }
             ],
             "details": {
@@ -3142,7 +3158,8 @@
           "next_action": "Compare duplicate delivery with a fresh valid transaction; engineering confirms the responsible guard.",
           "evidence": [
             "TRACE-1"
-          ]
+          ],
+          "verification": "Retry the same transaction: authoritative power remains 15 and only one mutation is recorded."
         },
         {
           "id": "TRACE-1-hypothesis",
@@ -3155,7 +3172,8 @@
           "next_action": "Run single_upgrade with a controlled repeated transaction.",
           "evidence": [
             "TRACE-1"
-          ]
+          ],
+          "verification": ""
         }
       ],
       "details": {
@@ -3785,7 +3803,8 @@
                 "next_action": "Compare duplicate delivery with a fresh valid transaction; engineering confirms the responsible guard.",
                 "evidence": [
                   "TRACE-1"
-                ]
+                ],
+                "verification": "Retry the same transaction: authoritative power remains 15 and only one mutation is recorded."
               },
               {
                 "id": "TRACE-1-hypothesis",
@@ -3798,7 +3817,8 @@
                 "next_action": "Run single_upgrade with a controlled repeated transaction.",
                 "evidence": [
                   "TRACE-1"
-                ]
+                ],
+                "verification": ""
               }
             ],
             "details": {
@@ -3889,7 +3909,8 @@
           "next_action": "Review severity, ownership, and duplicate differences before filing.",
           "evidence": [
             "BUG-1"
-          ]
+          ],
+          "verification": ""
         },
         {
           "id": "BUG-2-triage",
@@ -3902,7 +3923,8 @@
           "next_action": "Review severity, ownership, and duplicate differences before filing.",
           "evidence": [
             "BUG-2"
-          ]
+          ],
+          "verification": ""
         }
       ],
       "details": {
@@ -4524,7 +4546,8 @@
                 "next_action": "Review severity, ownership, and duplicate differences before filing.",
                 "evidence": [
                   "BUG-1"
-                ]
+                ],
+                "verification": ""
               },
               {
                 "id": "BUG-2-triage",
@@ -4537,7 +4560,8 @@
                 "next_action": "Review severity, ownership, and duplicate differences before filing.",
                 "evidence": [
                   "BUG-2"
-                ]
+                ],
+                "verification": ""
               }
             ],
             "details": {
@@ -4621,7 +4645,8 @@
           "evidence": [
             "METRIC-demo-102",
             "METRIC-demo-101"
-          ]
+          ],
+          "verification": ""
         }
       ],
       "details": {
@@ -5272,7 +5297,8 @@
                 "evidence": [
                   "METRIC-demo-102",
                   "METRIC-demo-101"
-                ]
+                ],
+                "verification": ""
               }
             ],
             "details": {
@@ -5380,13 +5406,14 @@
           "owner": "External QA Lead",
           "observation": "Reported failed. Required evidence identities and contents are present.",
           "expected": "Complete assigned evidence on the correct build and configuration.",
-          "next_action": "QA review: preserve the stated result and route the evidence.",
+          "next_action": "Route remote-1's failed result and attached evidence to the rule owner for fix verification.",
           "evidence": [
             "SUB-1",
             "ASSIGN-1",
             "SUBART-1-state",
             "SUBART-1-trace"
-          ]
+          ],
+          "verification": "QA confirms remote-1's failed result against the attached evidence and retains the original capture."
         },
         {
           "id": "SUB-2-intake",
@@ -5401,7 +5428,8 @@
             "SUB-2",
             "ASSIGN-1",
             "SUBART-2-state"
-          ]
+          ],
+          "verification": "Resubmit remote-2 on demo-102 / PC with state, trace evidence and a result consistent with the assertion values."
         }
       ],
       "details": {
@@ -5440,7 +5468,7 @@
             "reported_result": "failed",
             "disposition": "actionable",
             "gaps": [],
-            "followup_draft": "QA review: preserve the stated result and route the evidence.",
+            "followup_draft": "Route remote-1's failed result and attached evidence to the rule owner for fix verification.",
             "owner": "External QA Lead"
           },
           {
@@ -6030,13 +6058,14 @@
                 "owner": "External QA Lead",
                 "observation": "Reported failed. Required evidence identities and contents are present.",
                 "expected": "Complete assigned evidence on the correct build and configuration.",
-                "next_action": "QA review: preserve the stated result and route the evidence.",
+                "next_action": "Route remote-1's failed result and attached evidence to the rule owner for fix verification.",
                 "evidence": [
                   "SUB-1",
                   "ASSIGN-1",
                   "SUBART-1-state",
                   "SUBART-1-trace"
-                ]
+                ],
+                "verification": "QA confirms remote-1's failed result against the attached evidence and retains the original capture."
               },
               {
                 "id": "SUB-2-intake",
@@ -6051,7 +6080,8 @@
                   "SUB-2",
                   "ASSIGN-1",
                   "SUBART-2-state"
-                ]
+                ],
+                "verification": "Resubmit remote-2 on demo-102 / PC with state, trace evidence and a result consistent with the assertion values."
               }
             ],
             "details": {
@@ -6090,7 +6120,7 @@
                   "reported_result": "failed",
                   "disposition": "actionable",
                   "gaps": [],
-                  "followup_draft": "QA review: preserve the stated result and route the evidence.",
+                  "followup_draft": "Route remote-1's failed result and attached evidence to the rule owner for fix verification.",
                   "owner": "External QA Lead"
                 },
                 {
@@ -6141,11 +6171,12 @@
           "owner": "Gameplay Engineering",
           "observation": "Candidate coverage: unresolved_original_failure",
           "expected": "One accepted upgrade changes power once.",
-          "next_action": "Resolve the gap and retain linked failure/retest evidence.",
+          "next_action": "Link the original failure to a reviewed disposition and a current retest.",
           "evidence": [
             "RULE-03",
             "COV-3-PC"
-          ]
+          ],
+          "verification": "RULE-03 / PC: current candidate evidence passes the oracle, with any original failure disposition retained."
         },
         {
           "id": "RULE-03-Console",
@@ -6155,11 +6186,12 @@
           "owner": "Gameplay Engineering",
           "observation": "Candidate coverage: unresolved_original_failure",
           "expected": "One accepted upgrade changes power once.",
-          "next_action": "Resolve the gap and retain linked failure/retest evidence.",
+          "next_action": "Link the original failure to a reviewed disposition and a current retest.",
           "evidence": [
             "RULE-03",
             "COV-3-Console"
-          ]
+          ],
+          "verification": "RULE-03 / Console: current candidate evidence passes the oracle, with any original failure disposition retained."
         },
         {
           "id": "RULE-05-Console",
@@ -6169,37 +6201,40 @@
           "owner": "Gameplay Engineering",
           "observation": "Candidate coverage: stale",
           "expected": "Recovery rejects an obsolete snapshot.",
-          "next_action": "Resolve the gap and retain linked failure/retest evidence.",
+          "next_action": "Rerun this rule on the candidate build; retain the old result as baseline evidence.",
           "evidence": [
             "RULE-05",
             "COV-5-Console"
-          ]
+          ],
+          "verification": "RULE-05 / Console: current candidate evidence passes the oracle, with any original failure disposition retained."
         },
         {
           "id": "BUG-1-open",
           "title": "Open candidate defect",
           "kind": "observation",
-          "risk": "High",
-          "owner": "QA",
+          "risk": "Critical",
+          "owner": "Gameplay Engineering",
           "observation": "Repeated upgrade request changes authoritative power twice",
           "expected": "Critical and High risks require verified correction or reviewed mitigation.",
-          "next_action": "Review scope and fix/retest evidence.",
+          "next_action": "Review the reproduction and player impact; link a fix/retest record or an explicit mitigation decision.",
           "evidence": [
             "BUG-1"
-          ]
+          ],
+          "verification": "QA confirms the recorded expected result on the candidate, or the release owner records an accepted mitigation."
         },
         {
           "id": "BUG-2-open",
           "title": "Open candidate defect",
           "kind": "observation",
           "risk": "High",
-          "owner": "QA",
+          "owner": "UI Engineering",
           "observation": "Upgrade icon briefly duplicates after recovery",
           "expected": "Critical and High risks require verified correction or reviewed mitigation.",
-          "next_action": "Review scope and fix/retest evidence.",
+          "next_action": "Review the reproduction and player impact; link a fix/retest record or an explicit mitigation decision.",
           "evidence": [
             "BUG-2"
-          ]
+          ],
+          "verification": "QA confirms the recorded expected result on the candidate, or the release owner records an accepted mitigation."
         }
       ],
       "details": {
@@ -6903,11 +6938,12 @@
                 "owner": "Gameplay Engineering",
                 "observation": "Candidate coverage: unresolved_original_failure",
                 "expected": "One accepted upgrade changes power once.",
-                "next_action": "Resolve the gap and retain linked failure/retest evidence.",
+                "next_action": "Link the original failure to a reviewed disposition and a current retest.",
                 "evidence": [
                   "RULE-03",
                   "COV-3-PC"
-                ]
+                ],
+                "verification": "RULE-03 / PC: current candidate evidence passes the oracle, with any original failure disposition retained."
               },
               {
                 "id": "RULE-03-Console",
@@ -6917,11 +6953,12 @@
                 "owner": "Gameplay Engineering",
                 "observation": "Candidate coverage: unresolved_original_failure",
                 "expected": "One accepted upgrade changes power once.",
-                "next_action": "Resolve the gap and retain linked failure/retest evidence.",
+                "next_action": "Link the original failure to a reviewed disposition and a current retest.",
                 "evidence": [
                   "RULE-03",
                   "COV-3-Console"
-                ]
+                ],
+                "verification": "RULE-03 / Console: current candidate evidence passes the oracle, with any original failure disposition retained."
               },
               {
                 "id": "RULE-05-Console",
@@ -6931,37 +6968,40 @@
                 "owner": "Gameplay Engineering",
                 "observation": "Candidate coverage: stale",
                 "expected": "Recovery rejects an obsolete snapshot.",
-                "next_action": "Resolve the gap and retain linked failure/retest evidence.",
+                "next_action": "Rerun this rule on the candidate build; retain the old result as baseline evidence.",
                 "evidence": [
                   "RULE-05",
                   "COV-5-Console"
-                ]
+                ],
+                "verification": "RULE-05 / Console: current candidate evidence passes the oracle, with any original failure disposition retained."
               },
               {
                 "id": "BUG-1-open",
                 "title": "Open candidate defect",
                 "kind": "observation",
-                "risk": "High",
-                "owner": "QA",
+                "risk": "Critical",
+                "owner": "Gameplay Engineering",
                 "observation": "Repeated upgrade request changes authoritative power twice",
                 "expected": "Critical and High risks require verified correction or reviewed mitigation.",
-                "next_action": "Review scope and fix/retest evidence.",
+                "next_action": "Review the reproduction and player impact; link a fix/retest record or an explicit mitigation decision.",
                 "evidence": [
                   "BUG-1"
-                ]
+                ],
+                "verification": "QA confirms the recorded expected result on the candidate, or the release owner records an accepted mitigation."
               },
               {
                 "id": "BUG-2-open",
                 "title": "Open candidate defect",
                 "kind": "observation",
                 "risk": "High",
-                "owner": "QA",
+                "owner": "UI Engineering",
                 "observation": "Upgrade icon briefly duplicates after recovery",
                 "expected": "Critical and High risks require verified correction or reviewed mitigation.",
-                "next_action": "Review scope and fix/retest evidence.",
+                "next_action": "Review the reproduction and player impact; link a fix/retest record or an explicit mitigation decision.",
                 "evidence": [
                   "BUG-2"
-                ]
+                ],
+                "verification": "QA confirms the recorded expected result on the candidate, or the release owner records an accepted mitigation."
               }
             ],
             "details": {
@@ -7116,33 +7156,37 @@
       "workflow": "AI8",
       "title": "QA lead coordinator",
       "status": "review_required",
-      "product_verdict": "review_required",
+      "product_verdict": "hold_for_evidence",
       "findings": [
         {
           "id": "TASK-1-task",
-          "title": "TASK-1: available for review",
+          "title": "TASK-1: acknowledged",
           "kind": "observation",
-          "risk": "High",
+          "risk": "Info",
           "owner": "Feature QA",
-          "observation": "Dependencies: satisfied",
-          "expected": "A named owner, compatible evidence and accepted dependencies.",
+          "observation": "Recorded state: accepted. Evidence: SUB-1. Unresolved prerequisites: none.",
+          "expected": "A named owner, current-build evidence and accepted prerequisites before the next handoff.",
           "next_action": "Confirm the assignment evidence contract.",
           "evidence": [
-            "TASK-1"
-          ]
+            "TASK-1",
+            "SUB-1"
+          ],
+          "verification": "Checkpoint: candidate review. Receiving owner acknowledges the current-build evidence; prerequisites are accepted."
         },
         {
           "id": "TASK-2-task",
-          "title": "TASK-2: available for review",
+          "title": "TASK-2: running",
           "kind": "observation",
           "risk": "High",
           "owner": "Gameplay Engineering",
-          "observation": "Dependencies: satisfied",
-          "expected": "A named owner, compatible evidence and accepted dependencies.",
+          "observation": "Recorded state: running. Evidence: TRACE-1. Unresolved prerequisites: none.",
+          "expected": "A named owner, current-build evidence and accepted prerequisites before the next handoff.",
           "next_action": "Review the duplicate guard and controlled comparison.",
           "evidence": [
-            "TASK-2"
-          ]
+            "TASK-2",
+            "TRACE-1"
+          ],
+          "verification": "Checkpoint: candidate review. Receiving owner acknowledges the current-build evidence; prerequisites are accepted."
         },
         {
           "id": "TASK-3-task",
@@ -7150,12 +7194,14 @@
           "kind": "gap",
           "risk": "High",
           "owner": "QA Engineering",
-          "observation": "Dependencies: TASK-2",
-          "expected": "A named owner, compatible evidence and accepted dependencies.",
-          "next_action": "Review generated regression assertions and retest scope.",
+          "observation": "Recorded state: queued. Evidence: RULE-03. Unresolved prerequisites: TASK-2.",
+          "expected": "A named owner, current-build evidence and accepted prerequisites before the next handoff.",
+          "next_action": "Resolve TASK-2; then Review generated regression assertions and retest scope.",
           "evidence": [
-            "TASK-3"
-          ]
+            "TASK-3",
+            "RULE-03"
+          ],
+          "verification": "Checkpoint: candidate review. Receiving owner acknowledges the current-build evidence; prerequisites are accepted."
         },
         {
           "id": "TASK-4-task",
@@ -7163,12 +7209,14 @@
           "kind": "gap",
           "risk": "High",
           "owner": "QA Lead",
-          "observation": "Dependencies: TASK-3",
-          "expected": "A named owner, compatible evidence and accepted dependencies.",
-          "next_action": "Review candidate coverage and unresolved player risk.",
+          "observation": "Recorded state: queued. Evidence: COV-3-PC. Unresolved prerequisites: TASK-3.",
+          "expected": "A named owner, current-build evidence and accepted prerequisites before the next handoff.",
+          "next_action": "Resolve TASK-3; then Review candidate coverage and unresolved player risk.",
           "evidence": [
-            "TASK-4"
-          ]
+            "TASK-4",
+            "COV-3-PC"
+          ],
+          "verification": "Checkpoint: candidate review. Receiving owner acknowledges the current-build evidence; prerequisites are accepted."
         }
       ],
       "details": {
@@ -7864,33 +7912,37 @@
             "workflow": "AI8",
             "title": "QA lead coordinator",
             "status": "review_required",
-            "product_verdict": "review_required",
+            "product_verdict": "hold_for_dependencies",
             "findings": [
               {
                 "id": "TASK-1-task",
-                "title": "TASK-1: available for review",
+                "title": "TASK-1: acknowledged",
                 "kind": "observation",
-                "risk": "High",
+                "risk": "Info",
                 "owner": "Feature QA",
-                "observation": "Dependencies: satisfied",
-                "expected": "A named owner, compatible evidence and accepted dependencies.",
+                "observation": "Recorded state: accepted. Evidence: SUB-1. Unresolved prerequisites: none.",
+                "expected": "A named owner, current-build evidence and accepted prerequisites before the next handoff.",
                 "next_action": "Confirm the assignment evidence contract.",
                 "evidence": [
-                  "TASK-1"
-                ]
+                  "TASK-1",
+                  "SUB-1"
+                ],
+                "verification": "Checkpoint: candidate review. Receiving owner acknowledges the current-build evidence; prerequisites are accepted."
               },
               {
                 "id": "TASK-2-task",
-                "title": "TASK-2: available for review",
+                "title": "TASK-2: running",
                 "kind": "observation",
                 "risk": "High",
                 "owner": "Gameplay Engineering",
-                "observation": "Dependencies: satisfied",
-                "expected": "A named owner, compatible evidence and accepted dependencies.",
+                "observation": "Recorded state: running. Evidence: TRACE-1. Unresolved prerequisites: none.",
+                "expected": "A named owner, current-build evidence and accepted prerequisites before the next handoff.",
                 "next_action": "Review the duplicate guard and controlled comparison.",
                 "evidence": [
-                  "TASK-2"
-                ]
+                  "TASK-2",
+                  "TRACE-1"
+                ],
+                "verification": "Checkpoint: candidate review. Receiving owner acknowledges the current-build evidence; prerequisites are accepted."
               },
               {
                 "id": "TASK-3-task",
@@ -7898,12 +7950,14 @@
                 "kind": "gap",
                 "risk": "High",
                 "owner": "QA Engineering",
-                "observation": "Dependencies: TASK-2",
-                "expected": "A named owner, compatible evidence and accepted dependencies.",
-                "next_action": "Review generated regression assertions and retest scope.",
+                "observation": "Recorded state: queued. Evidence: RULE-03. Unresolved prerequisites: TASK-2.",
+                "expected": "A named owner, current-build evidence and accepted prerequisites before the next handoff.",
+                "next_action": "Resolve TASK-2; then Review generated regression assertions and retest scope.",
                 "evidence": [
-                  "TASK-3"
-                ]
+                  "TASK-3",
+                  "RULE-03"
+                ],
+                "verification": "Checkpoint: candidate review. Receiving owner acknowledges the current-build evidence; prerequisites are accepted."
               },
               {
                 "id": "TASK-4-task",
@@ -7911,12 +7965,14 @@
                 "kind": "gap",
                 "risk": "High",
                 "owner": "QA Lead",
-                "observation": "Dependencies: TASK-3",
-                "expected": "A named owner, compatible evidence and accepted dependencies.",
-                "next_action": "Review candidate coverage and unresolved player risk.",
+                "observation": "Recorded state: queued. Evidence: COV-3-PC. Unresolved prerequisites: TASK-3.",
+                "expected": "A named owner, current-build evidence and accepted prerequisites before the next handoff.",
+                "next_action": "Resolve TASK-3; then Review candidate coverage and unresolved player risk.",
                 "evidence": [
-                  "TASK-4"
-                ]
+                  "TASK-4",
+                  "COV-3-PC"
+                ],
+                "verification": "Checkpoint: candidate review. Receiving owner acknowledges the current-build evidence; prerequisites are accepted."
               }
             ],
             "details": {
