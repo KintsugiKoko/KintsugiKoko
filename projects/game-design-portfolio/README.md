@@ -2,10 +2,12 @@
 
 This section collects public-safe examples of how I think about gameplay systems, player understanding, iteration, and design validation.
 
-My primary professional lane is Senior QA / QAE. The design work shown here is narrower and clearly labeled: professional content and systems-design contributions from Ashes of Creation, plus current private work on Project Fibsh. The Fibsh showcase includes selected concept boards, Blender results, packaged Unreal captures, and validation summaries while source files and unreleased production material remain private.
+My primary professional lane is Senior QA / QAE. This game portfolio connects professional content and systems-design contributions from Ashes of Creation with current development on Project Fibsh and WARDRAGONS. It focuses on implemented systems and selected game captures.
 
 - [Open the live Game Design Portfolio](https://kintsugikoko.github.io/KintsugiKoko/game-design.html)
 - [Review the public Project Fibsh summary](../fibsh/README.md)
+- [Play WARDRAGONS](https://wardragons-blackwood.mintytune.chatgpt.site)
+- [Review the WARDRAGONS project overview](../wardragons/README.md)
 
 ## Design Focus
 
@@ -43,43 +45,29 @@ This is not presented as sole design ownership. Proprietary requirements, intern
 
 ### Project Fibsh
 
-**Status:** Current private WIP Unreal game project with selected public-safe visual and validation evidence.
+**Status:** Unreal game in development, with selected packaged captures.
 
-Project Fibsh is a WIP project about a city cat's strange fishing vacation at Lake Glorp. Its public design evidence shows how that premise moves through visual direction, spatial planning, Blender development, Unreal implementation, packaged smoke testing, and owner-reviewed iteration.
+Project Fibsh is a city cat's strange fishing vacation at Lake Glorp. The current packaged slice connects fishing, collection, equipment, progression, NPC interaction, and persistent state. Its public summary shows how gameplay design, implementation, and QA-led iteration work together.
 
 Detailed mechanics, Unreal source and content, Blender source files, packaged builds, commercial planning, and the complete validation record remain private.
 
-## Published Project Fibsh Evidence
+## Selected Game Captures
 
-The public page already contains evidence across four distinct stages. Each artifact is labeled so a visual target is not confused with an implemented result.
+### Project Fibsh: Fishing And Progression
 
-### Character And Gameplay Direction
+[![Project Fibsh packaged fishing gameplay](../../docs/assets/fibsh/fibsh-fishing-gameplay.png)](https://kintsugikoko.github.io/KintsugiKoko/game-design.html#visual-evidence)
 
-[![Approved Project Fibsh city-cat gameplay concept](../../docs/assets/fibsh/fibsh-character-gameplay-concept.png)](https://kintsugikoko.github.io/KintsugiKoko/game-design.html#visual-evidence)
+The packaged slice shows the city-cat player, fishing equipment, float, fishing area, and first-catch objective together. A [packaged menu capture](../../docs/assets/fibsh/fibsh-lake-glorp-menu.png) shows the connection between character selection, talents, journal, and settings. Environment art and some props remain placeholder.
 
-This approved, human-reviewed concept board establishes the city-cat silhouette, Lake Glorp mood, fishing posture, and cast-ready readability. It is concept direction, not an in-engine screenshot.
+### WARDRAGONS: Combat And Frontier Systems
 
-### Lake Glorp Level Concept
+**Status:** Playable single-player browser prototype.
 
-[![Lake Glorp orthographic level concept](../../docs/assets/fibsh/lake-glorp-level-concept.png)](https://kintsugikoko.github.io/KintsugiKoko/game-design.html#visual-evidence)
+[![WARDRAGONS Emberfall gameplay](../../docs/assets/wardragons/emberfall-camp.png)](https://wardragons-blackwood.mintytune.chatgpt.site)
 
-The orthographic plan supports design decisions about the dock approach, shoreline loop, central fishing focus, readable landmarks, and supporting activity spaces.
+WARDRAGONS connects first-person combat, equipment choices, faction allies, outpost capture, construction, and browser-local saves. Its [equipment shop](../../docs/assets/wardragons/equipment-shop.png) exposes ownership, loadout slots, and item tradeoffs.
 
-### Environment Direction Studies
-
-The [world-scale environment concept](../../docs/assets/fibsh/lake-glorp-world-concept.png) explores crystal-lit water, route rhythm, forest enclosure, settlement silhouettes, and warm navigation lights. The [player-view boat keyframe](../../docs/assets/fibsh/lake-glorp-boat-keyframe-concept.png) explores camera height, the city-cat silhouette, shoreline landmarks, and arrival mood. Both are concept explorations, not current level-footprint or implemented traversal claims.
-
-### Canon Master And Blender Development
-
-[![Canon Project Fibsh Master landscape work in progress](../../docs/assets/fibsh/lake-glorp-canon-master-landscape-wip.png)](https://kintsugikoko.github.io/KintsugiKoko/game-design.html#visual-evidence)
-
-The actual canon Master is shown in Unreal Editor as a WIP landscape with the mountain silhouette, river route, terrain scale, and forest coverage established. Placeholder actors and unfinished lighting remain visible, so the capture is not presented as final environment art. A separate [Blender gameplay-view structural pass](../../docs/assets/fibsh/lake-glorp-blender-environment-wip.png) tests terrain, shoreline, and camera coverage, while the [Parry rig stress render](../../docs/assets/fibsh/parry-blender-rig-stress-wip.png) records fishing-arm deformation and pose-range review. Parry is a WIP validation character, not the final player identity.
-
-### Packaged Unreal Validation
-
-[![Project Fibsh packaged smoke-test contact sheet](../../docs/assets/fibsh/fibsh-packaged-smoke-test-wip.jpg)](https://kintsugikoko.github.io/KintsugiKoko/game-design.html#visual-evidence)
-
-The packaged contact sheet records a real WIP flow through menu, movement, cast, wait, bite, reel, result, journal, and pause states. It is functional proof, not release-quality presentation.
+Built with JavaScript, Three.js/WebGL, HTML/CSS, and Web Audio, it brings animation timing, projectile collision, economy, state persistence, and keyboard/touch input into one inspectable prototype. Agent-assisted implementation is paired with deterministic tests and human review.
 
 ## Design And Validation Loop
 
@@ -90,7 +78,8 @@ Define the goal -> bound the scope -> implement one change -> validate the resul
 | Design area | Purpose | Current public status |
 | --- | --- | --- |
 | Product and ship-state intent | Establish the current goal, accepted scope, known evidence, ranked risks, and next action | Workflow documented, product details private |
-| Gameplay transaction | Keep one WIP player-facing change bounded enough to iterate and verify | Follow-up UX and persistence fixes documented at a high level |
+| Fibsh gameplay | Connect fishing, collection, equipment, progression, and character interaction | Selected packaged menu and gameplay captures |
+| WARDRAGONS gameplay | Connect combat, equipment, economy, outposts, and persistent state | Playable browser prototype and selected gameplay/UI captures |
 | Persistence behavior | Preserve understandable durable state across quit and relaunch | Validation evidence summarized, implementation private |
 | System boundaries | Prevent one feature from silently owning unrelated rules or release decisions | Public workflow principle |
 | Release evidence | Separate build success, automated checks, deterministic validation, and human usability review | Evidence types documented separately, no release-readiness claim |
@@ -142,18 +131,15 @@ Questions used during review include:
 ## Evidence And Artifacts
 
 - [Project Fibsh Public Summary](../fibsh/README.md)
+- [WARDRAGONS Project Overview](../wardragons/README.md)
 - [Agent-Supervised Workflow](../fibsh/README.md#agent-supervised-workflow)
 - [Recent Workflow Milestones](../fibsh/README.md#recent-workflow-milestones)
 - [Published Visual Development Evidence](https://kintsugikoko.github.io/KintsugiKoko/game-design.html#visual-evidence)
 - [Senior QA / QAE Signal](../fibsh/README.md#senior-qa--qae-signal)
 
-## What This Section Does Not Claim
+## Publication Scope
 
-- Sole ownership of Ashes of Creation quests, world events, recipes, or the equipment rework
-- Publication of confidential studio documentation or proprietary tuning
-- Public access to Project Fibsh source, assets, builds, mechanics, or commercial records
-- Finished Project Fibsh gameplay, final art, production readiness, store readiness, or release quality
-- That automation replaces human play, usability review, or owner approval
+Ashes of Creation work is described as professional team contribution. Fibsh and WARDRAGONS are in development. The public portfolio contains selected flat captures and project summaries; private source, game assets, builds, credentials, and commercial records remain outside this repository.
 
 ## Evidence Maintenance
 
