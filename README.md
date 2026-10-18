@@ -50,21 +50,22 @@ Warcraft III: Reforged was my first professional game assignment. Team Burst the
 
 ## Game Design Portfolio
 
-My primary professional lane is Senior QA / QAE, but part of that work has included direct content and systems-design contributions alongside translating design intent into testable behavior. I keep that work in a separate design portfolio so professional team contributions, approved concepts, Blender development, playable WIP captures, and validation results are not blurred together.
+My primary professional lane is Senior QA / QAE. My game portfolio connects that experience with professional content and systems-design contributions and current game development: **Project Fibsh** in Unreal Engine and **WARDRAGONS**, a playable Three.js/WebGL browser prototype.
 
-- **[Live Game Design Portfolio](https://kintsugikoko.github.io/KintsugiKoko/game-design.html)** - Recruiter-readable overview of professional contribution, current Project Fibsh systems work, and public-safe iteration evidence
-- **[Game Design Portfolio README](projects/game-design-portfolio/README.md)** - Detailed public-safe design notes and evidence boundaries
+- **[Game Portfolio](https://kintsugikoko.github.io/KintsugiKoko/game-design.html)** - Selected game snapshots, implemented systems, and professional design contributions
+- **[Project Fibsh](projects/fibsh/README.md)** - Packaged Unreal fishing, collection, equipment, progression, and persistence
+- **[Play WARDRAGONS](https://wardragons-blackwood.mintytune.chatgpt.site)** - First-person combat, loadouts, outposts, and defense, with a [project overview](projects/wardragons/README.md)
+- **[Game Design Portfolio README](projects/game-design-portfolio/README.md)** - Design and development overview
 
 | Design area | Evidence | Status |
 | --- | --- | --- |
 | Ashes quests and world events | Designed content with the Narrative Design team | Professional team contribution, confidential details omitted |
 | Ashes equipment recipes and rework | Designed recipes and supported an equipment rework across two milestones with the Economy team | Professional team contribution, confidential details omitted |
-| Project Fibsh visual direction | Human-reviewed city-cat and gameplay concept boards | Approved concept direction, clearly separated from in-engine captures |
-| Lake Glorp level work | Spatial and visual concepts, the canon Master landscape WIP in Unreal, Blender environment studies, and camera/coverage review | Selected flat evidence published, source files remain private |
-| Project Fibsh gameplay iteration | Packaged WIP fishing-flow capture, persistence checks, and follow-up UX work | Functional prototype evidence, not release presentation |
-| Project Fibsh validation loop | Isolated builds, automated checks, packaged validation, human smoke testing, and owner decisions | Evidence types kept separate, no release-readiness claim |
+| Project Fibsh | Packaged menu and fishing captures; collection, equipment, progression, and persistence | In development, selected captures public; source and builds private |
+| WARDRAGONS | Playable browser combat, equipment/shop UI, outpost defense, local saves, and touch input | Single-player browser prototype |
+| Development workflow | Scoped agent tasks, isolated builds, regression checks, and human review | Verification and owner decisions remain separate |
 
-For content-design review, start with the [live design page](https://kintsugikoko.github.io/KintsugiKoko/game-design.html). It shows what I contributed professionally and follows Project Fibsh from visual direction and level planning through Blender work, playable WIP captures, and validation.
+For game-development review, start with the [game portfolio](https://kintsugikoko.github.io/KintsugiKoko/game-design.html). It leads with selected game captures, connected systems, and playable work.
 
 ## Selected Professional Test Coverage
 
@@ -87,7 +88,7 @@ Additional incubation assignments are intentionally omitted. Public credit datab
 2. **[Community Pulse](projects/community-pulse-report-tool/README.md)** - Local CSV data validation, deterministic analysis, exact quote preservation, reporting boundaries, and human-reviewed follow-up.
 3. **[QA Bug Report Tool](projects/qa-bug-report-tool/README.md)** - Repro quality, severity and priority framing, validation, structured Markdown and JSON output, and pytest coverage.
 4. **[QA Workflow Lab](https://kintsugikoko.github.io/KintsugiKoko/qa-workflow-lab.html)** - Eight bounded workflows with executable regression checks, telemetry queries, source-linked findings, and dependency review. Explore the [coordination variants](projects/qa-workflow-lab/docs/coordination-variants.md) for controlled failure and recovery cases.
-5. **[Project Fibsh](projects/fibsh/README.md)** - Current private Unreal development shown through selected character and environment concepts, the canon Master landscape WIP, Blender studies, packaged WIP captures, persistence checks, and explicit release-risk tracking.
+5. **[Game Portfolio](https://kintsugikoko.github.io/KintsugiKoko/game-design.html)** - Project Fibsh's packaged Unreal slice and the playable WARDRAGONS browser prototype connect gameplay systems to QA-led development.
 
 For game-design roles, use the **[Game Design Portfolio](https://kintsugikoko.github.io/KintsugiKoko/game-design.html)** as the first review path. It keeps design evidence separate from the primary QA tool path.
 
@@ -115,8 +116,9 @@ Reference: **[Game QA Field Guide](https://kintsugikoko.github.io/KintsugiKoko/g
 | [Community Pulse](projects/community-pulse-report-tool/README.md) | Working local prototype | CSV parsing, data validation, reporting support, deterministic tests, and human review |
 | [QA Bug Report Tool](projects/qa-bug-report-tool/README.md) | Working CLI prototype | Structured defects, field validation, Markdown/JSON export, and pytest |
 | [QA Workflow Lab](https://kintsugikoko.github.io/KintsugiKoko/qa-workflow-lab.html) | Working local prototype | Bounded QA workflows, executable checks, telemetry queries, dependency variants, and review packets |
-| [Project Fibsh](projects/fibsh/README.md) | Private WIP game project | Character and environment concepts, Blender composition and rig development, packaged WIP captures, persistence validation, and risk tracking |
-| [Game Design Portfolio](https://kintsugikoko.github.io/KintsugiKoko/game-design.html) | Current design showcase | Ashes content and systems contributions plus Project Fibsh visual development, systems, and validation evidence |
+| [Project Fibsh](projects/fibsh/README.md) | Unreal game in development | Fishing, collection, equipment, progression, character interaction, and packaged validation |
+| [WARDRAGONS](projects/wardragons/README.md) | Playable browser prototype | First-person combat, loadouts, economy, outpost defense, local saves, and touch input |
+| [Game Design Portfolio](https://kintsugikoko.github.io/KintsugiKoko/game-design.html) | Current game showcase | Ashes design contributions, Fibsh packaged screenshots, and WARDRAGONS gameplay |
 
 ## Public / Private Boundary
 

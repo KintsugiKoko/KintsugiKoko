@@ -1,26 +1,29 @@
 # Project Fibsh
 
-Status: Private WIP Unreal game project with selected public-safe visual and validation evidence.
+Status: Unreal game in development. Selected packaged screenshots are public; the game repository and builds remain private.
 
-Project Fibsh is a WIP project about a city cat's strange fishing vacation at Lake Glorp. The source repository, Unreal content, Blender source files, packaged builds, commercial planning, detailed mechanics, and complete validation record remain private.
+Project Fibsh is a city cat's strange fishing vacation at Lake Glorp. The current packaged slice connects fishing, catch collection, equipment, skills, talents, character interaction, and persistent progress.
 
-This public summary combines the QA and workflow systems used to supervise development with selected character concepts, level-planning work, Blender results, and packaged WIP captures. It is not a public build, source release, production-readiness statement, or store-readiness claim.
+I connect gameplay design and implementation with QA-led iteration: define the behavior, build a bounded change, inspect the result, and verify the state it leaves behind. Agent-assisted implementation and human review support that workflow.
 
-## Published Visual Development
+## Selected Game Snapshots
 
-[![Approved Project Fibsh city-cat gameplay concept](../../docs/assets/fibsh/fibsh-character-gameplay-concept.png)](https://kintsugikoko.github.io/KintsugiKoko/game-design.html#visual-evidence)
+[![Project Fibsh packaged Lake Glorp menu](../../docs/assets/fibsh/fibsh-lake-glorp-menu.png)](https://kintsugikoko.github.io/KintsugiKoko/game-design.html#visual-evidence)
 
-The public [Game Design Portfolio](https://kintsugikoko.github.io/KintsugiKoko/game-design.html#visual-evidence) includes:
+The packaged menu connects character selection, talents, the catch journal, field notes, and settings. Its illustrated background establishes the game's visual direction.
 
-- approved, human-reviewed city-cat gameplay and inventory concepts
-- an orthographic Lake Glorp level plan
-- environment-scale and player-view Lake Glorp concept explorations, labeled separately from current implementation
-- the actual canon Master landscape WIP in Unreal, showing the mountain silhouette, river route, terrain scale, and forest coverage
-- a Blender environment pass for terrain, shoreline, approach, and camera review
-- a Blender rig stress render for the WIP Parry validation character
-- a real packaged Unreal smoke-test contact sheet covering the current fishing flow
+[![Project Fibsh fishing gameplay beside the Lake Glorp dock](../../docs/assets/fibsh/fibsh-fishing-gameplay.png)](https://kintsugikoko.github.io/KintsugiKoko/game-design.html#visual-evidence)
 
-Concept boards are labeled as concepts. The canon Master, Blender outputs, and packaged Unreal captures are labeled separately so visual direction is not presented as implemented gameplay or final environment art.
+The city-cat player, rod, float, fishing area, and first-catch objective are shown in the packaged gameplay slice. Environment art and some props remain placeholder.
+
+## Systems In Focus
+
+- **Fishing and collection:** cast, bite, reel, catch reveal, backpack, journal, and recast, including escape and wrong-input paths.
+- **Progression and equipment:** skills, talent purchases, equipment choices, route requirements, and visible feedback.
+- **Character interaction:** NPC dialogue and first-catch objectives connect the next player goal to the world.
+- **Persistent state:** catches, equipment, and progression are checked across save, quit, and relaunch.
+
+[Explore Fibsh in the game portfolio](https://kintsugikoko.github.io/KintsugiKoko/game-design.html#fibsh-systems).
 
 ## Agent-Supervised Workflow
 
@@ -34,17 +37,15 @@ Fibsh uses a controlled workflow that separates planning, implementation, build 
 
 ## Recent Workflow Milestones
 
-Recent committed work includes:
+The current selected slice demonstrates:
 
 - A controlled agent workflow with explicit writer ownership and recovery checkpoints
 - An isolated build lane that protects source stability while collecting compile, Unreal Data Validation, cook, stage, package, and launch evidence
-- A WIP gameplay transaction with follow-up UX and persistence fixes
-- Packaged-build automation checks kept separate from human-input smoke testing
-- Quit/relaunch persistence validation and explicit defect ranking
+- Packaged fishing, collection, equipment, and progression scenarios
+- Packaged-build automation checks kept separate from human-input review
+- Quit/relaunch persistence validation and scoped regression checks
 
-A current private validation record includes 25 successful automation checks with no recorded failures, plus a packaged human-input smoke that reached a natural bite, completed a catch and store flow, updated the journal, and preserved the saved catch after quit and relaunch. Those results establish functional WIP behavior, not release presentation.
-
-Functional evidence is not presented as release quality. Character identity, visual presentation, audio, settings, broader progression, representative performance, and final release readiness remain active WIP areas.
+The selected images come from a saved packaged-game validation run. They show implemented behavior at that checkpoint, rather than a prediction about later builds. Presentation, content, and broader playtesting continue to develop.
 
 ## Senior QA / QAE Signal
 
